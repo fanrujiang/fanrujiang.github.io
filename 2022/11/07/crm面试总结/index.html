@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        fanfan
+    </title>
+    <meta name="description" content= 嘿，我是小破站，欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,java,fanfan >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            crm面试总结
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h3 id="crm面试总结"><a href="#crm面试总结" class="headerlink" title="crm面试总结"></a>crm面试总结</h3><h4 id="1-crm的验证码是如何实现的"><a href="#1-crm的验证码是如何实现的" class="headerlink" title="1.crm的验证码是如何实现的"></a>1.crm的验证码是如何实现的</h4><p>通过google验证码工具类生成公式（1+1&#x3D;?@2），对公式进行分割，前半部公式需要生成图片对象并转为Base64编码，<br>后半部分公式的值，需要通过key&#x3D;固定前缀+uuid value&#x3D;公式的值存入redis 2分钟有效,最后将uuid Base64图片编码构造返回对象给前端页面进行展示</p>
+<h4 id="2-什么是JWT"><a href="#2-什么是JWT" class="headerlink" title="2.什么是JWT"></a>2.什么是JWT</h4><p>json web token是一个字符串，由a（头部-加密算法）.b（载荷-用户信息）.c（密文—&gt;  a+b+秘钥通过算法加密）三部分构造</p>
+<h4 id="3-JWT应用场景"><a href="#3-JWT应用场景" class="headerlink" title="3.JWT应用场景"></a>3.JWT应用场景</h4><p>认证-登录，跨域认证问题</p>
+<h4 id="4-认证流程分析"><a href="#4-认证流程分析" class="headerlink" title="4.认证流程分析"></a>4.认证流程分析</h4><p>验证码：（crm项目中验证码如何实现的？）</p>
+<p>登录：<br>  数据表：sys_user、sys_dept、sys_user_role、sys_role、sys_menu、sys_role_menu、sys_user_role（RBAC）</p>
+<pre><code> 用户输入账号密码进行登录：
+ a:后台接收账号密码，先验证码校验
+ b:认证管理器调用认证方法（SpringSecurity框架）-用户输入的账号密码
+ c:认证管理器调用自定义认证授权类（需要编码）-查询当前用户数据库的用户信息
+ d:认证管理器中调用matches(输入明文密码,数据库查询的密码)进行密码校验
+ e:密码校验失败，返回登录页面。密码校验成功，使用jwt技术生成token字符串，返回给前端并跳转首页。
+ 
+ 发送带token请求：
+ a:页面发送请求，在请求头中带上token
+ b:被自定义的JwtAuthenticationTokenFilter过滤器类继承OncePerRequestFilter请求进行拦截
+ c:如果token不为空进行token解析
+ d:解析失败（过期、未登录），跳转登录页面。解析成功，放行并进入controller继续后面操作
+</code></pre>
+<h4 id="5-token伪造的问题"><a href="#5-token伪造的问题" class="headerlink" title="5.token伪造的问题"></a>5.token伪造的问题</h4><p>密码校验成功，使用jwt技术生成token字符串并存入redis，返回给前端(需要存起来)并跳转首页。<br>页面发送请求，在请求头中带上token，token字符串查询redis是否存在，如果不存在（有可能是过期，伪造的token）,请先登录。</p>
+<h4 id="6-功能权限是如何实现的"><a href="#6-功能权限是如何实现的" class="headerlink" title="6.功能权限是如何实现的"></a>6.功能权限是如何实现的</h4><p>数据表：基于RBAC模型来设计的，权限数据存在sys_menu菜单表中</p>
+<p>用户登录时候：（目的就是给当前登录用户授权）<br>登录校验成功后，将用户权限列表数据授予当前用户（根据用户查询所有权限），管理员比较特殊的，设置固定的权限字符串*:<em>:</em></p>
+<p>发送请求：（鉴权）<br>页面发送请求，后台接收请求，首先进入的控制层方法上的权限注解@PreAuthorize<br>由自定义的鉴权类PermissionService中hasPermi（需要的权限），再调用hasPermissions（当前用户权限列表，访问功能需要的权限），<br>判断用户是否拥有这个权限，如果是管理员直接放行。如果是普通用户有权限，放行。没有权限，提示权限不足403</p>
+<h4 id="7-crm项目系统日志"><a href="#7-crm项目系统日志" class="headerlink" title="7.crm项目系统日志"></a>7.crm项目系统日志</h4><p>代码分析：<br>  1.控制层方法上@Log(title &#x3D; “批量捞取”, businessType &#x3D; BusinessType.UPDATE)<br>  2.自定义Log注解（有哪些方法定义）<br>  3.加了@Log注解方法，无论是成功或失败都记录日志表—&gt;AOP<br>  4.自定义AOP日志处理类LogAspect，类上加上@Aspect注解<br>  5.在日志处理类中，定义@Pointcut切入点拦截Log日志注解<br>  6.记录日志，如果功能操作正常使用@AfterReturning进行拦截 如果功能操作异常使用@AfterThrowing进行拦截<br>  7.构造一个日志对象，采用异步线程池ScheduledExecutorService方式记录日志</p>
+<p>  单独问ScheduledExecutorService如何使用？答：看下代码</p>
+<h4 id="8-数据权限如何实现"><a href="#8-数据权限如何实现" class="headerlink" title="8.数据权限如何实现"></a>8.数据权限如何实现</h4><p>同一种类型数据，不同的登录用户，只能看到自己的数据</p>
+<p>所有数据都存放在数据库里，在查询的时候，只查询该用户数据</p>
+<p>最终思路：采用sql语句，拼接条件，根据不同的用户查询不同的数据</p>
+<p>  数据权限控制：查询自己的数据、查询部门下数据、查询所有数据</p>
+<p>  数据表：跟数据权限拼接条件相关一些表<br>  1.自定义数据权限注解DataScope<br>  2.自定义AOP数据权限处理类DataScopeAspect，类上加上@Aspect注解<br>  3.在AOP数据权限处理类中，使用@Pointcut切入点拦截使用DataScope注解方法<br>  4.在AOP数据权限处理类中，使用@Before注解在执行SQL语句之前处理<br>  5.在AOP数据权限处理类中，根据角色表中定义存的数据权限类型，拼接不同的SQL语句进行查询<br>  6.哪个功能需要进行数据权限控制，只需要在业务层方法上加上数据权限注解DataScope注解即可</p>
+<h4 id="9-项目用的缓存了吗？在哪里用？怎么用？"><a href="#9-项目用的缓存了吗？在哪里用？怎么用？" class="headerlink" title="9.项目用的缓存了吗？在哪里用？怎么用？"></a>9.项目用的缓存了吗？在哪里用？怎么用？</h4><p>用到了：验证码、token、字典表，jwt</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>版权所有 © 2020 | 作者: 风云 | 主题 By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">本站浏览总访问量: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">本站访问人数: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
