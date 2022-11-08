@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        fanfan
+    </title>
+    <meta name="description" content= 嘿，我是小破站，欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,java,fanfan >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            Docker
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="Docker学习笔记"><a href="#Docker学习笔记" class="headerlink" title="Docker学习笔记"></a>Docker学习笔记</h1><h4 id="1-认识docker"><a href="#1-认识docker" class="headerlink" title="1.认识docker"></a>1.认识docker</h4><h5 id="1-1-什么是docker"><a href="#1-1-什么是docker" class="headerlink" title="1.1.什么是docker"></a>1.1.什么是docker</h5><p><em>Docker</em> 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<h6 id="Docker-的优点"><a href="#Docker-的优点" class="headerlink" title="Docker 的优点"></a>Docker 的优点</h6><p>Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
+<h6 id="1-1-1-快速，一致地交付您的应用程序"><a href="#1-1-1-快速，一致地交付您的应用程序" class="headerlink" title="1.1.1.快速，一致地交付您的应用程序"></a>1.1.1.快速，一致地交付您的应用程序</h6><p>Docker 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。</p>
+<p>容器非常适合持续集成和持续交付（CI &#x2F; CD）工作流程，请考虑以下示例方案：</p>
+<ul>
+<li>您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。</li>
+<li>他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。</li>
+<li>当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。</li>
+<li>测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。</li>
+</ul>
+<h6 id="1-1-2-响应式部署和扩展"><a href="#1-1-2-响应式部署和扩展" class="headerlink" title="1.1.2.响应式部署和扩展"></a>1.1.2.响应式部署和扩展</h6><p>Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。</p>
+<p>Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。</p>
+<h6 id="1-1-3-在同一硬件上运行更多工作负载"><a href="#1-1-3-在同一硬件上运行更多工作负载" class="headerlink" title="1.1.3.在同一硬件上运行更多工作负载"></a>1.1.3.在同一硬件上运行更多工作负载</h6><p>Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。</p>
+<h5 id="1-2-docker与虚拟机的差别"><a href="#1-2-docker与虚拟机的差别" class="headerlink" title="1.2.docker与虚拟机的差别"></a>1.2.docker与虚拟机的差别</h5><p>Docker可以让一个应用在任何操作系统中非常方便的运行。而以前我们接触的虚拟机，也能在一个操作系统中，运行另外一个操作系统，保护系统中的任何应用。</p>
+<p>两者有什么差异呢？</p>
+<p><strong>虚拟机</strong>（virtual machine）是在操作系统中<strong>模拟</strong>硬件设备，然后运行另一个操作系统，比如在 Windows 系统里面运行 Ubuntu 系统，这样就可以运行任意的Ubuntu应用了。</p>
+<p><strong>Docker</strong>仅仅是封装函数库，并没有模拟完整的操作系统，如图：</p>
+<img src="/2022/11/08/Docker/image-20221108174853083.png" alt="image-20221108174853083" style="zoom:33%;">
+
+<p>Docker和虚拟机的差异：</p>
+<ul>
+<li><p>docker是一个系统进程；虚拟机是在操作系统中的操作系统</p>
+</li>
+<li><p>docker体积小、启动速度快、性能好；虚拟机体积大、启动速度慢、性能一般</p>
+</li>
+</ul>
+<h3 id="2-安装docker"><a href="#2-安装docker" class="headerlink" title="2.安装docker"></a>2.安装docker</h3><h3 id="3-docker的基本操作"><a href="#3-docker的基本操作" class="headerlink" title="3.docker的基本操作"></a>3.docker的基本操作</h3><h4 id="3-1docker的常用命令"><a href="#3-1docker的常用命令" class="headerlink" title="3.1docker的常用命令"></a>3.1docker的常用命令</h4><p><strong>dock 基础命令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker    #启动docker</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl sto`p docker    #关闭docker</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker  #重启docker</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker   #docker设置随服务启动而自启动</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker   #查看docker 运行状态(如果在运行中，会看到绿色的active)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker version            #或者 docker -v   查看docker的版本号</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<p><strong>docker 镜像命令</strong></p>
+<p>在镜像仓库搜索自己需要的镜像， DockerHub</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名         #拉取镜像 </span><br><span class="line">docker pull 镜像名:tag </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/08/Docker/image-20221108201847316.png" alt="image-20221108201847316"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run 镜像名          #运行镜像</span><br><span class="line">docker run 镜像名:tag     #选择版本运行</span><br></pre></td></tr></table></figure>
+
+<p><strong>docker删除镜像</strong></p>
+<p>​		当镜像没有被容器使用才可以删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#删除一个</span><br><span class="line">docker rmi -f 镜像名/镜像ID</span><br><span class="line"></span><br><span class="line">#删除多个 其镜像ID或镜像用用空格隔开即可 </span><br><span class="line">docker rmi -f 镜像名/镜像ID 镜像名/镜像ID 镜像名/镜像ID</span><br><span class="line"></span><br><span class="line">#删除全部镜像  -a 意思为显示全部, -q 意思为只显示ID</span><br><span class="line">docker rmi -f $(docker images -aq)</span><br></pre></td></tr></table></figure>
+
+<p><strong>强制删除镜像</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm 镜像名称/镜像ID</span><br></pre></td></tr></table></figure>
+
+<p><strong>保存镜像</strong></p>
+<p>​		将我们的镜像 保存为tar 压缩文件 这样方便镜像转移和保存 ,然后 可以在任何一台安装了docker的服务器上 加载这个镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save 镜像名/镜像ID -o 镜像保存在哪个位置与名字</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save redis -o /root/myRedis.tar</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/08/Docker/image-20221108205643248.png" alt="image-20221108205643248"></p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>版权所有 © 2020 | 作者: 风云 | 主题 By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">本站浏览总访问量: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">本站访问人数: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
