@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>面试总结 | fanfan</title>
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="fanfan" type="application/atom+xml">
+</head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  
+    
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  
+
+  
+    
+<script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+  
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">loading...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
+
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (href, before, media, attributes) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header   " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">fanfan</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/index" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">主页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/friends" class="drawer-menu-item-link">
+                  
+                  <span class="name">Friends</span>
+                </a>
+              
+            </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">fanfan</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/index" class="menu-item-link" title="主页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">主页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于我">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/friends" class="menu-item-link" title="Friends">
+                  
+                  <span class="name">Friends</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">Search</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="Please enter keywords"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        
+ <!-- prismjs 代码高亮 -->
+ 
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/14.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        面试总结
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> Published in：2022-11-16 |
+        </span>
+      
+
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <ol>
+<li><h4 id="ArrayList和LinkedList区别"><a href="#ArrayList和LinkedList区别" class="headerlink" title="ArrayList和LinkedList区别"></a>ArrayList和LinkedList区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ArrayList和LinkedList都是list接口 </span><br><span class="line">ArrayList基于数组 LinkedList基于链表</span><br><span class="line"></span><br><span class="line">arrayList   	的查询速率快，增删慢，往数组尾部添加效率高</span><br><span class="line"> linkList     	的增删效率高--只需要指针指向即可   查询慢--需要对数组进行遍历</span><br><span class="line">       		  	扩容机制 每次扩容到原先的1.5倍 </span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="HashMap和HashTable的区别"><a href="#HashMap和HashTable的区别" class="headerlink" title="HashMap和HashTable的区别"></a>HashMap和HashTable的区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap		键值可以为null，是由链表和数组结构 ，线程不安全 效率比HashTable高</span><br><span class="line"></span><br><span class="line">HashTable		键值不可为null，线程安全</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="List、Set、Map三个接口的区别以及常见子类"><a href="#List、Set、Map三个接口的区别以及常见子类" class="headerlink" title="List、Set、Map三个接口的区别以及常见子类"></a>List、Set、Map三个接口的区别以及常见子类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List、Set单列，Map是双列的键值对</span><br><span class="line">List可重复，set不可重复</span><br><span class="line">List有序的，set是无序</span><br><span class="line">List中最常用的两个子类：ArrayList（基于数组，查询快）和LinkedList（基于链表，增删快）</span><br><span class="line">Set中最常用的两个子类：HashSet和TreeSet</span><br><span class="line">Map中最常用的两个子类：HashMap和TreeMap</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="HashMap的工作原理"><a href="#HashMap的工作原理" class="headerlink" title="HashMap的工作原理"></a>HashMap的工作原理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在 Java 1.8 中，如果链表的长度超过了 8 ，那么链表将转化为红黑树；链表长度低于6，就把红黑树转回链表;</span><br><span class="line">发生 hash 碰撞时，Java 1.7 会在链表头部插入，而 Java 1.8 会在链表尾部插入；</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="常见设计模式知道哪些"><a href="#常见设计模式知道哪些" class="headerlink" title="常见设计模式知道哪些"></a>常见设计模式知道哪些</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">单例模式(Singleton)</span><br><span class="line">构建模式(Builder)</span><br><span class="line">抽象工厂模式(Abstract Factory)</span><br><span class="line">工厂方法模式(Factory Method)</span><br><span class="line">观察者模式(Observer)</span><br><span class="line">模板方法模式(Template Method)</span><br><span class="line">装饰者模式(Decorator)</span><br><span class="line">代理模式(Proxy)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="synchronized与lock区别"><a href="#synchronized与lock区别" class="headerlink" title="synchronized与lock区别"></a>synchronized与lock区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lock是一个接口，而synchronized是java的一个关键字</span><br><span class="line">synchronized异常会释放锁，lock异常不会释放，所以一般try catch包起来，finally中写入unlock，避免死锁。</span><br><span class="line">Lock可以提高多个线程进行读操作的效率</span><br><span class="line">synchronized关键字，可以放代码块，实例方法，静态方法，类上</span><br><span class="line">lock一般使用ReentrantLock类做为锁，配合lock()和unlock()方法。在finally块中写unlock()以防死锁。</span><br><span class="line">jdk1.6之前synchronized低效。jdk1.6之后synchronized高效。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="synchronized与ThreadLocal区别"><a href="#synchronized与ThreadLocal区别" class="headerlink" title="synchronized与ThreadLocal区别"></a>synchronized与ThreadLocal区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">都是为了解决多线程中相同变量的访问冲突问题。</span><br><span class="line">Synchronized同步机制，提供一份变量，让不同的线程排队访问。</span><br><span class="line">ThreadLocal关键字，为每一个线程都提供了一份变量，因此可以同时访问而互不影响。</span><br><span class="line">ThreadLocal比直接使用synchronized同步机制解决线程安全问题更简单，更方便，且结果程序拥有更高的并发性。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在多线程环境中，能永远保证程序的正确性。执行结果不存在二义性。说白了，运行多少次结果都是一致的。</span><br><span class="line">换种说法，当多个线程访问某一个类（对象或方法）时，这个类始终都能表现正确的行为，那么这个类（对象或方法）就是线程安全的。</span><br><span class="line">使用synchronized关键字和使用锁。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="介绍一下线程池"><a href="#介绍一下线程池" class="headerlink" title="介绍一下线程池"></a>介绍一下线程池</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">线程池就是预先创建一些线程</span><br><span class="line">线程池可以很好地提高性能</span><br><span class="line">线程池可以避免线程的频繁创建和销毁</span><br><span class="line">Executors可以创建常见的4种线程（单线程池、固定大小的、可缓存的、可周期性执行任务的）。</span><br><span class="line">可以通过ThreadPoolExecutor自己定义线程池。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="线程的创建方式有哪些"><a href="#线程的创建方式有哪些" class="headerlink" title="线程的创建方式有哪些"></a>线程的创建方式有哪些</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">继承Thread类实现</span><br><span class="line">实现Runnable接口方式</span><br><span class="line">实现Callable接口方式</span><br><span class="line">其中前两种比较常用。但是，需要有返回值需要实现Callable接口。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="说一下ConcurrentHashMap"><a href="#说一下ConcurrentHashMap" class="headerlink" title="说一下ConcurrentHashMap"></a>说一下ConcurrentHashMap</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在ConcurrentHashMap中，无论是读操作还是写操作都能保证很高的性能</span><br><span class="line">在进行读操作时(几乎)不需要加锁，而在写操作时通过锁分段技术只对所操作的段加锁而不影响客户端对其它段的访问。</span><br><span class="line">在理想状态下，ConcurrentHashMap 可支持16个线程执行并发写操作，及任意数量线程的读操作。</span><br><span class="line">关于它的存储结构</span><br><span class="line">JDK 1.7 中使用分段锁（ReentrantLock + Segment + HashEntry），相当于把一个 HashMap 分成多个段，每段分配一把锁，这样支持多线程访问。锁粒度：基于 Segment，包含多个 HashEntry。</span><br><span class="line">JDK 1.8 中使用 CAS + synchronized + Node + 红黑树。锁粒度：Node（首结点）（实现 Map.Entry&lt;K,V&gt;）。锁粒度降低了。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="SpringMVC工作原理-工作流程"><a href="#SpringMVC工作原理-工作流程" class="headerlink" title="SpringMVC工作原理-工作流程"></a>SpringMVC工作原理-工作流程</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">用户发送请求至前端控制器DispatcherServlet；</span><br><span class="line">DispatcherServlet收到请求后，调用HandlerMapping处理器映射器，请求获取Handle；</span><br><span class="line">处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并</span><br><span class="line">返回给DispatcherServlet；</span><br><span class="line"></span><br><span class="line">DispatcherServlet 调用 HandlerAdapter处理器适配器；</span><br><span class="line">HandlerAdapter 经过适配调用 具体处理器(Handler，也叫后端控制器)；</span><br><span class="line">Handler执行完成返回ModelAndView；</span><br><span class="line">HandlerAdapter将Handler执行结果ModelAndView返回给DispatcherServlet；</span><br><span class="line">DispatcherServlet将ModelAndView传给ViewResolver视图解析器进行解析；</span><br><span class="line">ViewResolver解析后返回具体View；</span><br><span class="line">DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）</span><br><span class="line">DispatcherServlet响应用户。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">拦截（需要找web.xml配置）</span><br><span class="line">找handler（springmvc干的）</span><br><span class="line">调handler（我们写的）</span><br><span class="line">返回ModelAndView（我们写的）</span><br><span class="line">解析返回View（我们配置的）</span><br><span class="line">渲染（springmvc干的）</span><br><span class="line">返回（springmvc干的）</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="SpringMvc常见注解"><a href="#SpringMvc常见注解" class="headerlink" title="SpringMvc常见注解"></a>SpringMvc常见注解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Controller：用于定义控制器类</span><br><span class="line">@ResponseBody：表示方法的返回结果直接写入HTTP response body中</span><br><span class="line">@PathVariable：获取路径参数</span><br><span class="line">@RequestParam：用在方法的参数前面</span><br><span class="line">@RequestBody：请求的json转化为bean去接收</span><br><span class="line">@RestController：是@Controller和@ResponseBody的合集</span><br><span class="line">@RequestMapping：提供路由信息，负责URL到Controller中的具体函数的映射</span><br><span class="line">@GetMapping：是@RequestMapping(method = RequestMethod.GET)的缩写。不支持</span><br><span class="line">@RequestMapping的自定义属性。</span><br><span class="line">@PostMapping：是@RequestMapping(method = RequestMethod.POST)的缩写。不支持</span><br><span class="line">@RequestMapping的自定义属性。</span><br><span class="line">@ControllerAdvice：统一处理异常。</span><br><span class="line">@ExceptionHandler：用在方法上表示遇到这个异常就执行以下方法。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="spring用到的设计模式"><a href="#spring用到的设计模式" class="headerlink" title="spring用到的设计模式"></a>spring用到的设计模式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">工厂设计模式 : Spring使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。</span><br><span class="line">代理设计模式 : Spring AOP 功能的实现。</span><br><span class="line">单例设计模式 : Spring 中的 Bean 默认都是单例的。</span><br><span class="line">模板方法模式 : Spring 中jdbcTemplate、hibernateTemplate等以Template 结尾的对数据库操作的类，它们就使用到了模板模式。</span><br><span class="line">包装器设计模式 : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</span><br><span class="line">观察者模式: Spring 事件驱动模型就是观察者模式很经典的一个应用。</span><br><span class="line">适配器模式 :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配Controller。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="ssm-0和-0的区别是什么"><a href="#ssm-0和-0的区别是什么" class="headerlink" title="ssm-#0和$0的区别是什么"></a>ssm-#0和$0的区别是什么</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#&#123;&#125;是预编译处理，可以有效的防止SQL注入。底层实现依靠PreparedStatement，预编译的时候会将sql中的#&#123;&#125;替换为?号，调用PreparedStatement的set方法来赋值的时候都会加上2个单引号。</span><br><span class="line">$&#123;&#125;是直接字符串替换，所以有sql注入的风险。like ,order by ,where</span><br><span class="line">两者都可以使用的时候优先用#&#123;&#125;，比如where查询，like查询选择用#&#123;&#125;。</span><br><span class="line">order by 字段，from 表名称，只能用$&#123;&#125;。</span><br><span class="line">#&#123;&#125;可以对数据类型进行自动转换，而$&#123;&#125;将所有数据都当做字符串处理</span><br><span class="line">简单回答</span><br><span class="line">#&#123;&#125;可以防止sql注入</span><br><span class="line">能用#&#123;&#125;不用$&#123;&#125;</span><br><span class="line">order by 字段，from 表名称，只能用$&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="ssm-说-下spring的AOP"><a href="#ssm-说-下spring的AOP" class="headerlink" title="ssm-说 下spring的AOP"></a>ssm-说 下spring的AOP</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">AOP，也就是面向切面编程；其次还有面向过程和面向对象编程。</span><br><span class="line">Spring AOP实现主要是通过代理类的方式实现，有jdk动态代理和CGLIB代理两种方式。</span><br><span class="line">Java动态代理只能够对接口进行代理，不能对普通的类进行代理（因为所有生成的代理类的父类为Proxy，Java类继承机制不允许多重继承）；CGLIB能够代理普通类；</span><br><span class="line">Spring内部，发现如果目标对象没有实现接口，则默认会采用CGLIB代理； 如果目标对象实现了接口，默认会采用Java动态代理；</span><br><span class="line">AOP用到的动态代理是对方法增强的方式之一。</span><br><span class="line">AOP的典型应用就是事务管理 。</span><br><span class="line">简要回答</span><br><span class="line">Spring AOP有jdk动态代理方式和CGLIB方式。</span><br><span class="line">Spring内部，发现目标对象没有实现接口，则用CGLIB。有接口则用Java动态代理。</span><br><span class="line">AOP的典型应用就是事务管理</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="ssm-说说spring的事务管理"><a href="#ssm-说说spring的事务管理" class="headerlink" title="ssm-说说spring的事务管理"></a>ssm-说说spring的事务管理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">spring支持编程式事务管理和声明式事务管理两种方式</span><br><span class="line">现在主流的是声明式事务管理方式，分为基于 &lt;tx&gt; 和 &lt;aop&gt; 命名空间的声明式事务管理和基于 @Transactional 的方式将声明式事务管理</span><br><span class="line">基于 &lt;tx&gt; 和 &lt;aop&gt; 命名空间的声明式事务，可以充分利用切点表达式的强大支持，使得管理事务更加灵活。</span><br><span class="line">基于 @Transactional 的方式将声明式事务管理，简化到了极致。开发人员只需在配置文件中加上一行配置，然后在需要实施事务管理的方法或者类上使用 @Transactional 指定事务规则即可实现事务管理</span><br><span class="line">声明式事务，是建立在AOP之上的。其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务。</span><br><span class="line">声明式事务最大的优点就是不需要通过编程的方式管理事务，这样就不需要在业务逻辑代码中掺杂事务管理的代码，只需在配置文件中做相关的事务规则声明(或通过基于@Transactional注解的方式)，便可以将事务规则应用到业务逻辑中。</span><br><span class="line">简要回答</span><br><span class="line">spring支持编程式事务管理和声明式事务管理两种方式</span><br><span class="line">声明式事务管理分为基于 &lt;tx&gt; 和 &lt;aop&gt; 命名空间的声明式事务管理和基于 @Transactional 的方式将声明式事务管理</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="谈谈spring的IOC和DI"><a href="#谈谈spring的IOC和DI" class="headerlink" title="谈谈spring的IOC和DI"></a>谈谈spring的IOC和DI</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ioc，控制反转；DI，依赖注入。</span><br><span class="line">Ioc意味着将你设计好的对象交给容器控制（创建，销毁，调用）。</span><br><span class="line">Di是组件之间依赖关系由容器在运行期决定</span><br><span class="line">Ioc和DI其实是一种思想，并不是具体的技术。</span><br><span class="line">IoC 和 DI 有什么关系呢？其实它们是同一个概念的不同角度描述。由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”。相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</span><br><span class="line">最直接看到的效果就是，少New了几个类，基本看不到New关键字了。</span><br><span class="line">比如，创建数据库连接上，整个项目创建连接时并不是当需要连接时new一个连接，而是项目在配置的时候创建好连接，当要用的时候，DI会给程序去用，而程序在什么时候用和怎么用时开发者不知道的，但最后还是实现了功能。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="mysql哪些字段适合建立索引"><a href="#mysql哪些字段适合建立索引" class="headerlink" title="mysql哪些字段适合建立索引"></a>mysql哪些字段适合建立索引</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">表的主键、外键必须有索引；</span><br><span class="line">数据量500左右的表应该有索引；</span><br><span class="line">在where从句，group by从句，order by从句，on从句中的列添加索引</span><br><span class="line">索引应该建在选择性高的字段上；</span><br><span class="line">索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引；</span><br><span class="line">复合索引的建立需要进行仔细分析；尽量考虑用单字段索引代替：</span><br><span class="line">不适合的字段</span><br><span class="line">表记录少</span><br><span class="line">经常插入、删除、修改的表，不要建立太多的索引；</span><br><span class="line">删除无用的索引，避免对执行计划造成负面影响；</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="mysql有哪些数据库存储引擎"><a href="#mysql有哪些数据库存储引擎" class="headerlink" title="mysql有哪些数据库存储引擎"></a>mysql有哪些数据库存储引擎</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">问题包含</span><br><span class="line">存储引擎是什么？有什么用？</span><br><span class="line">Mysql中常用的存储引擎有哪些？</span><br><span class="line">MyISAM和InnoDB的区别？</span><br><span class="line">问题回答</span><br><span class="line">MySQL中的数据用各种不同的技术存储在文件（或内存）中，这些技术中的每一种技术都使用不同的存储机制，索引技巧，锁定水平并且最终提供广泛的不同功能和能力。在MySQL中将这些不同的技术及配套的相关功能称为存储引擎。</span><br><span class="line">存储引擎其实就是对于数据库文件的一种存取机制，如何实现存储数据，如何为存储的数据建立索引以及如何更新，查询数据等技术实现的方法。</span><br><span class="line">mysql存储引擎总共有九种，常用的数据引擎有MyISAM、InnoDB、MEMORY、ARCHIVE；</span><br><span class="line"> 查看mysql支持引擎命令：SHOW ENGINES；对于MySQL 5.5及更高版本，默认的存储引擎是InnoDB。在5.5版本之前，MySQL的默认存储引擎是MyISAM。</span><br><span class="line">MyISAM和InnoDB的区别：</span><br><span class="line">MyISAM存放的方式： MyISAM 这种存储引擎不支持事务，不支持行级锁，只支持并发插入的表锁，主要用于高负载的select。</span><br><span class="line"></span><br><span class="line">索引的方式： MyISAM也是使用B+tree索引但是和Innodb的在具体实现上有些不同。</span><br><span class="line"></span><br><span class="line">优缺点：MyISAM的优势在于占用空间小，处理速度快。缺点是不支持事务的完整性和并发性。</span><br><span class="line"></span><br><span class="line">InnoDB</span><br><span class="line"></span><br><span class="line">存放的方式：innodb支持自增长列（auto_increment）,自增长列的值不能为空，如果在使用的时候为空的话怎会进行自动存现有的值开始增值，如果有但是比现在的还大，则就保存这个值。</span><br><span class="line"></span><br><span class="line">innodb存储引擎支持外键（foreign key） ,外键所在的表称为子表而所依赖的表称为父表。</span><br><span class="line"></span><br><span class="line">innodb存储引擎最重要的是支持事务，以及事务相关联功能。支持mvcc的行级锁。</span><br><span class="line"></span><br><span class="line">索引的方式：innodb存储引擎索引使用的是B+Tree。</span><br><span class="line"></span><br><span class="line">优缺点：InnoDB的优势在于提供了良好的事务处理、崩溃修复能力和并发控制。缺点是读写效率较差，占用的数据空间相对较大。</span><br><span class="line"></span><br><span class="line">简要回答</span><br><span class="line">存储引擎是用来把数据存储在文件或内存的技术；</span><br><span class="line">mysql常用的存储引擎有四种，常用的有MyISAM、InnoDB、MEMORY、ARCHIVE；</span><br><span class="line">InnoDB支持事务，支持外键，支持行锁，写入数据时操作快，MySQL5.6版本以上才支持全文索引。</span><br><span class="line">MyISAM不支持事务。不支持外键，支持表锁，支持全文索引，读取数据快。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="mysql的索引失效有哪些情况"><a href="#mysql的索引失效有哪些情况" class="headerlink" title="mysql的索引失效有哪些情况"></a>mysql的索引失效有哪些情况</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">避免过度索引</span><br><span class="line">避免重复和冗余索引</span><br><span class="line">删除不需要使用的索引</span><br><span class="line">最常用作限制条件的列放在最左边</span><br><span class="line">合理使用短索引</span><br><span class="line">索引字段越小越好</span><br><span class="line">避免索引失效</span><br><span class="line">索引列为Null</span><br><span class="line">mysql查询只使用一个索引，多个索引，后面失效</span><br><span class="line">like百分号前置</span><br><span class="line">Not in不会走索引</span><br><span class="line">对索引列进行函数操作</span><br><span class="line">where条件是Or</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="多列索引的最左原则是什么"><a href="#多列索引的最左原则是什么" class="headerlink" title="多列索引的最左原则是什么"></a>多列索引的最左原则是什么</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（A、B、C）创建了索引，相当于创建了（A）、（A、B）、（A、B、C）</span><br><span class="line">（A、B）创建了索引，相当于创建了（A）、（A、B）</span><br><span class="line">创建复合索引时应该将最常用作限制条件的列放在最左边，依次递减</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="有没有参数过表设计？如何进行表设计？对表设计有什么心得？"><a href="#有没有参数过表设计？如何进行表设计？对表设计有什么心得？" class="headerlink" title="有没有参数过表设计？如何进行表设计？对表设计有什么心得？"></a>有没有参数过表设计？如何进行表设计？对表设计有什么心得？</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">合理的数据库命名规范</span><br><span class="line">合理的字段类型选择规范</span><br><span class="line">合理的表结构规范</span><br><span class="line">水平拆分</span><br><span class="line">把同一张表中的数据拆分到不同的数据库中进行存储，需要用到mycat</span><br><span class="line">或者把一张表拆分成 n`` 多张小表`</span><br><span class="line">垂直拆分</span><br><span class="line">拆分成不同的数据库，比如会员数据库、订单数据库、支付数据库、消息数据库等，垂直拆分在大型电商项目中使用比较常见。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="说说数据库连接查询有哪些"><a href="#说说数据库连接查询有哪些" class="headerlink" title="说说数据库连接查询有哪些"></a>说说数据库连接查询有哪些</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">连接查询是把多张表进行记录的连接(按照某个条件进行数据的拼接)；</span><br><span class="line">内连接（inner join），a表和b表同时符合条件的行；</span><br><span class="line">外连接，分为左外连接（left join）、有右外连接（right join）、全连接（full join是Oracle里面的，mysql是union和union all来实现）；</span><br><span class="line"> 左外连接：左表保持不动，右表在右侧滑动，用右表匹配左表。结果保留左表的所有行，右表中不匹配的行默认填充为空值NULL。</span><br><span class="line"> 右外连接：右表保持不动，左表在左侧滑动，用左表匹配右表。结果保留右表的所有行，左表中不匹配的行默认填充为空值NULL。</span><br><span class="line"> 全连接：包括左右表所有的行。</span><br><span class="line">交叉连接（cross join），a表*b表的笛卡尔积，笛卡尔积在查询的时候没有太大的意义，在数学上表示所有可能性。</span><br><span class="line">简要回答</span><br><span class="line">自连接，外连接（左外连接、右外连接、全连接），交叉连接。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="springboot的启动流程及原理"><a href="#springboot的启动流程及原理" class="headerlink" title="springboot的启动流程及原理"></a>springboot的启动流程及原理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SpringBoot 是 Spring 开源组织下的子项目，主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。</span><br><span class="line">独立运行Spring Boot而且内嵌了各种servlet容器，Tomcat、Jetty等，现在不再需要打成war包部署到容器中，Spring Boot只要打成一个可执行的jar包就能独立运行，所有的依赖包都在一个jar包内。</span><br><span class="line">简化配置spring-boot-starter-web启动器自动依赖其他组件，简少了maven的配置（pom.xml里面的东西少了）。</span><br><span class="line">自动配置Spring Boot能根据当前类路径下的类、jar包来自动配置bean，如添加一个spring-boot-starter-web启动器就能拥有web的功能，无需其他配置。自动配置也可以理解为，约定优于配置。</span><br><span class="line">无代码生成和XML配置Spring Boot配置过程中无代码生成，也无需XML配置文件就能完成所有配置工作，这一切都是借助于条件注解完成的，这也是Spring4.x的核心功能之一。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Spring-Cloud-Config的作用是什么"><a href="#Spring-Cloud-Config的作用是什么" class="headerlink" title="Spring Cloud Config的作用是什么"></a>Spring Cloud Config的作用是什么</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以方便微服务配置文件统一管理，实时更新。</span><br><span class="line">它支持配置服务放在本地，也支持放在远程Git仓库中。</span><br><span class="line">在spring cloud config 组件中，分两个角色，一是config server，二是config client， server端配置服务器，管理配置信息， client端获取配置信息。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="介绍下Spring-Cloud-Gateway"><a href="#介绍下Spring-Cloud-Gateway" class="headerlink" title="介绍下Spring Cloud Gateway"></a>介绍下Spring Cloud Gateway</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">是Spring Cloud GateWay 是Spring官方推出的第二代网关框架，取代Zuul网关</span><br><span class="line">是spring官方基于Spring 5.0、Spring Boot2.0和Project Reactor等技术开发的网关</span><br><span class="line">基于Filter链提供网关功能：路由、重试、认证、负载、限流、熔断等功能。</span><br><span class="line">它重要的概念是路由（route）、断言（Predicate）、过滤器（Filter）</span><br><span class="line">网关过滤器 （GatewayFilter ）有 20 多个 实现 类；网关过滤器工厂（GatewayFilterFactory）有22个实现类；</span><br><span class="line">全局过滤器（GlobalFilter ）有11个实现类，全局过滤器是特殊的过滤器，会根据条件应用到所有路由中；</span><br><span class="line">简要回答</span><br><span class="line">Spring Cloud官方推出的第二代网关框架，取代Zuul网关</span><br><span class="line">基于Filter链提供网关功能：路由、重试、认证、负载、限流、熔断等功能</span><br><span class="line">重要的概念是路由（route）、断言（Predicate）、过滤器（Filter）</span><br><span class="line">包含很多的网关过滤器、网关过滤器工厂、全局过滤器</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="说一下feign的基本使用和高级使用"><a href="#说一下feign的基本使用和高级使用" class="headerlink" title="说一下feign的基本使用和高级使用"></a>说一下feign的基本使用和高级使用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">方便进行进行服务间的调用。JDK原生的 URLConnection、Apache 的 HTTP Client、Netty 异步 Http Client，Spring 的 RestTemplate方便和强大。</span><br><span class="line">简单的几个注解，就能实现Web Service 客户端，方便了Web Service 客户端开发。</span><br><span class="line">支持 Hystrix 和它的 Fallback。</span><br><span class="line">支持 Ribbon 的负载均衡</span><br><span class="line">主要注解有@EnableFeignClients，@FeignClient</span><br><span class="line">支持OkHttp，支持Gzip</span><br><span class="line">简单回答</span><br><span class="line">方便进行进行服务间的调用</span><br><span class="line">简单-》简单的几个注解-》@EnableFeignClients，@FeignClient</span><br><span class="line">强大-》集成Hystrix ，支持 Ribbon</span><br><span class="line">拓展功能-》支持OkHttp，支持Gzip</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="说一下Spring-Cloud-Bus"><a href="#说一下Spring-Cloud-Bus" class="headerlink" title="说一下Spring Cloud Bus"></a>说一下Spring Cloud Bus</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">更新git仓库上面的配置以后，可以发送一个Post请求，让各个微服务重新获取配置。</span><br><span class="line">各个微服务不用重启。</span><br><span class="line">其实本质是利用了MQ的广播机制在分布式的系统中传播消息，目前常用的有Kafka和RabbitMQ。利用bus的机制可以做很多的事情，其中配置中心客户端刷新就是典型的应用场景之一</span><br><span class="line">通过将所有微服务连接到单个消息代理来实现的。无论何时刷新实例，此事件都会订阅到侦听此代理的所有微服务，并且它们也会刷新。</span><br><span class="line">简要回答</span><br><span class="line">修改了配置，不用重启服务器，发一个post请求，通知各个微服务拉取最新配置。</span><br><span class="line">本质是利用了MQ的广播机制</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="谈谈你对springCloud理解"><a href="#谈谈你对springCloud理解" class="headerlink" title="谈谈你对springCloud理解"></a>谈谈你对springCloud理解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">问题答案</span><br><span class="line">是什么？</span><br><span class="line"></span><br><span class="line">Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、智能路由、消息总线、负载均衡、断路器、数据监控等，都可以用Spring Boot的开发风格做到一键启动和部署。</span><br><span class="line"></span><br><span class="line">主要作用？</span><br><span class="line"></span><br><span class="line">协调各个微服务，简化分布式系统开发。</span><br><span class="line"></span><br><span class="line">优缺点？</span><br><span class="line"></span><br><span class="line">优点：</span><br><span class="line"></span><br><span class="line">产出于Spring大家族，Spring在企业级开发框架中无人能敌，来头很大，可以保证后续的更新、完善</span><br><span class="line">组件丰富，功能齐全。Spring Cloud 为微服务架构提供了非常完整的支持。例如、配置管理、服务发现、断路器、微服务网关等；</span><br><span class="line">Spring Cloud 社区活跃度很高，教程很丰富，遇到问题很容易找到解决方案</span><br><span class="line">服务拆分粒度更细，耦合度比较低，有利于资源重复利用，有利于提高开发效率</span><br><span class="line">可以更精准的制定优化服务方案，提高系统的可维护性</span><br><span class="line">减轻团队的成本，可以并行开发，不用关注其他人怎么开发，先关注自己的开发</span><br><span class="line">微服务可以是跨平台的，可以用任何一种语言开发</span><br><span class="line">适于互联网时代，产品迭代周期更短</span><br><span class="line">缺陷：</span><br><span class="line"></span><br><span class="line">微服务过多，治理成本高，不利于维护系统</span><br><span class="line">分布式系统开发的成本高（容错，分布式事务等）对团队挑战大</span><br><span class="line">总的来说优点大过于缺点，目前看来Spring Cloud是一套非常完善的分布式框架，目前很多企业开始用微服务、Spring Cloud的优势是显而易见的。</span><br><span class="line"></span><br><span class="line">简要问答</span><br><span class="line">Spring Cloud是一系列框架的有序集合。一般配合Spring Boot使用，它的出现是为了，</span><br><span class="line">协调各个微服务，简化分布式系统开发。</span><br><span class="line"></span><br><span class="line">有很多优点</span><br><span class="line">组件丰富</span><br><span class="line">有名气，用的人多，社区活跃度高。</span><br><span class="line">服务拆分粒度低。</span><br><span class="line">使用互联网时代</span><br><span class="line">也有缺点</span><br><span class="line">运维成本高，微服务过多，治理成本高。</span><br><span class="line">容错，分布式事务等对团队挑战大。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="redis存储的数据类型有哪些"><a href="#redis存储的数据类型有哪些" class="headerlink" title="redis存储的数据类型有哪些"></a>redis存储的数据类型有哪些</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STRING，字符串，最简单的k-v存储，短信验证码，配置信息等，就用这种类型来存储。</span><br><span class="line">HASH，包含键值对的无序散列表，一般key为ID或者其他唯一标识，value对应的就是详情了。如商品详情，个人信息详情，新闻详情等</span><br><span class="line">LIST，列表，因为list是有序的，比较适合存储一些有序且数据相对固定的数据。如省市区表、字典表。List还可以做消息队列。</span><br><span class="line">SET，无序集合，可以简单的理解为ID-List的模式，如微博中一个人有哪些好友，set最牛的地方在于，可以对两个set提供交集、并集、差集操作。例如：查找两个人共同的好友等。</span><br><span class="line">ZSET，有序集合，set的增强版本，增加了一个score参数，自动会根据score的值进行排序。比较适合类似于top N等不根据插入的时间来排序的数据。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Redis有哪些优缺点"><a href="#Redis有哪些优缺点" class="headerlink" title="Redis有哪些优缺点"></a>Redis有哪些优缺点</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">快，读的速度是110000次/s，写的速度是81000次/s</span><br><span class="line">结构丰富，支持5种，分别是string、has、list、set、zset。</span><br><span class="line">持久化，支持AOF（Append Only File）和RDB（Redis DataBase）</span><br><span class="line">分布式事务，Redis的事务实质上是命令的集合，在一个事务中要么所有命令都被执行，要么所有事物都不执行。</span><br><span class="line">分布式是锁，分布式锁是控制分布式系统之间同步访问共享资源的一种方式</span><br><span class="line">主从复制，主机会自动将数据同步到从机，可以实现读写分离。</span><br><span class="line">不能存海量数据，受到物理内存的限制</span><br><span class="line">不具备自动容错和恢复功能，主机从机的 宕机都会导致前端部分读写请求失败，需要等待机器重启或者手动切换前端的IP才能恢复。</span><br><span class="line">可能数据不一致，主机宕机，宕机前有部分数据未能及时同步到从机，切换IP后还会引入数据不一致的问题，降低了系统的可用性。</span><br><span class="line">Redis 较难支持在线扩容，在集群容量达到上限时在线扩容会变得很复杂，为避免这一问题，上线时必须确保有足够的空间。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="redis的使用场景"><a href="#redis的使用场景" class="headerlink" title="redis的使用场景"></a>redis的使用场景</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">缓存，将热点数据放到内存中。</span><br><span class="line">计数器，可以对 String 进行自增自减运算，从而实现计数器功能。</span><br><span class="line">队列，List 是一个双向链表，可以通过 lpush 和 rpop 写入和读取消息。不过最好使用 Kafka、RabbitMQ 等消息中间件。</span><br><span class="line">分布式锁，在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。可以使用 Redis 自带的 SETNX 命令实现分布式锁，除此之外，还可以使用官方提供的 RedLock 分布式锁实现。</span><br><span class="line">会话缓存，可以使用 Redis 来统一存储多台应用服务器的会话信息。</span><br><span class="line">全页缓存（FPC），除基本的会话token之外，Redis还提供很简便的FPC平台。没接触过。</span><br><span class="line">交集、差集、并集，Set 可以实现交集、差集、并集等操作，从而实现共同好友等功能。没接触过。</span><br><span class="line">排行榜，ZSet 可以实现有序性操作，从而实现排行榜等功能。没接触过。</span><br><span class="line">发布/订阅功能，用的少，没有MQ好。没接触过。</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="redis的持久化方式区别及其选择"><a href="#redis的持久化方式区别及其选择" class="headerlink" title="redis的持久化方式区别及其选择"></a>redis的持久化方式区别及其选择</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">支持AOF（Append Only File）和RDB（Redis DataBase）两种持久化方式。</span><br><span class="line">RDB是默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。通过配置文件中的save参数来定义快照的周期。</span><br><span class="line">AOF持久化(即Append Only File持久化)，则是将Redis执行的每次写命令记录到单独的日志文件中，当重启Redis会重新将持久化的日志中文件恢复数据。</span><br><span class="line">RDB，安全性低。RDB 是间隔一段时间进行持久化，如果持久化之间 redis 发生故障，会发生数据丢失。</span><br><span class="line">AOF，安全性高。即使中途服务器宕机，可以通过 redis-check-aof 工具解决数据一致性问题。</span><br><span class="line">RDB，性能好，fork 子进程来完成写操作，让主进程继续处理命令，所以是 IO 最大化。</span><br><span class="line">AOF比RDB更安全、更大，RDB比AOF性能更好。</span><br><span class="line">可以同时两种方式，两个都配了优先加载AOF。AOF粒度更细</span><br><span class="line">可以只使用RDB持久化，可以承受数分钟以内的数据丢失。</span><br><span class="line">不推荐只使用AOF持久化，因为定时生成RDB快照（snapshot）非常便于进行数据库备份， 并且 RDB 恢复数据集的速度也要比AOF恢复的速度要快，除此之外，使用RDB还可以避免AOF程序的bug</span><br><span class="line">不使用任何持久化方式，数据在服务器运行的时候存在</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="redis的缓存击穿问题"><a href="#redis的缓存击穿问题" class="headerlink" title="redis的缓存击穿问题"></a>redis的缓存击穿问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">是什么？</span><br><span class="line">缓存击穿是指缓存中没有但数据库中有的数据（一般是缓存时间到期），这时由于并发用户特别多，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，造成过大压力。</span><br><span class="line">关键字：缓存没有数据库有，并发多。</span><br><span class="line">例子：活动系统里面查询活动信息，但是在活动进行过程中活动缓存突然过期了。</span><br><span class="line">和缓存雪崩不同的是，缓存击穿指并发查同一条数据，缓存雪崩是不同数据都过期了，很多数据都查不到从而查数据库。</span><br><span class="line">和缓存穿透不同的是，缓存穿透指缓存和数据库中都没有的数据。缓存击穿指的是缓存没有，数据库有</span><br><span class="line">解决方案</span><br><span class="line">设置热点数据永远不过期。简单来讲，就是不设置过期时间。来了就给你。</span><br><span class="line">加互斥锁(mutex key)。简单来讲，就是要操作db，需要排队。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="redis的缓存穿透问题"><a href="#redis的缓存穿透问题" class="headerlink" title="redis的缓存穿透问题"></a>redis的缓存穿透问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">是什么？</span><br><span class="line">缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求</span><br><span class="line">关键字：都没有</span><br><span class="line">例子：如发起为id为“-1”的数据或id为特别大不存在的数据。这时的用户很可能是攻击者，攻击会导致数据库压力过大。</span><br><span class="line">缓存穿透和缓存击穿容易混，缓存穿透强调的是都没有。缓存击穿值得是缓存没有，数据库有，</span><br><span class="line">如何解决？常见3种方案</span><br><span class="line">增加接口层校验，如用户鉴权校验，id做基础校验，id&lt;=0的直接拦截；</span><br><span class="line">key-null存入缓存，从缓存取不到的数据，在数据库中也没有取到，这时也可以将key-value对写为key-null，缓存有效时间可以设置短点，如30秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个id暴力攻击</span><br><span class="line">采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的 bitmap 中，一个一定不存在的数据会被这个 bitmap 拦截掉，从而避免了对底层存储系统的查询压力</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="redis的缓存降级问题"><a href="#redis的缓存降级问题" class="headerlink" title="redis的缓存降级问题"></a>redis的缓存降级问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级。</span><br><span class="line">缓存降级的最终目的是保证核心服务可用，即使是有损的。而且有些服务是无法降级的（如加入购物车、结算）。</span><br><span class="line">在进行降级之前要对系统进行梳理，看看系统是不是可以丢卒保帅；从而梳理出哪些必须誓死保护，哪些可降级；比如可以参考日志级别设置预案：</span><br><span class="line">一般：比如有些服务偶尔因为网络抖动或者服务正在上线而超时，可以自动降级；</span><br><span class="line">警告：有些服务在一段时间内成功率有波动（如在95~100%之间），可以自动降级或人工降级，并发送告警；</span><br><span class="line">错误：比如可用率低于90%，或者数据库连接池被打爆了，或者访问量突然猛增到系统能承受的最大阀值，此时可以根据情况自动降级或者人工降级；</span><br><span class="line">严重错误：比如因为特殊原因数据错误了，此时需要紧急人工降级。</span><br><span class="line">服务降级的目的，是为了防止Redis服务故障，导致数据库跟着一起发生雪崩问题。因此，对于不重要的缓存数据，可以采取服务降级策略，例如一个比较常见的做法就是，Redis出现问题，不去数据库查询，而是直接返回默认值给用户。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="redis的缓存雪崩问题"><a href="#redis的缓存雪崩问题" class="headerlink" title="redis的缓存雪崩问题"></a>redis的缓存雪崩问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">是什么？</span><br><span class="line">在高并发下，大量的缓存key在同一时间失效，导致大量的请求落到数据库上，如活动系统里面同时进行着非常多的活动，但是在某个时间点所有的活动缓存全部过期。</span><br><span class="line">关键字：大量key，都失效。</span><br><span class="line">例子：如活动系统里面同时进行着非常多的活动，但是在某个时间点所有的活动缓存全部过期。</span><br><span class="line">怎么解决？</span><br><span class="line">缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生。</span><br><span class="line">一般并发量不是特别多的时候，使用最多的解决方案是加锁排队。</span><br><span class="line">给每一个缓存数据增加相应的缓存标记，记录缓存的是否失效，如果缓存标记失效，则更新数据缓存。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="简单介绍下redis说一下redis主从复制-读写分离"><a href="#简单介绍下redis说一下redis主从复制-读写分离" class="headerlink" title="简单介绍下redis说一下redis主从复制 (读写分离)"></a>简单介绍下redis说一下redis主从复制 (读写分离)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">主从复制就是我们常见的master/slave模式，通常一个主数据库可以有多个从数据库。</span><br><span class="line">可以实现读写分离，Master具有读写权限，Slave只有读权限。当写操作导致数据发生变化时会自动将数据同步给从数据库。从数据库是只读的，并接收主数据库同步过来的数据。</span><br><span class="line">可以实现容灾备份，Master出现故障，利用“sentinel监控”，把Slave其中一个提升为Master,让系统继续执行。</span><br><span class="line">slave node主要用来进行横向扩容，读写分离，扩容的slave node可以提高读的吞吐量</span><br><span class="line">如何搭建</span><br><span class="line">slave node指定master node的ip和端口即可。</span><br><span class="line">主从复制原理是怎样的呢？（了解）</span><br><span class="line">Slave启动成功连接到master后会发送一个sync命令；</span><br><span class="line">Master接到命令启动后的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，master，将传送整个数据文件到slave，以完成一次完全同步；</span><br><span class="line">全量复制：而slave服务在数据库文件数据后，将其存盘并加载到内存中；</span><br><span class="line">增量复制：Master继续将新的所有收集到的修改命令依次传给slave，完成同步；</span><br><span class="line">但是只要是重新连接master，一次完全同步（全量复制）将被自动执行。</span><br><span class="line">主从复制的缺点？</span><br><span class="line">延时，由于所有的写操作都是在Master上操作，然后同步更新到Slave上</span><br><span class="line">redis高可用经常用两种方案，方案A（Redis+Cluster）和方案B（Redis+Sentinel）。方案B指的就是主从复制+哨兵模式。</span><br><span class="line">简要回答</span><br><span class="line">主从复制就是我们常见的master/slave模式，通常一主多从。</span><br><span class="line">可以实现读写分离，Master具有读写权限，Slave只有读权限。</span><br><span class="line">可以实现容灾备份，配合哨兵机制。</span><br><span class="line">搭建也很简单，主结点不用改，从结点简单配置指向主结点的ip和端口就可以。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="说一下redis的RedLock-红锁"><a href="#说一下redis的RedLock-红锁" class="headerlink" title="说一下redis的RedLock (红锁)"></a>说一下redis的RedLock (红锁)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Redlock是一种算法，Redlock也就是 Redis Distributed Lock，可用实现多节点redis的分布式锁。</span><br><span class="line">RedLock官方推荐，Redisson完成了对Redlock算法封装。</span><br><span class="line">此种方式具有以下特性：</span><br><span class="line">互斥访问：即永远只有一个 client 能拿到锁</span><br><span class="line">避免死锁：最终 client 都可能拿到锁，不会出现死锁的情况，即使锁定资源的服务崩溃或者分区，仍然能释放锁。</span><br><span class="line">容错性：只要大部分 Redis 节点存活（一半以上），就可以正常提供服务</span><br><span class="line">RedLock原理（了解）</span><br><span class="line">获取当前Unix时间，以毫秒为单位。</span><br><span class="line">依次尝试从N个实例，使用相同的key和随机值获取锁。在步骤2，当向Redis设置锁时,客户端应该设置一个网络连接和响应超时时间，这个超时时间应该小于锁的失效时间。例如你的锁自动失效时间为10秒，则超时时间应该在5-50毫秒之间。这样可以避免服务器端Redis已经挂掉的情况下，客户端还在死死地等待响应结果。如果服务器端没有在规定时间内响应，客户端应该尽快尝试另外一个Redis实例。</span><br><span class="line">客户端使用当前时间减去开始获取锁时间（步骤1记录的时间）就得到获取锁使用的时间。当且仅当从大多数（这里是3个节点）的Redis节点都取到锁，并且使用的时间小于锁失效时间时，锁才算获取成功。</span><br><span class="line">如果取到了锁，key的真正有效时间等于有效时间减去获取锁所使用的时间（步骤3计算的结果）。</span><br><span class="line">如果因为某些原因，获取锁失败（没有在至少N/2+1个Redis实例取到锁或者取锁时间已经超过了有效时间），客户端应该在所有的Redis实例上进行解锁（即便某些Redis实例根本就没有加锁成功）。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="说一下redis的分布式锁怎么实现"><a href="#说一下redis的分布式锁怎么实现" class="headerlink" title="说一下redis的分布式锁怎么实现"></a>说一下redis的分布式锁怎么实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Java中的锁，只能保证在同一个JVM进程内中执行。分布式集群需要分布式锁。</span><br><span class="line">分布式锁的实现有很多，比如基于数据库、memcached、Redis、系统文件、zookeeper等。</span><br><span class="line">针对单机Redis实例，也就是一个master</span><br><span class="line">自己通过setnx获取锁，lua释放锁，或者通过set key value px milliseconds nx+lua（比setnx的方式更新）。</span><br><span class="line">因为setnx没法设置过期时间，从 2.6.12 起，SET 涵盖了 SETEX 的功能，并且 SET 本身已经包含了设置过期时间的功能</span><br><span class="line">或者通过封装好的redission框架。</span><br><span class="line">针对多个Redis实例，也就是N个Redis master</span><br><span class="line">可以使用到RedLock（红锁）算法。</span><br><span class="line">或者通过封装好的redission框架，redisson已经有对redlock算法封装。</span><br><span class="line">RedLock原理（了解）</span><br><span class="line">获取当前Unix时间，以毫秒为单位。</span><br><span class="line">依次尝试从N个实例，使用相同的key和随机值获取锁。在步骤2，当向Redis设置锁时,客户端应该设置一个网络连接和响应超时时间，这个超时时间应该小于锁的失效时间。例如你的锁自动失效时间为10秒，则超时时间应该在5-50毫秒之间。这样可以避免服务器端Redis已经挂掉的情况下，客户端还在死死地等待响应结果。如果服务器端没有在规定时间内响应，客户端应该尽快尝试另外一个Redis实例。</span><br><span class="line">客户端使用当前时间减去开始获取锁时间（步骤1记录的时间）就得到获取锁使用的时间。当且仅当从大多数（这里是3个节点）的Redis节点都取到锁，并且使用的时间小于锁失效时间时，锁才算获取成功。</span><br><span class="line">如果取到了锁，key的真正有效时间等于有效时间减去获取锁所使用的时间（步骤3计算的结果）。</span><br><span class="line">如果因为某些原因，获取锁失败（没有在至少N/2+1个Redis实例取到锁或者取锁时间已经超过了有效时间），客户端应该在所有的Redis实例上进行解锁（即便某些Redis实例根本就没有加锁成功）。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="说一下redis的哨兵机制"><a href="#说一下redis的哨兵机制" class="headerlink" title="说一下redis的哨兵机制"></a>说一下redis的哨兵机制</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Redis-Sentinel是Redis官方推荐的高可用性(HA)解决方案。</span><br><span class="line">为了解决在主从复制架构中出现宕机的情况。</span><br><span class="line">Redis-Sentinel方案和Redis-Cluster方法，是redis搭建集群的常用两种方案。</span><br><span class="line">Redis的哨兵(sentinel) 系统用于管理多个 Redis 服务器,该系统执行以下三个任务</span><br><span class="line">监控(Monitoring): 哨兵(sentinel) 会不断地检查你的Master和Slave是否运作正常</span><br><span class="line">提醒(Notification):当被监控的某个 Redis出现问题时, 哨兵(sentinel) 可以通过 API 向管理员或者其他应用程序发送通知。</span><br><span class="line">自动故障迁移(Automatic failover):当一个Master不能正常工作时，哨兵(sentinel) 会开始一次自动故障迁移操作,它会将失效Master的其中一个Slave升级为新的Master, 并让失效Master的其他Slave改为复制新的Master; 当客户端试图连接失效的Master时,集群也会向客户端返回新Master的地址,使得集群可以使用Master代替失效Master。</span><br><span class="line">我们一般在一个架构中运行多个哨兵(sentinel) 。</span><br><span class="line">Sentinel的工作原理（自己感兴趣可以看看）</span><br><span class="line">每个Sentinel以每秒钟一次的频率向它所知的Master，Slave以及其他 Sentinel 实例发送一个 PING 命令。</span><br><span class="line">如果一个实例（instance）距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 则这个实例会被 Sentinel 标记为主观下线。</span><br><span class="line">如果一个Master被标记为主观下线，则正在监视这个Master的所有 Sentinel 要以每秒一次的频率确认Master的确进入了主观下线状态。</span><br><span class="line">当有足够数量的 Sentinel（大于等于配置文件指定的值）在指定的时间范围内确认Master的确进入了主观下线状态， 则Master会被标记为客观下线 。</span><br><span class="line">在一般情况下， 每个 Sentinel 会以每 10 秒一次的频率向它已知的所有Master，Slave发送 INFO 命令 。</span><br><span class="line">当Master被 Sentinel 标记为客观下线时，Sentinel 向下线的 Master 的所有 Slave 发送 INFO 命令的频率会从 10 秒一次改为每秒一次 。</span><br><span class="line">若没有足够数量的 Sentinel 同意 Master 已经下线， Master 的客观下线状态就会被移除。</span><br><span class="line">若 Master 重新向 Sentinel 的 PING 命令返回有效回复， Master 的主观下线状态就会被移除。</span><br><span class="line">简要回答</span><br><span class="line">哨兵机制是官方推荐的高可用性(HA)解决方案。一般配合主从复制使用。</span><br><span class="line">为了解决在主从复制架构中出现宕机的情况，它会将失效Master的其中一个Slave升级为新的Master</span><br><span class="line">实际过程中需要搭建哨兵集群。搭建过程比较简单。</span><br><span class="line">Redis-Sentinel方案和Redis-Cluster方法，是redis搭建集群的常用两种方案。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="RabbitMO如何保证消息不丢失"><a href="#RabbitMO如何保证消息不丢失" class="headerlink" title="RabbitMO如何保证消息不丢失"></a>RabbitMO如何保证消息不丢失</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">丢消息的情况有3种情况</span><br><span class="line">生产者丢</span><br><span class="line">rabbitmq丢</span><br><span class="line">消费端弄丢</span><br><span class="line">如何保证消息不丢失，就是分别避免每一个环节丢失</span><br><span class="line">保证生产者不丢消息</span><br><span class="line">保证rabbitmq不丢消息</span><br><span class="line">保证消费端不丢消息</span><br><span class="line">保证生产者不丢消息，要确保说写rabbitmq的消息别丢，可以开启confirm模式。</span><br><span class="line">每次写的消息都会分配一个唯一的id，如果写入了rabbitmq中，rabbitmq会给你回传一个ack消息，告诉你说这个消息ok了。</span><br><span class="line">如果rabbitmq没能处理这个消息，会回调你一个nack接口，告诉你这个消息接收失败，我们可以重试。</span><br><span class="line">保证rabbitmq不丢消息，开启rabbitmq的持久化（持久化queue和message）</span><br><span class="line">消息写入之后会持久化到磁盘，假如rabbitmq挂了，恢复之后会自动读取之前存储的数据，一般数据不会丢。</span><br><span class="line">rabbitmq还没持久化，自己就挂了，可能导致少量数据会丢失的，但是这个概率较小。</span><br><span class="line">持久化queue，在创建queue的时候将其设置为持久化的，这样就可以保证rabbitmq持久化queue的元数据，但是不会持久化queue里的数据；</span><br><span class="line">持久化Message，在发送消息的时候将消息的deliveryMode设置为2，就是将消息设置为持久化的，此时rabbitmq就会将消息持久化到磁盘上去。</span><br><span class="line">保证消费端不丢消息</span><br><span class="line">依靠ack机制，简单来说，就是你关闭rabbitmq自动ack，通过一个api来手动ack就行，就是每次你自己代码里确保处理完的时候，在程序里ack一下。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="RabbitMQ如何保证消息的顺序性"><a href="#RabbitMQ如何保证消息的顺序性" class="headerlink" title="RabbitMQ如何保证消息的顺序性"></a>RabbitMQ如何保证消息的顺序性</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">哪些情况会导致消息错乱？</span><br><span class="line">一个queue，有多个consumer去消费，这样就会造成顺序的错误</span><br><span class="line">一个queue对应一个consumer，但是consumer里面进行了多线程消费，这样也会造成消息消费顺序错误。</span><br><span class="line">如何保证消息的顺序性呢？两者方式</span><br><span class="line">拆分多个queue，每个queue一个consumer，就是多一些queue而已，确实是麻烦点；这样也会造成吞吐量下降，可以在消费者内部采用多线程的方式取消费。</span><br><span class="line">就一个queue但是对应一个consumer，然后这个consumer内部用内存队列做排队，然后分发给底层不同的worker来处理</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="RabbitMQ如何保证消费的幂等性"><a href="#RabbitMQ如何保证消费的幂等性" class="headerlink" title="RabbitMQ如何保证消费的幂等性"></a>RabbitMQ如何保证消费的幂等性</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">同等问题</span><br><span class="line">RabbitMQ如何避免消息重复消费？</span><br><span class="line"></span><br><span class="line">问题回答</span><br><span class="line">什么是幂等性？</span><br><span class="line">就一个数据，或者一个请求，给你重复来多次，你得确保对应的数据是不会改变的，不能出错。</span><br><span class="line">比如你有个系统，消费一条往，数据库里插入一条，如果消息重复两次，就插入了两条数据，这就不对了。但是你要是消费到第二次的时候，自己判断一下已经消费过了，直接扔了，就保留一条数据，这就是保证了系统的幂等性。</span><br><span class="line">如何保证消费的幂等性？需要根据具体业务</span><br><span class="line">比如拿到数据要写库，可以先根据主键查一下，如果数据有，就不插入，update一下</span><br><span class="line">比如你是写redis，反正每次都是set，天然幂等性</span><br><span class="line">如果是其他场景，需要让生产者发送每条数据的时候，里面加一个全局唯一的id（message可以设置id，比如用uuid就是可以的），类似订单id之类的东西，然后你这里消费到了之后，先根据这个id去比如redis里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个id写redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="RabbitMO如何游免消息堆积"><a href="#RabbitMO如何游免消息堆积" class="headerlink" title="RabbitMO如何游免消息堆积"></a>RabbitMO如何游免消息堆积</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">为什么出现消息堆积？</span><br><span class="line">消息堆积主要是生产者和消费者不平衡导致的</span><br><span class="line">核心处理思路还是提高消费者的消费速率，保证消费者不出现消费故障。</span><br><span class="line">哪些方式可以避免消息堆积呢？</span><br><span class="line">足够的cpu和内存资源（硬件）</span><br><span class="line">消费者数量足够多</span><br><span class="line">避免消费者故障，举个例子，消费端每次消费之后要写MySQL，结果MySQL挂了，消费端卡那儿了，不动了。或者是消费端出了个什么叉子，导致消费速度极其慢。</span><br><span class="line">如果发现了大量消息堆积如何解决呢？</span><br><span class="line">如果消息不是很多，修复consumer的问题，重先上线consumer就好了，</span><br><span class="line">如果消息很多，有100w，1000w条，那就临时紧急扩容处理</span><br><span class="line">先修复consumer的问题，确保其恢复消费速度，然后将现有cnosumer都停掉</span><br><span class="line">新建一个topic，partition是原来的10倍，临时建立好原先10倍或者20倍的queue数量</span><br><span class="line">然后写一个临时的分发数据的consumer程序，这个程序部署上去消费积压的数据，消费之后不做耗时的处理，直接均匀轮询写入临时建立好的10倍数量的queue</span><br><span class="line">接着临时征用10倍的机器来部署consumer，每一批consumer消费一个临时queue的数据</span><br><span class="line">这种做法相当于是临时将queue资源和consumer资源扩大10倍，以正常的10倍速度来消费数据</span><br><span class="line">等快速消费完积压数据之后，得恢复原先部署架构，重新用原先的consumer机器来消费消息</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="介绍下RabbitMQ"><a href="#介绍下RabbitMQ" class="headerlink" title="介绍下RabbitMQ"></a>介绍下RabbitMQ</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ是一个由erlang语言编写的、开源的、在AMQP基础上完整的、可复用的企业消息系统。</span><br><span class="line">RabbitMQ包括五种队列模式，简单队列、工作队列、发布/订阅、路由、主题、rpc等。项目中用路由和主题模式比较多</span><br><span class="line">有消息确认机制</span><br><span class="line">模式1：自动确认</span><br><span class="line">模式2：手动确认</span><br><span class="line">有持久化机制，提供交换机和队列的持久化</span><br><span class="line">持久化：将交换机或队列数据保存到磁盘，服务器宕机或者重启之后数据依然存在。</span><br><span class="line">非持久化：将交换机或队列数据保存到磁盘到内存，服务器宕机或者重启之后数据会丢失</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="介绍下消息队列"><a href="#介绍下消息队列" class="headerlink" title="介绍下消息队列"></a>介绍下消息队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">消息队列（Message Queue）,简称为MQ，是分布式系统中重要的组件</span><br><span class="line">消息队列主要解决了应用耦合、异步处理、流量削锋等问题</span><br><span class="line">目前使用比较多的Mq是RabbitMQ、RocketMQ、ActiveMQ、Kafka。</span><br><span class="line">了解下出处RabbitMQ、RocketMQ、ActiveMQ</span><br><span class="line">ActiveMQ是由Apache出品，可以运行在Java语言所支持的平台之上，社区活跃度不太高了。</span><br><span class="line">RocketMQ出自 阿里的开源产品，用 Java 语言实现，社区活跃度高，</span><br><span class="line">RabbitMQ则是国外一个公司研发的，基于的Erlang语言编写，社区活跃度高。</span><br><span class="line">使用情况</span><br><span class="line">ActiveMQ用的越来越少</span><br><span class="line">RabbitMQ不错，不过erlang语言开发，想要深入研究和掌控他有点难</span><br><span class="line">RocketMQ不错，开源的，是不错的选择；大型公司，基础架构研发实力较强，用RocketMQ是很好的选择</span><br><span class="line">是大数据领域的实时计算、日志采集等场景，用Kafka是业内标准</span><br><span class="line">总结：Kafka主要在大数据领域用的多，用来处理日志之类的，JavaEE用RabbitMQ、RocketMQ、ActiveMQ居多，用来处理业务，其中RabbitMQ使用广泛。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="怎么理解了应用耦合、异步处理、流量削锋"><a href="#怎么理解了应用耦合、异步处理、流量削锋" class="headerlink" title="怎么理解了应用耦合、异步处理、流量削锋"></a>怎么理解了应用耦合、异步处理、流量削锋</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">应用解耦</span><br><span class="line">通过消息中间件，让系统和系统之间耦合度降低，系统B出现问题，不会导致依赖它的系统A出现问题</span><br><span class="line"></span><br><span class="line">比如以电商应用为例，应用中有订单系统、库存系统、物流系统、支付系统。用户创建订单后，如果耦合调用库存系统、物流系统、支付系统，任何一个子系统出了故障，都会造成下单操作异常。</span><br><span class="line"></span><br><span class="line">当转变成基于消息队列的方式后，系统间调用的问题会减少很多，比如物流系统因为发生故障，需要几分钟来修复。在这几分钟的时间里，物流系统要处理的内存被缓存在消息队列中，用户的下单操作可以正常完成。当物流系统恢复后，继续处理订单信息即可，下单用户感受不到物流系统的故障。提升系统的可用性。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">异步处理</span><br><span class="line">通过消息中间件，让两个操作由串行变为并行，提高吞吐量</span><br><span class="line"></span><br><span class="line">假设用户注册需要发送邮件和发送注册短信，不使用消息队列，那么这些操作就是串行执行，用户注册所需要的时间，就是所有时间的总和。类似这样</span><br><span class="line">但是如果使用消息队列，那发短信和发邮件可以并行处理</span><br><span class="line">明显减少了总的处理时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">流量削锋</span><br><span class="line">通过消息中间件，让需要处理的请求，先进入消息队列缓冲，然后在进行消费。</span><br><span class="line"></span><br><span class="line">比如购物网站开展秒杀活动，一般由于瞬时访问量过大，服务器接收过大，会导致流量暴增，相关系统无法处理请求甚至崩溃。而加入消息队列后，系统可以从消息队列中取数据，相当于消息队列做了一次缓冲。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="项目哪些地方用到了RabbitMQ"><a href="#项目哪些地方用到了RabbitMQ" class="headerlink" title="项目哪些地方用到了RabbitMQ"></a>项目哪些地方用到了RabbitMQ</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">做微信支付的时候用到了，支付微服务发送消息，订单微服务处理消息</span><br><span class="line">具体使用逻辑</span><br><span class="line">用户调用支付微服务（changgou-service-pay）生成微信支付二维码的时候，传递exchange、routingkey、queue信息给微信服务器</span><br><span class="line">用户支付完成后，微信服务器通过回调地址通知支付微服务（changgou-service-pay），拿到微信服务器透传过来exchange、routingkey、queue信息进行消息的发送</span><br><span class="line">订单微服务（changgou-service-order）收到消息，更新订单表里面对应字段的状态</span><br><span class="line">这里就实现了支付微服务和订单微服务的解耦</span><br><span class="line">这里也实现了支付功能和订单状态修改的异步处理</span><br><span class="line">ps：还用到了【延时队列】，这里就没有写上了。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="RabbitMQ使用步骤怎样"><a href="#RabbitMQ使用步骤怎样" class="headerlink" title="RabbitMQ使用步骤怎样"></a>RabbitMQ使用步骤怎样</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">问题回答</span><br><span class="line">服务器安装（windows、linux、docker），开始可以先不考虑集群</span><br><span class="line">引入spring-boot-starter-amqp</span><br><span class="line">application.yml里面完成配置</span><br><span class="line">决定好的exchange、queue、routingkey</span><br><span class="line">合适的地方发消息</span><br><span class="line">合适的地方编写监听器接收消息</span><br><span class="line">搭建集群</span><br><span class="line">普通集群</span><br><span class="line">镜像集群</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="谈谈rabbitmg中的延迟队列"><a href="#谈谈rabbitmg中的延迟队列" class="headerlink" title="谈谈rabbitmg中的延迟队列"></a>谈谈rabbitmg中的延迟队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">延迟队列存储的是延迟消息，延迟消息是指消息被发送以后，并不想让消费者立刻拿到消息，而是等待待定时间后，消费者拿到消息进行消息</span><br><span class="line">在AMQP协议和RabbitMQ中并没有直接支持延迟队列，但是可以通过DLX和TTL模拟延迟队列。</span><br><span class="line">有什么业务场景？</span><br><span class="line">订单业务：在电商中，用户下单后30分钟后未付款则取消订单。</span><br><span class="line">短信通知：用户下单并付款后，1分钟后发短信给用户。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="谈谈rabbitmg中的死信队列"><a href="#谈谈rabbitmg中的死信队列" class="headerlink" title="谈谈rabbitmg中的死信队列"></a>谈谈rabbitmg中的死信队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">那什么消息是死信(dead message)呢？</span><br><span class="line">被拒绝（basic.reject或basic.nack）并且requeue=false的消息</span><br><span class="line">TTL过期消息的消息</span><br><span class="line">队列达到最大长度（队列满了，无法再添加数据到mq中）的消息</span><br><span class="line">DLX（Dead Letter Exchanges）死信队列，本身也是一个普通的消息队列，在创建队列的时候，通过设置一些关键参数x-dead-letter-exchange，可以将一个普通的消息队列设置为死信队列</span><br><span class="line">当这个队列中有死信时, RabbitMQ就会自动将这个消息重新发布到设置的Exchange上去, 进而被路由到另一个队列</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="谈谈rabbitmg中重试机制"><a href="#谈谈rabbitmg中重试机制" class="headerlink" title="谈谈rabbitmg中重试机制"></a>谈谈rabbitmg中重试机制</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">默认情况下，如果消费者程序出现异常情况， Rabbitmq 会自动实现补偿机制 也就是重试机制，会一直重试到不抛出异常为准</span><br><span class="line">默认是5s重试一次，重试策略可以修改</span><br><span class="line">最大重试次数（默认无数次）</span><br><span class="line">重试间隔次数</span><br><span class="line">可以设置应答模式，默认是自动应答，可以采取手动应答</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="es的原理是什么为什么用es不用mysql的索引"><a href="#es的原理是什么为什么用es不用mysql的索引" class="headerlink" title="es的原理是什么为什么用es不用mysql的索引"></a>es的原理是什么为什么用es不用mysql的索引</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库的索引是B+tree结构；ES基于的是倒排索引。</span><br><span class="line">ES可以处理分词后的全文搜索，对于mysql关系型数据库而言完全是灾难。比如查询包含关键字mysql的like &quot;%word%&quot; mysql全表查，es只需要查&quot;word&quot;这个词包含的文档id 速度明显不是一个级别。</span><br><span class="line">ES可以处理海量数据的搜索</span><br><span class="line">搜索方面，ES提供了更加丰富的功能。</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" class="">
+              面试
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>author:  </strong>风云</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>link:  </strong>
+    <a href="/2022/11/16/面试总结/" target="_blank" title="面试总结">http://example.com/2022/11/16/面试总结/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright notice:   </strong>
+      All articles on this website, unless otherwise stated, adopt <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      reprint policy. If reproduced, please indicate source!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/9.jpg" class="lazyload placeholder" data-srcset="/medias/9.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fas fa-angle-right"></i>
+        <div class="title-text">java基础笔记总结</div>
+      </div>
+      <!-- <div class="content">
+        
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.png" class="lazyload placeholder" data-srcset="/medias/zfb.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.png" class="lazyload placeholder" data-srcset="/medias/wx.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>catalog</span>
+        
+          <div class="toc-open-close">catalog</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin-left': 'auto', 'margin-right': 'auto',});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || '#42b983';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8620773911"
+  fixed='true'
+  autoplay='true'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+      <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 100) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  }
+</style> 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const headerMenuTransparent = true;
+    if (!headerMenuTransparent) { return; }
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = 'copy';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+    <script type="text/javascript">
+  var utteranceCommon = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceCommon.Theme = 'github-dark';
+    } else {
+      utteranceCommon.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'pathname')
+      utterances.setAttribute('theme', utteranceCommon.Theme)
+      utterances.setAttribute('repo', '')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceCommon.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+  
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

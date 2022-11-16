@@ -1,215 +1,2644 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
+  <!-- meta/link... -->
+  
+
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
-     <link rel="shortcut icon" href= /img/favicon.ico >
-    <title>
-        fanfan
-    </title>
-    <meta name="description" content= 嘿，我是小破站，欢迎访问！ >
-    <meta name="keywords" content= Blog,Hexo,java,fanfan >
-    
-<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
 
-    
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
-    
+  <title>fanfan</title>
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.3.0"></head>
-<body id="bodyx">
-    <div class="hd logodiv">
-    <img src="/img/fy.jpg" class="logopng" alt="logo">
-    <p class="logot">
-         风云的博客 
-         <span class="logo_2"></span>
-        <h3 class="words" style="font-weight: bold;font-family: Georgia;"> 
-            一入java深似海，从此相逢是路人 
-        </h3>
-    </p>
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="fanfan" type="application/atom+xml">
+</head>
+
+  
+  <!-- 依赖于jquery和vue -->
+  
+    
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+
+  
+
+  
+    
+<script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+  
+  
+  <body>
+    <!-- 预加载动画 -->
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">loading...</div>
+  </div>
 </div>
 
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('DOMContentLoaded',endLoading);
+  
+</script>
 
-<div class="hd">
-    <ol class="breadcrumb">
-        
-            <li><a class="ba" href="/about">关于我👀</a></li>
-        
-            <li><a class="ba" target="_blank" rel="noopener" href="https://gitee.com/fan-rujiang">Gitee🐒</a></li>
-        
-            <li><a class="ba" target="_blank" rel="noopener" href="https://github.com/fanrujiang">GitHub🐒</a></li>
-        
-            <li><a class="ba" href="/tags">标签</a></li>
-        
-            <li><a class="ba" href="/archives">归档</a></li>
-        
+    
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
-            
-<script src="/libs/jquery.min.js"></script>
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
 
-            
-<script src="/js/search.js"></script>
-
-            
-                <form class="site-search-form">
-                    <i class="fa fa-search" id="search-logo"><input type="text" id="local-search-input" class="st-search-input" /></i>
-                </form>
-                <div id="local-search-result" class="local-search-result-cls"></div>
-            
-            <script type="text/javascript" id="local.search.active">
-                var inputArea       = document.querySelector("#local-search-input");
-                var getSearchFile = function(){
-                    var path = "/search.xml";
-                    searchFunc(path, 'local-search-input', 'local-search-result');
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
                 }
-                inputArea.onfocus = function(){ getSearchFile() }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
 
-                var $resetButton = $("#search-form .fa-times");
-                var $resultArea = $("#local-search-result");
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (href, before, media, attributes) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
 
-                inputArea.oninput = function(){ $resetButton.show(); }
-                resetSearch = function(){
-                    $resultArea.html("");
-                    document.querySelector("#search-form").reset();
-                    $resetButton.hide();
-                    $(".no-result").hide();
-                }
-                inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-                //No search result
-                $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
-                    if (!$(e.target).text()) {
-                        $(".no-result").show(100);
-                    } else {
-                        $(".no-result").hide();
-                    }
-                })
-            </script>
+</script> 
 
-    </ol>
-    <hr>
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header   " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">fanfan</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/index" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">主页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/friends" class="drawer-menu-item-link">
+                  
+                  <span class="name">Friends</span>
+                </a>
+              
+            </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="hd">
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">fanfan</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/index" class="menu-item-link" title="主页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">主页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于我">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/friends" class="menu-item-link" title="Friends">
+                  
+                  <span class="name">Friends</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">Search</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="Please enter keywords"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
     
+</header>
+        <!-- 内容区域 -->
+        
+  <!-- 首页轮播 -->
+  
+
+  <link href="/js/vue-typed-js/index.css" rel="stylesheet">
+
+
+
+
+
+
+<div class="swiper-length" style="display: none;">0</div>
+<div id="appSwiper"
+  class="swiper-no-swiping"
+  @mouseenter="stopAutoPlay()" 
+  @mouseleave="startAutoPlay()"
+>
+  <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
     
-        
-        
-            <div class="titlex">
-                <p><span class="jing"></span><span style="color: #6d9ee7;"> 公元</span> 
-                 2022年 🕛
-                </p>
-            </div>
-            
-        
-        <a class="flink" href="/2022/11/08/Docker/">
-            <div class="list">
-                <div class="postname">
-                    Docker
+      <swiper-slide>
+        <div class="item swiper-lazy" data-background="https://pic4.zhimg.com/80/v2-5317ee3782ed2cdc733a907b0065f895_1440w.jpg" style="background-size: 300000px; 
+          background-position: left center;" style="position: relative;">
+          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+            <div class="flag">
+              
+              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://pic4.zhimg.com/80/v2-5317ee3782ed2cdc733a907b0065f895_1440w.jpg" style="height: 100%; background-size: cover; 
+                background-position: center center;">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
+              </div>
+              <div class="flag-text">
+                <div class="flag-text-content">
+                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">何处无为了余生</div>
+                  
+                    <div class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                      <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :type-speed="100" :back-speed="50">
+                        <h1 class="typing"></h1>
+                      </vue-typed-js>
+                    </div>
+                    
                 </div>
-                <div class="posttime">
-                    November 8th
+                <div style="display: flex;" class="flag-text-btns">
+                  
+                  
                 </div>
+              </div>
             </div>
-        </a>
+          </div>
+      </swiper-slide>
     
-        
-        
-        <a class="flink" href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-            <div class="list">
-                <div class="postname">
-                    关于mysql数据库的基本操作
-                </div>
-                <div class="posttime">
-                    November 8th
-                </div>
-            </div>
-        </a>
-    
-        
-        
-        <a class="flink" href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">
-            <div class="list">
-                <div class="postname">
-                    crm面试总结
-                </div>
-                <div class="posttime">
-                    November 7th
-                </div>
-            </div>
-        </a>
-    
-        
-        
-        <a class="flink" href="/2022/11/07/hello-world/">
-            <div class="list">
-                <div class="postname">
-                    Hello World
-                </div>
-                <div class="posttime">
-                    November 7th
-                </div>
-            </div>
-        </a>
+  </swiper>
+  
+    <div id="scroll-down" @click="toPostContent()">
+      <a href="javascript:;">
+        <i class="fas fa-angle-down scroll-down-effects"></i>
+      </a>
+    </div>
+  
+  <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
+  
+    <svg class="hans-container" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="hans-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="hans-parallax"><use xlink:href="#hans-wave" x="50" y="0" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="3" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="6" fill="rgba(224,233,239,.5)"></use></g></svg>
     
 </div>
 
-    <div class="footer" id="footer">
-    <p><h4>版权所有 © 2020 | 作者: 风云 | 主题 By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
-    
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <span id="busuanzi_container_site_pv">本站浏览总访问量: <span id="busuanzi_value_site_pv"></span></span>
-        <span class="post-meta-divider">|</span>
-        <span id="busuanzi_container_site_uv">本站访问人数: <span id="busuanzi_value_site_uv"></span></span>
-    
-    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
-        <input type="checkbox" name="switch" id="update_style">
-        <span class="el-switch-style"></span>
-    </label>
 
-    <!--         <script type="text/javascript">
-    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
-    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-    </script> -->
-</p>
-</div>
-
-<input type="hidden" id="web_style" value="black">
-<input type="hidden" id="valine_appid" value="">
-<input type="hidden" id="valine_appKey" value="">
-
-<script src="/libs/jquery.min.js"></script>
-
-
-<script src="/libs/highlight/highlight.pack.js"></script>
-
-<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
-
-<script src="/js/js.js"></script>
-
-<style type="text/css">
-.v * {
-color: #698fca;
-}
-.v .vlist .vcard .vhead .vsys {
-color: #3a3e4a;
-}
-.v .vlist .vcard .vh .vmeta .vat {
-color: #638fd5;
-}
-.v .vlist .vcard .vhead .vnick {
-color: #6ba1ff;
-}
-.v a {
-color: #8696b1;
-}
-.v .vlist .vcard .vhead .vnick:hover {
-color: #669bfc;
-}
+<style>.hans-parallax>use{animation:hans-wave-move 12s linear infinite}.hans-parallax>use:nth-child(1){animation-delay:-2s}.hans-parallax>use:nth-child(2){animation-delay:-2s;animation-duration:5s}.hans-parallax>use:nth-child(3){animation-delay:-4s;animation-duration:3s}@keyframes hans-wave-move{0%{transform:translate(-90px,0)}100%{transform:translate(85px,0)}}</style>
+<style>
+  .hans-container {
+    position: absolute!important;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 100;
+    pointer-events:none;
+  }
 </style>
-    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-</body>
+
+
+<script>
+  var autoplay = JSON.parse('false');
+  var delay = '5000';
+  var loop = JSON.parse('true') ? false : JSON.parse('true');
+  var effect = 'slide';
+  var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
+  var defaultDesc = '煮酒洗净尘嚣，论知交,万般付之一笑，共偕老';
+  defaultDesc = defaultDesc.split(',');
+  var defaultDescTypedLoop = JSON.parse('true');
+  var vm = new Vue({
+    el: '#appSwiper',
+    data: {
+      defaultDesc: defaultDesc,
+      defaultDescTypedLoop,
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true // 允许点击小圆点跳转
+        },
+        loop: loop ? true : false,
+        effect, // fade
+        autoplay: (autoplay && swiperLength > 1) ? {
+  　　　　delay,
+  　　　　disableOnInteraction: false // 手动切换之后继续自动轮播
+    　　} : false,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        lazy: {
+          loadPrevNext: true,
+        },
+        on:{
+          init: function() {
+            swiperAnimateCache(this); //隐藏动画元素 
+            swiperAnimate(this); //初始化完成开始动画
+          }, 
+          slideChangeTransitionEnd: function(){ 
+            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          } 
+        }
+        // Some Swiper option/callback...
+      }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.$swiper
+      }
+    },
+    mounted() {
+      // console.log('Current Swiper instance object', this.swiper)
+      // this.swiper.slideTo(0, 1000, false)
+    },
+    methods: {
+      stopAutoPlay() {
+        (autoplay && swiperLength > 1) && this.swiper.autoplay.stop();
+      },
+      startAutoPlay() {
+        (autoplay && swiperLength > 1) && this.swiper.autoplay.start();
+      },
+      slideChangeTransitionEnd() {
+        console.log('1');
+      },
+      toPostContent() {
+        const fullHeight = $(window).height() - 60;
+        $('html,body').animate({scrollTop: fullHeight},500);
+      }
+    },
+    created() {}
+  })
+</script>
+
+  <script src="/js/bubble/homeBubble.js"></script>
+
+<style>
+#appSwiper {
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+.default-excerpt {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
+}
+.bottom-one-btn {
+  margin-top: 15px;
+}
+.swiper-container {
+  overflow: hidden;
+  z-index: 0;
+}
+.swiper-slide {
+  height: 350px;
+  position: relative;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  padding: 10px 10px;
+  transition: background 0.2s;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.swiper-slide .item {
+  width: 100%;
+  height: 100%;
+}
+.flag {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  color: #ffffff;
+  height: 100%;
+  background: #000;
+}
+.flag img {
+  min-height: 100%;
+}
+.flag-text {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 80%;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999;
+}
+.flag-text .title {
+  font-size: 1.8rem;
+  font-family: Long Cang,cursive;
+}
+.flag-text .title a {
+  color: #fff;
+  transition: color 0.3s;
+}
+.flag-text .title a:hover {
+  color: #42b983;
+}
+.flag-text .excerpt {
+  color: #eee;
+  font-family: Ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  width: 70%;
+  line-height: 30px;
+  height: 150px;
+  margin-top: 2%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #42b983;
+}
+.img-mask {
+  opacity:0.6; filter: alpha(opacity=60);
+}
+.flag-text .read-more {
+  margin-bottom: 30px;
+  padding: 5px 15px;
+  color: #ffffff;
+  border-radius: 20px;
+}
+#scroll-down {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+#scroll-down a {
+  color: #fff;
+}
+@-webkit-keyframes rightan
+  {
+  
+  0%
+  {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  100%
+  {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+}
+.scroll-down-effects {
+  animation: rightan 1.5s infinite;
+}
+/* 当头部导航设置为背景透明的时候 */
+
+  .swiper-slide {
+    height: 400px;
+  }
+  .flag-text {
+    top: 80px;
+  }
+
+
+@media (min-width: 992px) {
+  .swiper-button-prev {
+    margin-left: 15%;
+    transform: translateX(-180%);
+  }
+  .swiper-button-next {
+    margin-right: 15%;
+    transform: translateX(180%);
+  }
+  .flag-text .title {
+    width: 80%;
+    line-height: 35px;
+    max-height: 70px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 1200px) { 
+  .flag {
+    width: 80%;
+  }
+  .swiper-button-prev {
+    margin-left: 10%;
+    transform: translateX(-180%);
+  }
+  .swiper-button-next {
+    margin-right: 10%;
+    transform: translateX(180%);
+  }
+}
+@media (max-width: 992px) {
+  .flag {
+    width: 100%;
+  }
+  .flag-text .title {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .flag-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .flag-text .excerpt {
+    width: 100%;
+    line-height: 25px;
+    height: 125px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+  .flag-text .read-more {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 992px) and (min-width: 551px) {
+  .flag-text .excerpt {
+    width: 70%;
+  }
+}
+@media (max-width: 551px) {
+  .swiper-slide {
+    height: 250px;
+  }
+  .flag-text .title {
+    line-height: 30px;
+    max-height: 60px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .flag-text .excerpt {
+    font-size: 1rem;
+    line-height: 20px;
+    height: 80px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+  .flag-text .excerpt { 
+    margin-top: 10px;
+  }
+  .flag-text .read-more {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    transform: scale(0.5);
+  }
+  .swiper-button-prev {
+    left: 0;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
+}
+/* 当头部导航设置为背景透明的时候 */
+
+  @media (max-width: 992px) {
+    .flag-text {
+      top: 60px;
+      height: 80%;
+    }
+  }
+  @media (max-width: 551px) {
+    .swiper-slide {
+      height: 310px;
+    }
+  }
+
+
+/* 文字或者按钮居中显示 */
+
+  .flag-text {
+    left: 10%;
+  }
+  .flag-text .flag-text-content {
+    width: 100%;
+    text-align: center;
+  }
+  .flag-text .title {
+    width: 100%;
+    text-align: center;
+  }
+  .flag-text .excerpt { 
+    width: 100%;
+    text-align: center;
+  }
+  .bottom-one-btn {
+    display: flex;
+    justify-content: center;
+  }
+  .default-excerpt {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
+  }
+  .flag-text-btns {
+    justify-content: center;
+  }
+  @media (min-width: 992px) {
+    .flag-text .excerpt {
+      line-height: 30px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+    }
+  }
+  @media (max-width: 992px) {
+    .flag-text {
+      margin-left: 0;
+      transform: translateX(0);
+    }
+  }
+
+
+
+
+/* 全屏显示 */
+
+  .flag {
+    width: 100%;
+  }
+  .swiper-slide {
+    height: calc(100vh - 60px);
+    
+      height: 100vh;
+    
+  }
+  .flag-text {
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: auto;
+  }
+  .flag-text .title {
+    font-size: 2.8rem;
+    line-height: 1.5em;
+    max-height: none;
+    /* overflow: visible; */
+  }
+  .flag-text .excerpt {
+    font-size: 1.25rem;
+    height: 150px;
+  }
+  .flag-text .read-more {
+    margin-top: 10px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-top: -60px!important;
+  }
+  .swiper-btn-color,
+  .swiper-btn-color2 {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  .swiper-btn-color:hover,
+  .swiper-btn-color2:hover {
+    background-color: #42b983;
+    border: 1px solid #42b983!important;
+  }
+  .flag-text-btns {
+    justify-content: center;
+  }
+  .swiper-button-prev {
+    margin-left: 10px;
+    transform: translateX(0);
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-next {
+    margin-right: 10px;
+    transform: translateX(0);
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 992px) {
+    .flag-text .excerpt {
+      line-height: 35px;
+      height: 175px;
+    }
+    .default-excerpt {
+      min-height: 150px;
+    }
+    .typed-element {
+      align-items: unset;
+    }
+  }
+  @media (max-width: 992px) {
+    .flag-text {
+      margin-left: 0;
+      height: 60%;
+      top: 55%;
+    }
+    .flag-text .title {
+      font-size: 2.4rem;
+      margin-top: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    .flag-text .excerpt {
+      line-height: 35px;
+      height: 185px;
+    }
+    .flag-text .read-more {
+      margin-top: 20px;
+    }
+  }
+  @media (max-width: 551px) {
+    .flag-text {
+      height: 60%;
+    }
+    .flag-text .title {
+      font-size: 2.2rem;
+    }
+    .flag-text .excerpt {
+      line-height: 30px;
+    }
+    .flag-text .read-more {
+      margin-top: 50px;
+      padding: 10px 30px;
+    }
+    .swiper-button-prev {
+      margin-left: 0;
+    }
+    .swiper-button-next {
+      margin-right: 0;
+    }
+    .default-excerpt {
+      margin-top: 1rem;
+    }
+  }
+
+
+/* video */
+.swiper-video {
+  width: 100%;
+  height: 100%;
+}
+.swiper-video video {
+  pointer-events: none;
+}
+.swiper-video-maskBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.2;
+  z-index: 1;
+}
+@media (min-width: 992px) {
+  
+    .swiper-video {
+      display: none;
+    }
+    .swiper-default-bgImg {
+      display: block;  
+    }
+  
+}
+@media (max-width: 992px) {
+  .swiper-video {
+    display: none;
+  }
+  .swiper-default-bgImg {
+    display: block;  
+  }
+}
+/* video-end */
+</style>
+
+
+<div id="l_main">
+  <div class="l_content">
+    <!-- 自定义的内容 -->
+    
+    <!-- 首页座右铭 -->
+    
+  <div class="motto">
+      <h3 class="motto-title">座右铭</h3>
+      <div class="motto-content">
+        <p>
+          沉淀后我愿意做个温暖的人，有自己的喜好，有自己的原则，有自己的信仰，不急功近利，不浮夸轻薄。宠辱不惊，淡定安逸，心静如水，不忘初心，方得始终。——凌茜  
+        </p> 
+      </div>
+  </div>
+
+    <!-- 首页公告 -->
+    
+    <!-- 首页文章置顶 -->
+    
+
+
+<div class="topArticle reveal">
+	<h3><i class="fas fa-thumbs-o-up" aria-hidden="true"></i>Recommend Articles</h3>
+	<div class="articles">
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</div>
+</div>
+
+
+    <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+    <!-- 每一篇文章卡片 -->
+    <!-- hash算法 -->
+
+<section class="posts">
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-16</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">面试总结</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+ArrayList和LinkedList区别123456ArrayList和LinkedList都是list接口 ArrayList基于数组 LinkedList基于链表arrayList   	的查询速率快，增删慢，往数组尾部添加效率高
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-09</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/">java基础笔记总结</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/9.jpg" class="lazyload placeholder" data-srcset="/medias/9.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/9.jpg" class="lazyload placeholder" data-srcset="/medias/9.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-08</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/08/Docker/">Docker</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/08/Docker/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            Docker学习笔记1.认识docker1.1.什么是dockerDocker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/08/Docker/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/08/Docker/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-08</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">关于mysql数据库的基本操作</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            关于MySQL数据库的基本操作1.sql的语法分类
+1234DDL(Data Definition Language) 数据定义语言:(定义数据库对象)操作数据库，表等DML(Data Manipulation Language) 数据操作
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-07</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">crm面试总结</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/3.jpg" class="lazyload placeholder" data-srcset="/medias/3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            crm面试总结1.crm的验证码是如何实现的通过google验证码工具类生成公式（1+1&#x3D;?@2），对公式进行分割，前半部公式需要生成图片对象并转为Base64编码，后半部分公式的值，需要通过key&#x3D;固定前缀+uuid 
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/3.jpg" class="lazyload placeholder" data-srcset="/medias/3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-11-07</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2022/11/07/hello-world/">Hello World</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2022/11/07/hello-world/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2022/11/07/hello-world/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2022/11/07/hello-world/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/7.jpg" class="lazyload placeholder" data-srcset="/medias/7.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+</section>
+    <!-- 翻页 -->
+    
+  </div>
+
+  
+<aside id='l_side'>
+  
+    
+      
+        <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='http://api.btstu.cn/sjtx/api.php?lx=c1&format=images'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>风云</h2>
+        
+        
+          <p>迄今所有人生都大写着失败，但不妨碍我继续向前。</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">fanfan</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:1066643487@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1066643487"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=你的qq号码"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+  
+  
+
+  <div class="layout_sticky">
+    
+      
+  
+    
+    
+      
+<section class="widget side_tagcloud">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+    <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+    </div>
+</section>
+
+  
+    
+    
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-16</span>
+                
+              </div>
+              <a class="post-title" href="/2022/11/16/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">面试总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/9.jpg" class="lazyload placeholder" data-srcset="/medias/9.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-09</span>
+                
+              </div>
+              <a class="post-title" href="/2022/11/09/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/">java基础笔记总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/11/08/Docker/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-08</span>
+                
+              </div>
+              <a class="post-title" href="/2022/11/08/Docker/">Docker</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/8.jpg" class="lazyload placeholder" data-srcset="/medias/8.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-08</span>
+                
+              </div>
+              <a class="post-title" href="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">关于mysql数据库的基本操作</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/3.jpg" class="lazyload placeholder" data-srcset="/medias/3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/2022/11/07/crm%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">crm面试总结</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  <section class="widget side_archives">
+    
+    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">November 2022</span><span class="card-archive-list-count">6</span></a></li></ul></div>
+  </section>
+
+    <section class="widget side_webinfo">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>6 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2022/11/05'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+
+      
+
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Wed Nov 16 2022 23:43:40 GMT+0800 (香港标准时间)</div>
+            <div id="last-update-show">2022-11-16 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2022-11-16 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+    
+  </div>
+</aside>
+
+</div>
+<!-- 花瓣和雪花飘落 -->
+<!-- 雪花和花瓣特效 -->
+
+  
+    <script type="text/javascript">
+      //只在桌面版网页启用特效
+      var windowWidth = $(window).width();
+      if (windowWidth > 768) {
+        loadScript('/js/falling/snow.js');
+      }
+    </script>
+  
+
+
+
+<!-- 灯笼 -->
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || '#42b983';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark">
+  <div class="dark-content">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="tencent"
+  type="playlist"
+  id="8620773911"
+  fixed='true'
+  autoplay='true'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+      <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -80,
+    headingsOffset: -($(window).height() * 0.4 - 45),
+    positionFixedSelector: '.toc-main',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 100) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  }
+</style> 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const headerMenuTransparent = true;
+    if (!headerMenuTransparent) { return; }
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = 'copy';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+    <script type="text/javascript">
+  var utteranceCommon = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceCommon.Theme = 'github-dark';
+    } else {
+      utteranceCommon.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'pathname')
+      utterances.setAttribute('theme', utteranceCommon.Theme)
+      utterances.setAttribute('repo', '')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceCommon.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+  
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
 </html>
