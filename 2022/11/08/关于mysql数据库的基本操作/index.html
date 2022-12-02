@@ -259,20 +259,22 @@
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/about" class="drawer-menu-item-link">
+                <a href="/categories" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
-                  <span class="name">关于我</span>
+                  <span class="name">Categories</span>
                 </a>
               
             </li>
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/friends" class="drawer-menu-item-link">
+                <a href="/about" class="drawer-menu-item-link">
                   
-                  <span class="name">Friends</span>
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
                 </a>
               
             </li>
@@ -377,6 +379,17 @@
           
             <li class="menu-item" style="position: relative;">
               
+                <a href="/categories" class="menu-item-link" title="Categories">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">Categories</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
                 <a href="/about" class="menu-item-link" title="关于我">
                   
                     <i class="fas fa-user" aria-hidden="true"></i>
@@ -386,93 +399,9 @@
               
             </li>
           
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/friends" class="menu-item-link" title="Friends">
-                  
-                  <span class="name">Friends</span>
-                </a>
-              
-            </li>
-          
         
       </ul>
       
-      
-        <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
-  <transition name="fade">
-    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
-      <div class="message-box animated bounceInDown">
-        <h2>
-          <span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <span class="title">Search</span>
-          </span>
-          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
-        </h2>
-        <form class="site-search-form">
-          <input type="text"
-            placeholder="Please enter keywords"
-            id="local-search-input" 
-            @click="getSearchFile()"
-            class="st-search-input"
-            v-model="searchInput"
-          />
-        </form>
-        <div class="result-wrapper">
-          <div id="local-search-result" class="local-search-result-cls"></div>
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-<script src="/js/local_search.js"></script>
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appSearch',
-    data: {
-      dialogVisible: false,
-      searchInput: '',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-      window.addEventListener('pjax:complete', () => {
-        this.cancelDialogVisible();
-      })
-    },
-    methods: {
-      showDialog() {
-        this.dialogVisible = true;
-        // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop()
-        body.style.cssText = 'overflow: hidden;';
-      },
-      getSearchFile() {
-        if (!this.searchInput) {
-          getSearchFile("/search.xml");
-        }
-      },
-      cancelDialogVisible() {
-        this.dialogVisible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-    },
-    created() {}
-  })
-</script>
-<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
-<!-- 下面是搜索基本写法 -->
-<!-- <script type="text/javascript" id="local.search.active">
-  var inputArea = document.querySelector("#local-search-input");
-  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
-  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-</script> -->
-
       
 
     </nav>
@@ -559,7 +488,14 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h3 id="关于MySQL数据库的基本操作"><a href="#关于MySQL数据库的基本操作" class="headerlink" title="关于MySQL数据库的基本操作"></a>关于MySQL数据库的基本操作</h3><h4 id="1-sql的语法分类"><a href="#1-sql的语法分类" class="headerlink" title="1.sql的语法分类"></a>1.sql的语法分类</h4><p><img src="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20221108010502077.png" class="lazyload placeholder" data-srcset="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20221108010502077.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108010502077"></p>
+        <h3 id="关于MySQL数据库的基本操作"><a href="#关于MySQL数据库的基本操作" class="headerlink" title="关于MySQL数据库的基本操作"></a>关于MySQL数据库的基本操作</h3><h4 id="1-sql的语法分类"><a href="#1-sql的语法分类" class="headerlink" title="1.sql的语法分类"></a>1.sql的语法分类</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20221108010502077.png" class="lazyload placeholder" data-srcset="/2022/11/08/%E5%85%B3%E4%BA%8Emysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20221108010502077.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108010502077" title>
+                </div>
+                <div class="image-caption">image-20221108010502077</div>
+            </figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DDL(Data Definition Language) 数据定义语言:(定义数据库对象)操作数据库，表等</span><br><span class="line">DML(Data Manipulation Language) 数据操作语言:对表中的数据进行增删改</span><br><span class="line">DQL(Data Query Language) 数据查询语言:对表中的记录(数据)进行查询</span><br><span class="line">DCL(Data Control Language) 数据控制语言:管理用户对数据库访问权限和安全级别进行控制</span><br></pre></td></tr></table></figure>
 
 <h5 id="DDL操作数据库"><a href="#DDL操作数据库" class="headerlink" title="DDL操作数据库"></a>DDL操作数据库</h5><p>语法</p>
@@ -1015,7 +951,7 @@
       if (isDark) {
         this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
       } else {
-        this.FISH_COLOR = '' || '#42b983';
+        this.FISH_COLOR = '#7dd2f0' || '#7dd2f0';
       }
     },
     setParameters: function () {
@@ -1166,7 +1102,7 @@
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2022 - 2025 <a target="_blank" rel="noopener" href="https://github.com/fanrujiang">fanfan</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a></p>
 
           </div>
         
@@ -1256,7 +1192,7 @@
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
   
   font-size: 15px;
-  color: #42b983;
+  color: #7dd2f0;
 }
 
 
@@ -1277,7 +1213,7 @@
   id="8620773911"
   fixed='true'
   autoplay='true'
-  theme='#42b983'
+  theme='#7dd2f0'
   loop='all'
   order='random'
   preload='auto'
@@ -1700,8 +1636,8 @@
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-   
-    <script src="/js/cursor/clicklove.js"></script> 
+  
+    <script src="/js/cursor/text.js"></script>
   
 
 

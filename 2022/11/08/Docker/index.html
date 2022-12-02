@@ -259,20 +259,22 @@
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/about" class="drawer-menu-item-link">
+                <a href="/categories" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
-                  <span class="name">关于我</span>
+                  <span class="name">Categories</span>
                 </a>
               
             </li>
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/friends" class="drawer-menu-item-link">
+                <a href="/about" class="drawer-menu-item-link">
                   
-                  <span class="name">Friends</span>
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
                 </a>
               
             </li>
@@ -377,6 +379,17 @@
           
             <li class="menu-item" style="position: relative;">
               
+                <a href="/categories" class="menu-item-link" title="Categories">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">Categories</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
                 <a href="/about" class="menu-item-link" title="关于我">
                   
                     <i class="fas fa-user" aria-hidden="true"></i>
@@ -386,93 +399,9 @@
               
             </li>
           
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/friends" class="menu-item-link" title="Friends">
-                  
-                  <span class="name">Friends</span>
-                </a>
-              
-            </li>
-          
         
       </ul>
       
-      
-        <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
-  <transition name="fade">
-    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
-      <div class="message-box animated bounceInDown">
-        <h2>
-          <span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <span class="title">Search</span>
-          </span>
-          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
-        </h2>
-        <form class="site-search-form">
-          <input type="text"
-            placeholder="Please enter keywords"
-            id="local-search-input" 
-            @click="getSearchFile()"
-            class="st-search-input"
-            v-model="searchInput"
-          />
-        </form>
-        <div class="result-wrapper">
-          <div id="local-search-result" class="local-search-result-cls"></div>
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-<script src="/js/local_search.js"></script>
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appSearch',
-    data: {
-      dialogVisible: false,
-      searchInput: '',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-      window.addEventListener('pjax:complete', () => {
-        this.cancelDialogVisible();
-      })
-    },
-    methods: {
-      showDialog() {
-        this.dialogVisible = true;
-        // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop()
-        body.style.cssText = 'overflow: hidden;';
-      },
-      getSearchFile() {
-        if (!this.searchInput) {
-          getSearchFile("/search.xml");
-        }
-      },
-      cancelDialogVisible() {
-        this.dialogVisible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-    },
-    created() {}
-  })
-</script>
-<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
-<!-- 下面是搜索基本写法 -->
-<!-- <script type="text/javascript" id="local.search.active">
-  var inputArea = document.querySelector("#local-search-input");
-  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
-  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-</script> -->
-
       
 
     </nav>
@@ -602,7 +531,14 @@
 <p>在镜像仓库搜索自己需要的镜像， DockerHub</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名         #拉取镜像 </span><br><span class="line">docker pull 镜像名:tag </span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/11/08/Docker/image-20221108201847316.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108201847316.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108201847316"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/11/08/Docker/image-20221108201847316.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108201847316.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108201847316" title>
+                </div>
+                <div class="image-caption">image-20221108201847316</div>
+            </figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run 镜像名          #运行镜像</span><br><span class="line">docker run 镜像名:tag     #选择版本运行</span><br></pre></td></tr></table></figure>
 
 <p><strong>docker删除镜像</strong></p>
@@ -619,12 +555,26 @@
 <p>示例</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save redis -o /root/myRedis.tar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/11/08/Docker/image-20221108205643248.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108205643248.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108205643248"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/11/08/Docker/image-20221108205643248.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108205643248.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108205643248" title>
+                </div>
+                <div class="image-caption">image-20221108205643248</div>
+            </figure>
+
 <p><strong>加载镜像</strong></p>
 <p>任何装 docker 的地方加载镜像保存文件,使其恢复为一个镜像</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i 镜像保存文件位置</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/11/08/Docker/image-20221108235315686.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108235315686.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108235315686"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/11/08/Docker/image-20221108235315686.png" class="lazyload placeholder" data-srcset="/2022/11/08/Docker/image-20221108235315686.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20221108235315686" title>
+                </div>
+                <div class="image-caption">image-20221108235315686</div>
+            </figure>
+
 <p><strong>查看镜像 测试镜像功能是否正常</strong></p>
 <p>运行我们下载加载的镜像测试</p>
 <h4 id="3-2docker的容器命令"><a href="#3-2docker的容器命令" class="headerlink" title="3.2docker的容器命令"></a>3.2docker的容器命令</h4><p><strong>查询正在运行的容器</strong></p>
@@ -709,7 +659,8 @@
       </div>
       <!-- <div class="content">
         关于MySQL数据库的基本操作1.sql的语法分类
-1234DDL(Data Definition Language) 
+                
+                 
       </div> -->
     </a>
   </div>
@@ -1086,7 +1037,7 @@
       if (isDark) {
         this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
       } else {
-        this.FISH_COLOR = '' || '#42b983';
+        this.FISH_COLOR = '#7dd2f0' || '#7dd2f0';
       }
     },
     setParameters: function () {
@@ -1237,7 +1188,7 @@
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2022 - 2025 <a target="_blank" rel="noopener" href="https://github.com/fanrujiang">fanfan</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a></p>
 
           </div>
         
@@ -1327,7 +1278,7 @@
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
   
   font-size: 15px;
-  color: #42b983;
+  color: #7dd2f0;
 }
 
 
@@ -1348,7 +1299,7 @@
   id="8620773911"
   fixed='true'
   autoplay='true'
-  theme='#42b983'
+  theme='#7dd2f0'
   loop='all'
   order='random'
   preload='auto'
@@ -1771,8 +1722,8 @@
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-   
-    <script src="/js/cursor/clicklove.js"></script> 
+  
+    <script src="/js/cursor/text.js"></script>
   
 
 

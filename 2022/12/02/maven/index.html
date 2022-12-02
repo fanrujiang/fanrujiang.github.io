@@ -259,20 +259,22 @@
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/about" class="drawer-menu-item-link">
+                <a href="/categories" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
-                  <span class="name">关于我</span>
+                  <span class="name">Categories</span>
                 </a>
               
             </li>
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/friends" class="drawer-menu-item-link">
+                <a href="/about" class="drawer-menu-item-link">
                   
-                  <span class="name">Friends</span>
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于我</span>
                 </a>
               
             </li>
@@ -377,6 +379,17 @@
           
             <li class="menu-item" style="position: relative;">
               
+                <a href="/categories" class="menu-item-link" title="Categories">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">Categories</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
                 <a href="/about" class="menu-item-link" title="关于我">
                   
                     <i class="fas fa-user" aria-hidden="true"></i>
@@ -386,93 +399,9 @@
               
             </li>
           
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/friends" class="menu-item-link" title="Friends">
-                  
-                  <span class="name">Friends</span>
-                </a>
-              
-            </li>
-          
         
       </ul>
       
-      
-        <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
-  <transition name="fade">
-    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
-      <div class="message-box animated bounceInDown">
-        <h2>
-          <span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <span class="title">Search</span>
-          </span>
-          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
-        </h2>
-        <form class="site-search-form">
-          <input type="text"
-            placeholder="Please enter keywords"
-            id="local-search-input" 
-            @click="getSearchFile()"
-            class="st-search-input"
-            v-model="searchInput"
-          />
-        </form>
-        <div class="result-wrapper">
-          <div id="local-search-result" class="local-search-result-cls"></div>
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-<script src="/js/local_search.js"></script>
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appSearch',
-    data: {
-      dialogVisible: false,
-      searchInput: '',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-      window.addEventListener('pjax:complete', () => {
-        this.cancelDialogVisible();
-      })
-    },
-    methods: {
-      showDialog() {
-        this.dialogVisible = true;
-        // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop()
-        body.style.cssText = 'overflow: hidden;';
-      },
-      getSearchFile() {
-        if (!this.searchInput) {
-          getSearchFile("/search.xml");
-        }
-      },
-      cancelDialogVisible() {
-        this.dialogVisible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-    },
-    created() {}
-  })
-</script>
-<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
-<!-- 下面是搜索基本写法 -->
-<!-- <script type="text/javascript" id="local.search.active">
-  var inputArea = document.querySelector("#local-search-input");
-  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
-  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-</script> -->
-
       
 
     </nav>
@@ -559,22 +488,64 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="Maven作用"><a href="#Maven作用" class="headerlink" title="Maven作用"></a>Maven作用</h1><h2 id="①标准化的项目结构"><a href="#①标准化的项目结构" class="headerlink" title="①标准化的项目结构"></a>①标准化的项目结构</h2><p><img src="/2022/12/02/maven/image-20220615150845028.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615150845028.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615150845028"></p>
+        <h1 id="Maven作用"><a href="#Maven作用" class="headerlink" title="Maven作用"></a>Maven作用</h1><h2 id="①标准化的项目结构"><a href="#①标准化的项目结构" class="headerlink" title="①标准化的项目结构"></a>①标准化的项目结构</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220615150845028.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615150845028.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615150845028" title>
+                </div>
+                <div class="image-caption">image-20220615150845028</div>
+            </figure>
+
 <p>Maven提供了一套标准化的项目结构，使得不同IDE通过Maven构建的项目可以通用。</p>
-<p><img src="/2022/12/02/maven/image-20220611100546816.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100546816.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100546816"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611100546816.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100546816.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100546816" title>
+                </div>
+                <div class="image-caption">image-20220611100546816</div>
+            </figure>
+
 <h2 id="②标准化的构建流程"><a href="#②标准化的构建流程" class="headerlink" title="②标准化的构建流程"></a>②标准化的构建流程</h2><p>Maven提供了一套标准化的构建流程, （编译，测试，打包，发布……）</p>
-<p><img src="/2022/12/02/maven/image-20220611100607908.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100607908.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100607908"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611100607908.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100607908.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100607908" title>
+                </div>
+                <div class="image-caption">image-20220611100607908</div>
+            </figure>
+
 <h2 id="③方便的依赖管理"><a href="#③方便的依赖管理" class="headerlink" title="③方便的依赖管理"></a>③方便的依赖管理</h2><p>提供了一套依赖管理机制</p>
 <p>不使用Maven</p>
-<p><img src="/2022/12/02/maven/image-20220611100622218.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100622218.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100622218"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611100622218.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100622218.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100622218" title>
+                </div>
+                <div class="image-caption">image-20220611100622218</div>
+            </figure>
+
 <p>使用Maven</p>
-<p><img src="/2022/12/02/maven/image-20220611100640017.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100640017.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100640017"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611100640017.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100640017.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100640017" title>
+                </div>
+                <div class="image-caption">image-20220611100640017</div>
+            </figure>
+
 <h1 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Apache Maven是专门用于管理和构建Java项目的工具. 基于项目对象模型(POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档</p>
 <p>官网：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a> </p>
 <h2 id="Maven模型"><a href="#Maven模型" class="headerlink" title="Maven模型"></a>Maven模型</h2><p>项目对象模型 (Project Object Model)</p>
 <p>依赖管理模型(Dependency)</p>
 <p>插件(Plugin)</p>
-<p><img src="/2022/12/02/maven/image-20220611101723266.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611101723266.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611101723266"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611101723266.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611101723266.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611101723266" title>
+                </div>
+                <div class="image-caption">image-20220611101723266</div>
+            </figure>
+
 <h2 id="Maven作用-1"><a href="#Maven作用-1" class="headerlink" title="Maven作用"></a>Maven作用</h2><p>①标准化的项目结构</p>
 <p>②标准化的构建流程</p>
 <p>③方便的依赖管理</p>
@@ -582,20 +553,41 @@
 <p>本地仓库：自己计算机上的一个目录。本地仓库有，则在项目直接引用;</p>
 <p>远程仓库(私服)：一般由公司团队搭建的私有仓库。本地仓库没有，则去远程仓库下载到本地仓库(前提是配置了远程仓库);</p>
 <p>中央仓库：Maven团队维护的唯一仓库。本地和远程仓库都没有,先从中央仓库下载到远程仓库，再从远程仓库下载本地仓库。</p>
-<p><img src="/2022/12/02/maven/image-20220611102206499.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102206499.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102206499"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611102206499.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102206499.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102206499" title>
+                </div>
+                <div class="image-caption">image-20220611102206499</div>
+            </figure>
+
 <h2 id="坐标详解"><a href="#坐标详解" class="headerlink" title="坐标详解"></a>坐标详解</h2><p>什么是坐标？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Maven 中的坐标是资源的唯一标识</span><br><span class="line"></span><br><span class="line">使用坐标来定义项目或引入项目中需要的依赖</span><br></pre></td></tr></table></figure>
 
 <p>坐标组成</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">groupId：Maven项目隶属组织名称（通常是域名反写，例如：com.itheima）</span><br><span class="line"></span><br><span class="line">artifactId：Maven项目名称（通常是模块名称，例如 order-service、goods-service）</span><br><span class="line"></span><br><span class="line">version： Maven项目版本号</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/12/02/maven/image-20220611102241107.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102241107.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102241107"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611102241107.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102241107.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102241107" title>
+                </div>
+                <div class="image-caption">image-20220611102241107</div>
+            </figure>
+
 <h1 id="Maven安装和配置"><a href="#Maven安装和配置" class="headerlink" title="Maven安装和配置"></a>Maven安装和配置</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">解压 apache-maven-3.6.1.rar到指定路径</span><br><span class="line"></span><br><span class="line">配置环境变量 增加MAVEN_HOME,值为Maven的bin目录的上层路径,在path中结合MAVEN_HOME添加bin目录。</span><br><span class="line"></span><br><span class="line">配置本地仓库：修改 conf/settings.xml 中的 &lt;localRepository&gt; 为一个指定目录。</span><br><span class="line">	 &lt;localRepository&gt;D:\develop\apache-maven-3.6.1\mvn_resp&lt;/localRepository&gt;</span><br><span class="line">配置阿里云私服：修改 conf/settings.xml 中的 &lt;mirrors&gt;标签，为其添加如下子标签：</span><br><span class="line">	&lt;mirror&gt;  </span><br><span class="line">	&lt;id&gt;alimaven&lt;/id&gt;  </span><br><span class="line">	&lt;name&gt;aliyun maven&lt;/name&gt;  </span><br><span class="line">	&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">	&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;          </span><br><span class="line">	&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
 
 
 
 <h1 id="Maven基本使用"><a href="#Maven基本使用" class="headerlink" title="Maven基本使用"></a>Maven基本使用</h1><h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>①compile ：编译 ②clean：清理 ③test：测试 ④package：打包 ⑤install：安装</p>
-<p><img src="/2022/12/02/maven/image-20220615160056900.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615160056900.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615160056900"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220615160056900.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615160056900.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615160056900" title>
+                </div>
+                <div class="image-caption">image-20220615160056900</div>
+            </figure>
+
 <p>命令行方式操作，需要进入pom.xml所在的目录。</p>
 <p>第一次使用,需要下载相关插件。</p>
 <h2 id="Maven生命周期"><a href="#Maven生命周期" class="headerlink" title="Maven生命周期"></a>Maven生命周期</h2><p>生命周期:描述构建一次项目过程经历了多少个事件。Maven 对项目构建的生命周期划分为3套</p>
@@ -603,45 +595,131 @@
 <p>default(构建项目)：例如编译，测试，打包，安装等,x详细参考《default生命周期详解.png 》</p>
 <p>Site(生成项目站点)：产生报告，发布站点等</p>
 <p>同一生命周期内，执行后边的命令，前边的所有命令会自动执行</p>
-<p><img src="/2022/12/02/maven/image-20220611102357360.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102357360.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102357360"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611102357360.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102357360.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102357360" title>
+                </div>
+                <div class="image-caption">image-20220611102357360</div>
+            </figure>
+
 <h1 id="IDEA使用Maven"><a href="#IDEA使用Maven" class="headerlink" title="IDEA使用Maven"></a>IDEA使用Maven</h1><h2 id="IDEA配置Maven"><a href="#IDEA配置Maven" class="headerlink" title="IDEA配置Maven"></a>IDEA配置Maven</h2><p>选择 IDEA中 File –&gt; Settings</p>
 <p>搜索 maven </p>
 <p>设置 IDEA 使用本地安装的 Maven，并修改配置文件路径</p>
-<p><img src="/2022/12/02/maven/image-20220615163826178.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615163826178.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615163826178"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220615163826178.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615163826178.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615163826178" title>
+                </div>
+                <div class="image-caption">image-20220615163826178</div>
+            </figure>
+
 <h2 id="创建Maven项目"><a href="#创建Maven项目" class="headerlink" title="创建Maven项目"></a>创建Maven项目</h2><p>创建模块，选择Maven，点击Next</p>
 <p>填写模块名称，坐标信息，点击finish，创建完成</p>
 <p>编写 HelloWorld，并运行</p>
-<p><img src="/2022/12/02/maven/image-20220611102507711.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102507711.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102507711"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611102507711.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102507711.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102507711" title>
+                </div>
+                <div class="image-caption">image-20220611102507711</div>
+            </figure>
+
 <h2 id="导入Maven项目"><a href="#导入Maven项目" class="headerlink" title="导入Maven项目"></a>导入Maven项目</h2><p>选择右侧Maven面板，点击 + 号</p>
 <p>选中对应项目的pom.xml文件，双击即可</p>
 <p>如果没有Maven面板，选择 View à Appearance à Tool Window Bars</p>
-<p><img src="/2022/12/02/maven/image-20220611102642621.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102642621.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102642621"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611102642621.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102642621.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102642621" title>
+                </div>
+                <div class="image-caption">image-20220611102642621</div>
+            </figure>
+
 <h2 id="操作Maven项目"><a href="#操作Maven项目" class="headerlink" title="操作Maven项目"></a>操作Maven项目</h2><p>双击即可执行操作</p>
-<p><img src="/2022/12/02/maven/image-20220615173725612.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615173725612.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615173725612"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220615173725612.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615173725612.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615173725612" title>
+                </div>
+                <div class="image-caption">image-20220615173725612</div>
+            </figure>
+
 <h2 id="配置Maven-Helper插件"><a href="#配置Maven-Helper插件" class="headerlink" title="配置Maven-Helper插件"></a>配置Maven-Helper插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选择 IDEA中 File --&gt; Settings</span><br><span class="line"></span><br><span class="line">选择 Plugins</span><br><span class="line"></span><br><span class="line">搜索 Maven，选择第一个 Maven Helper，点击Install安装，弹出面板中点击Accept</span><br><span class="line"></span><br><span class="line">重启 IDEA</span><br><span class="line"></span><br><span class="line">使用Maven-Helper</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/12/02/maven/image-20220611103007573.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103007573.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103007573"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611103007573.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103007573.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103007573" title>
+                </div>
+                <div class="image-caption">image-20220611103007573</div>
+            </figure>
+
+
+
 <p><img src="/2022/12/02/maven/image-20220615174351024.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615174351024.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615174351024"></p>
 <h1 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h1><h2 id="导入jar包的坐标组成"><a href="#导入jar包的坐标组成" class="headerlink" title="导入jar包的坐标组成"></a>导入jar包的坐标组成</h2><p>dependencies:依赖引入坐标,负责依赖引入管理</p>
 <p>dependency: 引入可选依赖坐标,负责引入可使用的依赖</p>
 <p>groupId，artifactId，version:依赖的项目信息</p>
 <p>点击刷新按钮，使坐标生效</p>
-<p><img src="/2022/12/02/maven/image-20220611103053703.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103053703.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103053703"></p>
-<p><img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611103053703.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103053703.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103053703" title>
+                </div>
+                <div class="image-caption">image-20220611103053703</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102" title>
+                </div>
+                <div class="image-caption">image-20220611223829102</div>
+            </figure>
+
 <blockquote>
 <p>坐标参考:<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
 </blockquote>
 <h2 id="导入jar包坐标快捷方式"><a href="#导入jar包坐标快捷方式" class="headerlink" title="导入jar包坐标快捷方式"></a>导入jar包坐标快捷方式</h2><p>在 pom.xml 中 按 alt + insert，选择 Dependency</p>
 <p>在弹出的面板中搜索对应坐标，然后双击选中对应坐标</p>
 <p>点击刷新按钮，使坐标生效</p>
-<p><img src="/2022/12/02/maven/image-20220611223812757.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223812757.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223812757"></p>
-<p><img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611223812757.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223812757.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223812757" title>
+                </div>
+                <div class="image-caption">image-20220611223812757</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102" title>
+                </div>
+                <div class="image-caption">image-20220611223829102</div>
+            </figure>
+
 <p>设置坐标自动生效</p>
 <p>选择右侧Maven操作界面，</p>
 <p>选择auto-reload-mode中的第一个选项。</p>
-<p><img src="/2022/12/02/maven/image-20220611223719190.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223719190.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223719190"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611223719190.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223719190.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223719190" title>
+                </div>
+                <div class="image-caption">image-20220611223719190</div>
+            </figure>
+
 <h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p>通过设置坐标的依赖范围(scope)，可以设置 对应jar包的作用范围：编译环境、测试环境、运行环境。</p>
-<p><img src="/2022/12/02/maven/image-20220611223925726.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223925726.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223925726"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2022/12/02/maven/image-20220611223925726.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223925726.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223925726" title>
+                </div>
+                <div class="image-caption">image-20220611223925726</div>
+            </figure>
+
 <p>范围</p>
 <table>
 <thead>
@@ -1123,7 +1201,7 @@
       if (isDark) {
         this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
       } else {
-        this.FISH_COLOR = '' || '#42b983';
+        this.FISH_COLOR = '#7dd2f0' || '#7dd2f0';
       }
     },
     setParameters: function () {
@@ -1274,7 +1352,7 @@
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2022 - 2025 <a target="_blank" rel="noopener" href="https://github.com/fanrujiang">fanfan</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a></p>
 
           </div>
         
@@ -1364,7 +1442,7 @@
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
   
   font-size: 15px;
-  color: #42b983;
+  color: #7dd2f0;
 }
 
 
@@ -1385,7 +1463,7 @@
   id="8620773911"
   fixed='true'
   autoplay='true'
-  theme='#42b983'
+  theme='#7dd2f0'
   loop='all'
   order='random'
   preload='auto'
@@ -1808,8 +1886,8 @@
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-   
-    <script src="/js/cursor/clicklove.js"></script> 
+  
+    <script src="/js/cursor/text.js"></script>
   
 
 
