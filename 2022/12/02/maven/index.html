@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Tags | fanfan</title>
+  <title>maven | fanfan</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -508,90 +508,595 @@
 </header>
         <!-- 内容区域 -->
         
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tags" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+ <!-- prismjs 代码高亮 -->
+ 
 
-<div class="tags-header" style="background-image:url('https://pic2.zhimg.com/80/v2-bf6c555e7c61a57ba4a1fd95a9a32975_1440w.jpg')">
-    <div class="tags-header-title">
-        tags
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/11.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        maven
+      </span>
     </div>
-    <div class="tags-header-desc">
     
-        <span class="title" id="tags-header-desc"></span>
-        <script>
-  function typedFn() {
-    const el = '#tags-header-desc';
-    const type = 'tag';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> Published in：2022-12-02 |
+        </span>
+      
+
+      
+
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="Maven作用"><a href="#Maven作用" class="headerlink" title="Maven作用"></a>Maven作用</h1><h2 id="①标准化的项目结构"><a href="#①标准化的项目结构" class="headerlink" title="①标准化的项目结构"></a>①标准化的项目结构</h2><p><img src="/2022/12/02/maven/image-20220615150845028.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615150845028.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615150845028"></p>
+<p>Maven提供了一套标准化的项目结构，使得不同IDE通过Maven构建的项目可以通用。</p>
+<p><img src="/2022/12/02/maven/image-20220611100546816.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100546816.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100546816"></p>
+<h2 id="②标准化的构建流程"><a href="#②标准化的构建流程" class="headerlink" title="②标准化的构建流程"></a>②标准化的构建流程</h2><p>Maven提供了一套标准化的构建流程, （编译，测试，打包，发布……）</p>
+<p><img src="/2022/12/02/maven/image-20220611100607908.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100607908.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100607908"></p>
+<h2 id="③方便的依赖管理"><a href="#③方便的依赖管理" class="headerlink" title="③方便的依赖管理"></a>③方便的依赖管理</h2><p>提供了一套依赖管理机制</p>
+<p>不使用Maven</p>
+<p><img src="/2022/12/02/maven/image-20220611100622218.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100622218.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100622218"></p>
+<p>使用Maven</p>
+<p><img src="/2022/12/02/maven/image-20220611100640017.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611100640017.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611100640017"></p>
+<h1 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Apache Maven是专门用于管理和构建Java项目的工具. 基于项目对象模型(POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档</p>
+<p>官网：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a> </p>
+<h2 id="Maven模型"><a href="#Maven模型" class="headerlink" title="Maven模型"></a>Maven模型</h2><p>项目对象模型 (Project Object Model)</p>
+<p>依赖管理模型(Dependency)</p>
+<p>插件(Plugin)</p>
+<p><img src="/2022/12/02/maven/image-20220611101723266.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611101723266.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611101723266"></p>
+<h2 id="Maven作用-1"><a href="#Maven作用-1" class="headerlink" title="Maven作用"></a>Maven作用</h2><p>①标准化的项目结构</p>
+<p>②标准化的构建流程</p>
+<p>③方便的依赖管理</p>
+<h1 id="Maven仓库和坐标"><a href="#Maven仓库和坐标" class="headerlink" title="Maven仓库和坐标"></a>Maven仓库和坐标</h1><h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p>项目中，引入依赖jar包后，加载顺序，本地仓库 à 远程仓库 à 中央仓库</p>
+<p>本地仓库：自己计算机上的一个目录。本地仓库有，则在项目直接引用;</p>
+<p>远程仓库(私服)：一般由公司团队搭建的私有仓库。本地仓库没有，则去远程仓库下载到本地仓库(前提是配置了远程仓库);</p>
+<p>中央仓库：Maven团队维护的唯一仓库。本地和远程仓库都没有,先从中央仓库下载到远程仓库，再从远程仓库下载本地仓库。</p>
+<p><img src="/2022/12/02/maven/image-20220611102206499.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102206499.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102206499"></p>
+<h2 id="坐标详解"><a href="#坐标详解" class="headerlink" title="坐标详解"></a>坐标详解</h2><p>什么是坐标？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Maven 中的坐标是资源的唯一标识</span><br><span class="line"></span><br><span class="line">使用坐标来定义项目或引入项目中需要的依赖</span><br></pre></td></tr></table></figure>
+
+<p>坐标组成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">groupId：Maven项目隶属组织名称（通常是域名反写，例如：com.itheima）</span><br><span class="line"></span><br><span class="line">artifactId：Maven项目名称（通常是模块名称，例如 order-service、goods-service）</span><br><span class="line"></span><br><span class="line">version： Maven项目版本号</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/02/maven/image-20220611102241107.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102241107.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102241107"></p>
+<h1 id="Maven安装和配置"><a href="#Maven安装和配置" class="headerlink" title="Maven安装和配置"></a>Maven安装和配置</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">解压 apache-maven-3.6.1.rar到指定路径</span><br><span class="line"></span><br><span class="line">配置环境变量 增加MAVEN_HOME,值为Maven的bin目录的上层路径,在path中结合MAVEN_HOME添加bin目录。</span><br><span class="line"></span><br><span class="line">配置本地仓库：修改 conf/settings.xml 中的 &lt;localRepository&gt; 为一个指定目录。</span><br><span class="line">	 &lt;localRepository&gt;D:\develop\apache-maven-3.6.1\mvn_resp&lt;/localRepository&gt;</span><br><span class="line">配置阿里云私服：修改 conf/settings.xml 中的 &lt;mirrors&gt;标签，为其添加如下子标签：</span><br><span class="line">	&lt;mirror&gt;  </span><br><span class="line">	&lt;id&gt;alimaven&lt;/id&gt;  </span><br><span class="line">	&lt;name&gt;aliyun maven&lt;/name&gt;  </span><br><span class="line">	&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">	&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;          </span><br><span class="line">	&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Maven基本使用"><a href="#Maven基本使用" class="headerlink" title="Maven基本使用"></a>Maven基本使用</h1><h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>①compile ：编译 ②clean：清理 ③test：测试 ④package：打包 ⑤install：安装</p>
+<p><img src="/2022/12/02/maven/image-20220615160056900.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615160056900.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615160056900"></p>
+<p>命令行方式操作，需要进入pom.xml所在的目录。</p>
+<p>第一次使用,需要下载相关插件。</p>
+<h2 id="Maven生命周期"><a href="#Maven生命周期" class="headerlink" title="Maven生命周期"></a>Maven生命周期</h2><p>生命周期:描述构建一次项目过程经历了多少个事件。Maven 对项目构建的生命周期划分为3套</p>
+<p>clean(清理项目)：清理产生的target目录</p>
+<p>default(构建项目)：例如编译，测试，打包，安装等,x详细参考《default生命周期详解.png 》</p>
+<p>Site(生成项目站点)：产生报告，发布站点等</p>
+<p>同一生命周期内，执行后边的命令，前边的所有命令会自动执行</p>
+<p><img src="/2022/12/02/maven/image-20220611102357360.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102357360.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102357360"></p>
+<h1 id="IDEA使用Maven"><a href="#IDEA使用Maven" class="headerlink" title="IDEA使用Maven"></a>IDEA使用Maven</h1><h2 id="IDEA配置Maven"><a href="#IDEA配置Maven" class="headerlink" title="IDEA配置Maven"></a>IDEA配置Maven</h2><p>选择 IDEA中 File –&gt; Settings</p>
+<p>搜索 maven </p>
+<p>设置 IDEA 使用本地安装的 Maven，并修改配置文件路径</p>
+<p><img src="/2022/12/02/maven/image-20220615163826178.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615163826178.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615163826178"></p>
+<h2 id="创建Maven项目"><a href="#创建Maven项目" class="headerlink" title="创建Maven项目"></a>创建Maven项目</h2><p>创建模块，选择Maven，点击Next</p>
+<p>填写模块名称，坐标信息，点击finish，创建完成</p>
+<p>编写 HelloWorld，并运行</p>
+<p><img src="/2022/12/02/maven/image-20220611102507711.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102507711.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102507711"></p>
+<h2 id="导入Maven项目"><a href="#导入Maven项目" class="headerlink" title="导入Maven项目"></a>导入Maven项目</h2><p>选择右侧Maven面板，点击 + 号</p>
+<p>选中对应项目的pom.xml文件，双击即可</p>
+<p>如果没有Maven面板，选择 View à Appearance à Tool Window Bars</p>
+<p><img src="/2022/12/02/maven/image-20220611102642621.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611102642621.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611102642621"></p>
+<h2 id="操作Maven项目"><a href="#操作Maven项目" class="headerlink" title="操作Maven项目"></a>操作Maven项目</h2><p>双击即可执行操作</p>
+<p><img src="/2022/12/02/maven/image-20220615173725612.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615173725612.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615173725612"></p>
+<h2 id="配置Maven-Helper插件"><a href="#配置Maven-Helper插件" class="headerlink" title="配置Maven-Helper插件"></a>配置Maven-Helper插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选择 IDEA中 File --&gt; Settings</span><br><span class="line"></span><br><span class="line">选择 Plugins</span><br><span class="line"></span><br><span class="line">搜索 Maven，选择第一个 Maven Helper，点击Install安装，弹出面板中点击Accept</span><br><span class="line"></span><br><span class="line">重启 IDEA</span><br><span class="line"></span><br><span class="line">使用Maven-Helper</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/02/maven/image-20220611103007573.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103007573.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103007573"></p>
+<p><img src="/2022/12/02/maven/image-20220615174351024.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220615174351024.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220615174351024"></p>
+<h1 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h1><h2 id="导入jar包的坐标组成"><a href="#导入jar包的坐标组成" class="headerlink" title="导入jar包的坐标组成"></a>导入jar包的坐标组成</h2><p>dependencies:依赖引入坐标,负责依赖引入管理</p>
+<p>dependency: 引入可选依赖坐标,负责引入可使用的依赖</p>
+<p>groupId，artifactId，version:依赖的项目信息</p>
+<p>点击刷新按钮，使坐标生效</p>
+<p><img src="/2022/12/02/maven/image-20220611103053703.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611103053703.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611103053703"></p>
+<p><img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102"></p>
+<blockquote>
+<p>坐标参考:<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
+</blockquote>
+<h2 id="导入jar包坐标快捷方式"><a href="#导入jar包坐标快捷方式" class="headerlink" title="导入jar包坐标快捷方式"></a>导入jar包坐标快捷方式</h2><p>在 pom.xml 中 按 alt + insert，选择 Dependency</p>
+<p>在弹出的面板中搜索对应坐标，然后双击选中对应坐标</p>
+<p>点击刷新按钮，使坐标生效</p>
+<p><img src="/2022/12/02/maven/image-20220611223812757.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223812757.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223812757"></p>
+<p><img src="/2022/12/02/maven/image-20220611223829102.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223829102.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223829102"></p>
+<p>设置坐标自动生效</p>
+<p>选择右侧Maven操作界面，</p>
+<p>选择auto-reload-mode中的第一个选项。</p>
+<p><img src="/2022/12/02/maven/image-20220611223719190.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223719190.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223719190"></p>
+<h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p>通过设置坐标的依赖范围(scope)，可以设置 对应jar包的作用范围：编译环境、测试环境、运行环境。</p>
+<p><img src="/2022/12/02/maven/image-20220611223925726.png" class="lazyload placeholder" data-srcset="/2022/12/02/maven/image-20220611223925726.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20220611223925726"></p>
+<p>范围</p>
+<table>
+<thead>
+<tr>
+<th>依赖范围</th>
+<th>编译classpath</th>
+<th>测试classpath</th>
+<th>运行classpath</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>compile(默认值)</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>logback</td>
+</tr>
+<tr>
+<td>test</td>
+<td>-</td>
+<td>Y</td>
+<td>-</td>
+<td>Junit</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td>-</td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>-</td>
+<td>Y</td>
+<td>Y</td>
+<td>jdbc驱动</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Y</td>
+<td>Y</td>
+<td>-</td>
+<td>存储在本地的jar包</td>
+</tr>
+</tbody></table>
+<p><scope>默认值：compile</scope></p>
+<p>解析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Junit只需要在测试阶段使用,也就是在test目录下可以使用</span><br><span class="line">	依赖范围设置为test</span><br><span class="line">实际开发,servlet-api使用服务器内置的api,运行阶段不需要关联我们自己的api,否则反而会因为冲突而报错。</span><br><span class="line">	依赖范围设置为provided</span><br><span class="line">jdbc是通过路径名加载,不需要编译期间不会关联jar包中的代码,而在测试过程中,和运行过程中,都需要使用本地的jdbc驱动。</span><br><span class="line">	依赖范围设置为runtime。</span><br><span class="line">system 与 provided 类似，但是需要指定本地路径，scop中不推荐该使用。</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/java/" class="">
+              java
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>author:  </strong>风云</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>link:  </strong>
+    <a href="/2022/12/02/maven/" target="_blank" title="maven">http://example.com/2022/12/02/maven/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright notice:   </strong>
+      All articles on this website, unless otherwise stated, adopt <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      reprint policy. If reproduced, please indicate source!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2022/11/19/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BF%9D%E6%8A%A4/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fas fa-angle-right"></i>
+        <div class="title-text">微服务的保护</div>
+      </div>
+      <!-- <div class="content">
+        微服务的保护1.初识Sentinel1.1.雪崩问题及解决方案1.1.1.雪崩问题微服务中，服务间调用关系错综复杂，一个
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.png" class="lazyload placeholder" data-srcset="/medias/zfb.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.png" class="lazyload placeholder" data-srcset="/medias/wx.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
 </script>
     
-    </div>
-    <div class="mask-box"></div>
-</div>
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-<div id="tags" class="container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;Article Tags
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Linux/" title="Linux: 1">
-                    <span class="tag-content"
-                        title="Linux" style="background-color: #E8F8F5;">Linux
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/java/" title="java: 2">
-                    <span class="tag-content"
-                        title="java" style="background-color: #A3E4D7;">java
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 1">
-                    <span class="tag-content"
-                        title="数据库" style="background-color: #F9E79F;">数据库
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务: 1">
-                    <span class="tag-content"
-                        title="微服务" style="background-color: #D7BDE2;">微服务
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" title="面试: 1">
-                    <span class="tag-content"
-                        title="面试" style="background-color: #F9EBEA;">面试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>catalog</span>
+        
+          <div class="toc-open-close">catalog</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin-left': 'auto', 'margin-right': 'auto',});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
@@ -1233,6 +1738,71 @@
    
 
 <!-- 评论所需js -->
+
+  
+    <script type="text/javascript">
+  var utteranceCommon = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceCommon.Theme = 'github-dark';
+    } else {
+      utteranceCommon.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'pathname')
+      utterances.setAttribute('theme', utteranceCommon.Theme)
+      utterances.setAttribute('repo', '')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceCommon.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+  
 
 
 <!-- 鼠标点击特效 -->
