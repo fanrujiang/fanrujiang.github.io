@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>fanfan</title>
+  <title>我的世界MCSM面板搭建 | fanfan</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -512,98 +512,602 @@
 </header>
         <!-- 内容区域 -->
         
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tags" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+ <!-- prismjs 代码高亮 -->
+ 
 
-<div class="tags-header" style="background-image:url('https://pic2.zhimg.com/80/v2-bf6c555e7c61a57ba4a1fd95a9a32975_1440w.jpg')">
-    <div class="tags-header-title">
-        tags
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/12.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        我的世界MCSM面板搭建
+      </span>
     </div>
-    <div class="tags-header-desc">
     
-        <span class="title" id="tags-header-desc"></span>
-        <script>
-  function typedFn() {
-    const el = '#tags-header-desc';
-    const type = 'tag';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> Published in：2022-12-04 |
+        </span>
+      
+
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> Words: 1.2k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> Reading time: 4min |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> reading：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="我的世界MCSM面板搭建"><a href="#我的世界MCSM面板搭建" class="headerlink" title="我的世界MCSM面板搭建"></a>我的世界MCSM面板搭建</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了）</p>
+<details class="custom-block details"><summary>Linux 系统快速安装（适用于 Ubuntu/Centos/Debian/Arch）</summary> <p>安装成功后，使用 <code>systemctl start mcsm-&#123;(web, daemon)&#125;</code> 命令即可启动面板</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>wget -qO- https://gitee.com/mcsmanager/script/raw/master/setup.sh | bash
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></details>
+
+
+<h2 id="前期需要软件"><a href="#前期需要软件" class="headerlink" title="前期需要软件"></a>前期需要软件</h2><ol>
+<li>远程SSH控制台软件（本教程使用 Remote Terminal 此为win10商店软件）[<a target="_blank" rel="noopener" href="https://vlssu.lanzoui.com/i88wyvi">点我下载(此软件为Xshell)]  (opens new window)</a></li>
+<li>支持Sftp的FTP软件（本教程使用 FileZilla）[<a target="_blank" rel="noopener" href="https://www.lanzoui.com/i88wyqd">点我下载]  (opens new window)</a></li>
+<li>服务端（本教程使用 Spigot）</li>
+<li>Centos或Ubuntu主机一台 （教程使用 centos7.9）</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>极力推荐Centos系统，Ubuntu系统未经博主测试</li>
+<li>未标注哪个系统指令则两者都可适用</li>
+<li>若标题注释了哪个系统那只能适用那个系统或另一个系统不需要输此指令</li>
+</ol>
+<h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><h3 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h3><ul>
+<li>首先你要确保你的系统是最新的</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum update <span class="comment"># (Centos)</span></span><br><span class="line">//Ubuntu需要两条指令来升级</span><br><span class="line">apt-get update -y <span class="comment"># (Ubuntu)</span></span><br><span class="line">apt-get upgrade -y <span class="comment"># (Ubuntu)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><ul>
+<li><strong>若发现国内下载很慢可以参考这篇来使用国内镜像部署</strong>[<strong>[Linux系统如何安装node管理器]</strong>]()</li>
+</ul>
+<ol>
+<li>安装Git</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install git -y <span class="comment"># (Centos)</span></span><br><span class="line">apt install git <span class="comment"># (Ubuntu)</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>安装node.js管理器等组件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/nvm</span><br><span class="line"><span class="comment"># 设置nvm 自动运行</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source ~/nvm/nvm.sh&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"><span class="comment"># 安装npm的v16版本</span></span><br><span class="line">nvm install v16.14.0</span><br><span class="line"><span class="comment"># 使用v13版本</span></span><br><span class="line">nvm use v16.14.0</span><br><span class="line"><span class="comment"># 安装npm最新版本并使用最新版本 //建议使用稳定版而不是最新测试版</span></span><br><span class="line"><span class="comment"># nvm install stable &amp;&amp; nvm use stable</span></span><br></pre></td></tr></table></figure>
+
+<p>请关闭终端重新打开或重新连接终端 再依次执行以下命令（重要！）</p>
+<h3 id="安装java"><a href="#安装java" class="headerlink" title="安装java"></a>安装java</h3><ul>
+<li>如果要看更精细的步骤可以看这个文章 [<a href>如何在Linux系统中安装Java8]</a></li>
+</ul>
+<h4 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h4><ul>
+<li>使用<code>yum</code>安装<code>java</code>。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装java8</span></span><br><span class="line"><span class="comment"># yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel</span></span><br><span class="line"><span class="comment"># 安装java11 按需安装，建议直接下载用绝对链接来开服</span></span><br><span class="line"><span class="comment"># yum install java-11-openjdk java-11-openjdk-devel</span></span><br><span class="line"><span class="comment"># 安装java17 按需安装，建议直接下载用绝对链接来开服</span></span><br><span class="line">yum install java-17-openjdk java-17-openjdk-devel</span><br><span class="line"><span class="comment"># 查看java版本</span></span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><ol>
+<li>安装<code>java</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>如果我们在服务器上安装了多个Java版本，我们可以使用<strong>update-alternatives</strong>系统更改默认版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config java</span><br></pre></td></tr></table></figure>
+
+<p>要维持当前值[*]请按&lt;回车键&gt;，或者键入选择的编号：<br> 在出现提示时输入号码并按Enter键。</p>
+<ol>
+<li>查看<code>java</code>版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装MCSM"><a href="#安装MCSM" class="headerlink" title="安装MCSM"></a>安装MCSM</h3><p>克隆<strong>MCSManager前端</strong>并安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载面板端（Web）程序 并重命名为 web</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/MCSManager/MCSManager-Web-Production.git web</span><br><span class="line"><span class="comment"># 进入 web 文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> web</span><br><span class="line"><span class="comment"># 安装依赖库</span></span><br><span class="line">npm install --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>克隆<strong>MCSManager后端</strong>并安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载守护进程（Daemon）程序</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/MCSManager/MCSManager-Daemon-Production.git daemon</span><br><span class="line"><span class="comment"># 进入 daemon 文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> daemon</span><br><span class="line"><span class="comment"># 安装依赖库</span></span><br><span class="line">npm install --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">访问地址</th>
+<th align="center">localhost:24444</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">访问密钥</td>
+<td align="center">[你的密钥，是一串16进制数字]</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">密钥作为守护进程唯一认证手段</td>
+</tr>
+</tbody></table>
+<h2 id="保持后台运行"><a href="#保持后台运行" class="headerlink" title="保持后台运行"></a>保持后台运行</h2><p>我们使用<code>pm2</code>软件来让面板保持后台运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装pm2</span></span><br><span class="line">npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先启动守护进程</span></span><br><span class="line">pm2 start daemon/app.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后启动面板端进程</span></span><br><span class="line">pm2 start web/app.js</span><br></pre></td></tr></table></figure>
+
+<p><strong>PM2命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br><span class="line">pm2 start app.js        // 启动</span><br><span class="line">pm2 start app.js -i max //启动 使用所有CPU核心的集群</span><br><span class="line">pm2 stop app.js         // 停止</span><br><span class="line">pm2 stop all            // 停止所有</span><br><span class="line">pm2 restart app.js      // 重启</span><br><span class="line">pm2 restart all         // 重启所有</span><br><span class="line">pm2 delete  app.js      // 关闭</span><br></pre></td></tr></table></figure>
+
+<h2 id="端口开放"><a href="#端口开放" class="headerlink" title="端口开放"></a>端口开放</h2><p>面板需要 23333（主功能） 端口<br> 24444（后端api）端口（可选）</p>
+<p>如果你使用阿里云，腾讯云或者服务商，<strong>请进入控制台到防火墙安全组策略，放行以上端口。</strong></p>
+<p>如果依然无法访问，请关闭系统自带防火墙：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭防火墙，依次执行</span></span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h2><table>
+<thead>
+<tr>
+<th align="center">配置文件</th>
+<th align="center"><code>data/SystemConfig/config.json</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">用户数据文件</td>
+<td align="center"><code>data/User/*.json</code></td>
+</tr>
+<tr>
+<td align="center">远程守护进程配置</td>
+<td align="center"><code>data/RemoteServiceConfig/*.json</code></td>
+</tr>
+</tbody></table>
+<h2 id="默认账户"><a href="#默认账户" class="headerlink" title="默认账户"></a>默认账户</h2><p>现在，访问 http:&#x2F;&#x2F;你的ip:23333&#x2F; 即可进入面板。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 最高管理员权限（注意，管理员与管理员之间账号可互删）</span><br><span class="line">默认账号：root</span><br><span class="line">默认密码: 123456</span><br></pre></td></tr></table></figure>
+
+<p>请及时修改密码。</p>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://getbukkit.org/download/spigot">Spigot  (opens new window)</a> [可以装插件]</li>
+<li><a target="_blank" rel="noopener" href="https://papermc.io/downloads">paper  (opens new window)</a> [可以装插件]</li>
+<li><a target="_blank" rel="noopener" href="https://files.minecraftforge.net/">Forge  (opens new window)</a> [可以装MOD]</li>
+</ul>
+<h2 id="服务器插件-x2F-MOD"><a href="#服务器插件-x2F-MOD" class="headerlink" title="服务器插件&#x2F;MOD"></a>服务器插件&#x2F;MOD</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dev.bukkit.org/">bukkit  (opens new window)</a> [下载插件]</li>
+<li><a target="_blank" rel="noopener" href="https://www.spigotmc.org/">spigotmc  (opens new window)</a> [下载插件]</li>
+<li><a target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/modpacks">curseforge  (opens new window)</a> [下载MOD]</li>
+</ul>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Minecraft/" class="">
+              Minecraft
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>author:  </strong>风云</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>link:  </strong>
+    <a href="/2022/12/04/我的世界MCSM面板搭建/" target="_blank" title="我的世界MCSM面板搭建">http://blog.fanliu.top/2022/12/04/我的世界MCSM面板搭建/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright notice:   </strong>
+      All articles on this website, unless otherwise stated, adopt <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      reprint policy. If reproduced, please indicate source!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/11.jpg" class="lazyload placeholder" data-srcset="/medias/11.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2022/12/02/maven/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fas fa-angle-right"></i>
+        <div class="title-text">maven</div>
+      </div>
+      <!-- <div class="content">
+        Maven作用①标准化的项目结构
+Maven提供了一套标准化的项目结构，使得不同IDE通过Maven构建的项目可以通用。
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.png" class="lazyload placeholder" data-srcset="/medias/zfb.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.png" class="lazyload placeholder" data-srcset="/medias/wx.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
 </script>
     
-    </div>
-    <div class="mask-box"></div>
-</div>
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-<div id="tags" class="container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;Article Tags
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Linux/" title="Linux: 1">
-                    <span class="tag-content"
-                        title="Linux" style="background-color: #E8F8F5;">Linux
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/java/" title="java: 2">
-                    <span class="tag-content"
-                        title="java" style="background-color: #A3E4D7;">java
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务: 1">
-                    <span class="tag-content"
-                        title="微服务" style="background-color: #D7BDE2;">微服务
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" title="面试: 1">
-                    <span class="tag-content"
-                        title="面试" style="background-color: #F9EBEA;">面试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 1">
-                    <span class="tag-content"
-                        title="数据库" style="background-color: #F9E79F;">数据库
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Minecraft/" title="Minecraft: 1">
-                    <span class="tag-content"
-                        title="Minecraft" style="background-color: #D7BDE2;">Minecraft
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>catalog</span>
+        
+          <div class="toc-open-close">catalog</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin-left': 'auto', 'margin-right': 'auto',});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
@@ -1256,6 +1760,71 @@
    
 
 <!-- 评论所需js -->
+
+  
+    <script type="text/javascript">
+  var utteranceCommon = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceCommon.Theme = 'github-dark';
+    } else {
+      utteranceCommon.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'pathname')
+      utterances.setAttribute('theme', utteranceCommon.Theme)
+      utterances.setAttribute('repo', '')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceCommon.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+  
 
 
 <!-- 鼠标点击特效 -->
