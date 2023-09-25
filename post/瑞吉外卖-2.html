@@ -177,16 +177,16 @@
 <h2 id="1-完善登录功能"><a href="#1-完善登录功能" class="headerlink" title="1. 完善登录功能"></a>1. 完善登录功能</h2><h3 id="1-1-问题分析"><a href="#1-1-问题分析" class="headerlink" title="1.1 问题分析"></a>1.1 问题分析</h3><p>前面我们已经完成了后台系统的员工登录功能开发，但是目前还存在一个问题，接下来我们来说明一个这个问题， 以及如何处理。</p>
 <p><strong>1). 目前现状</strong></p>
 <p>用户如果不登录，直接访问系统首页面，照样可以正常访问。 </p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210727232226862.png" alt="image-20210727232226862"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210727232226862.png" alt="image-20210727232226862"> </p>
 <p><strong>2). 理想效果</strong></p>
 <p>上述这种设计并不合理，我们希望看到的效果应该 是，只有登录成功后才可以访问系统中的页面，如果没有登录, 访问系统中的任何界面都直接跳转到登录页面。</p>
-<img src="瑞吉外卖-2/image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;"> 
 
 
 
 <p><strong>那么，具体应该怎么实现呢？</strong></p>
 <p>可以使用我们之前讲解过的 过滤器、拦截器来实现，在过滤器、拦截器中拦截前端发起的请求，判断用户是否已经完成登录，如果没有登录则返回提示信息，跳转到登录页面。</p>
-<h3 id="1-2-思路分析"><a href="#1-2-思路分析" class="headerlink" title="1.2 思路分析"></a>1.2 思路分析</h3><img src="瑞吉外卖-2/image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;" /> 
+<h3 id="1-2-思路分析"><a href="#1-2-思路分析" class="headerlink" title="1.2 思路分析"></a>1.2 思路分析</h3><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;"> 
 
 <p><strong>过滤器具体的处理逻辑如下：</strong></p>
 <p>A. 获取本次请求的URI</p>
@@ -195,7 +195,7 @@
 <p>D. 判断登录状态，如果已登录，则直接放行</p>
 <p>E. 如果未登录, 则返回未登录结果</p>
 <p>如果未登录,我们需要给前端返回什么样的结果呢? 这个时候, 我们可以去看看前端是如何处理的 ?</p>
-<img src="瑞吉外卖-2/image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;"> 
 
 
 
@@ -286,7 +286,7 @@
 
 
 <blockquote>
-<p><font color='red'><b>AntPathMatcher 拓展:</b></font></p>
+<p><font color="red"><b>AntPathMatcher 拓展:</b></font></p>
 <p><strong>介绍:</strong> Spring中提供的路径匹配器 ;</p>
 <p><strong>通配符规则:</strong> 		</p>
 <table>
@@ -325,32 +325,32 @@
 
 
 <blockquote>
-<p><font color='red'><b>@ServletComponentScan 的作用: </b></font></p>
+<p><font color="red"><b>@ServletComponentScan 的作用: </b></font></p>
 <p>​	在SpringBoot项目中, 在引导类&#x2F;配置类上加了该注解后, 会自动扫描项目中(当前包及其子包下)的@WebServlet , @WebFilter , @WebListener 注解, 自动注册Servlet的相关组件 ;</p>
 </blockquote>
 <h3 id="1-4-功能测试"><a href="#1-4-功能测试" class="headerlink" title="1.4 功能测试"></a>1.4 功能测试</h3><p>代码编写完毕之后，我们需要将工程重启一下，然后在浏览器地址栏直接输入系统管理后台首页，然后看看是否可以跳转到登录页面即可。我们也可以通过debug的形式来跟踪一下代码执行的过程。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728000838992.png" alt="image-20210728000838992"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728000838992.png" alt="image-20210728000838992"> </p>
 <p>对于前端的代码, 也可以进行debug调试。</p>
 <p>F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在request.js的响应拦截器位置打上断点。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728001929657.png" alt="image-20210728001929657"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728001929657.png" alt="image-20210728001929657"> </p>
 <h2 id="2-新增员工"><a href="#2-新增员工" class="headerlink" title="2. 新增员工"></a>2. 新增员工</h2><h3 id="2-1-需求分析"><a href="#2-1-需求分析" class="headerlink" title="2.1 需求分析"></a>2.1 需求分析</h3><p>后台系统中可以管理员工信息，通过新增员工来添加后台系统用户。点击[添加员工]按钮跳转到新增页面，如下：</p>
-<img src="瑞吉外卖-2/image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;"> 
 
 <p>当填写完表单信息, 点击”保存”按钮后, 会提交该表单的数据到服务端, 在服务端中需要接受数据, 然后将数据保存至数据库中。</p>
 <h3 id="2-2-数据模型"><a href="#2-2-数据模型" class="headerlink" title="2.2 数据模型"></a>2.2 数据模型</h3><p>新增员工，其实就是将我们新增页面录入的员工数据插入到employee表。employee表中的status字段已经设置了默认值1，表示状态正常。</p>
-<img src="瑞吉外卖-2/image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;"> 
 
 
 
 <p>需要注意，employee表中对username字段加入了唯一约束，因为username是员工的登录账号，必须是唯一的。</p>
-<img src="瑞吉外卖-2/image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;"> 
 
 
 
 
 
 <h3 id="2-3-程序执行流程"><a href="#2-3-程序执行流程" class="headerlink" title="2.3 程序执行流程"></a>2.3 程序执行流程</h3><p>在开发代码之前，我们需要结合着前端页面发起的请求， 梳理一下整个程序的执行过程：</p>
-<img src="瑞吉外卖-2/image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;"> 
 
 
 
@@ -391,15 +391,15 @@
 
 <h3 id="2-5-功能测试"><a href="#2-5-功能测试" class="headerlink" title="2.5 功能测试"></a>2.5 功能测试</h3><p>代码编写完毕之后，我们需要将工程重启, 完毕之后直接访问管理系统首页, 点击 “员工管理” 页面中的 “添加员工” 按钮, 输入员工基本信息, 然后点击 “保存” 进行数据保存, 保存完毕后, 检查数据库中是否录入员工数据。</p>
 <p>当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现错误提示信息： </p>
-<img src="瑞吉外卖-2/image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;"> 
 
 <p>而此时，服务端已经报错了， 报错信息如下： </p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728010938086.png" alt="image-20210728010938086"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210728010938086.png" alt="image-20210728010938086"> </p>
 <p>出现上述的错误， 主要就是因为在 employee 表结构中，我们针对于username字段，建立了唯一索引，添加重复的username数据时，违背该约束，就会报错。但是此时前端提示的信息并不具体，用户并不知道是因为什么原因造成的该异常，我们需要给用户提示详细的错误信息 。</p>
 <h3 id="2-6-全局异常处理"><a href="#2-6-全局异常处理" class="headerlink" title="2.6 全局异常处理"></a>2.6 全局异常处理</h3><h4 id="2-6-1-思路分析"><a href="#2-6-1-思路分析" class="headerlink" title="2.6.1 思路分析"></a>2.6.1 思路分析</h4><p>要想解决上述测试中存在的问题，我们需要对程序中可能出现的异常进行捕获，通常有两种处理方式：</p>
 <p><strong>A. 在Controller方法中加入 try…catch 进行异常捕获</strong></p>
 <p>形式如下： </p>
-<img src="瑞吉外卖-2/image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;"> 
 
 <p>如果采用这种方式，虽然可以解决，但是存在弊端，需要我们在保存其他业务数据时，也需要在Controller方法中加上try…catch进行处理，代码冗余，不通用。</p>
 <p><strong>B. 使用异常处理器进行全局异常捕获</strong></p>
@@ -413,7 +413,7 @@
 <li>组装错误信息并返回</li>
 </ul>
 </blockquote>
-<img src="瑞吉外卖-2/image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;"> 
 
 
 
@@ -453,16 +453,16 @@
 
 
 <blockquote>
-<p><font color='red'><b>注解说明:</b></font></p>
+<p><font color="red"><b>注解说明:</b></font></p>
 <p>​	上述的全局异常处理器上使用了的两个注解 @ControllerAdvice , @ResponseBody , 他们的作用分别为: </p>
 <p>​	@ControllerAdvice : 指定拦截那些类型的控制器;</p>
 <p>​	@ResponseBody: 将方法的返回值 R 对象转换为json格式的数据, 响应给页面;</p>
 <p>​	</p>
 <p>​	上述使用的两个注解, 也可以合并成为一个注解 @RestControllerAdvice </p>
-<p>​	<img src="瑞吉外卖-2/image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;" /> </p>
+<p>​	<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;"> </p>
 </blockquote>
 <h4 id="2-6-3-测试"><a href="#2-6-3-测试" class="headerlink" title="2.6.3 测试"></a>2.6.3 测试</h4><p>全局异常处理器编写完毕之后，我们需要将项目重启, 完毕之后直接访问管理系统首页, 点击 “员工管理” 页面中的 “添加员工” 按钮。当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现如下错误提示信息：</p>
-<img src="瑞吉外卖-2/image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;"> 
 
 
 
@@ -477,7 +477,7 @@
 
 
 <h2 id="3-员工分页查询"><a href="#3-员工分页查询" class="headerlink" title="3. 员工分页查询"></a>3. 员工分页查询</h2><h3 id="3-1-需求分析"><a href="#3-1-需求分析" class="headerlink" title="3.1 需求分析"></a>3.1 需求分析</h3><p>系统中的员工很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。而在我们的分页查询页面中, 除了分页条件以外，还有一个查询条件 “员工姓名”。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729134904625.png" alt="image-20210729134904625"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729134904625.png" alt="image-20210729134904625"> </p>
 <ul>
 <li><p>请求参数</p>
 <ul>
@@ -498,32 +498,32 @@
 </ul>
 <h3 id="3-2-程序执行流程"><a href="#3-2-程序执行流程" class="headerlink" title="3.2 程序执行流程"></a>3.2 程序执行流程</h3><h4 id="3-2-1-页面流程分析"><a href="#3-2-1-页面流程分析" class="headerlink" title="3.2.1 页面流程分析"></a>3.2.1 页面流程分析</h4><p>在开发代码之前，需要梳理一下整个程序的执行过程。</p>
 <p>A. 点击菜单，打开员工管理页面时，执行查询： </p>
-<img src="瑞吉外卖-2/image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;"> 
 
 
 
 <p>B. 搜索栏输入员工姓名,回车,执行查询:</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729164259997.png" alt="image-20210729164259997"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729164259997.png" alt="image-20210729164259997"> </p>
 <p>1). 页面发送ajax请求，将分页查询参数(page、pageSize、name)提交到服务端</p>
 <p>2). 服务端Controller接收页面提交的数据, 并组装条件调用Service查询数据</p>
 <p>3). Service调用Mapper操作数据库，查询分页数据</p>
 <p>4). Controller将查询到的分页数据, 响应给前端页面</p>
 <p>5). 页面接收到分页数据, 并通过ElementUI的Table组件展示到页面上</p>
 <h4 id="3-2-2-前端代码介绍"><a href="#3-2-2-前端代码介绍" class="headerlink" title="3.2.2 前端代码介绍"></a>3.2.2 前端代码介绍</h4><p>1). 访问员工列表页面&#x2F;member&#x2F;list.html时, 会触发Vuejs中的钩子方法, 在页面初始化时调用created方法</p>
-<img src="瑞吉外卖-2/image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;"> 
 
 <p>从上述的前端代码中我们可以看到, 执行完分页查询, 我们需要给前端返回的信息中需要包含两项 : records 中封装结果列表, total中封装总记录数 。</p>
 <p>而在组装请求参数时 , page、pageSize 都是前端分页插件渲染时的参数；</p>
-<img src="瑞吉外卖-2/image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;"> 
 
 
 
 
 
 <p>2). 在getMemberList方法中, 通过axios发起异步请求</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729231745143.png" alt="image-20210729231745143"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729231745143.png" alt="image-20210729231745143"> </p>
 <p>axios发起的异步请求会被声明在 request.js 中的request拦截器拦截, 在其中对get请求进行进一步的封装处理</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729232036767.png" alt="image-20210729232036767"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729232036767.png" alt="image-20210729232036767"> </p>
 <p><strong>最终发送给服务端的请求为 :</strong> GET请求 , 请求链接 &#x2F;employee&#x2F;page?page&#x3D;1&amp;pageSize&#x3D;10&amp;name&#x3D;xxx</p>
 <h3 id="3-3-代码实现"><a href="#3-3-代码实现" class="headerlink" title="3.3 代码实现"></a>3.3 代码实现</h3><h4 id="3-3-1-分页插件配置"><a href="#3-3-1-分页插件配置" class="headerlink" title="3.3.1 分页插件配置"></a>3.3.1 分页插件配置</h4><p>当前我们要实现的分页查询功能，而在MybatisPlus要实现分页功能，就需要用到MybatisPlus中提供的分页插件，要使用分页插件，就要在配置类中声明分页插件的bean对象。</p>
 <p>所属包: com.itheima.reggie.config</p>
@@ -571,7 +571,7 @@
 </tbody></table>
 <p>那么查询完毕后我们需要给前端返回什么样的结果呢? </p>
 <p>在上述我们也分析了, 查询返回的结果数据data中应该封装两项信息, 分别为: records 封装分页列表数据, total 中封装符合条件的总记录数。 那么这个时候, 在定义controller方法的返回值类型R时, 我们可以直接将 MybatisPlus 分页查询的结果 Page 直接封装返回, 因为Page中的属性如下: </p>
-<img src="瑞吉外卖-2/image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;"> 
 
 
 
@@ -611,9 +611,9 @@
 
 <h3 id="3-4-功能测试"><a href="#3-4-功能测试" class="headerlink" title="3.4 功能测试"></a>3.4 功能测试</h3><p>代码编写完毕之后，我们需要将工程重启, 完毕之后直接访问管理系统首页, 默认就会打开员工管理的列表页面, 我们可以查看列表数据是否可以正常展示, 也可以通过分页插件来测试分页功能, 及员工姓名的模糊查询功能。</p>
 <p>在进行测试时，可以使用浏览器的监控工具查看页面和服务端的数据交互细节。 并借助于debug的形式， 根据服务端参数接收及逻辑执行情况。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730000855072.png" alt="image-20210730000855072"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730000855072.png" alt="image-20210730000855072"> </p>
 <p>测试过程中可以发现，对于员工状态字段（status）服务端返回的是状态码（1或者0），但是页面上显示的则是“正常”或者“已禁用”，这是因为页面中在展示数据时进行了处理。</p>
-<img src="瑞吉外卖-2/image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;"> 
 
 
 
@@ -625,15 +625,15 @@
 
 
 
-<h2 id="4-启用-禁用员工账号"><a href="#4-启用-禁用员工账号" class="headerlink" title="4. 启用&#x2F;禁用员工账号"></a>4. 启用&#x2F;禁用员工账号</h2><h3 id="4-1-需求分析"><a href="#4-1-需求分析" class="headerlink" title="4.1 需求分析"></a>4.1 需求分析</h3><p>在员工管理列表页面，可以对某个员工账号进行<font color='gree'>启用</font>或者<font color='red'>禁用</font>操作。账号禁用的员工不能登录系统，启用后的员工可以正常登录。如果某个员工账号状态为正常，则按钮显示为 “禁用”，如果员工账号状态为已禁用，则按钮显示为”启用”。</p>
+<h2 id="4-启用-禁用员工账号"><a href="#4-启用-禁用员工账号" class="headerlink" title="4. 启用&#x2F;禁用员工账号"></a>4. 启用&#x2F;禁用员工账号</h2><h3 id="4-1-需求分析"><a href="#4-1-需求分析" class="headerlink" title="4.1 需求分析"></a>4.1 需求分析</h3><p>在员工管理列表页面，可以对某个员工账号进行<font color="gree">启用</font>或者<font color="red">禁用</font>操作。账号禁用的员工不能登录系统，启用后的员工可以正常登录。如果某个员工账号状态为正常，则按钮显示为 “禁用”，如果员工账号状态为已禁用，则按钮显示为”启用”。</p>
 <p>&#x3D;&#x3D;需要注意，只有管理员（admin用户）可以对其他普通用户进行启用、禁用操作，所以普通用户登录系统后启用、禁用按钮不显示。&#x3D;&#x3D;</p>
 <p><strong>A. admin 管理员登录</strong></p>
-<img src="瑞吉外卖-2/image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;"> 
 
 
 
 <p><strong>B. 普通用户登录</strong></p>
-<img src="瑞吉外卖-2/image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;"> 
 
 
 
@@ -641,25 +641,25 @@
 
 <h3 id="4-2-程序执行流程"><a href="#4-2-程序执行流程" class="headerlink" title="4.2 程序执行流程"></a>4.2 程序执行流程</h3><h4 id="4-2-1-页面按钮动态展示"><a href="#4-2-1-页面按钮动态展示" class="headerlink" title="4.2.1 页面按钮动态展示"></a>4.2.1 页面按钮动态展示</h4><p>在上述的需求中,我们提到需要实现的效果是 : <strong>只有管理员（admin用户）可以对其他普通用户进行启用、禁用操作，所以普通用户登录系统后启用、禁用按钮不显示</strong> , 页面中是怎么做到只有管理员admin能够看到启用、禁用按钮的？</p>
 <p>1). 在列表页面(list.html)加载时, 触发钩子函数created, 在钩子函数中, 会从localStorage中获取到用户登录信息, 然后获取到用户名</p>
-<img src="瑞吉外卖-2/image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;"> 
 
 
 
 <p>2). 在页面中, 通过Vue指令v-if进行判断,如果登录用户为admin将展示 启用&#x2F;禁用 按钮, 否则不展示</p>
-<img src="瑞吉外卖-2/image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;"> 
 
 
 
 <h4 id="4-2-2-执行流程分析"><a href="#4-2-2-执行流程分析" class="headerlink" title="4.2.2 执行流程分析"></a>4.2.2 执行流程分析</h4><p>1). 当管理员admin点击 “启用” 或 “禁用” 按钮时, 调用方法statusHandle</p>
-<img src="瑞吉外卖-2/image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;"> 
 
 <blockquote>
 <p>scope.row : 获取到的是这一行的数据信息 ;</p>
 </blockquote>
 <p>2). statusHandle方法中进行二次确认, 然后发起ajax请求, 传递id、status参数</p>
-<img src="瑞吉外卖-2/image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;"> 
 
-<img src="瑞吉外卖-2/image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;"> 
 
 <p>最终发起异步请求, 请求服务端, 请求信息如下： </p>
 <table>
@@ -711,15 +711,15 @@
 
 
 <h3 id="4-4-功能测试"><a href="#4-4-功能测试" class="headerlink" title="4.4 功能测试"></a>4.4 功能测试</h3><p>代码编写完毕之后，我们需要将工程重启。 然后访问前端页面， 进行 “启用” 或 “禁用” 的测试。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123213103.png" alt="image-20210730123213103"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123213103.png" alt="image-20210730123213103"> </p>
 <p>测试过程中没有报错，但是功能并没有实现，查看数据库中的数据也没有变化。但是从控制台输出的日志， 可以看出确实没有更新成功。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123307452.png" alt="image-20210730123307452"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123307452.png" alt="image-20210730123307452"> </p>
 <p>而在我们的数据库表结构中， 并不存在该ID， 数据库中 风清扬 对应的ID为 1420038345634918401</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123519468.png" alt="image-20210730123519468"> </p>
-<h3 id="4-5-代码修复"><a href="#4-5-代码修复" class="headerlink" title="4.5 代码修复"></a>4.5 代码修复</h3><h4 id="4-5-1-原因分析"><a href="#4-5-1-原因分析" class="headerlink" title="4.5.1 原因分析"></a>4.5.1 原因分析</h4><p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123833129.png" alt="image-20210730123833129"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123519468.png" alt="image-20210730123519468"> </p>
+<h3 id="4-5-代码修复"><a href="#4-5-代码修复" class="headerlink" title="4.5 代码修复"></a>4.5 代码修复</h3><h4 id="4-5-1-原因分析"><a href="#4-5-1-原因分析" class="headerlink" title="4.5.1 原因分析"></a>4.5.1 原因分析</h4><p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730123833129.png" alt="image-20210730123833129"> </p>
 <p>通过观察控制台输出的SQL发现页面传递过来的员工id的值和数据库中的id值不一致，这是怎么回事呢？</p>
 <p>在分页查询时，服务端会将返回的R对象进行json序列化，转换为json格式的数据，而员工的ID是一个Long类型的数据，而且是一个长度为 19 位的长整型数据， 该数据返回给前端是没有问题的。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730124036415.png" alt="image-20210730124036415"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730124036415.png" alt="image-20210730124036415"> </p>
 <p><strong>那么具体的问题出现在哪儿呢？</strong></p>
 <p>问题实际上， 就出现在前端JS中， js在对长度较长的长整型数据进行处理时， 会损失精度， 从而导致提交的id和数据库中的id不一致。 这里，我们也可以做一个简单的测试，代码如下： </p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -754,7 +754,7 @@
 
 
 <p>那么在我们的业务中, 我们只需要让分页查询返回的json格式数据库中, long类型的属性, 不直接转换为数字类型, 转换为字符串类型就可以解决这个问题了 , 最终返回的结果为 : </p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730125138652.png" alt="image-20210730125138652"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730125138652.png" alt="image-20210730125138652"> </p>
 <h4 id="4-5-3-代码修复"><a href="#4-5-3-代码修复" class="headerlink" title="4.5.3 代码修复"></a>4.5.3 代码修复</h4><p>由于在SpringMVC中, 将Controller方法返回值转换为json对象, 是通过jackson来实现的, 涉及到SpringMVC中的一个消息转换器MappingJackson2HttpMessageConverter, 所以我们要解决这个问题, 就需要对该消息转换器的功能进行拓展。</p>
 <p><strong>具体实现步骤：</strong></p>
 <p>1). 提供对象转换器JacksonObjectMapper，基于Jackson进行Java对象到json数据的转换（资料中已经提供，直接复制到项目中使用）</p>
@@ -837,22 +837,22 @@
 
 
 <h2 id="5-编辑员工信息"><a href="#5-编辑员工信息" class="headerlink" title="5. 编辑员工信息"></a>5. 编辑员工信息</h2><h3 id="5-1-需求分析"><a href="#5-1-需求分析" class="headerlink" title="5.1 需求分析"></a>5.1 需求分析</h3><p>在员工管理列表页面点击 “编辑” 按钮，跳转到编辑页面，在编辑页面回显员工信息并进行修改，最后点击 “保存” 按钮完成编辑操作。</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730181733784.png" alt="image-20210730181733784"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730181733784.png" alt="image-20210730181733784"> </p>
 <p>那么从上述的分析中，我们可以看出当前实现的编辑功能,我们需要实现两个方法:</p>
 <p>A. 根据ID查询, 用于页面数据回显</p>
 <p>B. 保存修改</p>
 <h3 id="5-2-程序执行流程"><a href="#5-2-程序执行流程" class="headerlink" title="5.2 程序执行流程"></a>5.2 程序执行流程</h3><p>在开发代码之前需要梳理一下操作过程和对应的程序的执行流程：</p>
 <p>1). 点击编辑按钮时，页面跳转到add.html，并在url中携带参数[员工id]</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730225514330.png" alt="image-20210730225514330"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730225514330.png" alt="image-20210730225514330"> </p>
 <p>2). 在add.html页面获取url中的参数[员工id]</p>
 <p>3). 发送ajax请求，请求服务端，同时提交员工id参数</p>
 <p>4). 服务端接收请求，根据员工id查询员工信息，将员工信息以json形式响应给页面</p>
-<p><img src="/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730230005437.png" alt="image-20210730230005437"> </p>
+<p><img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730230005437.png" alt="image-20210730230005437"> </p>
 <p>5). 页面接收服务端响应的json数据，通过VUE的数据绑定进行员工信息回显</p>
 <p>6). 点击保存按钮，发送ajax请求，将页面中的员工信息以json方式提交给服务端</p>
 <p>7). 服务端接收员工信息，并进行处理，完成后给页面响应</p>
 <p>8). 页面接收到服务端响应信息后进行相应处理</p>
-<img src="瑞吉外卖-2/image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;" /> 
+<img src="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2/image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;"> 
 
 
 
@@ -939,7 +939,7 @@
 
 
 <h3 id="5-4-功能测试"><a href="#5-4-功能测试" class="headerlink" title="5.4 功能测试"></a>5.4 功能测试</h3><p>代码编写完毕之后，我们需要将工程重启。 然后访问前端页面， 按照前面分析的操作流程进行测试，查看数据是否正常修改即可。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2.html">http://www.fanliu.top/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-3.html" title="瑞吉外卖（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">瑞吉外卖（三）</div></div></a></div><div class="next-post pull-right"><a href="/post/%E7%91%9E%E5%90%89%E7%82%B9%E9%A4%90-%EF%BC%88%E4%B8%80%EF%BC%89.html" title="瑞吉外卖（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">瑞吉外卖（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Maven%E9%AB%98%E7%BA%A7.html" title="Maven高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">Maven高级</div></div></a></div><div><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-08</div><div class="title">Mybatis-1</div></div></a></div><div><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-18</div><div class="title">MybatisPlus</div></div></a></div><div><a href="/post/SpingBoot%E5%8E%9F%E7%90%86.html" title="SpingBoot原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">SpingBoot原理</div></div></a></div><div><a href="/post/SpringBootWeb_AOP.html" title="SpringBootWeb_AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="title">SpringBootWeb_AOP</div></div></a></div><div><a href="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html" title="SpringBoot案例（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-13</div><div class="title">SpringBoot案例（二）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%EF%BC%88%E4%BA%8C%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">瑞吉外卖（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%8C%E5%96%84%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.</span> <span class="toc-text">1. 完善登录功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.4.</span> <span class="toc-text">1.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.</span> <span class="toc-text">2. 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.3 程序执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">2.4 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">2.5 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.3.6.</span> <span class="toc-text">2.6 全局异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-1-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">2.6.1 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-2-%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">2.6.2 全局异常处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.6.3.</span> <span class="toc-text">2.6.3 测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.</span> <span class="toc-text">3. 员工分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 程序执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%A1%B5%E9%9D%A2%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">3.2.1 页面流程分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">3.2.2 前端代码介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">3.3.1 分页插件配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">3.3.2 分页查询实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%AF%E7%94%A8-%E7%A6%81%E7%94%A8%E5%91%98%E5%B7%A5%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.5.</span> <span class="toc-text">4. 启用&#x2F;禁用员工账号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 程序执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E9%A1%B5%E9%9D%A2%E6%8C%89%E9%92%AE%E5%8A%A8%E6%80%81%E5%B1%95%E7%A4%BA"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">4.2.1 页面按钮动态展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">4.2.2 执行流程分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E4%BB%A3%E7%A0%81%E4%BF%AE%E5%A4%8D"><span class="toc-number">1.5.5.</span> <span class="toc-text">4.5 代码修复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">4.5.1 原因分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">4.5.2 解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-%E4%BB%A3%E7%A0%81%E4%BF%AE%E5%A4%8D"><span class="toc-number">1.5.5.3.</span> <span class="toc-text">4.5.3 代码修复</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BC%96%E8%BE%91%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF"><span class="toc-number">1.6.</span> <span class="toc-text">5. 编辑员工信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 程序执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E6%A0%B9%E6%8D%AEID%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">5.3.1 根据ID查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">5.3.2 修改员工</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.4.</span> <span class="toc-text">5.4 功能测试</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2.html">http://www.fanliu.top/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-3.html" title="瑞吉外卖（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">瑞吉外卖（三）</div></div></a></div><div class="next-post pull-right"><a href="/post/%E7%91%9E%E5%90%89%E7%82%B9%E9%A4%90-%EF%BC%88%E4%B8%80%EF%BC%89.html" title="瑞吉外卖（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">瑞吉外卖（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-18</div><div class="title">MybatisPlus</div></div></a></div><div><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-08</div><div class="title">Mybatis-1</div></div></a></div><div><a href="/post/Maven%E9%AB%98%E7%BA%A7.html" title="Maven高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">Maven高级</div></div></a></div><div><a href="/post/SpingBoot%E5%8E%9F%E7%90%86.html" title="SpingBoot原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">SpingBoot原理</div></div></a></div><div><a href="/post/SpringBootWeb_AOP.html" title="SpringBootWeb_AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="title">SpringBootWeb_AOP</div></div></a></div><div><a href="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html" title="SpringBoot案例（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-13</div><div class="title">SpringBoot案例（二）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%EF%BC%88%E4%BA%8C%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">瑞吉外卖（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%8C%E5%96%84%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.</span> <span class="toc-text">1. 完善登录功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.4.</span> <span class="toc-text">1.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.</span> <span class="toc-text">2. 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.3 程序执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">2.4 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">2.5 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.3.6.</span> <span class="toc-text">2.6 全局异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-1-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">2.6.1 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-2-%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">2.6.2 全局异常处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.6.3.</span> <span class="toc-text">2.6.3 测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.</span> <span class="toc-text">3. 员工分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 程序执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%A1%B5%E9%9D%A2%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">3.2.1 页面流程分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">3.2.2 前端代码介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">3.3.1 分页插件配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">3.3.2 分页查询实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%AF%E7%94%A8-%E7%A6%81%E7%94%A8%E5%91%98%E5%B7%A5%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.5.</span> <span class="toc-text">4. 启用&#x2F;禁用员工账号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 程序执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E9%A1%B5%E9%9D%A2%E6%8C%89%E9%92%AE%E5%8A%A8%E6%80%81%E5%B1%95%E7%A4%BA"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">4.2.1 页面按钮动态展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">4.2.2 执行流程分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E4%BB%A3%E7%A0%81%E4%BF%AE%E5%A4%8D"><span class="toc-number">1.5.5.</span> <span class="toc-text">4.5 代码修复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">4.5.1 原因分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">4.5.2 解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-%E4%BB%A3%E7%A0%81%E4%BF%AE%E5%A4%8D"><span class="toc-number">1.5.5.3.</span> <span class="toc-text">4.5.3 代码修复</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BC%96%E8%BE%91%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF"><span class="toc-number">1.6.</span> <span class="toc-text">5. 编辑员工信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 程序执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E6%A0%B9%E6%8D%AEID%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">5.3.1 根据ID查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">5.3.2 修改员工</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.4.</span> <span class="toc-text">5.4 功能测试</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
