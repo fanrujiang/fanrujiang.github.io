@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>mysql学习笔记(二) | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据库开发-MySQL1. 多表查询1.1 概述1.1.1 数据准备SQL脚本： #建议：创建新的数据库 create database db04; use db04;  -- 部门表 create table tb_dept (     id          int unsigned primary key auto_increment comment &#39;主键ID&#39;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql学习笔记(二)">
+<meta property="og:url" content="http://www.fanliu.top/post/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="数据库开发-MySQL1. 多表查询1.1 概述1.1.1 数据准备SQL脚本： #建议：创建新的数据库 create database db04; use db04;  -- 部门表 create table tb_dept (     id          int unsigned primary key auto_increment comment &#39;主键ID&#39;,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.fanliu.top/img/fy.jpg">
+<meta property="article:published_time" content="2021-02-08T03:45:28.000Z">
+<meta property="article:modified_time" content="2023-09-25T06:18:51.363Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'mysql学习笔记(二)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 14:18:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">mysql学习笔记(二)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-08T03:45:28.000Z" title="发表于 2021-02-08 11:45:28">2021-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="mysql学习笔记(二)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="数据库开发-MySQL"><a href="#数据库开发-MySQL" class="headerlink" title="数据库开发-MySQL"></a>数据库开发-MySQL</h1><h1 id="1-多表查询"><a href="#1-多表查询" class="headerlink" title="1. 多表查询"></a>1. 多表查询</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><h3 id="1-1-1-数据准备"><a href="#1-1-1-数据准备" class="headerlink" title="1.1.1 数据准备"></a>1.1.1 数据准备</h3><p>SQL脚本：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#建议：创建新的数据库
+create database db04;
+use db04;
+
+-- 部门表
+create table tb_dept
+(
+    id          int unsigned primary key auto_increment comment &#39;主键ID&#39;,
+    name        varchar(10) not null unique comment &#39;部门名称&#39;,
+    create_time datetime    not null comment &#39;创建时间&#39;,
+    update_time datetime    not null comment &#39;修改时间&#39;
+) comment &#39;部门表&#39;;
+-- 部门表测试
+insert into tb_dept (id, name, create_time, update_time)
+values (1, &#39;学工部&#39;, now(), now()),
+       (2, &#39;教研部&#39;, now(), now()),
+       (3, &#39;咨询部&#39;, now(), now()),
+       (4, &#39;就业部&#39;, now(), now()),
+       (5, &#39;人事部&#39;, now(), now());
+
+-- 员工表
+create table tb_emp
+(
+    id          int unsigned primary key auto_increment comment &#39;ID&#39;,
+    username    varchar(20)      not null unique comment &#39;用户名&#39;,
+    password    varchar(32) default &#39;123456&#39; comment &#39;密码&#39;,
+    name        varchar(10)      not null comment &#39;姓名&#39;,
+    gender      tinyint unsigned not null comment &#39;性别, 说明: 1 男, 2 女&#39;,
+    image       varchar(300) comment &#39;图像&#39;,
+    job         tinyint unsigned comment &#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师&#39;,
+    entrydate   date comment &#39;入职时间&#39;,
+    dept_id     int unsigned comment &#39;部门ID&#39;,
+    create_time datetime         not null comment &#39;创建时间&#39;,
+    update_time datetime         not null comment &#39;修改时间&#39;
+) comment &#39;员工表&#39;;
+-- 员工表测试数据
+INSERT INTO tb_emp(id, username, password, name, gender, image, job, entrydate,dept_id, create_time, update_time) 
+VALUES 
+(1,&#39;jinyong&#39;,&#39;123456&#39;,&#39;金庸&#39;,1,&#39;1.jpg&#39;,4,&#39;2000-01-01&#39;,2,now(),now()),
+(2,&#39;zhangwuji&#39;,&#39;123456&#39;,&#39;张无忌&#39;,1,&#39;2.jpg&#39;,2,&#39;2015-01-01&#39;,2,now(),now()),
+(3,&#39;yangxiao&#39;,&#39;123456&#39;,&#39;杨逍&#39;,1,&#39;3.jpg&#39;,2,&#39;2008-05-01&#39;,2,now(),now()),
+(4,&#39;weiyixiao&#39;,&#39;123456&#39;,&#39;韦一笑&#39;,1,&#39;4.jpg&#39;,2,&#39;2007-01-01&#39;,2,now(),now()),
+(5,&#39;changyuchun&#39;,&#39;123456&#39;,&#39;常遇春&#39;,1,&#39;5.jpg&#39;,2,&#39;2012-12-05&#39;,2,now(),now()),
+(6,&#39;xiaozhao&#39;,&#39;123456&#39;,&#39;小昭&#39;,2,&#39;6.jpg&#39;,3,&#39;2013-09-05&#39;,1,now(),now()),
+(7,&#39;jixiaofu&#39;,&#39;123456&#39;,&#39;纪晓芙&#39;,2,&#39;7.jpg&#39;,1,&#39;2005-08-01&#39;,1,now(),now()),
+(8,&#39;zhouzhiruo&#39;,&#39;123456&#39;,&#39;周芷若&#39;,2,&#39;8.jpg&#39;,1,&#39;2014-11-09&#39;,1,now(),now()),
+(9,&#39;dingminjun&#39;,&#39;123456&#39;,&#39;丁敏君&#39;,2,&#39;9.jpg&#39;,1,&#39;2011-03-11&#39;,1,now(),now()),
+(10,&#39;zhaomin&#39;,&#39;123456&#39;,&#39;赵敏&#39;,2,&#39;10.jpg&#39;,1,&#39;2013-09-05&#39;,1,now(),now()),
+(11,&#39;luzhangke&#39;,&#39;123456&#39;,&#39;鹿杖客&#39;,1,&#39;11.jpg&#39;,5,&#39;2007-02-01&#39;,3,now(),now()),
+(12,&#39;hebiweng&#39;,&#39;123456&#39;,&#39;鹤笔翁&#39;,1,&#39;12.jpg&#39;,5,&#39;2008-08-18&#39;,3,now(),now()),
+(13,&#39;fangdongbai&#39;,&#39;123456&#39;,&#39;方东白&#39;,1,&#39;13.jpg&#39;,5,&#39;2012-11-01&#39;,3,now(),now()),
+(14,&#39;zhangsanfeng&#39;,&#39;123456&#39;,&#39;张三丰&#39;,1,&#39;14.jpg&#39;,2,&#39;2002-08-01&#39;,2,now(),now()),
+(15,&#39;yulianzhou&#39;,&#39;123456&#39;,&#39;俞莲舟&#39;,1,&#39;15.jpg&#39;,2,&#39;2011-05-01&#39;,2,now(),now()),
+(16,&#39;songyuanqiao&#39;,&#39;123456&#39;,&#39;宋远桥&#39;,1,&#39;16.jpg&#39;,2,&#39;2007-01-01&#39;,2,now(),now()),
+(17,&#39;chenyouliang&#39;,&#39;123456&#39;,&#39;陈友谅&#39;,1,&#39;17.jpg&#39;,NULL,&#39;2015-03-21&#39;,NULL,now(),now());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="1-1-2-介绍"><a href="#1-1-2-介绍" class="headerlink" title="1.1.2 介绍"></a>1.1.2 介绍</h3><p>多表查询：查询时从多张表中获取所需数据</p>
+<blockquote>
+<p>单表查询的SQL语句：select  字段列表  from  表名;</p>
+<p>那么要执行多表查询，只需要使用逗号分隔多张表即可，如： select   字段列表  from  表1, 表2;</p>
+</blockquote>
+<p>查询用户表和部门表中的数据：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from  tb_emp , tb_dept;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20220901093654673.png" alt="image-20220901093654673">  </p>
+<p>此时,我们看到查询结果中包含了大量的结果集，总共85条记录，而这其实就是员工表所有的记录(17行)与部门表所有记录(5行)的所有组合情况，这种现象称之为笛卡尔积。</p>
+<p>笛卡尔积：笛卡尔乘积是指在数学中，两个集合(A集合和B集合)的所有组合情况。</p>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221207155509696.png" alt="image-20221207155509696"></p>
+<blockquote>
+<p>在多表查询时，需要消除无效的笛卡尔积，只保留表关联部分的数据</p>
+</blockquote>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20220901093756992.png"></p>
+<p>在SQL语句中，如何去除无效的笛卡尔积呢？只需要给多表查询加上连接查询的条件即可。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from tb_emp , tb_dept where tb_emp.dept_id &#x3D; tb_dept.id ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221207164518904.png" alt="image-20221207164518904"></p>
+<blockquote>
+<p>由于id为17的员工，没有dept_id字段值，所以在多表查询时，根据连接查询的条件并没有查询到。</p>
+</blockquote>
+<h3 id="1-1-3-分类"><a href="#1-1-3-分类" class="headerlink" title="1.1.3 分类"></a>1.1.3 分类</h3><p>多表查询可以分为：</p>
+<ol>
+<li><p>连接查询</p>
+<ul>
+<li>内连接：相当于查询A、B交集部分数据</li>
+</ul>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221207165446062.png" alt="image-20221207165446062"> </p>
+</li>
+<li><p>外连接</p>
+<ul>
+<li><p>左外连接：查询左表所有数据(包括两张表交集部分数据)</p>
+</li>
+<li><p>右外连接：查询右表所有数据(包括两张表交集部分数据)</p>
+</li>
+</ul>
+</li>
+<li><p>子查询</p>
+</li>
+</ol>
+<h2 id="1-2-内连接"><a href="#1-2-内连接" class="headerlink" title="1.2 内连接"></a>1.2 内连接</h2><p>内连接查询：查询两表或多表中交集部分数据。</p>
+<p>内连接从语法上可以分为：</p>
+<ul>
+<li><p>隐式内连接</p>
+</li>
+<li><p>显式内连接</p>
+</li>
+</ul>
+<p>隐式内连接语法：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select  字段列表   from   表1 , 表2   where  条件 ... ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>显式内连接语法：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select  字段列表   from   表1  [ inner ]  join 表2  on  连接条件 ... ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>案例：查询员工的姓名及所属的部门名称</p>
+<ul>
+<li>隐式内连接实现</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select tb_emp.name , tb_dept.name -- 分别查询两张表中的数据
+from tb_emp , tb_dept -- 关联两张表
+where tb_emp.dept_id &#x3D; tb_dept.id; -- 消除笛卡尔积<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>显式内连接实现</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select te.name, td.name
+from tb_emp te
+         inner join tb_dept td on te.dept_id &#x3D; td.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<img src="mysql学习笔记-二/image-20230207201904002.png" alt="image-20230207201904002" style="zoom:67%;" />
+
+<p>多表查询时给表起别名：</p>
+<ul>
+<li><p>tableA  as  别名1  ,  tableB  as  别名2 ;</p>
+</li>
+<li><p>tableA  别名1  ,  tableB  别名2 ;</p>
+</li>
+</ul>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221207174234522.png" alt="image-20221207174234522"></p>
+<p>使用了别名的多表查询：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select emp.name , dept.name
+from tb_emp emp inner join tb_dept dept
+on emp.dept_id &#x3D; dept.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意事项:</p>
+<p>一旦为表起了别名，就不能再使用表名来指定对应的字段了，此时只能够使用别名来指定字段。</p>
+</blockquote>
+<h2 id="1-3外连接"><a href="#1-3外连接" class="headerlink" title="1.3外连接"></a>1.3外连接</h2><p>外连接分为两种：左外连接 和 右外连接。</p>
+<p>左外连接语法结构：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select  字段列表   from   表1  left  [ outer ]  join 表2  on  连接条件 ... ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>左外连接相当于查询表1(左表)的所有数据，当然也包含表1和表2交集部分的数据。</p>
+</blockquote>
+<p>右外连接语法结构：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select  字段列表   from   表1  right  [ outer ]  join 表2  on  连接条件 ... ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>右外连接相当于查询表2(右表)的所有数据，当然也包含表1和表2交集部分的数据。</p>
+</blockquote>
+<p>案例：查询员工表中所有员工的姓名, 和对应的部门名称</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select emp.name, dept.name
+from tb_emp emp
+         left outer join tb_dept dept on emp.dept_id &#x3D; dept.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<img src="mysql学习笔记-二/image-20230207202556072.png" alt="image-20230207202556072" style="zoom:80%;" />
+
+<p>案例：查询部门表中所有部门的名称, 和对应的员工名称</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select dept.name, emp.name
+from tb_emp emp
+         right outer join tb_dept dept on emp.dept_id &#x3D; dept.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230207203055254.png" alt="image-20230207203055254"></p>
+<blockquote>
+<p>注意事项：</p>
+<p>左外连接和右外连接是可以相互替换的，只需要调整连接查询时SQL语句中表的先后顺序就可以了。而我们在日常开发使用时，更偏向于左外连接。</p>
+</blockquote>
+<h2 id="1-4-子查询"><a href="#1-4-子查询" class="headerlink" title="1.4 子查询"></a>1.4 子查询</h2><h3 id="1-4-1-介绍"><a href="#1-4-1-介绍" class="headerlink" title="1.4.1 介绍"></a>1.4.1 介绍</h3><p>SQL语句中嵌套select语句，称为嵌套查询，又称子查询。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>  <span class="token operator">*</span>  <span class="token keyword">FROM</span>   t1   <span class="token keyword">WHERE</span>  column1 <span class="token operator">=</span>  <span class="token punctuation">(</span> <span class="token keyword">SELECT</span>  column1  <span class="token keyword">FROM</span>  t2 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>子查询外部的语句可以是insert &#x2F; update &#x2F; delete &#x2F; select 的任何一个，最常见的是 select。</p>
+</blockquote>
+<p>根据子查询结果的不同分为：</p>
+<ol>
+<li><p>标量子查询（子查询结果为单个值[一行一列]）</p>
+</li>
+<li><p>列子查询（子查询结果为一列，但可以是多行）</p>
+</li>
+<li><p>行子查询（子查询结果为一行，但可以是多列）</p>
+</li>
+<li><p>表子查询（子查询结果为多行多列[相当于子查询结果是一张表]）</p>
+</li>
+</ol>
+<p>子查询可以书写的位置：</p>
+<ol>
+<li>where之后</li>
+<li>from之后</li>
+<li>select之后</li>
+</ol>
+<h3 id="1-4-2-标量子查询"><a href="#1-4-2-标量子查询" class="headerlink" title="1.4.2 标量子查询"></a>1.4.2 标量子查询</h3><p>子查询返回的结果是单个值(数字、字符串、日期等)，最简单的形式，这种子查询称为标量子查询。</p>
+<p>常用的操作符： &#x3D;   &lt;&gt;   &gt;    &gt;&#x3D;    &lt;   &lt;&#x3D;   </p>
+<p>案例1：查询”教研部”的所有员工信息</p>
+<blockquote>
+<p>可以将需求分解为两步：</p>
+<ol>
+<li>查询 “教研部” 部门ID</li>
+<li>根据 “教研部” 部门ID，查询员工信息</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select *
+from tb_emp
+where dept_id &#x3D; (select id from tb_dept where name &#x3D; &#39;教研部&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230207203553658.png" alt="image-20230207203553658"></p>
+<p>案例2：查询在 “方东白” 入职之后的员工信息</p>
+<blockquote>
+<p>可以将需求分解为两步：</p>
+<ol>
+<li>查询 方东白 的入职日期</li>
+<li>查询 指定入职日期之后入职的员工信息</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 1.查询&quot;方东白&quot;的入职日期
+select entrydate from tb_emp where name &#x3D; &#39;方东白&#39;;     #查询结果：2012-11-01
+-- 2.查询指定入职日期之后入职的员工信息
+select * from tb_emp where entrydate &gt; &#39;2012-11-01&#39;;
+
+-- 合并以上两条SQL语句
+select * from tb_emp where entrydate &gt; (select entrydate from tb_emp where name &#x3D; &#39;方东白&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221207203000445.png" alt="image-20221207203000445"></p>
+<h3 id="1-4-3-列子查询"><a href="#1-4-3-列子查询" class="headerlink" title="1.4.3 列子查询"></a>1.4.3 列子查询</h3><p>子查询返回的结果是一列(可以是多行)，这种子查询称为列子查询。</p>
+<p>常用的操作符：</p>
+<table>
+<thead>
+<tr>
+<th><strong>操作符</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IN</td>
+<td>在指定的集合范围之内，多选一</td>
+</tr>
+<tr>
+<td>NOT IN</td>
+<td>不在指定的集合范围之内</td>
+</tr>
+</tbody></table>
+<p>案例：查询”教研部”和”咨询部”的所有员工信息</p>
+<blockquote>
+<p>分解为以下两步：</p>
+<ol>
+<li>查询 “销售部” 和 “市场部” 的部门ID</li>
+<li>根据部门ID, 查询员工信息</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select *
+from tb_emp
+where dept_id in (select id from tb_dept where name &#x3D; &#39;教研部&#39; or name &#x3D; &#39;咨询部&#39;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230207205344503.png" alt="image-20230207205344503"></p>
+<h3 id="1-4-4-行子查询"><a href="#1-4-4-行子查询" class="headerlink" title="1.4.4 行子查询"></a>1.4.4 行子查询</h3><p>子查询返回的结果是一行(可以是多列)，这种子查询称为行子查询。</p>
+<p>常用的操作符：&#x3D; 、&lt;&gt; 、IN 、NOT IN</p>
+<p>案例：查询与”韦一笑”的入职日期及职位都相同的员工信息 </p>
+<blockquote>
+<p>可以拆解为两步进行： </p>
+<ol>
+<li>查询 “韦一笑” 的入职日期 及 职位</li>
+<li>查询与”韦一笑”的入职日期及职位相同的员工信息</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">select *
+from tb_emp
+where (entrydate,job)&#x3D;(select entrydate, job from tb_emp where name &#x3D; &#39;韦一笑&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230207205901253.png" alt="image-20230207205901253"></p>
+<h3 id="1-4-5-表子查询"><a href="#1-4-5-表子查询" class="headerlink" title="1.4.5 表子查询"></a>1.4.5 表子查询</h3><p>子查询返回的结果是多行多列，常作为临时表，这种子查询称为表子查询。</p>
+<p>案例：查询入职日期是 “2006-01-01” 之后的员工信息 , 及其部门信息</p>
+<blockquote>
+<p>分解为两步执行：</p>
+<ol>
+<li>查询入职日期是 “2006-01-01” 之后的员工信息</li>
+<li>基于查询到的员工信息，在查询对应的部门信息</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select *
+from (select * from tb_emp where entrydate &gt; &#39;2006-01-01&#39;) e
+         left outer join tb_dept d on e.dept_id &#x3D; d.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="1-5-案例"><a href="#1-5-案例" class="headerlink" title="1.5 案例"></a>1.5 案例</h2><p>基于之前设计的多表案例的表结构，我们来完成今天的多表查询案例需求。</p>
+<p><strong>准备环境</strong></p>
+<p>将资料中准备好的多表查询的数据准备的SQL脚本导入数据库中。</p>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221208143318921.png" alt="image-20221208143318921"> </p>
+<ul>
+<li>分类表：category</li>
+<li>菜品表：dish</li>
+<li>套餐表：setmeal</li>
+<li>套餐菜品关系表：setmeal_dish</li>
+</ul>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221208143312292.png" alt="image-20221208143312292"> </p>
+<p><strong>需求实现</strong></p>
+<ol>
+<li>查询价格低于 10元 的菜品的名称 、价格 及其 菜品的分类名称</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select d.name &#39;菜品名&#39;, d.price &#39;价格&#39;, c.name &#39;套餐名&#39;
+from dish d,
+     category c
+where d.category_id &#x3D; c.id
+  and d.price &lt;&#x3D; 10;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230208103358130.png" alt="image-20230208103358130"></p>
+<ol start="2">
+<li>查询所有价格在 10元(含)到50元(含)之间 且 状态为’起售’的菜品名称、价格 及其 菜品的分类名称 (即使菜品没有分类 , 也需要将菜品查询出来).</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select d.name, d.price, c.name
+from (select * from dish where price between 10 and 50 and status &#x3D; 1) d
+         left join category c on d.category_id &#x3D; c.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230208105026381.png" alt="image-20230208105026381"></p>
+<ol start="3">
+<li>查询每个分类下最贵的菜品, 展示出分类的名称、最贵的菜品的价格 .</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select c.name, max(price)
+from dish d,
+     category c
+where d.category_id &#x3D; c.id
+group by c.name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230208110121714.png" alt="image-20230208110121714"></p>
+<ol start="4">
+<li>查询各个分类下 状态为 ‘起售’ , 并且 该分类下菜品总数量大于等于3 的 分类名称</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select c.name, count(*) number
+from dish d,
+     category c
+where d.category_id &#x3D; c.id
+  and d.status &#x3D; 1
+group by c.name
+having number &gt;&#x3D; 3;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230208110736393.png" alt="image-20230208110736393"></p>
+<ol start="5">
+<li>查询出 “商务套餐A” 中包含了哪些菜品 （展示出套餐名称、价格, 包含的菜品名称、价格、份数）</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select s.name, s.price, d.name, d.price, sd.copies
+from setmeal s,
+     dish d,
+     setmeal_dish sd
+where s.id &#x3D; sd.setmeal_id
+  and d.id &#x3D; sd.dish_id
+  and s.name &#x3D; &#39;商务套餐A&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li>查询出低于菜品平均价格的菜品信息 (展示出菜品名称、菜品价格).</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select name, price
+from dish
+where price &lt; (select avg(price) from dish);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20230208112936884.png" alt="image-20230208112936884"></p>
+<h1 id="2-事务"><a href="#2-事务" class="headerlink" title="2. 事务"></a>2. 事务</h1><p>场景：学工部整个部门解散了，该部门及部门下的员工都需要删除了。</p>
+<ul>
+<li><p>操作：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 删除学工部</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> dept <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">-- 删除成功</span>
+
+<span class="token comment">-- 删除学工部的员工</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> dept_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">-- 删除失败（操作过程中出现错误：造成删除没有成功）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>问题：如果删除部门成功了，而删除该部门的员工时失败了，此时就造成了数据的不一致。</p>
+</li>
+</ul>
+<p>​	要解决上述的问题，就需要通过数据库中的事务来解决。</p>
+<h2 id="2-2-操作"><a href="#2-2-操作" class="headerlink" title="2.2 操作"></a>2.2 操作</h2><p>MYSQL中有两种方式进行事务的操作：</p>
+<ol>
+<li>自动提交事务：即执行一条sql语句提交一次事务。（默认MySQL的事务是自动提交）</li>
+<li>手动提交事务：先开启，再提交</li>
+</ol>
+<p>事务操作有关的SQL语句：</p>
+<table>
+<thead>
+<tr>
+<th>SQL语句</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start transaction;  &#x2F;  begin ;</td>
+<td>开启手动控制事务</td>
+</tr>
+<tr>
+<td>commit;</td>
+<td>提交事务</td>
+</tr>
+<tr>
+<td>rollback;</td>
+<td>回滚事务</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>手动提交事务使用步骤：</p>
+<ul>
+<li>第1种情况：开启事务  &#x3D;&gt;  执行SQL语句   &#x3D;&gt;  成功  &#x3D;&gt;  提交事务</li>
+<li>第2种情况：开启事务  &#x3D;&gt;  执行SQL语句   &#x3D;&gt;  失败  &#x3D;&gt;  回滚事务</li>
+</ul>
+</blockquote>
+<p>使用事务控制删除部门和删除该部门下的员工的操作：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 开启事务</span>
+<span class="token keyword">start</span> <span class="token keyword">transaction</span> <span class="token punctuation">;</span>
+
+<span class="token comment">-- 删除学工部</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> tb_dept <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 删除学工部的员工</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> tb_emp <span class="token keyword">where</span> dept_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>上述的这组SQL语句，如果如果执行成功，则提交事务</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 提交事务 (成功时执行)</span>
+<span class="token keyword">commit</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>上述的这组SQL语句，如果如果执行失败，则回滚事务</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 回滚事务 (出错时执行)</span>
+<span class="token keyword">rollback</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="2-3-四大特性"><a href="#2-3-四大特性" class="headerlink" title="2.3 四大特性"></a>2.3 四大特性</h2><p>面试题：事务有哪些特性？</p>
+<ul>
+<li>原子性（Atomicity）：事务是不可分割的最小单元，要么全部成功，要么全部失败。</li>
+<li>一致性（Consistency）：事务完成时，必须使所有的数据都保持一致状态。</li>
+<li>隔离性（Isolation）：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行。</li>
+<li>持久性（Durability）：事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。</li>
+</ul>
+<blockquote>
+<p>事务的四大特性简称为：ACID</p>
+</blockquote>
+<ul>
+<li><p><strong>原子性（Atomicity）</strong> ：原子性是指事务包装的一组sql是一个不可分割的工作单元，事务中的操作要么全部成功，要么全部失败。</p>
+</li>
+<li><p><strong>一致性（Consistency）</strong>：一个事务完成之后数据都必须处于一致性状态。</p>
+</li>
+</ul>
+<p>​		如果事务成功的完成，那么数据库的所有变化将生效。</p>
+<p>​		如果事务执行出现错误，那么数据库的所有变化将会被回滚(撤销)，返回到原始状态。</p>
+<ul>
+<li><strong>隔离性（Isolation）</strong>：多个用户并发的访问数据库时，一个用户的事务不能被其他用户的事务干扰，多个并发的事务之间要相互隔离。</li>
+</ul>
+<p>​		一个事务的成功或者失败对于其他的事务是没有影响。</p>
+<ul>
+<li><strong>持久性（Durability）</strong>：一个事务一旦被提交或回滚，它对数据库的改变将是永久性的，哪怕数据库发生异常，重启之后数据亦然存在。</li>
+</ul>
+<h1 id="3-索引"><a href="#3-索引" class="headerlink" title="3. 索引"></a>3. 索引</h1><h2 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h2><p>索引(index)：是帮助数据库高效获取数据的数据结构 。</p>
+<ul>
+<li>简单来讲，就是使用索引可以提高查询的效率。</li>
+</ul>
+<p>测试没有使用索引的查询：</p>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209115617429.png" alt="image-20221209115617429"></p>
+<p>添加索引后查询：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 添加索引
+create index idx_sku_sn on tb_sku (sn);  #在添加索引时，也需要消耗时间
+
+-- 查询数据（使用了索引）
+select * from tb_sku where sn &#x3D; &#39;100000003145008&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209120107543.png" alt="image-20221209120107543"></p>
+<p>优点：</p>
+<ol>
+<li>提高数据查询的效率，降低数据库的IO成本。</li>
+<li>通过索引列对数据进行排序，降低数据排序的成本，降低CPU消耗。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>索引会占用存储空间。</li>
+<li>索引大大提高了查询效率，同时却也降低了insert、update、delete的效率。</li>
+</ol>
+<h2 id="3-2-结构"><a href="#3-2-结构" class="headerlink" title="3.2 结构"></a>3.2 结构</h2><p>MySQL数据库支持的索引结构有很多，如：Hash索引、B+Tree索引、Full-Text索引等。</p>
+<p>我们平常所说的索引，如果没有特别指明，都是指默认的 B+Tree 结构组织的索引。</p>
+<p>在没有了解B+Tree结构前，我们先回顾下之前所学习的树结构：</p>
+<blockquote>
+<p>二叉查找树：左边的子节点比父节点小，右边的子节点比父节点大</p>
+</blockquote>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221208174135229.png" alt="image-20221208174135229"> </p>
+<blockquote>
+<p>当我们向二叉查找树保存数据时，是按照从大到小(或从小到大)的顺序保存的，此时就会形成一个单向链表，搜索性能会打折扣。</p>
+</blockquote>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221208174859866.png" alt="image-20221208174859866"> </p>
+<blockquote>
+<p>可以选择平衡二叉树或者是红黑树来解决上述问题。（红黑树也是一棵平衡的二叉树）</p>
+</blockquote>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209100647867.png" alt="image-20221209100647867"></p>
+<blockquote>
+<p>但是在Mysql数据库中并没有使用二叉搜索数或二叉平衡数或红黑树来作为索引的结构。</p>
+</blockquote>
+<p>思考：采用二叉搜索树或者是红黑树来作为索引的结构有什么问题？</p>
+<details>
+    <summary>答案</summary>
+    最大的问题就是在数据量大的情况下，树的层级比较深，会影响检索速度。因为不管是二叉搜索数还是红黑数，一个节点下面只能有两个子节点。此时在数据量大的情况下，就会造成数的高度比较高，树的高度一旦高了，检索速度就会降低。
+</details>
+
+
+
+<blockquote>
+<p>说明：如果数据结构是红黑树，那么查询1000万条数据，根据计算树的高度大概是23左右，这样确实比之前的方式快了很多，但是如果高并发访问，那么一个用户有可能需要23次磁盘IO，那么100万用户，那么会造成效率极其低下。所以为了减少红黑树的高度，那么就得增加树的宽度，就是不再像红黑树一样每个节点只能保存一个数据，可以引入另外一种数据结构，一个节点可以保存多个数据，这样宽度就会增加从而降低树的高度。这种数据结构例如BTree就满足。</p>
+</blockquote>
+<p>下面我们来看看B+Tree(多路平衡搜索树)结构中如何避免这个问题：</p>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221208181315728.png" alt="image-20221208181315728"></p>
+<p>B+Tree结构：</p>
+<ul>
+<li>每一个节点，可以存储多个key（有n个key，就有n个指针）</li>
+<li>节点分为：叶子节点、非叶子节点<ul>
+<li>叶子节点，就是最后一层子节点，所有的数据都存储在叶子节点上</li>
+<li>非叶子节点，不是树结构最下面的节点，用于索引数据，存储的的是：key+指针</li>
+</ul>
+</li>
+<li>为了提高范围查询效率，叶子节点形成了一个双向链表，便于数据的排序及区间范围查询</li>
+</ul>
+<blockquote>
+<p><strong>拓展：</strong></p>
+<p>非叶子节点都是由key+指针域组成的，一个key占8字节，一个指针占6字节，而一个节点总共容量是16KB，那么可以计算出一个节点可以存储的元素个数：16*1024字节 &#x2F; (8+6)&#x3D;1170个元素。</p>
+<ul>
+<li>查看mysql索引节点大小：show global status like ‘innodb_page_size’;    – 节点大小：16384</li>
+</ul>
+<p>当根节点中可以存储1170个元素，那么根据每个元素的地址值又会找到下面的子节点，每个子节点也会存储1170个元素，那么第二层即第二次IO的时候就会找到数据大概是：1170*1170&#x3D;135W。也就是说B+Tree数据结构中只需要经历两次磁盘IO就可以找到135W条数据。</p>
+<p>对于第二层每个元素有指针，那么会找到第三层，第三层由key+数据组成，假设key+数据总大小是1KB，而每个节点一共能存储16KB，所以一个第三层一个节点大概可以存储16个元素(即16条记录)。那么结合第二层每个元素通过指针域找到第三层的节点，第二层一共是135W个元素，那么第三层总元素大小就是：135W*16结果就是2000W+的元素个数。</p>
+<p>结合上述分析B+Tree有如下优点：</p>
+<ul>
+<li>千万条数据，B+Tree可以控制在小于等于3的高度</li>
+<li>所有的数据都存储在叶子节点上，并且底层已经实现了按照索引进行排序，还可以支持范围查询，叶子节点是一个双向链表，支持从小到大或者从大到小查找</li>
+</ul>
+</blockquote>
+<h2 id="3-3-语法"><a href="#3-3-语法" class="headerlink" title="3.3 语法"></a>3.3 语法</h2><p><strong>创建索引</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create  [ unique ]  index 索引名 on  表名 (字段名,... ) ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：为tb_emp表的name字段建立一个索引</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create index idx_emp_name on tb_emp(name);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209105119159.png" alt="image-20221209105119159"></p>
+<blockquote>
+<p>在创建表时，如果添加了主键和唯一约束，就会默认创建：主键索引、唯一约束</p>
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209105846211.png" alt="image-20221209105846211"></p>
+</blockquote>
+<p><strong>查看索引</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show  index  from  表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：查询 tb_emp 表的索引信息</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show  index  from  tb_emp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/image-20221209110317092.png" alt="image-20221209110317092"></p>
+<p><strong>删除索引</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop  index  索引名  on  表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：删除 tb_emp 表中name字段的索引</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop index idx_emp_name on tb_emp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li><p>主键字段，在建表时，会自动创建主键索引</p>
+</li>
+<li><p>添加唯一约束时，数据库实际上会添加唯一索引</p>
+</li>
+</ul>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C.html">http://www.fanliu.top/post/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Mybatis-1</div></div></a></div><div class="next-post pull-right"><a href="/post/mysql.html" title="mysql学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">mysql学习笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/MySQL%E7%9A%84%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB.html" title="MySQL的主从复制和读写分离"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-06</div><div class="title">MySQL的主从复制和读写分离</div></div></a></div><div><a href="/post/mysql.html" title="mysql学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-07</div><div class="title">mysql学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91-MySQL"><span class="toc-number">1.</span> <span class="toc-text">数据库开发-MySQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.</span> <span class="toc-text">1. 多表查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1.1 数据准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.1.2 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.1.3 分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 内连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.3.</span> <span class="toc-text">1.3外连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.4.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.2.</span> <span class="toc-text">1.4.2 标量子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-3-%E5%88%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.3.</span> <span class="toc-text">1.4.3 列子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-4-%E8%A1%8C%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.4.</span> <span class="toc-text">1.4.4 行子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-5-%E8%A1%A8%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.5.</span> <span class="toc-text">1.4.5 表子查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E6%A1%88%E4%BE%8B"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">2. 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%93%8D%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">2.2 操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">2.3 四大特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%B4%A2%E5%BC%95"><span class="toc-number">4.</span> <span class="toc-text">3. 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%AF%AD%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 语法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

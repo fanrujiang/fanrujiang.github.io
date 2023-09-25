@@ -1,0 +1,1985 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SpringBoot案例（一） | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SpringBootWeb案例前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。  在这个案例中，前端开发人员已经将前端工程开发完毕">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot案例（一）">
+<meta property="og:url" content="http://www.fanliu.top/post/SpringBoot%E6%A1%88%E4%BE%8B.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="SpringBootWeb案例前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。  在这个案例中，前端开发人员已经将前端工程开发完毕">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.fanliu.top/img/fy.jpg">
+<meta property="article:published_time" content="2021-02-10T07:42:56.000Z">
+<meta property="article:modified_time" content="2023-09-25T06:17:04.960Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/SpringBoot%E6%A1%88%E4%BE%8B.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SpringBoot案例（一）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 14:17:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot案例（一）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-10T07:42:56.000Z" title="发表于 2021-02-10 15:42:56">2021-02-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/">javaWeb</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/SpringBoot/">SpringBoot</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot案例（一）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SpringBootWeb案例"><a href="#SpringBootWeb案例" class="headerlink" title="SpringBootWeb案例"></a>SpringBootWeb案例</h1><p>前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20220904104826854.png"></p>
+<p>在这个案例中，前端开发人员已经将前端工程开发完毕了。 我们需要做的，就是参考接口文档完成后端功能的开发，然后结合前端工程进行联调测试即可。</p>
+<p><strong>完成后的成品效果展示：</strong></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20220904103734643.png" alt="image-20220904103734643"></p>
+<blockquote>
+<p><strong>今天的主要内容如下：</strong></p>
+<ul>
+<li>准备工作</li>
+<li>部门管理</li>
+<li>员工管理</li>
+</ul>
+</blockquote>
+<p>下面我们就进入到今天的第1个内容<code>准备工作</code>的学习。</p>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p>准备工作的学习，我们先从”需求”和”环境搭建”开始入手。</p>
+<h3 id="1-1-需求-环境搭建"><a href="#1-1-需求-环境搭建" class="headerlink" title="1.1 需求&amp;环境搭建"></a>1.1 需求&amp;环境搭建</h3><h4 id="1-1-1-需求说明"><a href="#1-1-1-需求说明" class="headerlink" title="1.1.1 需求说明"></a>1.1.1 需求说明</h4><p><strong>1、部门管理</strong></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213205503102.png" alt="image-20221213205503102"></p>
+<p>部门管理功能开发包括：</p>
+<ul>
+<li>查询部门列表</li>
+<li>删除部门</li>
+<li>新增部门</li>
+<li>修改部门</li>
+</ul>
+<p><strong>2、员工管理</strong></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213205737307.png" alt="image-20221213205737307"></p>
+<p>员工管理功能开发包括：</p>
+<ul>
+<li>查询员工列表(分页、条件)</li>
+<li>删除员工</li>
+<li>新增员工</li>
+<li>修改员工</li>
+</ul>
+<h4 id="1-1-2-环境搭建"><a href="#1-1-2-环境搭建" class="headerlink" title="1.1.2 环境搭建"></a>1.1.2 环境搭建</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213230710821.png" alt="image-20221213230710821"></p>
+<p>步骤：</p>
+<ol>
+<li>准备数据库表(dept、emp)</li>
+<li>创建springboot工程，引入对应的起步依赖（web、mybatis、mysql驱动、lombok）</li>
+<li>配置文件application.properties中引入mybatis的配置信息，准备对应的实体类</li>
+<li>准备对应的Mapper、Service(接口、实现类)、Controller基础结构</li>
+</ol>
+<p>第1步：准备数据库表</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 部门管理
+create table dept(
+    id int unsigned primary key auto_increment comment &#39;主键ID&#39;,
+    name varchar(10) not null unique comment &#39;部门名称&#39;,
+    create_time datetime not null comment &#39;创建时间&#39;,
+    update_time datetime not null comment &#39;修改时间&#39;
+) comment &#39;部门表&#39;;
+-- 部门表测试数据
+insert into dept (id, name, create_time, update_time) values(1,&#39;学工部&#39;,now(),now()),(2,&#39;教研部&#39;,now(),now()),(3,&#39;咨询部&#39;,now(),now()), (4,&#39;就业部&#39;,now(),now()),(5,&#39;人事部&#39;,now(),now());
+
+
+
+-- 员工管理(带约束)
+create table emp (
+  id int unsigned primary key auto_increment comment &#39;ID&#39;,
+  username varchar(20) not null unique comment &#39;用户名&#39;,
+  password varchar(32) default &#39;123456&#39; comment &#39;密码&#39;,
+  name varchar(10) not null comment &#39;姓名&#39;,
+  gender tinyint unsigned not null comment &#39;性别, 说明: 1 男, 2 女&#39;,
+  image varchar(300) comment &#39;图像&#39;,
+  job tinyint unsigned comment &#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师&#39;,
+  entrydate date comment &#39;入职时间&#39;,
+  dept_id int unsigned comment &#39;部门ID&#39;,
+  create_time datetime not null comment &#39;创建时间&#39;,
+  update_time datetime not null comment &#39;修改时间&#39;
+) comment &#39;员工表&#39;;
+-- 员工表测试数据
+INSERT INTO emp
+	(id, username, password, name, gender, image, job, entrydate,dept_id, create_time, update_time) VALUES
+	(1,&#39;jinyong&#39;,&#39;123456&#39;,&#39;金庸&#39;,1,&#39;1.jpg&#39;,4,&#39;2000-01-01&#39;,2,now(),now()),
+	(2,&#39;zhangwuji&#39;,&#39;123456&#39;,&#39;张无忌&#39;,1,&#39;2.jpg&#39;,2,&#39;2015-01-01&#39;,2,now(),now()),
+	(3,&#39;yangxiao&#39;,&#39;123456&#39;,&#39;杨逍&#39;,1,&#39;3.jpg&#39;,2,&#39;2008-05-01&#39;,2,now(),now()),
+	(4,&#39;weiyixiao&#39;,&#39;123456&#39;,&#39;韦一笑&#39;,1,&#39;4.jpg&#39;,2,&#39;2007-01-01&#39;,2,now(),now()),
+	(5,&#39;changyuchun&#39;,&#39;123456&#39;,&#39;常遇春&#39;,1,&#39;5.jpg&#39;,2,&#39;2012-12-05&#39;,2,now(),now()),
+	(6,&#39;xiaozhao&#39;,&#39;123456&#39;,&#39;小昭&#39;,2,&#39;6.jpg&#39;,3,&#39;2013-09-05&#39;,1,now(),now()),
+	(7,&#39;jixiaofu&#39;,&#39;123456&#39;,&#39;纪晓芙&#39;,2,&#39;7.jpg&#39;,1,&#39;2005-08-01&#39;,1,now(),now()),
+	(8,&#39;zhouzhiruo&#39;,&#39;123456&#39;,&#39;周芷若&#39;,2,&#39;8.jpg&#39;,1,&#39;2014-11-09&#39;,1,now(),now()),
+	(9,&#39;dingminjun&#39;,&#39;123456&#39;,&#39;丁敏君&#39;,2,&#39;9.jpg&#39;,1,&#39;2011-03-11&#39;,1,now(),now()),
+	(10,&#39;zhaomin&#39;,&#39;123456&#39;,&#39;赵敏&#39;,2,&#39;10.jpg&#39;,1,&#39;2013-09-05&#39;,1,now(),now()),
+	(11,&#39;luzhangke&#39;,&#39;123456&#39;,&#39;鹿杖客&#39;,1,&#39;11.jpg&#39;,5,&#39;2007-02-01&#39;,3,now(),now()),
+	(12,&#39;hebiweng&#39;,&#39;123456&#39;,&#39;鹤笔翁&#39;,1,&#39;12.jpg&#39;,5,&#39;2008-08-18&#39;,3,now(),now()),
+	(13,&#39;fangdongbai&#39;,&#39;123456&#39;,&#39;方东白&#39;,1,&#39;13.jpg&#39;,5,&#39;2012-11-01&#39;,3,now(),now()),
+	(14,&#39;zhangsanfeng&#39;,&#39;123456&#39;,&#39;张三丰&#39;,1,&#39;14.jpg&#39;,2,&#39;2002-08-01&#39;,2,now(),now()),
+	(15,&#39;yulianzhou&#39;,&#39;123456&#39;,&#39;俞莲舟&#39;,1,&#39;15.jpg&#39;,2,&#39;2011-05-01&#39;,2,now(),now()),
+	(16,&#39;songyuanqiao&#39;,&#39;123456&#39;,&#39;宋远桥&#39;,1,&#39;16.jpg&#39;,2,&#39;2007-01-01&#39;,2,now(),now()),
+	(17,&#39;chenyouliang&#39;,&#39;123456&#39;,&#39;陈友谅&#39;,1,&#39;17.jpg&#39;,NULL,&#39;2015-03-21&#39;,NULL,now(),now());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>第2步：创建一个SpringBoot工程，选择引入对应的起步依赖（web、mybatis、mysql驱动、lombok） (版本选择2.7.5版本，可以创建完毕之后，在pom.xml文件中更改版本号)</p>
+<img src="SpringBoot案例/image-20230210154811902.png" alt="image-20230210154811902" style="zoom:67%;" />
+
+<img src="SpringBoot案例/image-20221213221408420.png" alt="image-20221213221408420" style="zoom:67%;" />
+
+<p> 生成的pom.xml文件：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.7.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>relativePath</span><span class="token punctuation">/></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.fanfan<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>tlias-web-management<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>tlias-web-management<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>Demo project for Spring Boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">></span></span>11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.3.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>excludes</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclude</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclude</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>excludes</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>创建项目工程目录结构：</p>
+<img src="SpringBoot案例/image-20230210155123398.png" alt="image-20230210155123398" style="zoom:67%;" />
+
+<p>第3步：配置文件application.yml中引入mybatis的配置信息，准备对应的实体类</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#数据库的连接</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/day10
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+
+<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
+  <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
+    <span class="token comment">#指定mybatis输出日志的位置, 输出控制台</span>
+    <span class="token key atrule">log-impl</span><span class="token punctuation">:</span> org.apache.ibatis.logging.stdout.StdOutImpl
+    <span class="token comment">#开启数据库表字段 到 实体类属性的驼峰映射</span>
+    <span class="token key atrule">map-underscore-to-camel-case</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>实体类</li>
+</ul>
+<p>emp.java    (用lombok的@Data @NoArgsConstructor @AllArgsConstructor 注解生成对应的 get set 无参 和 有参 方法)</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Emp</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span> <span class="token comment">//ID</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span> <span class="token comment">//用户名</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> password<span class="token punctuation">;</span> <span class="token comment">//密码</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">//姓名</span>
+    <span class="token keyword">private</span> <span class="token class-name">Short</span> gender<span class="token punctuation">;</span> <span class="token comment">//性别 , 1 男, 2 女</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> image<span class="token punctuation">;</span> <span class="token comment">//图像url</span>
+    <span class="token keyword">private</span> <span class="token class-name">Short</span> job<span class="token punctuation">;</span> <span class="token comment">//职位 , 1 班主任 , 2 讲师 , 3 学工主管 , 4 教研主管 , 5 咨询师</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDate</span> entrydate<span class="token punctuation">;</span> <span class="token comment">//入职日期</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> deptId<span class="token punctuation">;</span> <span class="token comment">//部门ID</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> createTime<span class="token punctuation">;</span> <span class="token comment">//创建时间</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> updateTime<span class="token punctuation">;</span> <span class="token comment">//修改时间</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Dept.java  (用lombok的@Data @NoArgsConstructor @AllArgsConstructor 注解生成对应的 get set 无参 和 有参 方法)</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dept</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span> <span class="token comment">//ID</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">//部门名称</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> createTime<span class="token punctuation">;</span> <span class="token comment">//创建时间</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> updateTime<span class="token punctuation">;</span> <span class="token comment">//修改时间</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Result.java (前后端工程在进行交互时，使用统一响应结果 Result)</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Result</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> code<span class="token punctuation">;</span><span class="token comment">//响应码，1 代表成功; 0 代表失败</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> msg<span class="token punctuation">;</span>  <span class="token comment">//响应信息 描述字符串</span>
+    <span class="token keyword">private</span> <span class="token class-name">Object</span> data<span class="token punctuation">;</span> <span class="token comment">//返回的数据</span>
+
+    <span class="token comment">//增删改 成功响应</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Result</span> <span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Result</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"success"</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//查询 成功响应</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Result</span> <span class="token function">success</span><span class="token punctuation">(</span><span class="token class-name">Object</span> data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Result</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"success"</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//失败响应</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Result</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token class-name">String</span> msg<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Result</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>msg<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第4步：准备对应的Mapper、Service(接口、实现类)、Controller基础结构</p>
+<p>数据访问层：</p>
+<ul>
+<li>DeptMapper</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Mapper</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptMapper</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>EmpMapper</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Mapper</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpMapper</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>业务层：</p>
+<ul>
+<li>DeptService</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token comment">//部门业务规则</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>DeptServiceImpl</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>service<span class="token punctuation">.</span>impl</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">//部门业务实现类</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>EmpService</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token comment">//员工业务规则</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>EmpServiceImpl</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>service<span class="token punctuation">.</span>impl</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">EmpService</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">//员工业务实现类</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>控制层：</p>
+<ul>
+<li>DeptController</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">//部门管理控制器</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptController</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>EmpController</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>fanfan<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">//员工管理控制器</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpController</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>项目工程结构：</p>
+<img src="SpringBoot案例/image-20230210160317346.png" alt="image-20230210160317346" style="zoom:67%;" />
+
+<h3 id="1-2-开发规范"><a href="#1-2-开发规范" class="headerlink" title="1.2 开发规范"></a>1.2 开发规范</h3><p>了解完需求也完成了环境搭建了，我们下面开始学习开发的一些规范。</p>
+<p>开发规范我们主要从以下几方面介绍：</p>
+<p><strong>1、开发规范-REST</strong></p>
+<p>我们的案例是基于当前最为主流的前后端分离模式进行开发。</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213230911102.png" alt="image-20221213230911102"></p>
+<p>在前后端分离的开发模式中，前后端开发人员都需要根据提前定义好的接口文档，来进行前后端功能的开发。</p>
+<blockquote>
+<p>后端开发人员：必须严格遵守提供的接口文档进行后端功能开发（保障开发的功能可以和前端对接）</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213231519551.png" alt="image-20221213231519551"></p>
+</blockquote>
+<p>而在前后端进行交互的时候，我们需要基于当前主流的REST风格的API接口进行交互。</p>
+<p>什么是REST风格呢?</p>
+<ul>
+<li>REST（Representational State Transfer），表述性状态转换，它是一种软件架构风格。</li>
+</ul>
+<p><strong>传统URL风格如下：</strong></p>
+<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">localhost</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">8080</span></span></span><span class="token path"><span class="token path-separator">/</span>user<span class="token path-separator">/</span>getById</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">id</span>=<span class="token value">1</span></span></span>     GET：查询id为1的用户
+<span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">localhost</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">8080</span></span></span><span class="token path"><span class="token path-separator">/</span>user<span class="token path-separator">/</span>saveUser</span>         POST：新增用户
+<span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">localhost</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">8080</span></span></span><span class="token path"><span class="token path-separator">/</span>user<span class="token path-separator">/</span>updateUser</span>       POST：修改用户
+<span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">localhost</span><span class="token port-segment"><span class="token port-delimiter">:</span><span class="token port">8080</span></span></span><span class="token path"><span class="token path-separator">/</span>user<span class="token path-separator">/</span>deleteUser</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">id</span>=<span class="token value">1</span></span></span>  GET：删除id为1的用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们看到，原始的传统URL呢，定义比较复杂，而且将资源的访问行为对外暴露出来了。</p>
+<p><strong>基于REST风格URL如下：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;localhost:8080&#x2F;users&#x2F;1  GET：查询id为1的用户
+http:&#x2F;&#x2F;localhost:8080&#x2F;users    POST：新增用户
+http:&#x2F;&#x2F;localhost:8080&#x2F;users    PUT：修改用户
+http:&#x2F;&#x2F;localhost:8080&#x2F;users&#x2F;1  DELETE：删除id为1的用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中总结起来，就一句话：通过URL定位要操作的资源，通过HTTP动词(请求方式)来描述具体的操作。</p>
+<p>在REST风格的URL中，通过四种请求方式，来操作数据的增删改查。 </p>
+<ul>
+<li>GET ： 查询</li>
+<li>POST ：新增</li>
+<li>PUT ：修改</li>
+<li>DELETE ：删除</li>
+</ul>
+<p>我们看到如果是基于REST风格，定义URL，URL将会更加简洁、更加规范、更加优雅。</p>
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li>REST是风格，是约定方式，约定不是规定，可以打破</li>
+<li>描述模块的功能通常使用复数，也就是加s的格式来描述，表示此类资源，而非单个资源。如：users、emps、books…</li>
+</ul>
+</blockquote>
+<h2 id="2-部门管理"><a href="#2-部门管理" class="headerlink" title="2. 部门管理"></a>2. 部门管理</h2><p>我们按照前面学习的开发流程，开始完成功能开发。首先按照之前分析的需求，完成<code>部门管理</code>的功能开发。</p>
+<p>开发的部门管理功能包含：</p>
+<ol>
+<li>查询部门</li>
+<li>删除部门</li>
+<li>新增部门</li>
+<li>更新部门（不讲解，自己独立完成）</li>
+</ol>
+<h3 id="2-1-查询部门"><a href="#2-1-查询部门" class="headerlink" title="2.1 查询部门"></a>2.1 查询部门</h3><h4 id="2-1-1-原型和需求"><a href="#2-1-1-原型和需求" class="headerlink" title="2.1.1 原型和需求"></a>2.1.1 原型和需求</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213234154699.png" alt="image-20221213234154699"></p>
+<blockquote>
+<p>查询的部门的信息：部门ID、部门名称、修改时间</p>
+<p>通过页面原型以及需求描述，我们可以看到，部门查询，是不需要考虑分页操作的。</p>
+</blockquote>
+<h4 id="2-1-2-接口文档"><a href="#2-1-2-接口文档" class="headerlink" title="2.1.2 接口文档"></a>2.1.2 接口文档</h4><p><strong>部门列表查询</strong></p>
+<ul>
+<li><p>基本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">请求路径：&#x2F;depts
+
+请求方式：GET
+
+接口描述：该接口用于部门列表数据查询<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>请求参数</p>
+<p>无</p>
+</li>
+<li><p>响应数据</p>
+<p>参数格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td>响应码，1 代表成功，0 代表失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td>提示信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object[ ]</td>
+<td>非必须</td>
+<td>返回的数据</td>
+</tr>
+<tr>
+<td>|- id</td>
+<td>number</td>
+<td>非必须</td>
+<td>id</td>
+</tr>
+<tr>
+<td>|- name</td>
+<td>string</td>
+<td>非必须</td>
+<td>部门名称</td>
+</tr>
+<tr>
+<td>|- createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>|- updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td>修改时间</td>
+</tr>
+</tbody></table>
+<p>响应数据样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"success"</span><span class="token punctuation">,</span>
+  <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"学工部"</span><span class="token punctuation">,</span>
+      <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:29"</span><span class="token punctuation">,</span>
+      <span class="token property">"updateTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:29"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"教研部"</span><span class="token punctuation">,</span>
+      <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:29"</span><span class="token punctuation">,</span>
+      <span class="token property">"updateTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:29"</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="2-1-3-思路分析"><a href="#2-1-3-思路分析" class="headerlink" title="2.1.3 思路分析"></a>2.1.3 思路分析</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221213235157345.png" alt="image-20221213235157345"></p>
+<h4 id="2-1-4-功能开发"><a href="#2-1-4-功能开发" class="headerlink" title="2.1.4 功能开发"></a>2.1.4 功能开发</h4><p>通过查看接口文档：部门列表查询</p>
+<blockquote>
+<p>请求路径：&#x2F;depts</p>
+<p>请求方式：GET</p>
+<p>请求参数：无</p>
+<p>响应数据：json格式</p>
+</blockquote>
+<p><strong>DeptController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptController</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptService</span> deptService<span class="token punctuation">;</span>
+
+    <span class="token comment">//@RequestMapping(value = "/depts" , method = RequestMethod.GET)</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/depts"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"查询所有部门数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Dept</span><span class="token punctuation">></span></span> deptList <span class="token operator">=</span> deptService<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>deptList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>@Slf4j注解源码：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214000909044-1676294156192-1.png" alt="image-20221214000909044"></p>
+</blockquote>
+<p><strong>DeptService</strong>（业务接口）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 查询所有的部门数据
+     * @return   存储Dept对象的集合
+     */</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Dept</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> <strong>DeptServiceImpl</strong>（业务实现类）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptMapper</span> deptMapper<span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Dept</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Dept</span><span class="token punctuation">></span></span> deptList <span class="token operator">=</span> deptMapper<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> deptList<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//查询所有部门数据</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select id, name, create_time, update_time from dept"</span><span class="token punctuation">)</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Dept</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="2-1-5-功能测试"><a href="#2-1-5-功能测试" class="headerlink" title="2.1.5 功能测试"></a>2.1.5 功能测试</h4><p>功能开发完成后，我们就可以启动项目，然后打开postman，发起GET请求，访问 ：<a target="_blank" rel="noopener" href="http://localhost:8080/depts">http://localhost:8080/depts</a></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20220904130315247-1676294156193-2.png"></p>
+<h3 id="2-2-前后端联调"><a href="#2-2-前后端联调" class="headerlink" title="2.2 前后端联调"></a>2.2 前后端联调</h3><p>完成了查询部门的功能，我们也通过postman工具测试通过了，下面我们再基于前后端分离的方式进行接口联调。具体操作如下：</p>
+<p>1、将资料中提供的”前端环境”文件夹中的压缩包，拷贝到一个没有中文不带空格的目录下</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214100230484-1676294156193-3.png" alt="image-20221214100230484"> </p>
+<p>2、拷贝到一个没有中文不带空格的目录后，进行解压（解压到当前目录）</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214100039074-1676294156193-4.png" alt="image-20221214100039074"> </p>
+<p>3、启动nginx</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214100703404-1676294156193-5.png" alt="image-20221214100703404"> </p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214101711107-1676294156193-6.png" alt="image-20221214101711107"></p>
+<p>4、打开浏览器，访问：<a target="_blank" rel="noopener" href="http://localhost:90/">http://localhost:90</a></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214100918557-1676294156193-7.png" alt="image-20221214100918557"></p>
+<p>5、测试：部门管理 - 查询部门列表</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214101436198-1676294156194-8.png" alt="image-20221214101436198"></p>
+<blockquote>
+<p>说明：只要按照接口文档开发功能接口，就能保证前后端程序交互</p>
+<ul>
+<li>后端：严格遵守接口文档进行功能接口开发</li>
+<li>前端：严格遵守接口文档访问功能接口</li>
+</ul>
+</blockquote>
+<h3 id="2-3-删除部门"><a href="#2-3-删除部门" class="headerlink" title="2.3 删除部门"></a>2.3 删除部门</h3><p>查询部门的功能我们搞定了，下面我们开始完成<code>删除部门</code>的功能开发。</p>
+<h4 id="2-3-1-需求"><a href="#2-3-1-需求" class="headerlink" title="2.3.1 需求"></a>2.3.1 需求</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20220904132440220-1676294156194-9.png"></p>
+<p>点击部门列表后面操作栏的 “删除” 按钮，就可以删除该部门信息。 此时，前端只需要给服务端传递一个ID参数就可以了。 我们从接口文档中也可以看得出来。</p>
+<h4 id="2-3-2-接口文档"><a href="#2-3-2-接口文档" class="headerlink" title="2.3.2 接口文档"></a>2.3.2 接口文档</h4><p><strong>删除部门</strong></p>
+<ul>
+<li><p>基本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">请求路径：&#x2F;depts&#x2F;&#123;id&#125;
+
+请求方式：DELETE
+
+接口描述：该接口用于根据ID删除部门数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>请求参数<br>参数格式：路径参数</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>number</td>
+<td>必须</td>
+<td>部门ID</td>
+</tr>
+</tbody></table>
+<p>请求参数样例：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;depts&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>响应数据<br>参数格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td>响应码，1 代表成功，0 代表失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td>提示信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td>返回的数据</td>
+</tr>
+</tbody></table>
+<p>响应数据样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"code"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"msg"</span><span class="token operator">:</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token property">"data"</span><span class="token operator">:</span><span class="token null keyword">null</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="2-3-3-思路分析"><a href="#2-3-3-思路分析" class="headerlink" title="2.3.3 思路分析"></a>2.3.3 思路分析</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214102705490-1676294156194-10.png" alt="image-20221214102705490"></p>
+<blockquote>
+<p>接口文档规定：</p>
+<ul>
+<li>前端请求路径：&#x2F;depts&#x2F;{id}</li>
+<li>前端请求方式：DELETE</li>
+</ul>
+<p>问题1：怎么在controller中接收请求路径中的路径参数？</p>
+<pre class="line-numbers language-none"><code class="language-none">@PathVariable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>问题2：如何限定请求方式是delete？</p>
+<pre class="line-numbers language-none"><code class="language-none">@DeleteMapping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h4 id="2-3-4-功能开发"><a href="#2-3-4-功能开发" class="headerlink" title="2.3.4 功能开发"></a>2.3.4 功能开发</h4><p>通过查看接口文档：删除部门</p>
+<blockquote>
+<p>请求路径：&#x2F;depts&#x2F;{id}</p>
+<p>请求方式：DELETE</p>
+<p>请求参数：路径参数 {id}</p>
+<p>响应数据：json格式</p>
+</blockquote>
+<p><strong>DeptController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptController</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptService</span> deptService<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@DeleteMapping</span><span class="token punctuation">(</span><span class="token string">"/depts/&#123;id&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">Integer</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//日志记录</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"根据id删除部门"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用service层功能</span>
+        deptService<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//响应</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptService</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 根据id删除部门
+     * @param id    部门id
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptServiceImpl</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptMapper</span> deptMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//调用持久层删除功能</span>
+        deptMapper<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 根据id删除部门信息
+     * @param id   部门id
+     */</span>
+    <span class="token annotation punctuation">@Delete</span><span class="token punctuation">(</span><span class="token string">"delete from dept where id = #&#123;id&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">deleteById</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-3-5-功能测试"><a href="#2-3-5-功能测试" class="headerlink" title="2.3.5 功能测试"></a>2.3.5 功能测试</h4><p>删除功能开发完成后，重新启动项目，使用postman，发起DELETE请求：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214112451600-1676294156194-12.png" alt="image-20221214112451600"></p>
+<h4 id="2-3-6-前后端联调"><a href="#2-3-6-前后端联调" class="headerlink" title="2.3.6 前后端联调"></a>2.3.6 前后端联调</h4><p>打开浏览器，测试后端功能接口：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214113708369-1676294156194-11.png" alt="image-20221214113708369"></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214113941657-1676294156194-13.png" alt="image-20221214113941657"></p>
+<h3 id="2-4-新增部门"><a href="#2-4-新增部门" class="headerlink" title="2.4 新增部门"></a>2.4 新增部门</h3><p>我们前面已完成了<code>查询部门</code>、<code>删除部门</code>两个功能，也熟悉了开发的流程。下面我们继续完成<code>新增部门</code>功能。</p>
+<h4 id="2-4-1-需求"><a href="#2-4-1-需求" class="headerlink" title="2.4.1 需求"></a>2.4.1 需求</h4><img src="SpringBoot案例/image-20220904150427982-1676294156194-14.png" style="zoom:80%;" />
+
+<p>点击 “新增部门” 按钮，弹出新增部门对话框，输入部门名称，点击 “保存” ，将部门信息保存到数据库。</p>
+<h4 id="2-4-2-接口文档"><a href="#2-4-2-接口文档" class="headerlink" title="2.4.2 接口文档"></a>2.4.2 接口文档</h4><p><strong>添加部门</strong></p>
+<ul>
+<li><p>基本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">请求路径：&#x2F;depts
+
+请求方式：POST
+
+接口描述：该接口用于添加部门数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>请求参数</p>
+<p>格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td>部门名称</td>
+</tr>
+</tbody></table>
+<p>请求参数样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+	<span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"教研部"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>响应数据</p>
+<p>参数格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td>响应码，1 代表成功，0 代表失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td>提示信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td>返回的数据</td>
+</tr>
+</tbody></table>
+<p>响应数据样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"code"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"msg"</span><span class="token operator">:</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token property">"data"</span><span class="token operator">:</span><span class="token null keyword">null</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="2-4-3-思路分析"><a href="#2-4-3-思路分析" class="headerlink" title="2.4.3 思路分析"></a>2.4.3 思路分析</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214115519648-1676294156194-15.png" alt="image-20221214115519648"></p>
+<blockquote>
+<p>接口文档规定：</p>
+<ul>
+<li>前端请求路径：&#x2F;depts</li>
+<li>前端请求方式：POST</li>
+<li>前端请求参数 (Json格式)：{ “name”: “教研部” }</li>
+</ul>
+<p>问题1：如何限定请求方式是POST？</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@PostMapping</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>问题2：怎么在controller中接收json格式的请求参数？</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RequestBody</span>  <span class="token comment">//把前端传递的json数据填充到实体类中</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h4 id="2-4-4-功能开发"><a href="#2-4-4-功能开发" class="headerlink" title="2.4.4 功能开发"></a>2.4.4 功能开发</h4><p>通过查看接口文档：新增部门</p>
+<blockquote>
+<p>请求路径：&#x2F;depts</p>
+<p>请求方式：POST</p>
+<p>请求参数：json格式 </p>
+<p>响应数据：json格式</p>
+</blockquote>
+<p><strong>DeptController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptController</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptService</span> deptService<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/depts"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Dept</span> dept<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//记录日志</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"新增部门：&#123;&#125;"</span><span class="token punctuation">,</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用service层添加功能</span>
+        deptService<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//响应</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptService</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 新增部门
+     * @param dept  部门对象
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Dept</span> dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptServiceImpl</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeptServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">DeptService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">DeptMapper</span> deptMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Dept</span> dept<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//补全部门数据</span>
+        dept<span class="token punctuation">.</span><span class="token function">setCreateTime</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dept<span class="token punctuation">.</span><span class="token function">setUpdateTime</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用持久层增加功能</span>
+        deptMapper<span class="token punctuation">.</span><span class="token function">inser</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>DeptMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DeptMapper</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Insert</span><span class="token punctuation">(</span><span class="token string">"insert into dept (name, create_time, update_time) values (#&#123;name&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;)"</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">inser</span><span class="token punctuation">(</span><span class="token class-name">Dept</span> dept<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-4-5-功能测试"><a href="#2-4-5-功能测试" class="headerlink" title="2.4.5 功能测试"></a>2.4.5 功能测试</h4><p>新增功能开发完成后，重新启动项目，使用postman，发起POST请求：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214153758708-1676294156194-16.png" alt="image-20221214153758708"></p>
+<h4 id="2-4-6-前后端联调"><a href="#2-4-6-前后端联调" class="headerlink" title="2.4.6 前后端联调"></a>2.4.6 前后端联调</h4><p>打开浏览器，测试后端功能接口：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215105446189-1676294156194-17.png" alt="image-20221215105446189"></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221214154645746-1676294156194-18.png" alt="image-20221214154645746"></p>
+<h4 id="2-4-7-请求路径"><a href="#2-4-7-请求路径" class="headerlink" title="2.4.7 请求路径"></a>2.4.7 请求路径</h4><p>我们部门管理的<code>查询</code>、<code>删除</code>、<code>新增</code>功能全部完成了，接下来我们要对controller层的代码进行优化。</p>
+<p>首先我们先来看下目前controller层代码：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215110553435-1676294156194-19.png" alt="image-20221215110553435"></p>
+<blockquote>
+<p>以上三个方法上的请求路径，存在一个共同点：都是以<code>/depts</code>作为开头。（重复了）</p>
+</blockquote>
+<p>在Spring当中为了简化请求路径的定义，可以把公共的请求路径，直接抽取到类上，在类上加一个注解@RequestMapping，并指定请求路径”&#x2F;depts”。代码参照如下：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215111110219-1676294156195-20.png" alt="image-20221215111110219"></p>
+<blockquote>
+<p>优化前后的对比：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215111309042-1676294156195-21.png" alt="image-20221215111309042"></p>
+</blockquote>
+<blockquote>
+<p>注意事项：一个完整的请求路径，应该是类上@RequestMapping的value属性 + 方法上的 @RequestMapping的value属性</p>
+</blockquote>
+<h2 id="3-员工管理"><a href="#3-员工管理" class="headerlink" title="3. 员工管理"></a>3. 员工管理</h2><p>完成了部门管理的功能开发之后，我们进入到下一环节员工管理功能的开发。</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215142107329-1676294156195-22.png" alt="image-20221215142107329"></p>
+<p>基于以上原型，我们可以把员工管理功能分为：</p>
+<ol>
+<li>分页查询（今天完成）</li>
+<li>带条件的分页查询（今天完成）</li>
+<li>删除员工（今天完成）</li>
+<li>新增员工（后续完成）</li>
+<li>修改员工（后续完成）</li>
+</ol>
+<p>那下面我们就先从分页查询功能开始学习。</p>
+<h3 id="3-1-分页查询"><a href="#3-1-分页查询" class="headerlink" title="3.1 分页查询"></a>3.1 分页查询</h3><h4 id="3-1-1-基础分页"><a href="#3-1-1-基础分页" class="headerlink" title="3.1.1 基础分页"></a>3.1.1 基础分页</h4><h5 id="3-1-1-1-需求分析"><a href="#3-1-1-1-需求分析" class="headerlink" title="3.1.1.1 需求分析"></a>3.1.1.1 需求分析</h5><p>我们之前做的查询功能，是将数据库中所有的数据查询出来并展示到页面上，试想如果数据库中的数据有很多(假设有十几万条)的时候，将数据全部展示出来肯定不现实，那如何解决这个问题呢？</p>
+<blockquote>
+<p>使用分页解决这个问题。每次只展示一页的数据，比如：一页展示10条数据，如果还想看其他的数据，可以通过点击页码进行查询。</p>
+</blockquote>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215141233541-1676294156195-23.png" alt="image-20221215141233541"></p>
+<p>要想从数据库中进行分页查询，我们要使用<code>LIMIT</code>关键字，格式为：limit  开始索引  每页显示的条数</p>
+<blockquote>
+<p>查询第1页数据的SQL语句是：</p>
+<pre class="line-numbers language-none"><code class="language-none">select * from emp  limit 0,10;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查询第2页数据的SQL语句是：</p>
+<pre class="line-numbers language-none"><code class="language-none">select * from emp  limit 10,10;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查询第3页的数据的SQL语句是：</p>
+<pre class="line-numbers language-none"><code class="language-none">select * from emp  limit 20,10;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>观察以上SQL语句，发现： 开始索引一直在改变 ， 每页显示条数是固定的</p>
+<p>开始索引的计算公式：   开始索引 &#x3D; (当前页码 - 1)  *  每页显示条数</p>
+</blockquote>
+<p>我们继续基于页面原型，继续分析，得出以下结论：</p>
+<ol>
+<li>前端在请求服务端时，传递的参数<ul>
+<li>当前页码  page</li>
+<li>每页显示条数  pageSize</li>
+</ul>
+</li>
+<li>后端需要响应什么数据给前端<ul>
+<li>所查询到的数据列表（存储到List 集合中）</li>
+<li>总记录数</li>
+</ul>
+</li>
+</ol>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215152021068-1676294156195-24.png" alt="image-20221215152021068"></p>
+<blockquote>
+<p>后台给前端返回的数据包含：List集合(数据列表)、total(总记录数)</p>
+<p>而这两部分我们通常封装到PageBean对象中，并将该对象转换为json格式的数据响应回给浏览器。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PageBean</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">private</span> <span class="token class-name">Long</span> total<span class="token punctuation">;</span> <span class="token comment">//总记录数</span>
+<span class="token keyword">private</span> <span class="token class-name">List</span> rows<span class="token punctuation">;</span> <span class="token comment">//当前页数据列表</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h5 id="3-1-1-2-接口文档"><a href="#3-1-1-2-接口文档" class="headerlink" title="3.1.1.2 接口文档"></a>3.1.1.2 接口文档</h5><p><strong>员工列表查询</strong></p>
+<ul>
+<li><p>基本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">请求路径：&#x2F;emps
+
+请求方式：GET
+
+接口描述：该接口用于员工列表数据的条件分页查询<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>请求参数</p>
+<p>参数格式：queryString</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>否</td>
+<td>张</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>否</td>
+<td>1</td>
+<td>性别 , 1 男 , 2 女</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>否</td>
+<td>2010-01-01</td>
+<td>范围匹配的开始时间(入职日期)</td>
+</tr>
+<tr>
+<td>end</td>
+<td>否</td>
+<td>2020-01-01</td>
+<td>范围匹配的结束时间(入职日期)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>1</td>
+<td>分页查询的页码，如果未指定，默认为1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td>10</td>
+<td>分页查询的每页记录数，如果未指定，默认为10</td>
+</tr>
+</tbody></table>
+<p>请求数据样例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/emps?name<span class="token operator">=</span>张<span class="token operator">&amp;</span><span class="token assign-left variable">gender</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token assign-left variable">begin</span><span class="token operator">=</span><span class="token number">2007</span>-09-01<span class="token operator">&amp;</span><span class="token assign-left variable">end</span><span class="token operator">=</span><span class="token number">2022</span>-09-01<span class="token operator">&amp;</span><span class="token assign-left variable">page</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token assign-left variable">pageSize</span><span class="token operator">=</span><span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>响应数据</p>
+<p>参数格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td>响应码, 1 成功 , 0 失败</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>提示信息</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>必须</td>
+<td></td>
+<td>返回的数据</td>
+<td></td>
+</tr>
+<tr>
+<td>|- total</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td>总记录数</td>
+<td></td>
+</tr>
+<tr>
+<td>|- rows</td>
+<td>object []</td>
+<td>必须</td>
+<td></td>
+<td>数据列表</td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>|- id</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td>id</td>
+<td></td>
+</tr>
+<tr>
+<td>|- username</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>用户名</td>
+<td></td>
+</tr>
+<tr>
+<td>|- name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>姓名</td>
+<td></td>
+</tr>
+<tr>
+<td>|- password</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>密码</td>
+<td></td>
+</tr>
+<tr>
+<td>|- entrydate</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>入职日期</td>
+<td></td>
+</tr>
+<tr>
+<td>|- gender</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td>性别 , 1 男 ; 2 女</td>
+<td></td>
+</tr>
+<tr>
+<td>|- image</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>图像</td>
+<td></td>
+</tr>
+<tr>
+<td>|- job</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td>职位, 说明: 1 班主任,2 讲师,<br /> 3 学工主管, 4 教研主管, 5 咨询师</td>
+<td></td>
+</tr>
+<tr>
+<td>|- deptId</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td>部门id</td>
+<td></td>
+</tr>
+<tr>
+<td>|- createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>创建时间</td>
+<td></td>
+</tr>
+<tr>
+<td>|- updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>更新时间</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>响应数据样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"success"</span><span class="token punctuation">,</span>
+  <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"total"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">"rows"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+       <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"jinyong"</span><span class="token punctuation">,</span>
+        <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"123456"</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"金庸"</span><span class="token punctuation">,</span>
+        <span class="token property">"gender"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"image"</span><span class="token operator">:</span> <span class="token string">"https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-02-00-27-53B.jpg"</span><span class="token punctuation">,</span>
+        <span class="token property">"job"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"entrydate"</span><span class="token operator">:</span> <span class="token string">"2015-01-01"</span><span class="token punctuation">,</span>
+        <span class="token property">"deptId"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:30"</span><span class="token punctuation">,</span>
+        <span class="token property">"updateTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-02T00:29:04"</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"zhangwuji"</span><span class="token punctuation">,</span>
+        <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"123456"</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"张无忌"</span><span class="token punctuation">,</span>
+        <span class="token property">"gender"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"image"</span><span class="token operator">:</span> <span class="token string">"https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-02-00-27-53B.jpg"</span><span class="token punctuation">,</span>
+        <span class="token property">"job"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"entrydate"</span><span class="token operator">:</span> <span class="token string">"2015-01-01"</span><span class="token punctuation">,</span>
+        <span class="token property">"deptId"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-01T23:06:30"</span><span class="token punctuation">,</span>
+        <span class="token property">"updateTime"</span><span class="token operator">:</span> <span class="token string">"2022-09-02T00:29:04"</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h5 id="3-1-1-3-思路分析"><a href="#3-1-1-3-思路分析" class="headerlink" title="3.1.1.3 思路分析"></a>3.1.1.3 思路分析</h5><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215153413290-1676294156195-26.png" alt="image-20221215153413290"></p>
+<p>分页查询需要的数据，封装在PageBean对象中：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215154036047-1676294156195-25.png" alt="image-20221215154036047"></p>
+<h5 id="3-1-1-4-功能开发"><a href="#3-1-1-4-功能开发" class="headerlink" title="3.1.1.4 功能开发"></a>3.1.1.4 功能开发</h5><p>通过查看接口文档：员工列表查询</p>
+<blockquote>
+<p>请求路径：&#x2F;emps</p>
+<p>请求方式：GET</p>
+<p>请求参数：跟随在请求路径后的参数字符串。  例：&#x2F;emps?page&#x3D;1&amp;pageSize&#x3D;10</p>
+<p>响应数据：json格式</p>
+</blockquote>
+<p><strong>EmpController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">PageBean</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Result</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">EmpService</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestParam</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/emps"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpService</span> empService<span class="token punctuation">;</span>
+
+    <span class="token comment">//条件分页查询</span>
+    <span class="token annotation punctuation">@GetMapping</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> page<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//记录日志</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"分页查询，参数：&#123;&#125;,&#123;&#125;"</span><span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用业务层分页查询功能</span>
+        <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> empService<span class="token punctuation">.</span><span class="token function">page</span><span class="token punctuation">(</span>page<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//响应</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>pageBean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>@RequestParam(defaultValue&#x3D;”默认值”)   &#x2F;&#x2F;设置请求参数默认值</p>
+</blockquote>
+<p><strong>EmpService</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 条件分页查询
+     * @param page 页码
+     * @param pageSize 每页展示记录数
+     * @return
+     */</span>
+    <span class="token class-name">PageBean</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> page<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpServiceImpl</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">EmpMapper</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Emp</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">PageBean</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">EmpService</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">LocalDate</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpMapper</span> empMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">PageBean</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> page<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//1、获取总记录数</span>
+        <span class="token class-name">Long</span> count <span class="token operator">=</span> empMapper<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//2、获取分页查询结果列表</span>
+        <span class="token class-name">Integer</span> start <span class="token operator">=</span> <span class="token punctuation">(</span>page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> pageSize<span class="token punctuation">;</span> <span class="token comment">//计算起始索引 , 公式: (页码-1)*页大小</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> empList <span class="token operator">=</span> empMapper<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//3、封装PageBean对象</span>
+        <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PageBean</span><span class="token punctuation">(</span>count <span class="token punctuation">,</span> empList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> pageBean<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//获取总记录数</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select count(*) from emp"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Long</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//获取当前页的结果列表</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select * from emp limit #&#123;start&#125;, #&#123;pageSize&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> start<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3-1-1-5-功能测试"><a href="#3-1-1-5-功能测试" class="headerlink" title="3.1.1.5 功能测试"></a>3.1.1.5 功能测试</h5><p>功能开发完成后，重新启动项目，使用postman，发起POST请求：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215162008339-1676294156195-27.png" alt="image-20221215162008339"></p>
+<h5 id="3-1-1-6-前后端联调"><a href="#3-1-1-6-前后端联调" class="headerlink" title="3.1.1.6 前后端联调"></a>3.1.1.6 前后端联调</h5><p>打开浏览器，测试后端功能接口：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215183413504-1676294156195-28.png" alt="image-20221215183413504"></p>
+<h4 id="3-1-2-分页插件"><a href="#3-1-2-分页插件" class="headerlink" title="3.1.2 分页插件"></a>3.1.2 分页插件</h4><h5 id="3-1-2-1-介绍"><a href="#3-1-2-1-介绍" class="headerlink" title="3.1.2.1 介绍"></a>3.1.2.1 介绍</h5><p>前面我们已经完了基础的分页查询，大家会发现：分页查询功能编写起来比较繁琐。</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215164811566-1676294156195-29.png" alt="image-20221215164811566"></p>
+<blockquote>
+<p>在Mapper接口中定义两个方法执行两条不同的SQL语句：</p>
+<ol>
+<li>查询总记录数</li>
+<li>指定页码的数据列表</li>
+</ol>
+<p>在Service当中，调用Mapper接口的两个方法，分别获取：总记录数、查询结果列表，然后在将获取的数据结果封装到PageBean对象中。</p>
+<p>大家思考下：在未来开发其他项目，只要涉及到分页查询功能(例：订单、用户、支付、商品)，都必须按照以上操作完成功能开发</p>
+</blockquote>
+<p>结论：原始方式的分页查询，存在着”步骤固定”、”代码频繁”的问题</p>
+<p>解决方案：可以使用一些现成的分页插件完成。对于Mybatis来讲现在最主流的就是PageHelper。</p>
+<blockquote>
+<p>PageHelper是Mybatis的一款功能强大、方便易用的分页插件，支持任何形式的单标、多表的分页查询。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://pagehelper.github.io/">https://pagehelper.github.io/</a></p>
+</blockquote>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215170038833-1676294156195-30.png" alt="image-20221215170038833"></p>
+<blockquote>
+<p>在执行empMapper.list()方法时，就是执行：select  *  from  emp   语句，怎么能够实现分页操作呢？</p>
+<p>分页插件帮我们完成了以下操作：</p>
+<ol>
+<li>先获取到要执行的SQL语句：select  *  from  emp      </li>
+<li>把SQL语句中的字段列表，变为：count(*)</li>
+<li>执行SQL语句：select  count(*)  from  emp          &#x2F;&#x2F;获取到总记录数</li>
+<li>再对要执行的SQL语句：select  *  from  emp 进行改造，在末尾添加 limit ? , ?</li>
+<li>执行改造后的SQL语句：select  *  from  emp  limit  ? , ?</li>
+</ol>
+</blockquote>
+<h5 id="3-1-2-2-代码实现"><a href="#3-1-2-2-代码实现" class="headerlink" title="3.1.2.2 代码实现"></a>3.1.2.2 代码实现</h5><p>当使用了PageHelper分页插件进行分页，就无需再Mapper中进行手动分页了。 在Mapper中我们只需要进行正常的列表查询即可。在Service层中，调用Mapper的方法之前设置分页参数，在调用Mapper方法执行查询之后，解析分页结果，并将结果封装到PageBean对象中返回。</p>
+<p>1、在pom.xml引入依赖</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.pagehelper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>pagehelper-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>2、EmpMapper</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//获取当前页的结果列表</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select * from emp"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> start<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>3、EmpServiceImpl</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">PageBean</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> page<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 设置分页参数</span>
+    <span class="token class-name">PageHelper</span><span class="token punctuation">.</span><span class="token function">startPage</span><span class="token punctuation">(</span>page<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">// 执行分页查询</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> empList <span class="token operator">=</span> empMapper<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>gender<span class="token punctuation">,</span>begin<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">// 获取分页结果</span>
+    <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> empList<span class="token punctuation">;</span>   
+    <span class="token comment">//封装PageBean</span>
+    <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PageBean</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> pageBean<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3-1-2-3-测试"><a href="#3-1-2-3-测试" class="headerlink" title="3.1.2.3 测试"></a>3.1.2.3 测试</h5><p>功能开发完成后，我们重启项目工程，打开postman，发起GET请求，访问 ：<a target="_blank" rel="noopener" href="http://localhost:8080/emps?page=1&pageSize=5">http://localhost:8080/emps?page=1&amp;pageSize=5</a></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215162008339-1676294156195-27.png" alt="image-20221215162008339"></p>
+<blockquote>
+<p>后端程序SQL输出：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215174820377-1676294156195-31.png" alt="image-20221215174820377"></p>
+</blockquote>
+<h3 id="3-2-分页查询-带条件"><a href="#3-2-分页查询-带条件" class="headerlink" title="3.2 分页查询(带条件)"></a>3.2 分页查询(带条件)</h3><p>完了分页查询后，下面我们需要在分页查询的基础上，添加条件。</p>
+<h4 id="3-2-1-需求"><a href="#3-2-1-需求" class="headerlink" title="3.2.1 需求"></a>3.2.1 需求</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215175639974-1676294156195-32.png" alt="image-20221215175639974"></p>
+<p>通过员工管理的页面原型我们可以看到，员工列表页面的查询，不仅仅需要考虑分页，还需要考虑查询条件。 分页查询我们已经实现了，接下来，我们需要考虑在分页查询的基础上，再加上查询条件。</p>
+<p>我们看到页面原型及需求中描述，搜索栏的搜索条件有三个，分别是：</p>
+<ul>
+<li>姓名：模糊匹配</li>
+<li>性别：精确匹配</li>
+<li>入职日期：范围匹配</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * 
+from emp
+where 
+  name like concat(&#39;%&#39;,&#39;张&#39;,&#39;%&#39;)   -- 条件1：根据姓名模糊匹配
+  and gender &#x3D; 1                   -- 条件2：根据性别精确匹配
+  and entrydate &#x3D; between &#39;2000-01-01&#39; and &#39;2010-01-01&#39;  -- 条件3：根据入职日期范围匹配
+order by update_time desc;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>而且上述的三个条件，都是可以传递，也可以不传递的，也就是动态的。 我们需要使用前面学习的Mybatis中的动态SQL 。</p>
+<h4 id="3-2-2-思路分析"><a href="#3-2-2-思路分析" class="headerlink" title="3.2.2 思路分析"></a>3.2.2 思路分析</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215180528415-1676294156195-33.png" alt="image-20221215180528415"></p>
+<h4 id="3-2-3-功能开发"><a href="#3-2-3-功能开发" class="headerlink" title="3.2.3 功能开发"></a>3.2.3 功能开发</h4><p>通过查看接口文档：员工列表查询</p>
+<blockquote>
+<p>请求路径：&#x2F;emps</p>
+<p>请求方式：GET</p>
+<p>请求参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>否</td>
+<td>张</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>否</td>
+<td>1</td>
+<td>性别 , 1 男 , 2 女</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>否</td>
+<td>2010-01-01</td>
+<td>范围匹配的开始时间(入职日期)</td>
+</tr>
+<tr>
+<td>end</td>
+<td>否</td>
+<td>2020-01-01</td>
+<td>范围匹配的结束时间(入职日期)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>1</td>
+<td>分页查询的页码，如果未指定，默认为1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td>10</td>
+<td>分页查询的每页记录数，如果未指定，默认为10</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>在原有分页查询的代码基础上进行改造：</p>
+<p><strong>EmpController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/emps"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpService</span> empService<span class="token punctuation">;</span>
+
+    <span class="token comment">//条件分页查询</span>
+    <span class="token annotation punctuation">@GetMapping</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> page<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">,</span>
+                       <span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">Short</span> gender<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//记录日志</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"分页查询，参数：&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;"</span><span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token punctuation">,</span>name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> begin<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用业务层分页查询功能</span>
+        <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> empService<span class="token punctuation">.</span><span class="token function">page</span><span class="token punctuation">(</span>page<span class="token punctuation">,</span> pageSize<span class="token punctuation">,</span> name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> begin<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//响应</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>pageBean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpService</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 条件分页查询
+     * @param page     页码
+     * @param pageSize 每页展示记录数
+     * @param name     姓名
+     * @param gender   性别
+     * @param begin   开始时间
+     * @param end     结束时间
+     * @return
+     */</span>
+    <span class="token class-name">PageBean</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> page<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">Short</span> gender<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpServiceImpl</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpMapper</span> empMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">PageBean</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> page<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">Short</span> gender<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//设置分页参数</span>
+        <span class="token class-name">PageHelper</span><span class="token punctuation">.</span><span class="token function">startPage</span><span class="token punctuation">(</span>page<span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//执行条件分页查询</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> empList <span class="token operator">=</span> empMapper<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> begin<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//获取查询结果</span>
+        <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> empList<span class="token punctuation">;</span>
+        <span class="token comment">//封装PageBean</span>
+        <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PageBean</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> pageBean<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//获取当前页的结果列表</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">Short</span> gender<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpMapper.xml</strong></p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
+        <span class="token name">PUBLIC</span> <span class="token string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>
+        <span class="token string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.mapper.EmpMapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- 条件分页查询 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.pojo.Emp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        select * from emp
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>where</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>if</span> <span class="token attr-name">test</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name != null and name != ''<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                name like concat('%',#&#123;name&#125;,'%')
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>if</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>if</span> <span class="token attr-name">test</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>gender != null<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                and gender = #&#123;gender&#125;
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>if</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>if</span> <span class="token attr-name">test</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>begin != null and end != null<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                and entrydate between #&#123;begin&#125; and #&#123;end&#125;
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>if</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>where</span><span class="token punctuation">></span></span>
+        order by update_time desc
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapper</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3-2-4-功能测试"><a href="#3-2-4-功能测试" class="headerlink" title="3.2.4 功能测试"></a>3.2.4 功能测试</h4><p>功能开发完成后，重启项目工程，打开postman，发起GET请求：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215182344380-1676294156195-34.png" alt="image-20221215182344380"></p>
+<blockquote>
+<p>控制台SQL语句：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215182952789-1676294156195-35.png" alt="image-20221215182952789"></p>
+</blockquote>
+<h4 id="3-2-5-前后端联调"><a href="#3-2-5-前后端联调" class="headerlink" title="3.2.5 前后端联调"></a>3.2.5 前后端联调</h4><p>打开浏览器，测试后端功能接口：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215183510458-1676294156195-36.png" alt="image-20221215183510458"></p>
+<h3 id="3-3-删除员工"><a href="#3-3-删除员工" class="headerlink" title="3.3 删除员工"></a>3.3 删除员工</h3><p>查询员完成之后，我们继续开发新的功能：删除员工。</p>
+<h4 id="3-3-1-需求"><a href="#3-3-1-需求" class="headerlink" title="3.3.1 需求"></a>3.3.1 需求</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215183657413-1676294156196-37.png" alt="image-20221215183657413"></p>
+<p>当我们勾选列表前面的复选框，然后点击 “批量删除” 按钮，就可以将这一批次的员工信息删除掉了。也可以只勾选一个复选框，仅删除一个员工信息。</p>
+<p>问题：我们需要开发两个功能接口吗？一个删除单个员工，一个删除多个员工</p>
+<p>答案：不需要。 只需要开发一个功能接口即可（删除多个员工包含只删除一个员工）</p>
+<h4 id="3-3-2-接口文档"><a href="#3-3-2-接口文档" class="headerlink" title="3.3.2 接口文档"></a>3.3.2 接口文档</h4><p><strong>删除员工</strong></p>
+<ul>
+<li><p>基本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">请求路径：&#x2F;emps&#x2F;&#123;ids&#125;
+
+请求方式：DELETE
+
+接口描述：该接口用于批量删除员工的数据信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>请求参数</p>
+<p>参数格式：路径参数</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>示例</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ids</td>
+<td>数组 array</td>
+<td>1,2,3</td>
+<td>必须</td>
+<td>员工的id数组</td>
+</tr>
+</tbody></table>
+<p>请求参数样例：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;emps&#x2F;1,2,3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>响应数据</p>
+<p>参数格式：application&#x2F;json</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td>响应码，1 代表成功，0 代表失败</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td>提示信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td>返回的数据</td>
+</tr>
+</tbody></table>
+<p>响应数据样例：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"code"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"msg"</span><span class="token operator">:</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token property">"data"</span><span class="token operator">:</span><span class="token null keyword">null</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="3-3-3-思路分析"><a href="#3-3-3-思路分析" class="headerlink" title="3.3.3 思路分析"></a>3.3.3 思路分析</h4><p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215184714815-1676294156196-38.png" alt="image-20221215184714815"></p>
+<blockquote>
+<p>接口文档规定：</p>
+<ul>
+<li>前端请求路径：&#x2F;emps&#x2F;{ids}</li>
+<li>前端请求方式：DELETE</li>
+</ul>
+<p>问题1：怎么在controller中接收请求路径中的路径参数？</p>
+<pre class="line-numbers language-none"><code class="language-none">@PathVariable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>问题2：如何限定请求方式是delete？</p>
+<pre class="line-numbers language-none"><code class="language-none">@DeleteMapping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>问题3：在Mapper接口中，执行delete操作的SQL语句时，条件中的id值是不确定的是动态的，怎么实现呢？</p>
+<pre class="line-numbers language-none"><code class="language-none">Mybatis中的动态SQL：foreach<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h4 id="3-3-4-功能开发"><a href="#3-3-4-功能开发" class="headerlink" title="3.3.4 功能开发"></a>3.3.4 功能开发</h4><p>通过查看接口文档：删除员工</p>
+<blockquote>
+<p>请求路径：&#x2F;emps&#x2F;{ids}</p>
+<p>请求方式：DELETE</p>
+<p>请求参数：路径参数 {ids}</p>
+<p>响应数据：json格式</p>
+</blockquote>
+<p><strong>EmpController</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/emps"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpService</span> empService<span class="token punctuation">;</span>
+
+    <span class="token comment">//批量删除</span>
+    <span class="token annotation punctuation">@DeleteMapping</span><span class="token punctuation">(</span><span class="token string">"/&#123;ids&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        empService<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//条件分页查询</span>
+    <span class="token annotation punctuation">@GetMapping</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> page<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>defaultValue <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> pageSize<span class="token punctuation">,</span>
+                       <span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">Short</span> gender<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span>
+                       <span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//记录日志</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"分页查询，参数：&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;"</span><span class="token punctuation">,</span> page<span class="token punctuation">,</span> pageSize<span class="token punctuation">,</span>name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> begin<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//调用业务层分页查询功能</span>
+        <span class="token class-name">PageBean</span> pageBean <span class="token operator">=</span> empService<span class="token punctuation">.</span><span class="token function">page</span><span class="token punctuation">(</span>page<span class="token punctuation">,</span> pageSize<span class="token punctuation">,</span> name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> begin<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//响应</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>pageBean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpService</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 批量删除操作
+     * @param ids id集合
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpServiceImpl</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EmpServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">EmpService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">EmpMapper</span> empMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        empMapper<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpMapper</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EmpMapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//批量删除</span>
+    <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//省略...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>EmpMapper.xml</strong></p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
+        <span class="token name">PUBLIC</span> <span class="token string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>
+        <span class="token string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.mapper.EmpMapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!--批量删除员工--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delete<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        delete from emp where id in
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ids<span class="token punctuation">"</span></span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">open</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(<span class="token punctuation">"</span></span> <span class="token attr-name">close</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>,<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            #&#123;id&#125;
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- 省略... --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapper</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3-3-5-功能测试"><a href="#3-3-5-功能测试" class="headerlink" title="3.3.5 功能测试"></a>3.3.5 功能测试</h4><p>功能开发完成后，重启项目工程，打开postman，发起DELETE请求：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215190229696-1676294156196-39.png" alt="image-20221215190229696"></p>
+<blockquote>
+<p>控制台SQL语句：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215190948723-1676294156196-40.png" alt="image-20221215190948723"></p>
+</blockquote>
+<h4 id="3-3-6-前后端联调"><a href="#3-3-6-前后端联调" class="headerlink" title="3.3.6 前后端联调"></a>3.3.6 前后端联调</h4><p>打开浏览器，测试后端功能接口：</p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215190606676-1676294156196-41.png" alt="image-20221215190606676"></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215190640539-1676294156196-42.png" alt="image-20221215190640539"></p>
+<p><img src="/SpringBoot%E6%A1%88%E4%BE%8B/image-20221215190753313-1676294156196-43.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/SpringBoot%E6%A1%88%E4%BE%8B.html">http://www.fanliu.top/post/SpringBoot%E6%A1%88%E4%BE%8B.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html" title="SpringBoot案例（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringBoot案例（二）</div></div></a></div><div class="next-post pull-right"><a href="/post/mybatis-2.html" title="Mybatis-2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Mybatis-2</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Maven%E9%AB%98%E7%BA%A7.html" title="Maven高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">Maven高级</div></div></a></div><div><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-08</div><div class="title">Mybatis-1</div></div></a></div><div><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-18</div><div class="title">MybatisPlus</div></div></a></div><div><a href="/post/SpingBoot%E5%8E%9F%E7%90%86.html" title="SpingBoot原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">SpingBoot原理</div></div></a></div><div><a href="/post/SpringBootWeb_AOP.html" title="SpringBootWeb_AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="title">SpringBootWeb_AOP</div></div></a></div><div><a href="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html" title="SpringBoot案例（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-13</div><div class="title">SpringBoot案例（二）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBootWeb%E6%A1%88%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">SpringBootWeb案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">1. 准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%9C%80%E6%B1%82-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 需求&amp;环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1.1 需求说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.1.2 环境搭建</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 开发规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2. 部门管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9F%A5%E8%AF%A2%E9%83%A8%E9%97%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 查询部门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%8E%9F%E5%9E%8B%E5%92%8C%E9%9C%80%E6%B1%82"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1 原型和需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.3 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">2.1.4 功能开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">2.1.5 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 前后端联调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%A0%E9%99%A4%E9%83%A8%E9%97%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 删除部门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E9%9C%80%E6%B1%82"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">2.3.1 需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2.3.2 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">2.3.3 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">2.3.4 功能开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">2.3.5 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.2.3.6.</span> <span class="toc-text">2.3.6 前后端联调</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%96%B0%E5%A2%9E%E9%83%A8%E9%97%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 新增部门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-%E9%9C%80%E6%B1%82"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">2.4.1 需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">2.4.2 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">2.4.3 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.2.4.4.</span> <span class="toc-text">2.4.4 功能开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.4.5.</span> <span class="toc-text">2.4.5 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.2.4.6.</span> <span class="toc-text">2.4.6 前后端联调</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-7-%E8%AF%B7%E6%B1%82%E8%B7%AF%E5%BE%84"><span class="toc-number">1.2.4.7.</span> <span class="toc-text">2.4.7 请求路径</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">3. 员工管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%9F%BA%E7%A1%80%E5%88%86%E9%A1%B5"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">3.1.1 基础分页</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.1.1.</span> <span class="toc-text">3.1.1.1 需求分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.3.1.1.2.</span> <span class="toc-text">3.1.1.2 接口文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.1.3.</span> <span class="toc-text">3.1.1.3 思路分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.1.1.4.</span> <span class="toc-text">3.1.1.4 功能开发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.1.1.5.</span> <span class="toc-text">3.1.1.5 功能测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.3.1.1.6.</span> <span class="toc-text">3.1.1.6 前后端联调</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">3.1.2 分页插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text">3.1.2.1 介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-2-2-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.1.2.2.</span> <span class="toc-text">3.1.2.2 代码实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-2-3-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.1.2.3.</span> <span class="toc-text">3.1.2.3 测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2-%E5%B8%A6%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 分页查询(带条件)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%9C%80%E6%B1%82"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">3.2.1 需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">3.2.2 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">3.2.3 功能开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">3.2.4 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">3.2.5 前后端联调</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%A0%E9%99%A4%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 删除员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E9%9C%80%E6%B1%82"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.3.1 需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.3.2 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">3.3.3 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">3.3.4 功能开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">3.3.5 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">3.3.6 前后端联调</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

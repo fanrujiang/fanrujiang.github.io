@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux常用命令小抄 | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux常用命令小抄linux下java项目在后台启动的几种方式启动java程序   （1）直接启动，控制台退出则关掉应用       java -jar uap-register-server-1.0.0.jar   （2）后台启动，控制台退出不会关掉应用       nohup  java -jar uap-register-server-1.0.0.jar &amp;   （3）后台启动并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令小抄">
+<meta property="og:url" content="http://www.fanliu.top/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="Linux常用命令小抄linux下java项目在后台启动的几种方式启动java程序   （1）直接启动，控制台退出则关掉应用       java -jar uap-register-server-1.0.0.jar   （2）后台启动，控制台退出不会关掉应用       nohup  java -jar uap-register-server-1.0.0.jar &amp;   （3）后台启动并">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.fanliu.top/img/fy.jpg">
+<meta property="article:published_time" content="2021-02-25T04:05:11.000Z">
+<meta property="article:modified_time" content="2023-09-25T06:19:58.611Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux常用命令小抄',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 14:19:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux常用命令小抄</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-25T04:05:11.000Z" title="发表于 2021-02-25 12:05:11">2021-02-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux常用命令小抄"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux常用命令小抄"><a href="#Linux常用命令小抄" class="headerlink" title="Linux常用命令小抄"></a>Linux常用命令小抄</h1><h3 id="linux下java项目在后台启动的几种方式"><a href="#linux下java项目在后台启动的几种方式" class="headerlink" title="linux下java项目在后台启动的几种方式"></a>linux下java项目在后台启动的几种方式</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">启动java程序
+ 
+（1）直接启动，控制台退出则关掉应用
+ 
+    <span class="token function">java</span> <span class="token parameter variable">-jar</span> uap-register-server-1.0.0.jar
+ 
+（2）后台启动，控制台退出不会关掉应用
+ 
+    <span class="token function">nohup</span>  <span class="token function">java</span> <span class="token parameter variable">-jar</span> uap-register-server-1.0.0.jar <span class="token operator">&amp;</span>
+ 
+（3）后台启动并且输出日志，控制台退出不会关掉应用
+ 
+    <span class="token function">nohup</span>  <span class="token function">java</span> <span class="token parameter variable">-jar</span> uap-register-server-1.0.0.jar <span class="token operator">>></span> ./register.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+（3）后台启动<span class="token punctuation">(</span>加内存<span class="token punctuation">)</span>并且输出日志，控制台退出不会关掉应用
+ 
+    <span class="token function">nohup</span> <span class="token function">java</span> <span class="token parameter variable">-jar</span> <span class="token parameter variable">-Xms1024m</span> <span class="token parameter variable">-Xmx2048m</span> uap-register-server-1.0.0.jar<span class="token operator">>></span> ./register.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+关闭程序
+    
+ （1）查询java应用程序
+ 
+    <span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> <span class="token function">java</span>
+ 
+ （2）强制杀掉进程
+ 
+    <span class="token function">kill</span> <span class="token parameter variable">-9</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="Linux-环境如何使用-kill-命令优雅停止-Java-服务"><a href="#Linux-环境如何使用-kill-命令优雅停止-Java-服务" class="headerlink" title="Linux 环境如何使用 kill 命令优雅停止 Java 服务"></a>Linux 环境如何使用 kill 命令优雅停止 Java 服务</h3><h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h4><p>我们在开发 Java Web 服务时，如果使用外部 Tomcat Web容器，那么启停服务可以直接使用 Tomcat 自带的脚本。不过现在大多数服务使用 Spring Boot 框架来开发，使用内嵌的 Tomcat &#x2F; Jetty Web 容器，所以这时我们一般使用特定的命令或者编写脚本来启停 Web 服务。</p>
+<p>我们开发的 Web 服务一般部署在 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Linux&spm=1001.2101.3001.7020">Linux</a> 服务器上，以下操作基于 Linux 服务器。如果要停止在运行中的 Java 服务，一般会使用两步骤。</p>
+<p>首先找出 Java 服务的进程 ID，可以使用 JDK 自带的<code>jps</code>命令或者 Linux 平台的<code>ps</code>(process status) 命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># jps</span>
+<span class="token number">8141</span> jar
+<span class="token number">8207</span> Jps
+<span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># jps -l</span>
+<span class="token number">8141</span> chenpi-kill-demo-2.6.7.jar
+<span class="token number">8223</span> sun.tools.jps.Jps
+<span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+<span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># ps -ef  | grep java</span>
+root       <span class="token number">8141</span>   <span class="token number">7379</span> <span class="token number">34</span> <span class="token number">12</span>:55 pts/0    00:00:42 <span class="token function">java</span> <span class="token parameter variable">-jar</span> chenpi-kill-demo-2.6.7.jar
+root       <span class="token number">8242</span>   <span class="token number">8092</span>  <span class="token number">0</span> <span class="token number">12</span>:57 pts/1    00:00:00 <span class="token function">grep</span> <span class="token parameter variable">--color</span><span class="token operator">=</span>auto <span class="token function">java</span>
+<span class="token number">1234567891011</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后向 Java 进程发送信号，告知其停止服务，例如使用 Linux kill 命令杀死特定的进程。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># kill 8141</span>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果使用 Linux Shell 脚本启停 Java 服务，会用到 kill 这个命令，下面来了解此命令的用法以及开发中需要注意的事项。</p>
+<h4 id="2-kill-命令"><a href="#2-kill-命令" class="headerlink" title="2 kill 命令"></a>2 kill 命令</h4><p><code>kill()</code>是一个计算机编程语言函数，kill 函数可以向进程发送<code>signal()</code>。在 Linux 里使用的 kill 命令，实际上是对 kill() 函数的一个包装。</p>
+<p>简而言之，Linux kill 命令可以将指定的信号发送至程序，将指定程序终止。</p>
+<p>查看 kill 命令的使用语法，直接在 Linux 服务上执行 kill 命令即可查看。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># kill</span>
+kill: usage: <span class="token function">kill</span> <span class="token punctuation">[</span>-s sigspec <span class="token operator">|</span> <span class="token parameter variable">-n</span> signum <span class="token operator">|</span> -sigspec<span class="token punctuation">]</span> pid <span class="token operator">|</span> jobspec <span class="token punctuation">..</span>. or <span class="token function">kill</span> <span class="token parameter variable">-l</span> <span class="token punctuation">[</span>sigspec<span class="token punctuation">]</span>
+<span class="token number">12</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>对于可选参数<code>-s sigspec | -n signum | -sigspec</code>，说明如下：</p>
+<ul>
+<li>sigspec：信号声明</li>
+<li>signum：信号编号</li>
+</ul>
+<p>那么信号声明和信号编号有哪些呢？可以使用<code>kill -l</code>命令查看，如下所示：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@chenpihost ~<span class="token punctuation">]</span><span class="token comment"># kill -l</span>
+ <span class="token number">1</span><span class="token punctuation">)</span> SIGHUP       <span class="token number">2</span><span class="token punctuation">)</span> SIGINT       <span class="token number">3</span><span class="token punctuation">)</span> SIGQUIT      <span class="token number">4</span><span class="token punctuation">)</span> SIGILL       <span class="token number">5</span><span class="token punctuation">)</span> SIGTRAP
+ <span class="token number">6</span><span class="token punctuation">)</span> SIGABRT      <span class="token number">7</span><span class="token punctuation">)</span> SIGBUS       <span class="token number">8</span><span class="token punctuation">)</span> SIGFPE       <span class="token number">9</span><span class="token punctuation">)</span> SIGKILL     <span class="token number">10</span><span class="token punctuation">)</span> SIGUSR1
+<span class="token number">11</span><span class="token punctuation">)</span> SIGSEGV     <span class="token number">12</span><span class="token punctuation">)</span> SIGUSR2     <span class="token number">13</span><span class="token punctuation">)</span> SIGPIPE     <span class="token number">14</span><span class="token punctuation">)</span> SIGALRM     <span class="token number">15</span><span class="token punctuation">)</span> SIGTERM
+<span class="token number">16</span><span class="token punctuation">)</span> SIGSTKFLT   <span class="token number">17</span><span class="token punctuation">)</span> SIGCHLD     <span class="token number">18</span><span class="token punctuation">)</span> SIGCONT     <span class="token number">19</span><span class="token punctuation">)</span> SIGSTOP     <span class="token number">20</span><span class="token punctuation">)</span> SIGTSTP
+<span class="token number">21</span><span class="token punctuation">)</span> SIGTTIN     <span class="token number">22</span><span class="token punctuation">)</span> SIGTTOU     <span class="token number">23</span><span class="token punctuation">)</span> SIGURG      <span class="token number">24</span><span class="token punctuation">)</span> SIGXCPU     <span class="token number">25</span><span class="token punctuation">)</span> SIGXFSZ
+<span class="token number">26</span><span class="token punctuation">)</span> SIGVTALRM   <span class="token number">27</span><span class="token punctuation">)</span> SIGPROF     <span class="token number">28</span><span class="token punctuation">)</span> SIGWINCH    <span class="token number">29</span><span class="token punctuation">)</span> SIGIO       <span class="token number">30</span><span class="token punctuation">)</span> SIGPWR
+<span class="token number">31</span><span class="token punctuation">)</span> SIGSYS      <span class="token number">34</span><span class="token punctuation">)</span> SIGRTMIN    <span class="token number">35</span><span class="token punctuation">)</span> SIGRTMIN+1  <span class="token number">36</span><span class="token punctuation">)</span> SIGRTMIN+2  <span class="token number">37</span><span class="token punctuation">)</span> SIGRTMIN+3
+<span class="token number">38</span><span class="token punctuation">)</span> SIGRTMIN+4  <span class="token number">39</span><span class="token punctuation">)</span> SIGRTMIN+5  <span class="token number">40</span><span class="token punctuation">)</span> SIGRTMIN+6  <span class="token number">41</span><span class="token punctuation">)</span> SIGRTMIN+7  <span class="token number">42</span><span class="token punctuation">)</span> SIGRTMIN+8
+<span class="token number">43</span><span class="token punctuation">)</span> SIGRTMIN+9  <span class="token number">44</span><span class="token punctuation">)</span> SIGRTMIN+10 <span class="token number">45</span><span class="token punctuation">)</span> SIGRTMIN+11 <span class="token number">46</span><span class="token punctuation">)</span> SIGRTMIN+12 <span class="token number">47</span><span class="token punctuation">)</span> SIGRTMIN+13
+<span class="token number">48</span><span class="token punctuation">)</span> SIGRTMIN+14 <span class="token number">49</span><span class="token punctuation">)</span> SIGRTMIN+15 <span class="token number">50</span><span class="token punctuation">)</span> SIGRTMAX-14 <span class="token number">51</span><span class="token punctuation">)</span> SIGRTMAX-13 <span class="token number">52</span><span class="token punctuation">)</span> SIGRTMAX-12
+<span class="token number">53</span><span class="token punctuation">)</span> SIGRTMAX-11 <span class="token number">54</span><span class="token punctuation">)</span> SIGRTMAX-10 <span class="token number">55</span><span class="token punctuation">)</span> SIGRTMAX-9  <span class="token number">56</span><span class="token punctuation">)</span> SIGRTMAX-8  <span class="token number">57</span><span class="token punctuation">)</span> SIGRTMAX-7
+<span class="token number">58</span><span class="token punctuation">)</span> SIGRTMAX-6  <span class="token number">59</span><span class="token punctuation">)</span> SIGRTMAX-5  <span class="token number">60</span><span class="token punctuation">)</span> SIGRTMAX-4  <span class="token number">61</span><span class="token punctuation">)</span> SIGRTMAX-3  <span class="token number">62</span><span class="token punctuation">)</span> SIGRTMAX-2
+<span class="token number">63</span><span class="token punctuation">)</span> SIGRTMAX-1  <span class="token number">64</span><span class="token punctuation">)</span> SIGRTMAX
+<span class="token number">1234567891011121314</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Linux 信号量（Linux Signals）的信号声明和信号编号相应关系以及解释如下表格。</p>
+<table>
+<thead>
+<tr>
+<th>Signal Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Hangup (POSIX)</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>2</td>
+<td>Terminal interrupt (ANSI)</td>
+</tr>
+<tr>
+<td>SIGQUIT</td>
+<td>3</td>
+<td>Terminal quit (POSIX)</td>
+</tr>
+<tr>
+<td>SIGILL</td>
+<td>4</td>
+<td>Illegal instruction (ANSI)</td>
+</tr>
+<tr>
+<td>SIGTRAP</td>
+<td>5</td>
+<td>Trace trap (POSIX)</td>
+</tr>
+<tr>
+<td>SIGIOT</td>
+<td>6</td>
+<td>IOT Trap (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGBUS</td>
+<td>7</td>
+<td>BUS error (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGFPE</td>
+<td>8</td>
+<td>Floating point exception (ANSI)</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Kill(can’t be caught or ignored) (POSIX)</td>
+</tr>
+<tr>
+<td>SIGUSR1</td>
+<td>10</td>
+<td>User defined signal 1 (POSIX)</td>
+</tr>
+<tr>
+<td>SIGSEGV</td>
+<td>11</td>
+<td>Invalid memory segment access (ANSI)</td>
+</tr>
+<tr>
+<td>SIGUSR2</td>
+<td>12</td>
+<td>User defined signal 2 (POSIX)</td>
+</tr>
+<tr>
+<td>SIGPIPE</td>
+<td>13</td>
+<td>Write on a pipe with no reader, Broken pipe (POSIX)</td>
+</tr>
+<tr>
+<td>SIGALRM</td>
+<td>14</td>
+<td>Alarm clock (POSIX)</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Termination (ANSI)</td>
+</tr>
+<tr>
+<td>SIGSTKFLT</td>
+<td>16</td>
+<td>Stack fault</td>
+</tr>
+<tr>
+<td>SIGCHLD</td>
+<td>17</td>
+<td>Child process has stopped or exited, changed (POSIX)</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>18</td>
+<td>Continue executing, if stopped (POSIX)</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>19</td>
+<td>Stop executing(can’t be caught or ignored) (POSIX)</td>
+</tr>
+<tr>
+<td>SIGTSTP</td>
+<td>20</td>
+<td>Terminal stop signal (POSIX)</td>
+</tr>
+<tr>
+<td>SIGTTIN</td>
+<td>21</td>
+<td>Background process trying to read, from TTY (POSIX)</td>
+</tr>
+<tr>
+<td>SIGTTOU</td>
+<td>22</td>
+<td>Background process trying to write, to TTY (POSIX)</td>
+</tr>
+<tr>
+<td>SIGURG</td>
+<td>23</td>
+<td>Urgent condition on socket (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGXCPU</td>
+<td>24</td>
+<td>CPU limit exceeded (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGXFSZ</td>
+<td>25</td>
+<td>File size limit exceeded (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGVTALRM</td>
+<td>26</td>
+<td>Virtual alarm clock (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGPROF</td>
+<td>27</td>
+<td>Profiling alarm clock (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGWINCH</td>
+<td>28</td>
+<td>Window size change (4.3 BSD, Sun)</td>
+</tr>
+<tr>
+<td>SIGIO</td>
+<td>29</td>
+<td>I&#x2F;O now possible (4.2 BSD)</td>
+</tr>
+<tr>
+<td>SIGPWR</td>
+<td>30</td>
+<td>Power failure restart (System V)</td>
+</tr>
+</tbody></table>
+<p>每一个信号量都有对应的信号声明和信号编号，比如<code>9) SIGKILL</code>。那么我们可以使用下面任何一种命令来强制终止进程（假设进程 ID 为1760）。因为信号声明前缀都是 SIG ，所以也可以省略前缀。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token number">1760</span>
+<span class="token function">kill</span> <span class="token parameter variable">-n</span> <span class="token number">9</span> <span class="token number">1760</span>
+<span class="token function">kill</span> <span class="token parameter variable">-s</span> SIGKILL <span class="token number">1760</span>
+<span class="token function">kill</span> <span class="token parameter variable">-SIGKILL</span> <span class="token number">1760</span>
+<span class="token function">kill</span> <span class="token parameter variable">-KILL</span> <span class="token number">1760</span>
+<span class="token number">12345</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果没有显示指定具体的信号，默认是<code>15) SIGTERM</code>。当程序接收到此信号后，程序会做停止前的处理工作，例如释放相应的资源，然后再停止程序，但是程序有可能会继续运行着。即 SIGTERM 信号是可以被阻塞的，可能被忽略的。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 两种等效</span>
+<span class="token function">kill</span> <span class="token number">1755</span>
+<span class="token function">kill</span> <span class="token parameter variable">-15</span> <span class="token number">1755</span>
+<span class="token number">123</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 kill 命令终止一个进程，后面需要跟参数<code>pid | jobspec ...</code>，可以是程序的 PID，PGID，或者工作编号等。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1755 是进程ID</span>
+<span class="token function">kill</span> <span class="token number">1755</span>
+<span class="token number">12</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html">http://www.fanliu.top/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E7%91%9E%E5%90%89%E7%82%B9%E9%A4%90-%EF%BC%88%E4%B8%80%EF%BC%89.html" title="瑞吉外卖（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">瑞吉外卖（一）</div></div></a></div><div class="next-post pull-right"><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MybatisPlus</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html" title="Linux常见问题笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Linux常见问题笔记</div></div></a></div><div><a href="/post/Linux%E7%AC%94%E8%AE%B0.html" title="Linux笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Linux笔记</div></div></a></div><div><a href="/post/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="docker常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker常用命令小抄</div></div></a></div><div><a href="/post/docker%E7%AC%94%E8%AE%B0.html" title="docker笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-10</div><div class="title">docker笔记</div></div></a></div><div><a href="/post/docker%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0.html" title="docker软件安装笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker软件安装笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84"><span class="toc-number">1.</span> <span class="toc-text">Linux常用命令小抄</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#linux%E4%B8%8Bjava%E9%A1%B9%E7%9B%AE%E5%9C%A8%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.1.</span> <span class="toc-text">linux下java项目在后台启动的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E7%8E%AF%E5%A2%83%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-kill-%E5%91%BD%E4%BB%A4%E4%BC%98%E9%9B%85%E5%81%9C%E6%AD%A2-Java-%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.0.2.</span> <span class="toc-text">Linux 环境如何使用 kill 命令优雅停止 Java 服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1 前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-kill-%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2 kill 命令</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

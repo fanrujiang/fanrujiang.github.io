@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我的世界MCSM面板搭建 | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的世界MCSM面板搭建Linux如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了） Linux 系统快速安装（适用于 Ubuntu&#x2F;Centos&#x2F;Debian&#x2F;Arch） 安装成功后，使用 systemctl start mcsm-&amp;#123;(web, daemon)&amp;#125; 命令即可启动面板 wget -qO- https:&#x2F;&#x2F;gitee.com&#x2F;mcsmana">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的世界MCSM面板搭建">
+<meta property="og:url" content="http://www.fanliu.top/post/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="我的世界MCSM面板搭建Linux如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了） Linux 系统快速安装（适用于 Ubuntu&#x2F;Centos&#x2F;Debian&#x2F;Arch） 安装成功后，使用 systemctl start mcsm-&amp;#123;(web, daemon)&amp;#125; 命令即可启动面板 wget -qO- https:&#x2F;&#x2F;gitee.com&#x2F;mcsmana">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg">
+<meta property="article:published_time" content="2021-02-07T08:06:18.000Z">
+<meta property="article:modified_time" content="2023-09-25T06:12:46.743Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="Minecraft">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '我的世界MCSM面板搭建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 14:12:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">我的世界MCSM面板搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-07T08:06:18.000Z" title="发表于 2021-02-07 16:06:18">2021-02-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/">我的世界</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="我的世界MCSM面板搭建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="我的世界MCSM面板搭建"><a href="#我的世界MCSM面板搭建" class="headerlink" title="我的世界MCSM面板搭建"></a>我的世界MCSM面板搭建</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了）</p>
+<details class="custom-block details"><summary>Linux 系统快速安装（适用于 Ubuntu/Centos/Debian/Arch）</summary> <p>安装成功后，使用 <code>systemctl start mcsm-&#123;(web, daemon)&#125;</code> 命令即可启动面板</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>wget -qO- https://gitee.com/mcsmanager/script/raw/master/setup.sh | bash
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></details>
+
+
+<h2 id="前期需要软件"><a href="#前期需要软件" class="headerlink" title="前期需要软件"></a>前期需要软件</h2><ol>
+<li>远程SSH控制台软件（本教程使用 Remote Terminal 此为win10商店软件）[<a target="_blank" rel="noopener" href="https://vlssu.lanzoui.com/i88wyvi">点我下载(此软件为Xshell)]  (opens new window)</a></li>
+<li>支持Sftp的FTP软件（本教程使用 FileZilla）[<a target="_blank" rel="noopener" href="https://www.lanzoui.com/i88wyqd">点我下载]  (opens new window)</a></li>
+<li>服务端（本教程使用 Spigot）</li>
+<li>Centos或Ubuntu主机一台 （教程使用 centos7.9）</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>极力推荐Centos系统，Ubuntu系统未经博主测试</li>
+<li>未标注哪个系统指令则两者都可适用</li>
+<li>若标题注释了哪个系统那只能适用那个系统或另一个系统不需要输此指令</li>
+</ol>
+<h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><h3 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h3><ul>
+<li>首先你要确保你的系统是最新的</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum update <span class="token comment"># (Centos)</span>
+//Ubuntu需要两条指令来升级
+<span class="token function">apt-get</span> update <span class="token parameter variable">-y</span> <span class="token comment"># (Ubuntu)</span>
+<span class="token function">apt-get</span> upgrade <span class="token parameter variable">-y</span> <span class="token comment"># (Ubuntu)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><ul>
+<li><strong>若发现国内下载很慢可以参考这篇来使用国内镜像部署</strong>[<strong>[Linux系统如何安装node管理器]</strong>]()</li>
+</ul>
+<ol>
+<li>安装Git</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token function">git</span> <span class="token parameter variable">-y</span> <span class="token comment"># (Centos)</span>
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token function">git</span> <span class="token comment"># (Ubuntu)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol>
+<li>安装node.js管理器等组件</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/creationix/nvm.git ~/nvm
+<span class="token comment"># 设置nvm 自动运行</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"source ~/nvm/nvm.sh"</span> <span class="token operator">>></span> ~/.bashrc
+<span class="token builtin class-name">source</span> ~/.bashrc
+<span class="token comment"># 安装npm的v16版本</span>
+nvm <span class="token function">install</span> v16.14.0
+<span class="token comment"># 使用v13版本</span>
+nvm use v16.14.0
+<span class="token comment"># 安装npm最新版本并使用最新版本 //建议使用稳定版而不是最新测试版</span>
+<span class="token comment"># nvm install stable &amp;&amp; nvm use stable</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>请关闭终端重新打开或重新连接终端 再依次执行以下命令（重要！）</p>
+<h3 id="安装java"><a href="#安装java" class="headerlink" title="安装java"></a>安装java</h3><ul>
+<li>如果要看更精细的步骤可以看这个文章 [<a href="">如何在Linux系统中安装Java8]</a></li>
+</ul>
+<h4 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h4><ul>
+<li>使用<code>yum</code>安装<code>java</code>。</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装java8</span>
+<span class="token comment"># yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel</span>
+<span class="token comment"># 安装java11 按需安装，建议直接下载用绝对链接来开服</span>
+<span class="token comment"># yum install java-11-openjdk java-11-openjdk-devel</span>
+<span class="token comment"># 安装java17 按需安装，建议直接下载用绝对链接来开服</span>
+yum <span class="token function">install</span> java-17-openjdk java-17-openjdk-devel
+<span class="token comment"># 查看java版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><ol>
+<li>安装<code>java</code></li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> openjdk-17-jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>如果我们在服务器上安装了多个Java版本，我们可以使用<strong>update-alternatives</strong>系统更改默认版本</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--config</span> <span class="token function">java</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>要维持当前值[*]请按&lt;回车键&gt;，或者键入选择的编号：<br> 在出现提示时输入号码并按Enter键。</p>
+<ol>
+<li>查看<code>java</code>版本</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="安装MCSM"><a href="#安装MCSM" class="headerlink" title="安装MCSM"></a>安装MCSM</h3><p>克隆<strong>MCSManager前端</strong>并安装依赖</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载面板端（Web）程序 并重命名为 web</span>
+<span class="token function">git</span> clone https://github.com/MCSManager/MCSManager-Web-Production.git web
+<span class="token comment"># 进入 web 文件夹中</span>
+<span class="token builtin class-name">cd</span> web
+<span class="token comment"># 安装依赖库</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npm.taobao.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>克隆<strong>MCSManager后端</strong>并安装依赖</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载守护进程（Daemon）程序</span>
+<span class="token function">git</span> clone https://github.com/MCSManager/MCSManager-Daemon-Production.git daemon
+<span class="token comment"># 进入 daemon 文件夹中</span>
+<span class="token builtin class-name">cd</span> daemon
+<span class="token comment"># 安装依赖库</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npm.taobao.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">访问地址</th>
+<th align="center">localhost:24444</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">访问密钥</td>
+<td align="center">[你的密钥，是一串16进制数字]</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">密钥作为守护进程唯一认证手段</td>
+</tr>
+</tbody></table>
+<h2 id="保持后台运行"><a href="#保持后台运行" class="headerlink" title="保持后台运行"></a>保持后台运行</h2><p>我们使用<code>pm2</code>软件来让面板保持后台运行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装pm2</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> pm2
+
+<span class="token comment"># 先启动守护进程</span>
+pm2 start daemon/app.js
+
+<span class="token comment"># 然后启动面板端进程</span>
+pm2 start web/app.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>PM2命令：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> pm2
+pm2 start app.js        // 启动
+pm2 start app.js <span class="token parameter variable">-i</span> max //启动 使用所有CPU核心的集群
+pm2 stop app.js         // 停止
+pm2 stop all            // 停止所有
+pm2 restart app.js      // 重启
+pm2 restart all         // 重启所有
+pm2 delete  app.js      // 关闭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="端口开放"><a href="#端口开放" class="headerlink" title="端口开放"></a>端口开放</h2><p>面板需要 23333（主功能） 端口<br> 24444（后端api）端口（可选）</p>
+<p>如果你使用阿里云，腾讯云或者服务商，<strong>请进入控制台到防火墙安全组策略，放行以上端口。</strong></p>
+<p>如果依然无法访问，请关闭系统自带防火墙：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭防火墙，依次执行</span>
+systemctl stop firewalld.service
+systemctl disable firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h2><table>
+<thead>
+<tr>
+<th align="center">配置文件</th>
+<th align="center"><code>data/SystemConfig/config.json</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">用户数据文件</td>
+<td align="center"><code>data/User/*.json</code></td>
+</tr>
+<tr>
+<td align="center">远程守护进程配置</td>
+<td align="center"><code>data/RemoteServiceConfig/*.json</code></td>
+</tr>
+</tbody></table>
+<h2 id="默认账户"><a href="#默认账户" class="headerlink" title="默认账户"></a>默认账户</h2><p>现在，访问 http:&#x2F;&#x2F;你的ip:23333&#x2F; 即可进入面板。</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text"># 最高管理员权限（注意，管理员与管理员之间账号可互删）
+默认账号：root
+默认密码: 123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>请及时修改密码。</p>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://getbukkit.org/download/spigot">Spigot  (opens new window)</a> [可以装插件]</li>
+<li><a target="_blank" rel="noopener" href="https://papermc.io/downloads">paper  (opens new window)</a> [可以装插件]</li>
+<li><a target="_blank" rel="noopener" href="https://files.minecraftforge.net/">Forge  (opens new window)</a> [可以装MOD]</li>
+</ul>
+<h2 id="服务器插件-MOD"><a href="#服务器插件-MOD" class="headerlink" title="服务器插件&#x2F;MOD"></a>服务器插件&#x2F;MOD</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dev.bukkit.org/">bukkit  (opens new window)</a> [下载插件]</li>
+<li><a target="_blank" rel="noopener" href="https://www.spigotmc.org/">spigotmc  (opens new window)</a> [下载插件]</li>
+<li><a target="_blank" rel="noopener" href="https://www.curseforge.com/minecraft/modpacks">curseforge  (opens new window)</a> [下载MOD]</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html">http://www.fanliu.top/post/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Minecraft/">Minecraft</a></div><div class="post_share"><div class="social-share" data-image="https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/mysql.html" title="mysql学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">mysql学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/post/javaseBaseUp%E6%80%BB%E7%BB%93.html" title="javaseBaseUp总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">javaseBaseUp总结</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">我的世界MCSM面板搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E9%9C%80%E8%A6%81%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">前期需要软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="toc-number">1.4.</span> <span class="toc-text">环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">系统更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="toc-number">1.4.2.</span> <span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85java"><span class="toc-number">1.4.3.</span> <span class="toc-text">安装java</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Centos"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">Centos</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ubuntu"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">Ubuntu</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MCSM"><span class="toc-number">1.4.4.</span> <span class="toc-text">安装MCSM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">1.5.</span> <span class="toc-text">保持后台运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE"><span class="toc-number">1.6.</span> <span class="toc-text">端口开放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">修改站点配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%B4%A6%E6%88%B7"><span class="toc-number">1.8.</span> <span class="toc-text">默认账户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">1.9.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8F%92%E4%BB%B6-MOD"><span class="toc-number">1.10.</span> <span class="toc-text">服务器插件&#x2F;MOD</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

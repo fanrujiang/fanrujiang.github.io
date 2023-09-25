@@ -1,0 +1,842 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分布式事务 | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 分布式事务1.1.本地事务本地事务，也就是传统的单机事务。在传统数据库事务中，必须要满足四个原则：  1.2.分布式事务分布式事务，就是指不是在单个服务或单个数据库架构下，产生的事务，例如：  跨数据源的分布式事务 跨服务的分布式事务 综合情况  在数据库水平拆分、服务垂直拆分之后，一个业务操作通常要跨多个数据库、服务才能完成。例如电商行业中比较常见的下单付款案例，包括下面几个行为：  创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式事务">
+<meta property="og:url" content="http://www.fanliu.top/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="1. 分布式事务1.1.本地事务本地事务，也就是传统的单机事务。在传统数据库事务中，必须要满足四个原则：  1.2.分布式事务分布式事务，就是指不是在单个服务或单个数据库架构下，产生的事务，例如：  跨数据源的分布式事务 跨服务的分布式事务 综合情况  在数据库水平拆分、服务垂直拆分之后，一个业务操作通常要跨多个数据库、服务才能完成。例如电商行业中比较常见的下单付款案例，包括下面几个行为：  创建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.fanliu.top/img/fy.jpg">
+<meta property="article:published_time" content="2021-03-28T07:59:11.000Z">
+<meta property="article:modified_time" content="2023-09-25T06:15:59.768Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="微服务">
+<meta property="article:tag" content="分布式事务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分布式事务',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 14:15:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">分布式事务</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/SpringCloud/">SpringCloud</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="分布式事务"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-分布式事务"><a href="#1-分布式事务" class="headerlink" title="1. 分布式事务"></a>1. 分布式事务</h1><h2 id="1-1-本地事务"><a href="#1-1-本地事务" class="headerlink" title="1.1.本地事务"></a>1.1.本地事务</h2><p>本地事务，也就是传统的<strong>单机事务</strong>。在传统数据库事务中，必须要满足四个原则：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724165045186.png" alt="image-20210724165045186"></p>
+<h2 id="1-2-分布式事务"><a href="#1-2-分布式事务" class="headerlink" title="1.2.分布式事务"></a>1.2.分布式事务</h2><p><strong>分布式事务</strong>，就是指不是在单个服务或单个数据库架构下，产生的事务，例如：</p>
+<ul>
+<li>跨数据源的分布式事务</li>
+<li>跨服务的分布式事务</li>
+<li>综合情况</li>
+</ul>
+<p>在数据库水平拆分、服务垂直拆分之后，一个业务操作通常要跨多个数据库、服务才能完成。例如电商行业中比较常见的下单付款案例，包括下面几个行为：</p>
+<ul>
+<li>创建新订单</li>
+<li>扣减商品库存</li>
+<li>从用户账户余额扣除金额</li>
+</ul>
+<p>完成上面的操作需要访问三个不同的微服务和三个不同的数据库。</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724165338958.png" alt="image-20210724165338958"></p>
+<p>订单的创建、库存的扣减、账户扣款在每一个服务和数据库内是一个本地事务，可以保证ACID原则。</p>
+<p>但是当我们把三件事情看做一个”业务”，要满足保证“业务”的原子性，要么所有操作全部成功，要么全部失败，不允许出现部分成功部分失败的现象，这就是<strong>分布式系统下的事务</strong>了。</p>
+<p>此时ACID难以满足，这是分布式事务要解决的问题</p>
+<h2 id="1-3-演示分布式事务问题"><a href="#1-3-演示分布式事务问题" class="headerlink" title="1.3.演示分布式事务问题"></a>1.3.演示分布式事务问题</h2><p>我们通过一个案例来演示分布式事务的问题：</p>
+<h3 id="①-创建数据库"><a href="#①-创建数据库" class="headerlink" title="① 创建数据库"></a>① 创建数据库</h3><p>导入SQL文件：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724165634571.png" alt="image-20210724165634571"> </p>
+<h3 id="②-导入工程"><a href="#②-导入工程" class="headerlink" title="② 导入工程"></a>② 导入工程</h3><p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724165709994.png" alt="image-20210724165709994"> </p>
+<p>微服务结构如下：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724165729273.png" alt="image-20210724165729273"> </p>
+<p>其中：</p>
+<p>seata-demo：父工程，负责管理项目依赖</p>
+<ul>
+<li>account-service：账户服务，负责管理用户的资金账户。提供扣减余额的接口</li>
+<li>storage-service：库存服务，负责管理商品库存。提供扣减库存的接口</li>
+<li>order-service：订单服务，负责管理订单。创建订单时，需要调用account-service和storage-service</li>
+</ul>
+<h3 id="③-启动nacos、所有微服务"><a href="#③-启动nacos、所有微服务" class="headerlink" title="③ 启动nacos、所有微服务"></a>③ 启动nacos、所有微服务</h3><h3 id="④-测试下单功能，发出Post请求"><a href="#④-测试下单功能，发出Post请求" class="headerlink" title="④ 测试下单功能，发出Post请求"></a>④ 测试下单功能，发出Post请求</h3><p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20230328165822430.png" alt="image-20230328165822430"></p>
+<p>这时，我们的服务是报出500异常——指的是我们服务器异常</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20230328170017471.png" alt="image-20230328170017471"></p>
+<p>但是观察数据库的时候，会发现我们的小钱钱还是被扣了</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20230328165958365.png" alt="image-20230328165958365"></p>
+<p>当库存不足时，如果余额已经扣除，并不会回滚，出现分布式事务的问题</p>
+<h1 id="2-理论基础"><a href="#2-理论基础" class="headerlink" title="2. 理论基础"></a>2. 理论基础</h1><h2 id="2-1-CAP定理"><a href="#2-1-CAP定理" class="headerlink" title="2.1 CAP定理"></a>2.1 CAP定理</h2><p>1998年，加州大学的计算机科学家 Eric Brewer 提出，分布式系统有三个指标。</p>
+<blockquote>
+<ul>
+<li>Consistency（一致性）</li>
+<li>Availability（可用性）</li>
+<li>Partition tolerance （分区容错性）</li>
+</ul>
+</blockquote>
+<img src="分布式事务/image-20210724170517944.png" alt="image-20210724170517944" style="zoom:67%;" />
+
+
+
+<p>它们的第一个字母分别是 C、A、P。</p>
+<p>Eric Brewer 说，这三个指标不可能同时做到。这个结论就叫做 CAP 定理。</p>
+<h3 id="2-2-1-一致性"><a href="#2-2-1-一致性" class="headerlink" title="2.2.1 一致性"></a>2.2.1 一致性</h3><p>Consistency（一致性）：用户访问分布式系统中的任意节点，得到的数据必须一致。</p>
+<p>比如现在包含两个节点，其中的初始数据是一致的：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724170704694.png" alt="image-20210724170704694"></p>
+<p>当我们修改其中一个节点的数据时，两者的数据产生了差异：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724170735847.png" alt="image-20210724170735847"></p>
+<p>要想保住一致性，就必须实现node01 到 node02的数据 同步：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724170834855.png" alt="image-20210724170834855"></p>
+<h3 id="2-1-2-可用性"><a href="#2-1-2-可用性" class="headerlink" title="2.1.2 可用性"></a>2.1.2 可用性</h3><p>Availability（可用性）：用户访问集群中的任意健康结点，必须要得到响应，而不是超时拒绝。</p>
+<p>如图，有三个节点的集群，访问任何一个都可以及时得到响应：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724170932072.png" alt="image-20210724170932072"></p>
+<p>当有部分节点因为网络故障或其它原因无法访问时，代表节点不可用：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724171007516.png" alt="image-20210724171007516"></p>
+<h3 id="2-1-3-分区容错性"><a href="#2-1-3-分区容错性" class="headerlink" title="2.1.3 分区容错性"></a>2.1.3 分区容错性</h3><p><strong>Partition（分区）</strong>：因为网络故障或其它原因导致分布式系统中的部分节点与其它节点失去连接，形成独立分区。</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724171041210.png" alt="image-20210724171041210"></p>
+<p><strong>Tolerance（容错）</strong>：在集群出现分区时，整个系统也要持续对外提供服务</p>
+<h3 id="2-1-4-矛盾"><a href="#2-1-4-矛盾" class="headerlink" title="2.1.4.矛盾"></a>2.1.4.矛盾</h3><p>在分布式系统中，系统间的网络不能100%保证健康，一定会有故障的时候，而服务有必须对外保证服务。因此Partition Tolerance不可避免。</p>
+<p>当节点接收到新的数据变更时，就会出现问题了：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724171546472.png" alt="image-20210724171546472"></p>
+<p>如果此时要保证<strong>一致性</strong>，就必须等待网络恢复，完成数据同步后，整个集群才对外提供服务，服务处于阻塞状态，不可用。</p>
+<p>如果此时要保证<strong>可用性</strong>，就不能等待网络恢复，那node01、node02与node03之间就会出现数据不一致。</p>
+<p>也就是说，在P一定会出现的情况下，A和C之间只能实现一个。</p>
+<h2 id="2-2-BASE理论【面试】"><a href="#2-2-BASE理论【面试】" class="headerlink" title="2.2 BASE理论【面试】"></a>2.2 BASE理论【面试】</h2><p>BASE理论是对CAP的一种解决思路，包含三个思想：</p>
+<ul>
+<li><strong>Basically Available</strong> <strong>（基本可用）</strong>：分布式事务出现故障时，允许损失部分可用性，保证核心可用</li>
+<li><strong>Soft State（软状态）：</strong>在一定时间内，允许出现中间状态，临时不一致</li>
+<li><strong>Eventually Consistent（最终一致性）</strong>：无法保证强一致性，在疲软状态后，最终达到数据的一致性</li>
+</ul>
+<h2 id="2-3-解决分布式事务问题的思路"><a href="#2-3-解决分布式事务问题的思路" class="headerlink" title="2.3 解决分布式事务问题的思路"></a>2.3 解决分布式事务问题的思路</h2><p>分布式事务最大的问题是各个子事务的数据不一致，我们可以用上述cap和base理论，有两种解决方案</p>
+<ul>
+<li><p>ap模式：各子事务分别执行和提交，允许出现结果不一致，然后采用弥补措施恢复数据即可，实现最终一致。</p>
+</li>
+<li><p>cp模式：各个子事务执行后互相等待，同时提交同时回滚，达成强一致性。但是事务等待过程中，处于弱可用性</p>
+</li>
+</ul>
+<p>但不管是哪一种模式，都需要在子系统事务之间互相通讯，协调事务状态，也就是需要一个**事务协调者(TC)**：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724172123567.png" alt="image-20210724172123567"></p>
+<p>这里的子系统事务，称为<strong>分支事务</strong>；有关联的各个分支事务在一起称为<strong>全局事务</strong>。</p>
+<h1 id="3-初识Seata"><a href="#3-初识Seata" class="headerlink" title="3. 初识Seata"></a>3. 初识Seata</h1><p>Seata是 2019 年 1 月份蚂蚁金服和阿里巴巴共同开源的分布式事务解决方案。致力于提供高性能和简单易用的分布式事务服务，为用户打造一站式的分布式解决方案。</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="http://seata.io/%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%9A%84%E6%96%87%E6%A1%A3%E3%80%81%E6%92%AD%E5%AE%A2%E4%B8%AD%E6%8F%90%E4%BE%9B%E4%BA%86%E5%A4%A7%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E3%80%81%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%82">http://seata.io/，其中的文档、播客中提供了大量的使用说明、源码分析。</a></p>
+<p> <img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724172225817.png" alt="image-20210724172225817"></p>
+<h2 id="3-1-Seata的架构【面试】"><a href="#3-1-Seata的架构【面试】" class="headerlink" title="3.1 Seata的架构【面试】"></a>3.1 Seata的架构【面试】</h2><p>Seata事务管理中有三个重要的角色：</p>
+<ul>
+<li><p><strong>Transaction Coordinator（TC）：</strong>负责全局事务的协调者，主要职责是接收并处理应用程序的全局事务请求，协调全局事务的提交和回滚。</p>
+</li>
+<li><p><strong>Transaction Manager（TM）：</strong>负责全局事务的管理，主要职责是开启和关闭全局事务，控制全局事务的提交和回滚。</p>
+</li>
+<li><p><strong>Resource Manager（RM）：</strong>负责本地事务的管理，主要职责是注册本地事务到Seata中，并接受TC指令，执行事务的提交和回滚。</p>
+</li>
+</ul>
+<p>整体的架构如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724172326452.png" alt="image-20210724172326452"></p>
+<p>Seata基于上述架构提供了四种不同的分布式事务解决方案：</p>
+<ul>
+<li>XA模式：强一致性分阶段事务模式，牺牲了一定的可用性，无业务侵入</li>
+<li>TCC模式：最终一致的分阶段事务模式，有业务侵入</li>
+<li>AT模式：最终一致的分阶段事务模式，无业务侵入，也是Seata的默认模式</li>
+<li>SAGA模式：长事务模式，有业务侵入</li>
+</ul>
+<p>无论哪种方案，都离不开TC，也就是事务的协调者。</p>
+<h2 id="3-2-部署TC服务"><a href="#3-2-部署TC服务" class="headerlink" title="3.2 部署TC服务"></a>3.2 部署TC服务</h2><p>参考另一个文章<code>seata的部署和集成</code></p>
+<h2 id="3-3-微服务集成Seata"><a href="#3-3-微服务集成Seata" class="headerlink" title="3.3 微服务集成Seata"></a>3.3 微服务集成Seata</h2><h3 id="3-3-1-引入依赖"><a href="#3-3-1-引入依赖" class="headerlink" title="3.3.1.引入依赖"></a>3.3.1.引入依赖</h3><p>首先，在order-service中引入依赖：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--seata--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-seata<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--版本较低，1.3.0，因此排除--></span> 
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>seata-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.seata<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.seata<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>seata-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--seata starter 采用1.4.2版本--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>$&#123;seata.version&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-3-2-配置TC地址"><a href="#3-3-2-配置TC地址" class="headerlink" title="3.3.2.配置TC地址"></a>3.3.2.配置TC地址</h3><p>在order-service中的application.yml中，配置TC服务信息，通过注册中心nacos，结合服务名称获取TC地址：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">seata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">registry</span><span class="token punctuation">:</span> <span class="token comment"># TC服务注册中心的配置，微服务根据这些信息去注册中心获取tc服务地址</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> nacos <span class="token comment"># 注册中心类型 nacos</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment"># nacos地址</span>
+      <span class="token key atrule">namespace</span><span class="token punctuation">:</span> <span class="token string">""</span> <span class="token comment"># namespace，默认为空</span>
+      <span class="token key atrule">group</span><span class="token punctuation">:</span> DEFAULT_GROUP <span class="token comment"># 分组，默认是DEFAULT_GROUP</span>
+      <span class="token key atrule">application</span><span class="token punctuation">:</span> seata<span class="token punctuation">-</span>tc<span class="token punctuation">-</span>server <span class="token comment"># seata服务名称</span>
+      <span class="token key atrule">username</span><span class="token punctuation">:</span> nacos
+      <span class="token key atrule">password</span><span class="token punctuation">:</span> nacos
+  <span class="token key atrule">tx-service-group</span><span class="token punctuation">:</span> seata<span class="token punctuation">-</span>demo <span class="token comment"># 事务组名称</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">vgroup-mapping</span><span class="token punctuation">:</span> <span class="token comment"># 事务组与cluster的映射关系</span>
+      <span class="token key atrule">seata-demo</span><span class="token punctuation">:</span> SZ<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>微服务如何根据这些配置寻找TC的地址呢？</p>
+<p>我们知道注册到Nacos中的微服务，确定一个具体实例需要四个信息：</p>
+<ul>
+<li>namespace：命名空间</li>
+<li>group：分组</li>
+<li>application：服务名</li>
+<li>cluster：集群名</li>
+</ul>
+<p>以上四个信息，在刚才的yaml文件中都能找到：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724173654258.png" alt="image-20210724173654258"></p>
+<p>namespace为空，就是默认的public</p>
+<p>结合起来，TC服务的信息就是：public@DEFAULT_GROUP@seata-tc-server@SH，这样就能确定TC服务集群了。然后就可以去Nacos拉取对应的实例信息了。</p>
+<p>其它两个微服务也都参考order-service的步骤来做，完全一样。</p>
+<h1 id="4-动手实践"><a href="#4-动手实践" class="headerlink" title="4.动手实践"></a>4.动手实践</h1><p>下面我们就一起学习下Seata中的四种不同的事务模式。</p>
+<h2 id="4-1-XA模式"><a href="#4-1-XA模式" class="headerlink" title="4.1 XA模式"></a>4.1 XA模式</h2><p>XA 规范 是 X&#x2F;Open 组织定义的分布式事务处理（DTP，Distributed Transaction Processing）标准，XA 规范 描述了全局的TM与局部的RM之间的接口，几乎所有主流的数据库都对 XA 规范 提供了支持。</p>
+<h3 id="4-1-1-两阶段提交"><a href="#4-1-1-两阶段提交" class="headerlink" title="4.1.1.两阶段提交"></a>4.1.1.两阶段提交</h3><p>XA是规范，目前主流数据库都实现了这种规范，实现的原理都是基于两阶段提交。</p>
+<p>正常情况：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724174102768.png" alt="image-20210724174102768"></p>
+<p>异常情况：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724174234987.png" alt="image-20210724174234987"></p>
+<p>一阶段：</p>
+<ul>
+<li>事务协调者通知每个事物参与者执行本地事务</li>
+<li>本地事务执行完成后报告事务执行状态给事务协调者，此时事务不提交，继续持有数据库锁</li>
+</ul>
+<p>二阶段：</p>
+<ul>
+<li>事务协调者基于一阶段的报告来判断下一步操作<ul>
+<li>如果一阶段都成功，则通知所有事务参与者，提交事务</li>
+<li>如果一阶段任意一个参与者失败，则通知所有事务参与者回滚事务</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-2-Seata的XA模型"><a href="#4-1-2-Seata的XA模型" class="headerlink" title="4.1.2 Seata的XA模型"></a>4.1.2 Seata的XA模型</h3><p>Seata对原始的XA模式做了简单的封装和改造，以适应自己的事务模型，基本架构如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724174424070.png" alt="image-20210724174424070"></p>
+<p>RM一阶段的工作：</p>
+<p>​	① 注册分支事务到TC</p>
+<p>​	② 执行分支业务sql但不提交</p>
+<p>​	③ 报告执行状态到TC</p>
+<p>TC二阶段的工作：</p>
+<ul>
+<li><p>TC检测各分支事务执行状态</p>
+<p>a.如果都成功，通知所有RM提交事务</p>
+<p>b.如果有失败，通知所有RM回滚事务</p>
+</li>
+</ul>
+<p>RM二阶段的工作：</p>
+<ul>
+<li>接收TC指令，提交或回滚事务</li>
+</ul>
+<h3 id="4-1-3-优缺点"><a href="#4-1-3-优缺点" class="headerlink" title="4.1.3 优缺点"></a>4.1.3 优缺点</h3><p>XA模式的优点是什么？</p>
+<ul>
+<li>事务的强一致性，满足ACID原则。</li>
+<li>常用数据库都支持，实现简单，并且没有代码侵入</li>
+</ul>
+<p>XA模式的缺点是什么？</p>
+<ul>
+<li>因为一阶段需要锁定数据库资源，等待二阶段结束才释放，性能较差</li>
+<li>依赖关系型数据库实现事务</li>
+</ul>
+<h3 id="4-1-4-实现XA模式"><a href="#4-1-4-实现XA模式" class="headerlink" title="4.1.4 实现XA模式"></a>4.1.4 实现XA模式</h3><p>Seata的starter已经完成了XA模式的自动装配，实现非常简单，步骤如下：</p>
+<h4 id="①-开启XA模式"><a href="#①-开启XA模式" class="headerlink" title="① 开启XA模式"></a>① 开启XA模式</h4><p>修改application.yml文件（每个参与事务的微服务）</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">seata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data-source-proxy-mode</span><span class="token punctuation">:</span> XA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="②-添加-GlobalTransactional注解"><a href="#②-添加-GlobalTransactional注解" class="headerlink" title="② 添加@GlobalTransactional注解"></a>② 添加@GlobalTransactional注解</h4><p>给发起全局事务的入口方法添加@GlobalTransactional注解:</p>
+<p>本例中是OrderServiceImpl中的create方法.</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724174859556.png" alt="image-20210724174859556"></p>
+<h4 id="③-重启服务并测试"><a href="#③-重启服务并测试" class="headerlink" title="③ 重启服务并测试"></a>③ 重启服务并测试</h4><p>重启order-service，再次测试，发现无论怎样，三个微服务都能成功回滚。</p>
+<h2 id="4-2-AT模式"><a href="#4-2-AT模式" class="headerlink" title="4.2 AT模式"></a>4.2 AT模式</h2><p>AT模式同样是分阶段提交的事务模型，不过缺弥补了XA模型中资源锁定周期过长的缺陷。</p>
+<h3 id="4-2-1-Seata的AT模型"><a href="#4-2-1-Seata的AT模型" class="headerlink" title="4.2.1 Seata的AT模型"></a>4.2.1 Seata的AT模型</h3><p>基本流程图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724175327511.png" alt="image-20210724175327511"></p>
+<p>阶段一RM的工作：</p>
+<ul>
+<li>注册分支事务</li>
+<li>记录undo-log（数据快照）</li>
+<li>执行业务sql并提交</li>
+<li>报告事务状态</li>
+</ul>
+<p>阶段二提交时RM的工作：</p>
+<ul>
+<li>删除undo-log即可</li>
+</ul>
+<p>阶段二回滚时RM的工作：</p>
+<ul>
+<li>根据undo-log恢复数据到更新前</li>
+</ul>
+<h3 id="4-2-2-流程梳理"><a href="#4-2-2-流程梳理" class="headerlink" title="4.2.2 流程梳理"></a>4.2.2 流程梳理</h3><p>我们用一个真实的业务来梳理下AT模式的原理。</p>
+<p>比如，现在又一个数据库表，记录用户余额：</p>
+<table>
+<thead>
+<tr>
+<th><strong>id</strong></th>
+<th><strong>money</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<p>其中一个分支业务要执行的SQL为：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> tb_account <span class="token keyword">set</span> money <span class="token operator">=</span> money <span class="token operator">-</span> <span class="token number">10</span> <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>AT模式下，当前分支事务执行流程如下：</p>
+<p>一阶段：</p>
+<p>1）TM发起并注册全局事务到TC</p>
+<p>2）TM调用分支事务</p>
+<p>3）分支事务准备执行业务SQL</p>
+<p>4）RM拦截业务SQL，根据where条件查询原始数据，形成快照。</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">"money"</span><span class="token operator">:</span> <span class="token number">100</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>5）RM执行业务SQL，提交本地事务，释放数据库锁。此时 <code>money = 90</code></p>
+<p>6）RM报告本地事务状态给TC</p>
+<p>二阶段：</p>
+<p>1）TM通知TC事务结束</p>
+<p>2）TC检查分支事务状态</p>
+<p>​	 a）如果都成功，则立即删除快照</p>
+<p>​	 b）如果有分支事务失败，需要回滚。读取快照数据（<code>&#123;&quot;id&quot;: 1, &quot;money&quot;: 100&#125;</code>），将快照恢复到数据库。此时数据库再次恢复为100</p>
+<p>流程图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724180722921.png" alt="image-20210724180722921"></p>
+<h3 id="4-2-3-AT与XA的区别"><a href="#4-2-3-AT与XA的区别" class="headerlink" title="4.2.3 AT与XA的区别"></a>4.2.3 AT与XA的区别</h3><p>简述AT模式与XA模式最大的区别是什么？</p>
+<ul>
+<li>XA模式一阶段不提交事务，锁定资源；AT模式一阶段直接提交，不锁定资源。</li>
+<li>XA模式依赖数据库机制实现回滚；AT模式利用数据快照实现数据回滚。</li>
+<li>XA模式强一致；AT模式最终一致</li>
+</ul>
+<h3 id="4-2-4-脏写问题"><a href="#4-2-4-脏写问题" class="headerlink" title="4.2.4 脏写问题"></a>4.2.4 脏写问题</h3><p>在多线程并发访问AT模式的分布式事务时，有可能出现脏写问题，如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724181541234.png" alt="image-20210724181541234"></p>
+<p>解决思路就是引入了全局锁的概念。在释放DB锁之前，先拿到全局锁。避免同一时刻有另外一个事务来操作当前数据。</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724181843029.png" alt="image-20210724181843029"></p>
+<h3 id="4-2-5-优缺点"><a href="#4-2-5-优缺点" class="headerlink" title="4.2.5 优缺点"></a>4.2.5 优缺点</h3><p>AT模式的优点：</p>
+<ul>
+<li>一阶段完成直接提交事务，释放数据库资源，性能比较好</li>
+<li>利用全局锁实现读写隔离</li>
+<li>没有代码侵入，框架自动完成回滚和提交</li>
+</ul>
+<p>AT模式的缺点：</p>
+<ul>
+<li>两阶段之间属于软状态，属于最终一致</li>
+<li>框架的快照功能会影响性能，但比XA模式要好很多</li>
+</ul>
+<h3 id="4-2-6-实现AT模式"><a href="#4-2-6-实现AT模式" class="headerlink" title="4.2.6 实现AT模式"></a>4.2.6 实现AT模式</h3><p>AT模式中的快照生成、回滚等动作都是由框架自动完成，没有任何代码侵入，因此实现非常简单。</p>
+<p>只不过，AT模式需要一个表来记录全局锁、另一张表来记录数据快照undo_log。</p>
+<p>1）导入数据库表，记录全局锁</p>
+<p>导入Sql文件：seata-at.sql，其中lock_table导入到TC服务关联的数据库，undo_log表导入到微服务关联的数据库：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182217272.png" alt="image-20210724182217272"></p>
+<p>2）修改application.yml文件，将事务模式修改为AT模式即可：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">seata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">data-source-proxy-mode</span><span class="token punctuation">:</span> AT <span class="token comment"># 默认就是AT</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>3）重启服务并测试</p>
+<img src="分布式事务/image-20230328205058532.png" alt="image-20230328205058532" style="zoom:67%;" />
+
+<img src="分布式事务/image-20230328205455666.png" alt="image-20230328205455666" style="zoom:67%;" />
+
+<h2 id="4-3-TCC模式"><a href="#4-3-TCC模式" class="headerlink" title="4.3 TCC模式"></a>4.3 TCC模式</h2><p>TCC模式与AT模式非常相似，每阶段都是独立事务，不同的是TCC通过人工编码来实现数据恢复。需要实现三个方法：</p>
+<ul>
+<li><p>Try：资源的检测和预留； </p>
+</li>
+<li><p>Confirm：完成资源操作业务；要求 Try 成功 Confirm 一定要能成功。</p>
+</li>
+<li><p>Cancel：预留资源释放，可以理解为try的反向操作。</p>
+</li>
+</ul>
+<h3 id="4-3-1-流程分析"><a href="#4-3-1-流程分析" class="headerlink" title="4.3.1 流程分析"></a>4.3.1 流程分析</h3><p>举例，一个扣减用户余额的业务。假设账户A原来余额是100，需要余额扣减30元。</p>
+<ul>
+<li><strong>阶段一（ Try ）</strong>：检查余额是否充足，如果充足则冻结金额增加30元，可用余额扣除30</li>
+</ul>
+<p>初识余额：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182424907.png" alt="image-20210724182424907"></p>
+<p>余额充足，可以冻结：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182457951.png" alt="image-20210724182457951"></p>
+<p>此时，总金额 &#x3D; 冻结金额 + 可用金额，数量依然是100不变。事务直接提交无需等待其它事务。</p>
+<ul>
+<li>**阶段二（Confirm)**：假如要提交（Confirm），则冻结金额扣减30</li>
+</ul>
+<p>确认可以提交，不过之前可用金额已经扣减过了，这里只要清除冻结金额就好了：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182706011.png" alt="image-20210724182706011"></p>
+<p>此时，总金额 &#x3D; 冻结金额 + 可用金额 &#x3D; 0 + 70  &#x3D; 70元</p>
+<ul>
+<li>**阶段二(Canncel)**：如果要回滚（Cancel），则冻结金额扣减30，可用余额增加30</li>
+</ul>
+<p>需要回滚，那么就要释放冻结金额，恢复可用金额：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182810734.png" alt="image-20210724182810734"></p>
+<h3 id="4-3-2-Seata的TCC模型"><a href="#4-3-2-Seata的TCC模型" class="headerlink" title="4.3.2 Seata的TCC模型"></a>4.3.2 Seata的TCC模型</h3><p>Seata中的TCC模型依然延续之前的事务架构，如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724182937713.png" alt="image-20210724182937713"></p>
+<h3 id="4-3-3-优缺点"><a href="#4-3-3-优缺点" class="headerlink" title="4.3.3 优缺点"></a>4.3.3 优缺点</h3><p>TCC模式的每个阶段是做什么的？</p>
+<ul>
+<li>Try：资源检查和预留</li>
+<li>Confirm：业务执行和提交</li>
+<li>Cancel：预留资源的释放</li>
+</ul>
+<p>TCC的优点是什么？</p>
+<ul>
+<li>一阶段完成直接提交事务，释放数据库资源，性能好</li>
+<li>相比AT模型，无需生成快照，无需使用全局锁，性能最强</li>
+<li>不依赖数据库事务，而是依赖补偿操作，可以用于非事务型数据库</li>
+</ul>
+<p>TCC的缺点是什么？</p>
+<ul>
+<li>有代码侵入，需要人为编写try、Confirm和Cancel接口，太麻烦</li>
+<li>软状态，事务是最终一致</li>
+<li>需要考虑Confirm和Cancel的失败情况，做好幂等处理</li>
+</ul>
+<h3 id="4-3-4-事务悬挂和空回滚"><a href="#4-3-4-事务悬挂和空回滚" class="headerlink" title="4.3.4 事务悬挂和空回滚"></a>4.3.4 事务悬挂和空回滚</h3><h4 id="①-空回滚"><a href="#①-空回滚" class="headerlink" title="① 空回滚"></a>① 空回滚</h4><p>当某分支事务的try阶段<strong>阻塞</strong>时，可能导致全局事务超时而触发二阶段的cancel操作。在未执行try操作时先执行了cancel操作，这时cancel不能做回滚，就是<strong>空回滚</strong>。</p>
+<p>如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724183426891.png" alt="image-20210724183426891"></p>
+<p>执行cancel操作时，应当判断try是否已经执行，如果尚未执行，则应该空回滚。</p>
+<h4 id="②-业务悬挂"><a href="#②-业务悬挂" class="headerlink" title="② 业务悬挂"></a>② 业务悬挂</h4><p>对于已经空回滚的业务，之前被阻塞的try操作恢复，继续执行try，就永远不可能confirm或cancel ，事务一直处于中间状态，这就是<strong>业务悬挂</strong>。</p>
+<p>执行try操作时，应当判断cancel是否已经执行过了，如果已经执行，应当阻止空回滚后的try操作，避免悬挂</p>
+<h3 id="4-3-5-实现TCC模式"><a href="#4-3-5-实现TCC模式" class="headerlink" title="4.3.5 实现TCC模式"></a>4.3.5 实现TCC模式</h3><p>解决空回滚和业务悬挂问题，必须要记录当前事务状态，是在try、还是cancel？</p>
+<h4 id="①-思路分析"><a href="#①-思路分析" class="headerlink" title="① 思路分析"></a>① 思路分析</h4><p>这里我们定义一张表：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>account_freeze_tbl<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>xid<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'用户id'</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>freeze_money<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'冻结金额'</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>state<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'事务状态，0:try，1:confirm，2:cancel'</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>xid<span class="token punctuation">`</span></span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8 ROW_FORMAT<span class="token operator">=</span>COMPACT<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中：</p>
+<ul>
+<li>xid：是全局事务id</li>
+<li>freeze_money：用来记录用户冻结金额</li>
+<li>state：用来记录事务状态</li>
+</ul>
+<p>那此时，我们的业务开怎么做呢？</p>
+<ul>
+<li>Try业务：<ul>
+<li>记录冻结金额和事务状态到account_freeze表</li>
+<li>扣减account表可用金额</li>
+</ul>
+</li>
+<li>Confirm业务<ul>
+<li>根据xid删除account_freeze表的冻结记录</li>
+</ul>
+</li>
+<li>Cancel业务<ul>
+<li>修改account_freeze表，冻结金额为0，state为2</li>
+<li>修改account表，恢复可用金额</li>
+</ul>
+</li>
+<li>如何判断是否空回滚？<ul>
+<li>cancel业务中，根据xid查询account_freeze，如果为null则说明try还没做，需要空回滚</li>
+</ul>
+</li>
+<li>如何避免业务悬挂？<ul>
+<li>try业务中，根据xid查询account_freeze ，如果已经存在则证明Cancel已经执行，拒绝执行try业务</li>
+</ul>
+</li>
+</ul>
+<p>接下来，我们改造account-service，利用TCC实现余额扣减功能。</p>
+<h4 id="②-声明TCC接口"><a href="#②-声明TCC接口" class="headerlink" title="② 声明TCC接口"></a>② 声明TCC接口</h4><p>TCC的Try、Confirm、Cancel方法都需要在接口中基于注解来声明，</p>
+<p>我们在account-service项目中的<code>cn.itcast.account.service</code>包中新建一个接口，声明TCC三个接口：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>rm<span class="token punctuation">.</span>tcc<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">BusinessActionContext</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>rm<span class="token punctuation">.</span>tcc<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">BusinessActionContextParameter</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>rm<span class="token punctuation">.</span>tcc<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">LocalTCC</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>rm<span class="token punctuation">.</span>tcc<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">TwoPhaseBusinessAction</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @version 1.0
+ * @description 说明
+ * @package cn.itcast.account.service
+ */</span>
+<span class="token annotation punctuation">@LocalTCC</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AccountTCCService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**
+     * 用户账户扣款
+     * 1 扣减account表可用金额
+     * 2 记录冻结金额和事务状态到account_freeze表
+     * @param userId
+     * @param money
+     *
+     */</span>
+    <span class="token annotation punctuation">@TwoPhaseBusinessAction</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"deduct"</span><span class="token punctuation">,</span>
+        commitMethod <span class="token operator">=</span> <span class="token string">"confirm"</span><span class="token punctuation">,</span>rollbackMethod <span class="token operator">=</span> <span class="token string">"cancel"</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">deduct</span><span class="token punctuation">(</span><span class="token annotation punctuation">@BusinessActionContextParameter</span><span class="token punctuation">(</span>paramName <span class="token operator">=</span> <span class="token string">"userId"</span><span class="token punctuation">)</span> <span class="token class-name">String</span> userId<span class="token punctuation">,</span>
+                <span class="token annotation punctuation">@BusinessActionContextParameter</span><span class="token punctuation">(</span>paramName <span class="token operator">=</span> <span class="token string">"money"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 确认业务，根据xid删除account_freeze表的冻结记录
+     * @param ctx
+     * @return
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">confirm</span><span class="token punctuation">(</span><span class="token class-name">BusinessActionContext</span> ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 撤消回滚，需要把冻结金额还原
+     * 1 修改account_freeze表，冻结金额为0，state为2
+     * 2 修改account表，恢复可用金额
+     * @param ctx
+     * @return
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">cancel</span><span class="token punctuation">(</span><span class="token class-name">BusinessActionContext</span> ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="③-编写实现类"><a href="#③-编写实现类" class="headerlink" title="③ 编写实现类"></a>③ 编写实现类</h4><p>在account-service服务中的<code>cn.itcast.account.service.impl</code>包下新建一个类，实现TCC业务：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>service<span class="token punctuation">.</span>impl</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">AccountFreeze</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">AccountFreezeMapper</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">AccountMapper</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>account<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">AccountTCCService</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>core<span class="token punctuation">.</span>context<span class="token punctuation">.</span></span><span class="token class-name">RootContext</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>seata<span class="token punctuation">.</span>rm<span class="token punctuation">.</span>tcc<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">BusinessActionContext</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>transaction<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Transactional</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @version 1.0
+ * @description 说明
+ * @package cn.itcast.account.service.impl
+ */</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AccountTCCServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">AccountTCCService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">AccountMapper</span> accountMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">AccountFreezeMapper</span> accountFreezeMapper<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 用户账户扣款
+     * 1 扣减account表可用金额
+     * 2 记录冻结金额和事务状态到account_freeze表
+     * @param userId
+     * @param money
+     *
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token annotation punctuation">@Transactional</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deduct</span><span class="token punctuation">(</span><span class="token class-name">String</span> userId<span class="token punctuation">,</span> <span class="token keyword">int</span> money<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> xid <span class="token operator">=</span> <span class="token class-name">RootContext</span><span class="token punctuation">.</span><span class="token function">getXID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//1. 扣减金额</span>
+        accountMapper<span class="token punctuation">.</span><span class="token function">deduct</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"扣减金额成功: &#123;&#125;,userId=&#123;&#125;"</span><span class="token punctuation">,</span> xid<span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2. 添加冻结记录</span>
+        <span class="token class-name">AccountFreeze</span> freeze <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccountFreeze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setFreezeMoney</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token class-name">AccountFreeze<span class="token punctuation">.</span>State</span><span class="token punctuation">.</span><span class="token constant">TRY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setXid</span><span class="token punctuation">(</span>xid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setUserId</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        accountFreezeMapper<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>freeze<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"冻结金额成功! &#123;&#125;,userId=&#123;&#125;"</span><span class="token punctuation">,</span> xid<span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//3. 添加本地事务控制</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/**
+     * 确认业务，根据xid删除account_freeze表的冻结记录
+     * @param ctx
+     * @return
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">confirm</span><span class="token punctuation">(</span><span class="token class-name">BusinessActionContext</span> ctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//1. 获取事务Id</span>
+        <span class="token class-name">String</span> xid <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">getXid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"进入confirm: &#123;&#125;"</span><span class="token punctuation">,</span> xid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2. 通过事务Id删除数据</span>
+        <span class="token keyword">int</span> count <span class="token operator">=</span> accountFreezeMapper<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>xid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"删除冻结记录 &#123;&#125;,count=&#123;&#125;"</span><span class="token punctuation">,</span>xid<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token operator">==</span>count<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/**
+     * 撤消回滚，需要把冻结金额还原
+     * 1 修改account_freeze表，冻结金额为0，state为2
+     * 2 修改account表，恢复可用金额
+     * @param ctx
+     * @return
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token annotation punctuation">@Transactional</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">cancel</span><span class="token punctuation">(</span><span class="token class-name">BusinessActionContext</span> ctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//1. 获取事务Id</span>
+        <span class="token class-name">String</span> xid <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">getXid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2. 查询冻结记录</span>
+        <span class="token class-name">AccountFreeze</span> freeze <span class="token operator">=</span> accountFreezeMapper<span class="token punctuation">.</span><span class="token function">selectById</span><span class="token punctuation">(</span>xid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//3. 回滚金额</span>
+        <span class="token class-name">String</span> userId <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">getActionContext</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"开始回滚金额: &#123;&#125;,userId=&#123;&#125;"</span><span class="token punctuation">,</span> xid<span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        accountMapper<span class="token punctuation">.</span><span class="token function">refund</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span> freeze<span class="token punctuation">.</span><span class="token function">getFreezeMoney</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//4. 更新冻结金额为0，且更新状态为cancel</span>
+        freeze <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AccountFreeze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setFreezeMoney</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token class-name">AccountFreeze<span class="token punctuation">.</span>State</span><span class="token punctuation">.</span><span class="token constant">CANCEL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freeze<span class="token punctuation">.</span><span class="token function">setXid</span><span class="token punctuation">(</span>xid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> count <span class="token operator">=</span> accountFreezeMapper<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span>freeze<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"回滚-更新冻结状态：&#123;&#125;, userId=&#123;&#125;,count=&#123;&#125;"</span><span class="token punctuation">,</span> xid<span class="token punctuation">,</span> userId<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//5. 本地事务控制</span>
+        <span class="token keyword">return</span> count<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="④-空回滚解决代码"><a href="#④-空回滚解决代码" class="headerlink" title="④ 空回滚解决代码"></a>④ 空回滚解决代码</h4><p>cancel业务中，根据xid查询account_freeze，如果为null则说明try还没做，需要空回滚</p>
+<p> <img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20220418212204647.png" alt="image-20220418212204647"></p>
+<h4 id="⑤-业务悬挂解决代码"><a href="#⑤-业务悬挂解决代码" class="headerlink" title="⑤ 业务悬挂解决代码"></a>⑤ 业务悬挂解决代码</h4><p>try业务中，根据xid查询account_freeze ，如果已经存在则证明Cancel已经执行，拒绝执行try业务</p>
+<p> <img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20220418212639333.png" alt="image-20220418212639333"></p>
+<h4 id="⑥-幂等处理"><a href="#⑥-幂等处理" class="headerlink" title="⑥ 幂等处理"></a>⑥ 幂等处理</h4><p>如果冻结记录，则先判断一下这条冻结记录的状态，如果状态为2(cancel)，说明已经执行过了，则不能重复执行业务</p>
+<p> <img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20220418213140088.png" alt="image-20220418213140088"></p>
+<h2 id="4-4-SAGA模式"><a href="#4-4-SAGA模式" class="headerlink" title="4.4.SAGA模式"></a>4.4.SAGA模式</h2><p>Saga 模式是 Seata 即将开源的长事务解决方案，将由蚂蚁金服主要贡献。</p>
+<p>其理论基础是Hector &amp; Kenneth  在1987年发表的论文<a target="_blank" rel="noopener" href="https://microservices.io/patterns/data/saga.html">Sagas</a>。</p>
+<p>Seata官网对于Saga的指南：<a target="_blank" rel="noopener" href="https://seata.io/zh-cn/docs/user/saga.html">https://seata.io/zh-cn/docs/user/saga.html</a></p>
+<h3 id="4-4-1-原理"><a href="#4-4-1-原理" class="headerlink" title="4.4.1.原理"></a>4.4.1.原理</h3><p>在 Saga 模式下，分布式事务内有多个参与者，每一个参与者都是一个冲正补偿服务，需要用户根据业务场景实现其正向操作和逆向回滚操作。</p>
+<p>分布式事务执行过程中，依次执行各参与者的正向操作，如果所有正向操作均执行成功，那么分布式事务提交。如果任何一个正向操作执行失败，那么分布式事务会去退回去执行前面各参与者的逆向回滚操作，回滚已提交的参与者，使分布式事务回到初始状态。</p>
+<p> <img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724184846396.png" alt="image-20210724184846396"></p>
+<p>Saga也分为两个阶段：</p>
+<ul>
+<li>一阶段：直接提交本地事务</li>
+<li>二阶段：成功则什么都不做；失败则通过编写补偿业务来回滚</li>
+</ul>
+<h3 id="4-4-2-优缺点"><a href="#4-4-2-优缺点" class="headerlink" title="4.4.2.优缺点"></a>4.4.2.优缺点</h3><p>优点：</p>
+<ul>
+<li>事务参与者可以基于事件驱动实现异步调用，吞吐高</li>
+<li>一阶段直接提交事务，无锁，性能好</li>
+<li>不用编写TCC中的三个阶段，实现简单</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>软状态持续时间不确定，时效性差</li>
+<li>没有锁，没有事务隔离，会有脏写</li>
+</ul>
+<h2 id="4-5-四种模式对比"><a href="#4-5-四种模式对比" class="headerlink" title="4.5.四种模式对比"></a>4.5.四种模式对比</h2><p>我们从以下几个方面来对比四种实现：</p>
+<ul>
+<li>一致性：能否保证事务的一致性？强一致还是最终一致？</li>
+<li>隔离性：事务之间的隔离性如何？</li>
+<li>代码侵入：是否需要对业务代码改造？</li>
+<li>性能：有无性能损耗？</li>
+<li>场景：常见的业务场景</li>
+</ul>
+<p>如图：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724185021819.png" alt="image-20210724185021819"></p>
+<h1 id="5-高可用【了解】"><a href="#5-高可用【了解】" class="headerlink" title="5.高可用【了解】"></a>5.高可用【了解】</h1><p>Seata的TC服务作为分布式事务核心，一定要保证集群的高可用性。</p>
+<h2 id="5-1-高可用架构模型"><a href="#5-1-高可用架构模型" class="headerlink" title="5.1.高可用架构模型"></a>5.1.高可用架构模型</h2><p>搭建TC服务集群非常简单，启动多个TC服务，注册到nacos即可。</p>
+<p>但集群并不能确保100%安全，万一集群所在机房故障怎么办？所以如果要求较高，一般都会做异地多机房容灾。</p>
+<p>比如一个TC集群在上海，另一个TC集群在杭州：</p>
+<p><img src="/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/image-20210724185240957.png" alt="image-20210724185240957"></p>
+<p>微服务基于事务组（tx-service-group)与TC集群的映射关系，来查找当前应该使用哪个TC集群。当SH集群故障时，只需要将vgroup-mapping中的映射关系改成HZ。则所有微服务就会切换到HZ的TC集群了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html">http://www.fanliu.top/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">分布式事务</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img class="cover" src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">seata的部署和集成</div></div></a></div><div class="next-post pull-right"><a href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis集群搭建</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img class="cover" src="https://i.328888.xyz/2023/04/06/iIJP6o.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-28</div><div class="title">seata的部署和集成</div></div></a></div><div><a href="/post/SpringCloud%E7%AC%94%E8%AE%B0.html" title="SpringCloud（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-11</div><div class="title">SpringCloud（一）</div></div></a></div><div><a href="/post/SpringCloud%EF%BC%88%E4%BA%8C%EF%BC%89.html" title="SpringCloud（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-11</div><div class="title">SpringCloud（二）</div></div></a></div><div><a href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-24</div><div class="title">微服务保护</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录一些东西</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">1. 分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.本地事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.分布式事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%BC%94%E7%A4%BA%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">1.3.演示分布式事务问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.1.</span> <span class="toc-text">① 创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1-%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">② 导入工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2-%E5%90%AF%E5%8A%A8nacos%E3%80%81%E6%89%80%E6%9C%89%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.3.</span> <span class="toc-text">③ 启动nacos、所有微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A3-%E6%B5%8B%E8%AF%95%E4%B8%8B%E5%8D%95%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%8F%91%E5%87%BAPost%E8%AF%B7%E6%B1%82"><span class="toc-number">1.3.4.</span> <span class="toc-text">④ 测试下单功能，发出Post请求</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">2. 理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-CAP%E5%AE%9A%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 CAP定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.2.1 一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2 可用性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E5%88%86%E5%8C%BA%E5%AE%B9%E9%94%99%E6%80%A7"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3 分区容错性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-%E7%9F%9B%E7%9B%BE"><span class="toc-number">2.1.4.</span> <span class="toc-text">2.1.4.矛盾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-BASE%E7%90%86%E8%AE%BA%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 BASE理论【面试】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%A7%A3%E5%86%B3%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 解决分布式事务问题的思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%88%9D%E8%AF%86Seata"><span class="toc-number">3.</span> <span class="toc-text">3. 初识Seata</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Seata%E7%9A%84%E6%9E%B6%E6%9E%84%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Seata的架构【面试】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E9%83%A8%E7%BD%B2TC%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 部署TC服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90Seata"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 微服务集成Seata</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1.引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E9%85%8D%E7%BD%AETC%E5%9C%B0%E5%9D%80"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2.配置TC地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5"><span class="toc-number">4.</span> <span class="toc-text">4.动手实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-XA%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 XA模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1.两阶段提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-Seata%E7%9A%84XA%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2 Seata的XA模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.1.3.</span> <span class="toc-text">4.1.3 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-4-%E5%AE%9E%E7%8E%B0XA%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.1.4 实现XA模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E5%BC%80%E5%90%AFXA%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.4.1.</span> <span class="toc-text">① 开启XA模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E6%B7%BB%E5%8A%A0-GlobalTransactional%E6%B3%A8%E8%A7%A3"><span class="toc-number">4.1.4.2.</span> <span class="toc-text">② 添加@GlobalTransactional注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%B9%B6%E6%B5%8B%E8%AF%95"><span class="toc-number">4.1.4.3.</span> <span class="toc-text">③ 重启服务并测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-AT%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 AT模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-Seata%E7%9A%84AT%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 Seata的AT模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E6%B5%81%E7%A8%8B%E6%A2%B3%E7%90%86"><span class="toc-number">4.2.2.</span> <span class="toc-text">4.2.2 流程梳理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-AT%E4%B8%8EXA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.2.3.</span> <span class="toc-text">4.2.3 AT与XA的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-%E8%84%8F%E5%86%99%E9%97%AE%E9%A2%98"><span class="toc-number">4.2.4.</span> <span class="toc-text">4.2.4 脏写问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.2.5.</span> <span class="toc-text">4.2.5 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-6-%E5%AE%9E%E7%8E%B0AT%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.6.</span> <span class="toc-text">4.2.6 实现AT模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-TCC%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 TCC模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">4.3.1.</span> <span class="toc-text">4.3.1 流程分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-Seata%E7%9A%84TCC%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.3.2.</span> <span class="toc-text">4.3.2 Seata的TCC模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.3.3.</span> <span class="toc-text">4.3.3 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-%E4%BA%8B%E5%8A%A1%E6%82%AC%E6%8C%82%E5%92%8C%E7%A9%BA%E5%9B%9E%E6%BB%9A"><span class="toc-number">4.3.4.</span> <span class="toc-text">4.3.4 事务悬挂和空回滚</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E7%A9%BA%E5%9B%9E%E6%BB%9A"><span class="toc-number">4.3.4.1.</span> <span class="toc-text">① 空回滚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E4%B8%9A%E5%8A%A1%E6%82%AC%E6%8C%82"><span class="toc-number">4.3.4.2.</span> <span class="toc-text">② 业务悬挂</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-%E5%AE%9E%E7%8E%B0TCC%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.3.5.</span> <span class="toc-text">4.3.5 实现TCC模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">4.3.5.1.</span> <span class="toc-text">① 思路分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E5%A3%B0%E6%98%8ETCC%E6%8E%A5%E5%8F%A3"><span class="toc-number">4.3.5.2.</span> <span class="toc-text">② 声明TCC接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E7%BC%96%E5%86%99%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">4.3.5.3.</span> <span class="toc-text">③ 编写实现类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E7%A9%BA%E5%9B%9E%E6%BB%9A%E8%A7%A3%E5%86%B3%E4%BB%A3%E7%A0%81"><span class="toc-number">4.3.5.4.</span> <span class="toc-text">④ 空回滚解决代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A4-%E4%B8%9A%E5%8A%A1%E6%82%AC%E6%8C%82%E8%A7%A3%E5%86%B3%E4%BB%A3%E7%A0%81"><span class="toc-number">4.3.5.5.</span> <span class="toc-text">⑤ 业务悬挂解决代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A5-%E5%B9%82%E7%AD%89%E5%A4%84%E7%90%86"><span class="toc-number">4.3.5.6.</span> <span class="toc-text">⑥ 幂等处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-SAGA%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.4.</span> <span class="toc-text">4.4.SAGA模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E5%8E%9F%E7%90%86"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1.原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2.优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F%E5%AF%B9%E6%AF%94"><span class="toc-number">4.5.</span> <span class="toc-text">4.5.四种模式对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E9%AB%98%E5%8F%AF%E7%94%A8%E3%80%90%E4%BA%86%E8%A7%A3%E3%80%91"><span class="toc-number">5.</span> <span class="toc-text">5.高可用【了解】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">5.1.高可用架构模型</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://i.328888.xyz/2023/04/06/iIJP6o.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4.html" title="微服务保护">微服务保护</a><time datetime="2021-03-24T09:14:25.000Z" title="发表于 2021-03-24 17:14:25">2021-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="464916877" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
