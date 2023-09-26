@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>canal 同步 MySQL 增量数据到 ES | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="canal介绍canal 是阿里知名的开源项目，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费。 使用 canal 将 MySQL 增量数据同步到 ES 。   **canal [kə’næl]**，译意为水道&#x2F;管道&#x2F;沟渠，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费 早期阿里巴巴因为杭州和美国双机房部署，存在跨机房同步的业务需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canal 同步 MySQL 增量数据到 ES">
+<meta property="og:url" content="http://www.fanliu.top/post/MysqlToES.html">
+<meta property="og:site_name" content="fanfanの博客">
+<meta property="og:description" content="canal介绍canal 是阿里知名的开源项目，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费。 使用 canal 将 MySQL 增量数据同步到 ES 。   **canal [kə’næl]**，译意为水道&#x2F;管道&#x2F;沟渠，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费 早期阿里巴巴因为杭州和美国双机房部署，存在跨机房同步的业务需">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picx.zhimg.com/70/v2-99b57c47089ef2de9ed8cacc9688d926_1440w.awebp?source=172ae18b&biz_tag=Post">
+<meta property="article:published_time" content="2023-09-26T15:26:31.000Z">
+<meta property="article:modified_time" content="2023-09-26T15:53:17.405Z">
+<meta property="article:author" content="fanfan">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="canal">
+<meta property="article:tag" content="Es">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picx.zhimg.com/70/v2-99b57c47089ef2de9ed8cacc9688d926_1440w.awebp?source=172ae18b&biz_tag=Post"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/MysqlToES.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'canal 同步 MySQL 增量数据到 ES',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-26 23:53:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picx.zhimg.com/70/v2-99b57c47089ef2de9ed8cacc9688d926_1440w.awebp?source=172ae18b&amp;biz_tag=Post')"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">canal 同步 MySQL 增量数据到 ES</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2023-09-26T15:26:31.000Z" title="发表于 2023-09-26 23:26:31">2023-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/canal/">canal</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="canal 同步 MySQL 增量数据到 ES"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="canal介绍"><a href="#canal介绍" class="headerlink" title="canal介绍"></a>canal介绍</h1><p>canal 是阿里知名的开源项目，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费。</p>
+<p><strong>使用 canal 将 MySQL 增量数据同步到 ES</strong> 。</p>
+<p><img src="/post/MysqlToES/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139313130343130313733353934372e706e67.png" alt="img232"></p>
+<blockquote>
+<p>**canal [kə’næl]**，译意为水道&#x2F;管道&#x2F;沟渠，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费</p>
+<p>早期阿里巴巴因为杭州和美国双机房部署，存在跨机房同步的业务需求，实现方式主要是基于业务 trigger 获取增量变更。从 2010 年开始，业务逐步尝试数据库日志解析获取增量变更进行同步，由此衍生出了大量的数据库增量订阅和消费业务。</p>
+</blockquote>
+<p>基于日志增量订阅和消费的业务包括</p>
+<ul>
+<li>数据库镜像</li>
+<li>数据库实时备份</li>
+<li>索引构建和实时维护(拆分异构索引、倒排索引等)</li>
+<li>业务 cache 刷新</li>
+<li>带业务逻辑的增量数据处理</li>
+</ul>
+<p>当前的 canal 支持源端 MySQL 版本包括 5.1.x , 5.5.x , 5.6.x , 5.7.x , 8.0.x</p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h4 id="MySQL主备复制原理"><a href="#MySQL主备复制原理" class="headerlink" title="MySQL主备复制原理"></a>MySQL主备复制原理</h4><ul>
+<li>MySQL master 将数据变更写入二进制日志( binary log, 其中记录叫做二进制日志事件binary log events，可以通过 show binlog events 进行查看)</li>
+<li>MySQL slave 将 master 的 binary log events 拷贝到它的中继日志(relay log)</li>
+<li>MySQL slave 重放 relay log 中事件，将数据变更反映它自己的数据</li>
+</ul>
+<h4 id="canal-工作原理"><a href="#canal-工作原理" class="headerlink" title="canal 工作原理"></a>canal 工作原理</h4><ul>
+<li>canal 模拟 MySQL slave 的交互协议，伪装自己为 MySQL slave ，向 MySQL master 发送dump 协议</li>
+<li>MySQL master 收到 dump 请求，开始推送 binary log 给 slave (即 canal )</li>
+<li>canal 解析 binary log 对象(原始为 byte 流)</li>
+</ul>
+<h1 id="集群模式"><a href="#集群模式" class="headerlink" title="集群模式"></a>集群模式</h1><p><img src="/post/MysqlToES/640-1695742465319-3.png" alt="图片"></p>
+<p>图中 server 对应一个 canal 运行实例 ，对应一个 JVM 。</p>
+<p>server 中包含 1..n 个 instance ， 我们可以将 instance 理解为<strong>配置任务</strong>。</p>
+<p>instance 包含如下模块 ：</p>
+<ul>
+<li><p><strong>eventParser</strong></p>
+<p>数据源接入，模拟 slave 协议和 master 进行交互，协议解析</p>
+</li>
+<li><p><strong>eventSink</strong></p>
+<p>Parser 和 Store 链接器，进行数据过滤，加工，分发的工作</p>
+</li>
+<li><p><strong>eventStore</strong></p>
+<p>数据存储</p>
+</li>
+<li><p><strong>metaManager</strong></p>
+<p>增量订阅 &amp; 消费信息管理器</p>
+</li>
+</ul>
+<p>真实场景中，canal 高可用依赖 zookeeper ，笔者将客户端模式可以简单划分为：<strong>TCP 模式</strong> 和 <strong>MQ 模式</strong> 。</p>
+<p>实战中我们经常会使用 MQ 模式 。因为 MQ 模式的优势在于解耦 ，canal server 将数据变更信息发送到消息队列 kafka 或者 RocketMQ ，消费者消费消息，顺序执行相关逻辑即可。</p>
+<blockquote>
+<p><strong>顺序消费</strong>：</p>
+<p>对于指定的一个 Topic ，所有消息根据 Sharding Key 进行区块分区，同一个分区内的消息按照严格的先进先出（FIFO）原则进行发布和消费。同一分区内的消息保证顺序，不同分区之间的消息顺序不做要求。</p>
+<p><img src="/post/MysqlToES/640-1695742465320-4.jpeg" alt="图片"></p>
+</blockquote>
+<h1 id="MySQL配置"><a href="#MySQL配置" class="headerlink" title="MySQL配置"></a>MySQL配置</h1><p>1、对于自建 MySQL , 需要先开启 Binlog 写入功能，配置 binlog-format 为 ROW 模式，my.cnf  中配置如下</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">[mysqld]
+log-bin&#x3D;mysql-bin # 开启 binlog
+binlog-format&#x3D;ROW # 选择 ROW 模式
+server_id&#x3D;1 # 配置 MySQL replaction 需要定义，不要和 canal 的 slaveId 重复<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：针对阿里云 RDS for MySQL , 默认打开了 binlog , 并且账号默认具有 binlog dump 权限 , 不需要任何权限或者 binlog 设置,可以直接跳过这一步。</p>
+</blockquote>
+<p>2、授权 canal 链接 MySQL 账号具有作为 MySQL slave 的权限, 如果已有账户可直接 grant 。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE USER canal IDENTIFIED BY &#39;canal&#39;;  
+GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO &#39;canal&#39;@&#39;%&#39;;
+-- GRANT ALL PRIVILEGES ON *.* TO &#39;canal&#39;@&#39;%&#39; ;
+FLUSH PRIVILEGES;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3、创建数据库商品表 <code>t_product</code> 。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE &#96;t_product&#96; (
+ &#96;id&#96; BIGINT ( 20 ) NOT NULL AUTO_INCREMENT,
+ &#96;name&#96; VARCHAR ( 255 ) COLLATE utf8mb4_bin NOT NULL,
+ &#96;price&#96; DECIMAL ( 10, 2 ) NOT NULL,
+ &#96;status&#96; TINYINT ( 4 ) NOT NULL,
+ &#96;create_time&#96; datetime NOT NULL,
+ &#96;update_time&#96; datetime NOT NULL,
+   PRIMARY KEY ( &#96;id&#96; ) 
+) ENGINE &#x3D; INNODB DEFAULT CHARSET &#x3D; utf8mb4 COLLATE &#x3D; utf8mb4_bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="Elasticsearch配置"><a href="#Elasticsearch配置" class="headerlink" title="Elasticsearch配置"></a>Elasticsearch配置</h1><p>使用 Kibana 创建<code>商品索引</code> 。</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">PUT /t_product
+<span class="token punctuation">&#123;</span>
+    <span class="token property">"settings"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"number_of_shards"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">"number_of_replicas"</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"mappings"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+               <span class="token property">"id"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"keyword"</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"text"</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token property">"price"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"double"</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token property">"status"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"integer"</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"date"</span><span class="token punctuation">,</span>
+                    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token property">"updateTime"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"date"</span><span class="token punctuation">,</span>
+                    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"</span>
+                <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行完成，如图所示 ：</p>
+<p><img src="/post/MysqlToES/640-1695742465321-5.png" alt="图片"></p>
+<h1 id="RocketMQ-配置"><a href="#RocketMQ-配置" class="headerlink" title="RocketMQ 配置"></a>RocketMQ 配置</h1><p>创建主题：<code>product-syn-topic</code> ，canal 会将 <code>Binlog</code> 的变化数据发送到该主题。</p>
+<p><img src="/post/MysqlToES/640-1695742465321-6.png" alt="图片"></p>
+<p><img src="/post/MysqlToES/640-1695742465321-7.png" alt="图片"></p>
+<h1 id="canal-配置"><a href="#canal-配置" class="headerlink" title="canal 配置"></a>canal 配置</h1><p>我们选取 canal 版本 <code>1.1.6</code> ，进入 <code>conf</code> 目录。</p>
+<p><strong>1、配置 canal.properties</strong></p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#集群模式 zk地址</span>
+<span class="token key attr-name">canal.zkServers</span> <span class="token punctuation">=</span> <span class="token value attr-value">localhost:2181</span>
+<span class="token comment">#本质是MQ模式和tcp模式 tcp, kafka, rocketMQ, rabbitMQ, pulsarMQ</span>
+<span class="token key attr-name">canal.serverMode</span> <span class="token punctuation">=</span> <span class="token value attr-value">rocketMQ</span>
+<span class="token comment">#instance 列表</span>
+<span class="token key attr-name">canal.destinations</span> <span class="token punctuation">=</span> <span class="token value attr-value">product-syn</span>
+<span class="token comment">#conf root dir</span>
+<span class="token key attr-name">canal.conf.dir</span> <span class="token punctuation">=</span> <span class="token value attr-value">../conf</span>
+<span class="token comment">#全局的spring配置方式的组件文件 生产环境，集群化部署</span>
+<span class="token key attr-name">canal.instance.global.spring.xml</span> <span class="token punctuation">=</span> <span class="token value attr-value">classpath:spring/default-instance.xml</span>
+
+<span class="token comment">######  以下部分是默认值 展示出来 </span>
+<span class="token comment"># Canal的batch size, 默认50K, 由于kafka最大消息体限制请勿超过1M(900K以下)</span>
+<span class="token key attr-name">canal.mq.canalBatchSize</span> <span class="token punctuation">=</span> <span class="token value attr-value">50</span>
+<span class="token comment"># Canal get数据的超时时间, 单位: 毫秒, 空为不限超时</span>
+<span class="token key attr-name">canal.mq.canalGetTimeout</span> <span class="token punctuation">=</span> <span class="token value attr-value">100</span>
+<span class="token comment"># 是否为 flat json格式对象</span>
+<span class="token key attr-name">canal.mq.flatMessage</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>2、instance 配置文件</strong></p>
+<p>在 <code>conf</code> 目录下创建实例目录 <code>product-syn</code> , 在 <code>product-syn</code> 目录创建配置文件 ：<code>instance.properties</code>。</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#  按需修改成自己的数据库信息</span>
+<span class="token comment">#################################################</span>
+...
+<span class="token key attr-name">canal.instance.master.address</span><span class="token punctuation">=</span><span class="token value attr-value">192.168.1.20:3306</span>
+<span class="token comment"># username/password,数据库的用户名和密码</span>
+...
+<span class="token key attr-name">canal.instance.dbUsername</span> <span class="token punctuation">=</span> <span class="token value attr-value">canal</span>
+<span class="token key attr-name">canal.instance.dbPassword</span> <span class="token punctuation">=</span> <span class="token value attr-value">canal</span>
+...
+
+<span class="token comment"># table regex </span>
+<span class="token key attr-name">canal.instance.filter.regex</span><span class="token punctuation">=</span><span class="token value attr-value">mytest.t_product</span>
+
+<span class="token comment"># mq config</span>
+<span class="token key attr-name">canal.mq.topic</span><span class="token punctuation">=</span><span class="token value attr-value">product-syn-topic</span>
+<span class="token comment"># 针对库名或者表名发送动态topic</span>
+<span class="token comment">#canal.mq.dynamicTopic=mytest,.*,mytest.user,mytest\\..*,.*\\..*</span>
+<span class="token key attr-name">canal.mq.partition</span><span class="token punctuation">=</span><span class="token value attr-value">0</span>
+<span class="token comment"># hash partition config</span>
+<span class="token comment">#canal.mq.partitionsNum=3</span>
+<span class="token comment">#库名.表名: 唯一主键，多个表之间用逗号分隔</span>
+<span class="token comment">#canal.mq.partitionHash=mytest.person:id,mytest.role:id</span>
+<span class="token comment">#################################################</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>3、服务启动</strong></p>
+<p>启动两个 canal 服务，我们从 zookeeper gui 中查看服务运行情况 。</p>
+<p><img src="/post/MysqlToES/640-1695742465321-8.png" alt="图片"></p>
+<p>修改一条 <code>t_product</code> 表记录，可以从 RocketMQ 控制台中观测到新的消息。</p>
+<p><img src="/post/MysqlToES/640-1695742465322-9.png" alt="图片"></p>
+<h1 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h1><p><strong>1、产品索引操作服务</strong></p>
+<p><img src="/post/MysqlToES/640-1695742465322-10.png" alt="图片"></p>
+<p><strong>2、消费监听器</strong></p>
+<p><img src="/post/MysqlToES/640-1695742465322-11.png" alt="图片"></p>
+<p>消费者逻辑重点有两点：</p>
+<ul>
+<li><strong>顺序</strong>消费监听器</li>
+<li>将消息数据转换成  JSON 字符串，从 <code>data</code> 节点中获取表最新数据（批量操作可能是多条）。然后根据操作类型 <code>UPDATE</code>、 <code>INSERT</code>、<code>DELETE</code> 执行<code>产品索引操作服务</code>的方法。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/MysqlToES.html">http://www.fanliu.top/post/MysqlToES.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a><a class="post-meta__tags" href="/tags/canal/">canal</a><a class="post-meta__tags" href="/tags/Es/">Es</a></div><div class="post_share"><div class="social-share" data-image="https://picx.zhimg.com/70/v2-99b57c47089ef2de9ed8cacc9688d926_1440w.awebp?source=172ae18b&amp;biz_tag=Post" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img class="cover" src="https://www.wenjiangs.com/wp-content/uploads/2021/05/seata.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">seata的部署和集成</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">坚持下去，并不是我真的足够坚强，而是我别无选择。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#canal%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">canal介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">MySQL主备复制原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#canal-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">canal 工作原理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">集群模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">MySQL配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Elasticsearch%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Elasticsearch配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RocketMQ-%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">RocketMQ 配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canal-%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">canal 配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85"><span class="toc-number">7.</span> <span class="toc-text">消费者</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/MysqlToES.html" title="canal 同步 MySQL 增量数据到 ES"><img src="https://picx.zhimg.com/70/v2-99b57c47089ef2de9ed8cacc9688d926_1440w.awebp?source=172ae18b&amp;biz_tag=Post" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="canal 同步 MySQL 增量数据到 ES"/></a><div class="content"><a class="title" href="/post/MysqlToES.html" title="canal 同步 MySQL 增量数据到 ES">canal 同步 MySQL 增量数据到 ES</a><time datetime="2023-09-26T15:26:31.000Z" title="发表于 2023-09-26 23:26:31">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成"><img src="https://www.wenjiangs.com/wp-content/uploads/2021/05/seata.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="seata的部署和集成"/></a><div class="content"><a class="title" href="/post/seata%E7%9A%84%E9%83%A8%E7%BD%B2%E5%92%8C%E9%9B%86%E6%88%90.html" title="seata的部署和集成">seata的部署和集成</a><time datetime="2021-03-28T13:51:08.000Z" title="发表于 2021-03-28 21:51:08">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1.html" title="分布式事务">分布式事务</a><time datetime="2021-03-28T07:59:11.000Z" title="发表于 2021-03-28 15:59:11">2021-03-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" title="Redis集群搭建">Redis集群搭建</a><time datetime="2021-03-27T10:14:34.000Z" title="发表于 2021-03-27 18:14:34">2021-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98.html" title="Redis分布式缓存">Redis分布式缓存</a><time datetime="2021-03-27T10:03:43.000Z" title="发表于 2021-03-27 18:03:43">2021-03-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
