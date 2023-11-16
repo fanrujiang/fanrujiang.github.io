@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SpringBoot案例（二） | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SpringBootWeb案例前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：  新增员工 修改员工   首先我们先完成”新增员工”的功能开发，再完成”修改员工”的功能开发。而在”新增员工”中，需要添加头像，而头像需要用到”文件上传”技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。 综上所述，我们今天的课程内容包含以下四个">
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SpringBoot案例（二） | fanfanの博客</title><meta name="author" content="fanfan"><meta name="copyright" content="fanfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="SpringBootWeb案例前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：  新增员工 修改员工   首先我们先完成”新增员工”的功能开发，再完成”修改员工”的功能开发。而在”新增员工”中，需要添加头像，而头像需要用到”文件上传”技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。 综上所述，我们今天的课程内容包含以下四个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot案例（二）">
 <meta property="og:url" content="http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html">
@@ -11,11 +11,11 @@
 <meta property="article:author" content="fanfan">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="http://www.fanliu.top/img/fy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
   highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
@@ -37,7 +37,7 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: undefined,
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#6495ed","bgDark":"#1f1f1f","position":"bottom-left"},
   source: {
     justifiedGallery: {
       js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
@@ -45,11 +45,11 @@
     }
   },
   isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
+  islazyload: true,
+  isAnchor: true,
   percent: {
     toc: true,
-    rightside: false,
+    rightside: true,
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
@@ -139,7 +139,7 @@
       win.activateLightMode = function () {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
         }
       }
       const t = saveToLocal.get('theme')
@@ -162,12 +162,19 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot案例（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-13T12:42:56.000Z" title="发表于 2021-02-13 20:42:56">2021-02-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/">javaWeb</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/SpringBoot/">SpringBoot</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot案例（二）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SpringBootWeb案例"><a href="#SpringBootWeb案例" class="headerlink" title="SpringBootWeb案例"></a>SpringBootWeb案例</h1><p>前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：</p>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot案例（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-02-13T12:42:56.000Z" title="发表于 2021-02-13 20:42:56">2021-02-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/">javaWeb</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaWeb/SpringBoot/">SpringBoot</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>33分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot案例（二）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SpringBootWeb案例"><a href="#SpringBootWeb案例" class="headerlink" title="SpringBootWeb案例"></a>SpringBootWeb案例</h1><p>前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：</p>
 <ul>
 <li>新增员工</li>
 <li>修改员工</li>
 </ul>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216160009145.png" alt="image-20221216160009145"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216160009145.png" alt="image-20221216160009145"></p>
 <p>首先我们先完成”新增员工”的功能开发，再完成”修改员工”的功能开发。而在”新增员工”中，需要添加头像，而头像需要用到”文件上传”技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。</p>
 <p>综上所述，我们今天的课程内容包含以下四个部分：</p>
 <ul>
@@ -176,7 +183,7 @@
 <li>修改员工</li>
 <li>配置文件</li>
 </ul>
-<h2 id="1-新增员工"><a href="#1-新增员工" class="headerlink" title="1. 新增员工"></a>1. 新增员工</h2><h3 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1 需求"></a>1.1 需求</h3><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216162622582.png" alt="image-20221216162622582"> </p>
+<h2 id="1-新增员工"><a href="#1-新增员工" class="headerlink" title="1. 新增员工"></a>1. 新增员工</h2><h3 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1 需求"></a>1.1 需求</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216162622582.png" alt="image-20221216162622582"> </p>
 <p>在新增用户时，我们需要保存用户的基本信息，并且还需要上传的员工的图片，目前我们先完成第一步操作，保存用户的基本信息。 </p>
 <h3 id="1-2-接口文档"><a href="#1-2-接口文档" class="headerlink" title="1.2 接口文档"></a>1.2 接口文档</h3><p>我们参照接口文档来开发新增员工功能</p>
 <ul>
@@ -292,7 +299,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="1-3-思路分析"><a href="#1-3-思路分析" class="headerlink" title="1.3 思路分析"></a>1.3 思路分析</h3><p>新增员工的具体的流程：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216170946166.png" alt="image-20221216170946166"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216170946166.png" alt="image-20221216170946166"></p>
 <blockquote>
 <p>接口文档规定：</p>
 <ul>
@@ -377,18 +384,18 @@
 
 
 <h3 id="1-5-功能测试"><a href="#1-5-功能测试" class="headerlink" title="1.5 功能测试"></a>1.5 功能测试</h3><p>代码开发完成后，重启服务器，打开Postman发送 POST 请求，请求路径：<a target="_blank" rel="noopener" href="http://localhost:8080/emps">http://localhost:8080/emps</a></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181017910.png" alt="image-20221216181017910"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181017910.png" alt="image-20221216181017910"></p>
 <h3 id="1-6-前后端联调"><a href="#1-6-前后端联调" class="headerlink" title="1.6 前后端联调"></a>1.6 前后端联调</h3><p>功能测试通过后，我们再进行通过打开浏览器，测试后端功能接口：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181511401.png" alt="image-20221216181511401"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181628331.png" alt="image-20221216181628331"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181511401.png" alt="image-20221216181511401"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216181628331.png" alt="image-20221216181628331"></p>
 <h2 id="2-文件上传"><a href="#2-文件上传" class="headerlink" title="2. 文件上传"></a>2. 文件上传</h2><p>在我们完成的新增员工功能中，还存在一个问题：没有头像(图片缺失)</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216200653717.png" alt="image-20221216200653717"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216200653717.png" alt="image-20221216200653717"></p>
 <p>上述问题，需要我们通过文件上传技术来解决。下面我们就进入到文件上传技术的学习。</p>
 <p>文件上传技术这块我们主要讲解三个方面：首先我们先对文件上传做一个整体的介绍，接着再学习文件上传的本地存储方式，最后学习云存储方式。</p>
 <p>接下来我们就先来学习下什么是文件上传。</p>
 <h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>文件上传，是指将本地图片、视频、音频等文件上传到服务器，供其他用户浏览或下载的过程。</p>
 <p>文件上传在项目中应用非常广泛，我们经常发微博、发微信朋友圈都用到了文件上传功能。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216203904713.png" alt="image-20221216203904713"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216203904713.png" alt="image-20221216203904713"></p>
 <blockquote>
 <p>在我们的案例中，在新增员工的时候，要上传员工的头像，此时就会涉及到文件上传的功能。在进行文件上传时，我们点击加号或者是点击图片，就可以选择手机或者是电脑本地的图片文件了。当我们选择了某一个图片文件之后，这个文件就会上传到服务器，从而完成文件上传的操作。</p>
 </blockquote>
@@ -425,21 +432,21 @@
 </ul>
 <p>前端页面的3要素我们了解后，接下来我们就来验证下所讲解的文件上传3要素。</p>
 <p>在提供的”课程资料”中有一个名叫”文件上传”的文件夹，直接将里的”upload.html”文件，复制到springboot项目工程下的static目录里面。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210054136.png" alt="image-20221216210054136"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210054136.png" alt="image-20221216210054136"></p>
 <p>下面我们来验证：删除form表单中enctype属性值，会是什么情况？</p>
 <ol>
 <li>在IDEA中直接使用浏览器打开upload.html页面</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210643628.png" alt="image-20221216210643628"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210643628.png" alt="image-20221216210643628"></p>
 <ol start="2">
 <li>选择要上传的本地文件</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210938612.png" alt="image-20221216210938612"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216210938612.png" alt="image-20221216210938612"></p>
 <ol start="3">
 <li>点击”提交”按钮，进入到开发者模式观察</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216211629307.png" alt="image-20221216211629307"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216212152607.png" alt="image-20221216212152607"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216211629307.png" alt="image-20221216211629307"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216212152607.png" alt="image-20221216212152607"></p>
 <p>我们再来验证：设置form表单中enctype属性值为multipart&#x2F;form-data，会是什么情况？</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/upload<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
        姓名: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
@@ -448,8 +455,8 @@
        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215320623.png" alt="image-20221216215320623"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215041710.png" alt="image-20221216215041710"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215320623.png" alt="image-20221216215320623"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215041710.png" alt="image-20221216215041710"></p>
 <p>知道了前端程序中需要设置上传文件页面三要素，那我们的后端程序又是如何实现的呢？</p>
 <ul>
 <li><p>首先在服务端定义这么一个controller，用来进行文件上传，然后在controller当中定义一个方法来处理<code>/upload</code> 请求</p>
@@ -465,7 +472,7 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215930807.png" alt="image-20221216215930807"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216215930807.png" alt="image-20221216215930807"></p>
 <blockquote>
 <p>问题：如果表单项的名字和方法中形参名不一致，该怎么办？</p>
 <ul>
@@ -499,21 +506,21 @@
 <blockquote>
 <p>后端程序编写完成之后，打个断点，以debug方式启动SpringBoot项目</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222533720.png" alt="image-20221216222533720"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222533720.png" alt="image-20221216222533720"></p>
 <blockquote>
 <p>打开浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:8080/upload.html">http://localhost:8080/upload.html</a> ， 录入数据并提交</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222412510.png" alt="image-20221216222412510"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222412510.png" alt="image-20221216222412510"></p>
 <p>通过后端程序控制台可以看到，上传的文件是存放在一个临时目录</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222802617.png" alt="image-20221216222802617"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216222802617.png" alt="image-20221216222802617"></p>
 <blockquote>
 <p>打开临时目录可以看到以下内容：</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216223328710.png" alt="image-20221216223328710"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216223328710.png" alt="image-20221216223328710"></p>
 <blockquote>
 <p>表单提交的三项数据(姓名、年龄、文件)，分别存储在不同的临时文件中：</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216223300846.png" alt="image-20221216223300846"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221216223300846.png" alt="image-20221216223300846"></p>
 <blockquote>
 <p>当我们程序运行完毕之后，这个临时文件会自动删除。 </p>
 <p>所以，我们如果想要实现文件上传，需要将这个临时文件，要转存到我们的磁盘目录中。</p>
@@ -557,9 +564,9 @@
 <blockquote>
 <p>注意：请求参数名和controller方法形参名保持一致</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227211742547.png" alt="image-20221227211742547"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227214219279.png" alt="image-20221227214219279"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227214753358.png" alt="image-20221227214753358"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227211742547.png" alt="image-20221227211742547"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227214219279.png" alt="image-20221227214219279"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227214753358.png" alt="image-20221227214753358"></p>
 <p>通过postman测试，我们发现文件上传是没有问题的。但是由于我们是使用原始文件名作为所上传文件的存储名字，当我们再次上传一个名为1.jpg文件时，发现会把之前已经上传成功的文件覆盖掉。</p>
 <p>解决方案：保证每次上传文件时文件名都唯一的（使用UUID获取随机文件名）</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
@@ -586,7 +593,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在解决了文件名唯一性的问题后，我们再次上传一个较大的文件(超出1M)时发现，后端程序报错：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227223851924.png" alt="image-20221227223851924"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221227223851924.png" alt="image-20221227223851924"></p>
 <p>报错原因呢是因为：在SpringBoot中，文件上传时默认单个文件最大大小为1M</p>
 <p>那么如果需要上传大文件，可以在application.properties进行如下配置：</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#配置单个文件最大上传大小</span>
@@ -598,7 +605,7 @@
 
 
 <p>到时此，我们文件上传的本地存储方式已完成了。但是这种本地存储方式还存在一问题： </p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904200320964.png" alt="image-20220904200320964"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904200320964.png" alt="image-20220904200320964"> </p>
 <p>如果直接存储在服务器的磁盘目录中，存在以下缺点：</p>
 <ul>
 <li>不安全：磁盘如果损坏，所有的文件就会丢失</li>
@@ -611,24 +618,24 @@
 <li>使用现成的云服务，如：阿里云，腾讯云，华为云</li>
 </ul>
 <h3 id="2-3-阿里云OSS"><a href="#2-3-阿里云OSS" class="headerlink" title="2.3 阿里云OSS"></a>2.3 阿里云OSS</h3><h4 id="2-3-1-准备"><a href="#2-3-1-准备" class="headerlink" title="2.3.1 准备"></a>2.3.1 准备</h4><p>阿里云是阿里巴巴集团旗下全球领先的云计算公司，也是国内最大的云服务提供商 。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229093412464.png" alt="image-20221229093412464"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229093412464.png" alt="image-20221229093412464"></p>
 <blockquote>
 <p>云服务指的就是通过互联网对外提供的各种各样的服务，比如像：语音服务、短信服务、邮件服务、视频直播服务、文字识别服务、对象存储服务等等。</p>
 <p>当我们在项目开发时需要用到某个或某些服务，就不需要自己来开发了，可以直接使用阿里云提供好的这些现成服务就可以了。比如：在项目开发当中，我们要实现一个短信发送的功能，如果我们项目组自己实现，将会非常繁琐，因为你需要和各个运营商进行对接。而此时阿里云完成了和三大运营商对接，并对外提供了一个短信服务。我们项目组只需要调用阿里云提供的短信服务，就可以很方便的来发送短信了。这样就降低了我们项目的开发难度，同时也提高了项目的开发效率。（大白话：别人帮我们实现好了功能，我们只要调用即可）</p>
 <p>云服务提供商给我们提供的软件服务通常是需要收取一部分费用的。</p>
 </blockquote>
 <p>阿里云对象存储OSS（Object Storage Service），是一款海量、安全、低成本、高可靠的云存储服务。使用OSS，您可以通过网络随时存储和调用包括文本、图片、音频和视频等在内的各种文件。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904200642064.png" alt="image-20220904200642064"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904200642064.png" alt="image-20220904200642064"> </p>
 <p>在我们使用了阿里云OSS对象存储服务之后，我们的项目当中如果涉及到文件上传这样的业务，在前端进行文件上传并请求到服务端时，在服务器本地磁盘当中就不需要再来存储文件了。我们直接将接收到的文件上传到oss，由 oss帮我们存储和管理，同时阿里云的oss存储服务还保障了我们所存储内容的安全可靠。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229095709505.png" alt="image-20221229095709505"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229095709505.png" alt="image-20221229095709505"></p>
 <p>那我们学习使用这类云服务，我们主要学习什么呢？其实我们主要学习的是如何在项目当中来使用云服务完成具体的业务功能。而无论使用什么样的云服务，阿里云也好，腾讯云、华为云也罢，在使用第三方的服务时，操作的思路都是一样的。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229093911113.png" alt="image-20221229093911113"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229093911113.png" alt="image-20221229093911113"></p>
 <blockquote>
 <p>SDK：Software Development Kit 的缩写，软件开发工具包，包括辅助软件开发的依赖（jar包）、代码示例等，都可以叫做SDK。</p>
 <p>简单说，sdk中包含了我们使用第三方云服务时所需要的依赖，以及一些示例代码。我们可以参照sdk所提供的示例代码就可以完成入门程序。</p>
 </blockquote>
 <p>第三方服务使用的通用思路，我们做一个简单介绍之后，接下来我们就来介绍一下我们当前要使用的阿里云oss对象存储服务具体的使用步骤。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229112451120.png" alt="image-20221229112451120"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229112451120.png" alt="image-20221229112451120"></p>
 <blockquote>
 <p>Bucket：存储空间是用户用于存储对象（Object，就是文件）的容器，所有的对象都必须隶属于某个存储空间。</p>
 </blockquote>
@@ -637,37 +644,37 @@
 <li>注册阿里云账户（注册完成后需要实名认证）</li>
 <li>注册完账号之后，就可以登录阿里云</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201839857.png" alt="image-20220904201839857"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201839857.png" alt="image-20220904201839857"> </p>
 <ol start="3">
 <li>通过控制台找到对象存储OSS服务</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201932884.png" alt="image-20220904201932884"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201932884.png" alt="image-20220904201932884"> </p>
 <blockquote>
 <p>如果是第一次访问，还需要开通对象存储服务OSS</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202537579.png" alt="image-20220904202537579"> </p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202618423.png" alt="image-20220904202618423"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202537579.png" alt="image-20220904202537579"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202618423.png" alt="image-20220904202618423"> </p>
 <ol start="4">
 <li>开通OSS服务之后，就可以进入到阿里云对象存储的控制台</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201810832.png" alt="image-20220904201810832"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904201810832.png" alt="image-20220904201810832"> </p>
 <ol start="5">
 <li>点击左侧的 “Bucket列表”，创建一个Bucket</li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202235180.png" alt="image-20220904202235180"> </p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202824901.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202235180.png" alt="image-20220904202235180"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904202824901.png"></p>
 <blockquote>
 <p>大家可以参照”资料\04. 阿里云oss&quot;中提供的文档，开通阿里云OSS服务。</p>
 </blockquote>
 <h4 id="2-3-2-入门"><a href="#2-3-2-入门" class="headerlink" title="2.3.2 入门"></a>2.3.2 入门</h4><p>阿里云oss 对象存储服务的准备工作我们已经完成了，接下来我们就来完成第二步操作：参照官方所提供的sdk示例来编写入门程序。</p>
 <p>首先我们需要来打开阿里云OSS的官方文档，在官方文档中找到 SDK 的示例代码：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229121848524.png" alt="image-20221229121848524"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229122046597.png" alt="image-20221229122046597"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229121848524.png" alt="image-20221229121848524"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229122046597.png" alt="image-20221229122046597"></p>
 <blockquote>
 <p>如果是在实际开发当中，我们是需要从前往后仔细的去阅读这一份文档的，但是由于现在是教学，我们就只挑重点的去看。有兴趣的同学大家下来也可以自己去看一下这份官方文档。</p>
 </blockquote>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229144342148.png" alt="image-20221229144342148"></p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229160827124.png" alt="image-20221229160827124"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229144342148.png" alt="image-20221229144342148"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229160827124.png" alt="image-20221229160827124"></p>
 <p>参照官方提供的SDK，改造一下，即可实现文件上传功能：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">ClientException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSS</span></span><span class="token punctuation">;</span>
@@ -740,12 +747,12 @@
 <li>filePath：文件路径</li>
 </ul>
 <p>AccessKey ：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221128020105943.png" alt="image-20221128020105943"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221128020105943.png" alt="image-20221128020105943"> </p>
 </blockquote>
 <p>运行以上程序后，会把本地的文件上传到阿里云OSS服务器上：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229161326919.png" alt="image-20221229161326919"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229161326919.png" alt="image-20221229161326919"></p>
 <h4 id="2-3-3-集成"><a href="#2-3-3-集成" class="headerlink" title="2.3.3 集成"></a>2.3.3 集成</h4><p>阿里云oss对象存储服务的准备工作以及入门程序我们都已经完成了，接下来我们就需要在案例当中集成oss对象存储服务，来存储和管理案例中上传的图片。</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229170235632.png" alt="image-20221229170235632"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221229170235632.png" alt="image-20221229170235632"></p>
 <blockquote>
 <p>在新增员工的时候，上传员工的图像，而之所以需要上传员工的图像，是因为将来我们需要在系统页面当中访问并展示员工的图像。而要想完成这个操作，需要做两件事：</p>
 <ol>
@@ -894,10 +901,10 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用postman测试：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102175353270.png" alt="image-20230102175353270"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102175353270.png" alt="image-20230102175353270"></p>
 <h2 id="3-修改员工"><a href="#3-修改员工" class="headerlink" title="3. 修改员工"></a>3. 修改员工</h2><p>需求：修改员工信息</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220001994.png" alt="image-20220904220001994"></p>
- <img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220006578.png" style="zoom: 50%;">
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220001994.png" alt="image-20220904220001994"></p>
+ <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220006578.png" style="zoom: 50%;">
 
 <p>在进行修改员工信息的时候，我们首先先要根据员工的ID查询员工的信息用于页面回显展示，然后用户修改员工数据之后，点击保存按钮，就可以将修改的数据提交到服务端，保存到数据库。 具体操作为：</p>
 <ol>
@@ -1066,7 +1073,7 @@
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h4 id="3-1-2-实现思路"><a href="#3-1-2-实现思路" class="headerlink" title="3.1.2 实现思路"></a>3.1.2 实现思路</h4><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230161841795.png" alt="image-20221230161841795"></p>
+<h4 id="3-1-2-实现思路"><a href="#3-1-2-实现思路" class="headerlink" title="3.1.2 实现思路"></a>3.1.2 实现思路</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230161841795.png" alt="image-20221230161841795"></p>
 <h4 id="3-1-3-代码实现"><a href="#3-1-3-代码实现" class="headerlink" title="3.1.3 代码实现"></a>3.1.3 代码实现</h4><ul>
 <li>EmpMapper</li>
 </ul>
@@ -1138,8 +1145,8 @@
 
 
 
-<h4 id="3-1-4-postman测试"><a href="#3-1-4-postman测试" class="headerlink" title="3.1.4 postman测试"></a>3.1.4 postman测试</h4><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230170926513.png" alt="image-20221230170926513"></p>
-<h3 id="3-2-修改员工"><a href="#3-2-修改员工" class="headerlink" title="3.2 修改员工"></a>3.2 修改员工</h3><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220006578.png" style="zoom:67%;">
+<h4 id="3-1-4-postman测试"><a href="#3-1-4-postman测试" class="headerlink" title="3.1.4 postman测试"></a>3.1.4 postman测试</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230170926513.png" alt="image-20221230170926513"></p>
+<h3 id="3-2-修改员工"><a href="#3-2-修改员工" class="headerlink" title="3.2 修改员工"></a>3.2 修改员工</h3><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904220006578.png" style="zoom:67%;">
 
 <blockquote>
 <p>当用户修改完数据之后，点击保存按钮，就需要将数据提交到服务端，然后服务端需要将修改后的数据更新到数据库中。 </p>
@@ -1263,7 +1270,7 @@
     <span class="token property">"data"</span><span class="token operator">:</span><span class="token null keyword">null</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h4 id="3-2-2-实现思路"><a href="#3-2-2-实现思路" class="headerlink" title="3.2.2 实现思路"></a>3.2.2 实现思路</h4><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230171342318.png" alt="image-20221230171342318"></p>
+<h4 id="3-2-2-实现思路"><a href="#3-2-2-实现思路" class="headerlink" title="3.2.2 实现思路"></a>3.2.2 实现思路</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221230171342318.png" alt="image-20221230171342318"></p>
 <h4 id="3-2-3-代码实现"><a href="#3-2-3-代码实现" class="headerlink" title="3.2.3 代码实现"></a>3.2.3 代码实现</h4><ul>
 <li>EmpMapper</li>
 </ul>
@@ -1378,10 +1385,10 @@
 
 
 
-<h4 id="3-2-4-postman测试"><a href="#3-2-4-postman测试" class="headerlink" title="3.2.4 postman测试"></a>3.2.4 postman测试</h4><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904221941144.png" alt="image-20220904221941144"> </p>
-<h4 id="3-2-5-前后端联调测试"><a href="#3-2-5-前后端联调测试" class="headerlink" title="3.2.5 前后端联调测试"></a>3.2.5 前后端联调测试</h4><p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904222028501.png" alt="image-20220904222028501"> </p>
+<h4 id="3-2-4-postman测试"><a href="#3-2-4-postman测试" class="headerlink" title="3.2.4 postman测试"></a>3.2.4 postman测试</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904221941144.png" alt="image-20220904221941144"> </p>
+<h4 id="3-2-5-前后端联调测试"><a href="#3-2-5-前后端联调测试" class="headerlink" title="3.2.5 前后端联调测试"></a>3.2.5 前后端联调测试</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20220904222028501.png" alt="image-20220904222028501"> </p>
 <h2 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h2><p>员工管理的增删改查功能我们已开发完成，但在我们所开发的程序中还一些小问题，下面我们就来分析一下当前案例中存在的问题以及如何优化解决。</p>
-<h3 id="4-1-参数配置化"><a href="#4-1-参数配置化" class="headerlink" title="4.1 参数配置化"></a>4.1 参数配置化</h3><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221231085558457.png" alt="image-20221231085558457" style="zoom: 80%;">
+<h3 id="4-1-参数配置化"><a href="#4-1-参数配置化" class="headerlink" title="4.1 参数配置化"></a>4.1 参数配置化</h3><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20221231085558457.png" alt="image-20221231085558457" style="zoom: 80%;">
 
 <p>在我们之前编写的程序中进行文件上传时，需要调用AliOSSUtils工具类，将文件上传到阿里云OSS对象存储服务当中。而在调用工具类进行文件上传时，需要一些参数：</p>
 <ul>
@@ -1440,9 +1447,9 @@
  	<span class="token comment">//省略其他代码...</span>
  <span class="token punctuation">&#125;</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102173905913.png" alt="image-20230102173905913"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102173905913.png" alt="image-20230102173905913"></p>
 <p>使用postman测试：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102175353270.png" alt="image-20230102175353270"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102175353270.png" alt="image-20230102175353270"></p>
 <h3 id="4-2-yml配置文件"><a href="#4-2-yml配置文件" class="headerlink" title="4.2 yml配置文件"></a>4.2 yml配置文件</h3><p>前面我们一直使用springboot项目创建完毕后自带的application.properties进行属性的配置，那其实呢，在springboot项目当中是支持多种配置方式的，除了支持properties配置文件以外，还支持另外一种类型的配置文件，就是我们接下来要讲解的yml格式的配置文件。</p>
 <ul>
 <li><p>application.properties</p>
@@ -1467,7 +1474,7 @@
 </ul>
 </blockquote>
 <p>常见配置文件格式对比：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102181215809.png" alt="image-20230102181215809"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230102181215809.png" alt="image-20230102181215809"></p>
 <p>我们可以看到配置同样的数据信息，yml格式的数据有以下特点：</p>
 <ul>
 <li>容易阅读</li>
@@ -1482,7 +1489,7 @@
 <li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
 <li><code>#</code>表示注释，从这个字符一直到行尾，都会被解析器忽略</li>
 </ul>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103084645450.png" alt="image-20230103084645450"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103084645450.png" alt="image-20230103084645450"></p>
 <p>了解完yml格式配置文件的基本语法之后，接下来我们再来看下yml文件中常见的数据格式。在这里我们主要介绍最为常见的两类：</p>
 <ol>
 <li>定义对象或Map集合</li>
@@ -1508,7 +1515,7 @@
 <li>创建新的配置文件： <code>application.yml</code></li>
 </ol>
 <p>原有application.properties文件：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103202630793.png" alt="image-20230103202630793"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103202630793.png" alt="image-20230103202630793"></p>
 <p>新建的application.yml文件：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
   <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
@@ -1540,7 +1547,7 @@
 
 
 <h3 id="4-3-ConfigurationProperties"><a href="#4-3-ConfigurationProperties" class="headerlink" title="4.3 @ConfigurationProperties"></a>4.3 @ConfigurationProperties</h3><p>讲解完了yml配置文件之后，最后再来介绍一个注解<code>@ConfigurationProperties</code>。在介绍注解之前，我们先来看一个场景，分析下代码当中可能存在的问题：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103202919756.png" alt="image-20230103202919756"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103202919756.png" alt="image-20230103202919756"></p>
 <p>我们在application.properties或者application.yml中配置了阿里云OSS的四项参数之后，如果java程序中需要这四项参数数据，我们直接通过@Value注解来进行注入。这种方式本身没有什么问题问题，但是如果说需要注入的属性较多(例：需要20多个参数数据)，我们写起来就会比较繁琐。</p>
 <p>那么有没有一种方式可以简化这些配置参数的注入呢？答案是肯定有，在Spring中给我们提供了一种简化方式，可以直接将配置文件中配置项的值自动的注入到对象的属性中。</p>
 <p>Spring提供的简化方式套路：</p>
@@ -1555,7 +1562,7 @@
 <li><p>在实体类上添加<code>@ConfigurationProperties</code>注解，并通过perfect属性来指定配置参数项的前缀</p>
 </li>
 </ol>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103210827003.png" alt="image-20230103210827003"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103210827003.png" alt="image-20230103210827003"></p>
 <p>实体类：AliOSSProperties</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>
@@ -1625,7 +1632,7 @@
 
 
 <p>在我们添加上注解后，会发现idea窗口上面出现一个红色警告：</p>
-<p><img src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103212042823.png" alt="image-20230103212042823"> </p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2/image-20230103212042823.png" alt="image-20230103212042823"> </p>
 <p>这个警告提示是告知我们还需要引入一个依赖：</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -1646,7 +1653,7 @@
 </li>
 </ul>
 <p>如果要注入的属性非常的多，并且还想做到复用，就可以定义这么一个bean对象。通过 configuration properties 批量的将外部的属性配置直接注入到 bin 对象的属性当中。在其他的类当中，我要想获取到注入进来的属性，我直接注入 bin 对象，然后调用 get 方法，就可以获取到对应的属性值了</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html">http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B-3.html" title="SpringBoot案例（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringBoot案例（三）</div></div></a></div><div class="next-post pull-right"><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B.html" title="SpringBoot案例（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot案例（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Maven%E9%AB%98%E7%BA%A7.html" title="Maven高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">Maven高级</div></div></a></div><div><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-08</div><div class="title">Mybatis-1</div></div></a></div><div><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-18</div><div class="title">MybatisPlus</div></div></a></div><div><a href="/post/SpingBoot%E5%8E%9F%E7%90%86.html" title="SpingBoot原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">SpingBoot原理</div></div></a></div><div><a href="/post/SpringBootWeb_AOP.html" title="SpringBootWeb_AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="title">SpringBootWeb_AOP</div></div></a></div><div><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B.html" title="SpringBoot案例（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-10</div><div class="title">SpringBoot案例（一）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/fy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fanfan</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fanrujiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">坚持下去，并不是我真的足够坚强，而是我别无选择。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBootWeb%E6%A1%88%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">SpringBootWeb案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">1.1.</span> <span class="toc-text">1. 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%9C%80%E6%B1%82"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 接口文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 功能开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">1.5 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.1.6.</span> <span class="toc-text">1.6 前后端联调</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.2.</span> <span class="toc-text">2. 文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 本地存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%98%BF%E9%87%8C%E4%BA%91OSS"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 阿里云OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E5%87%86%E5%A4%87"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">2.3.1 准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-%E5%85%A5%E9%97%A8"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2.3.2 入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-%E9%9B%86%E6%88%90"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">2.3.3 集成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.</span> <span class="toc-text">3. 修改员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%9F%A5%E8%AF%A2%E5%9B%9E%E6%98%BE"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 查询回显</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">3.1.1 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">3.1.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">3.1.3 代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-postman%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">3.1.4 postman测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 修改员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">3.2.1 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">3.2.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">3.2.3 代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-postman%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">3.2.4 postman测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">3.2.5 前后端联调测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4. 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%8C%96"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 参数配置化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 yml配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-ConfigurationProperties"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 @ConfigurationProperties</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/AJAX_03_%E5%8E%9F%E7%90%86.html" title="03_AJAX原理"><img src="/img/moon.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03_AJAX原理"/></a><div class="content"><a class="title" href="/post/AJAX_03_%E5%8E%9F%E7%90%86.html" title="03_AJAX原理">03_AJAX原理</a><time datetime="2023-11-15T17:40:47.000Z" title="发表于 2023-11-16 01:40:47">2023-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html" title="02_AJAX综合案例"><img src="/img/moon.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02_AJAX综合案例"/></a><div class="content"><a class="title" href="/post/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html" title="02_AJAX综合案例">02_AJAX综合案例</a><time datetime="2023-11-14T17:40:47.000Z" title="发表于 2023-11-15 01:40:47">2023-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/AJAX_01_%E5%85%A5%E9%97%A8.html" title="01_Ajax入门"><img src="/img/moon.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="01_Ajax入门"/></a><div class="content"><a class="title" href="/post/AJAX_01_%E5%85%A5%E9%97%A8.html" title="01_Ajax入门">01_Ajax入门</a><time datetime="2023-11-13T17:40:47.000Z" title="发表于 2023-11-14 01:40:47">2023-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Linux%E5%AD%97%E7%AC%A6%E9%9B%86%E5%BC%95%E5%8F%91%E7%9A%84bug.html" title="Linux字符集引发的bug"><img src="/img/share/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux字符集引发的bug"/></a><div class="content"><a class="title" href="/post/Linux%E5%AD%97%E7%AC%A6%E9%9B%86%E5%BC%95%E5%8F%91%E7%9A%84bug.html" title="Linux字符集引发的bug">Linux字符集引发的bug</a><time datetime="2023-11-13T17:30:47.000Z" title="发表于 2023-11-14 01:30:47">2023-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/MySQL%E7%99%BE%E4%B8%87%E7%BA%A7%E6%95%B0%E6%8D%AE,%E6%80%8E%E6%A0%B7%E5%81%9A%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2.html" title="MySQL百万级数据，如何做分页查询"><img src="/img/share/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL百万级数据，如何做分页查询"/></a><div class="content"><a class="title" href="/post/MySQL%E7%99%BE%E4%B8%87%E7%BA%A7%E6%95%B0%E6%8D%AE,%E6%80%8E%E6%A0%B7%E5%81%9A%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2.html" title="MySQL百万级数据，如何做分页查询">MySQL百万级数据，如何做分页查询</a><time datetime="2023-11-10T16:30:47.000Z" title="发表于 2023-11-11 00:30:47">2023-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html">http://www.fanliu.top/post/SpringBootWeb%E6%A1%88%E4%BE%8B-2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B.html" title="SpringBoot案例（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringBoot案例（一）</div></div></a></div><div class="next-post pull-right"><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B-3.html" title="SpringBoot案例（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot案例（三）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Maven%E9%AB%98%E7%BA%A7.html" title="Maven高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">Maven高级</div></div></a></div><div><a href="/post/Mybatis-1.html" title="Mybatis-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-08</div><div class="title">Mybatis-1</div></div></a></div><div><a href="/post/MybatisPlus.html" title="MybatisPlus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-18</div><div class="title">MybatisPlus</div></div></a></div><div><a href="/post/SpingBoot%E5%8E%9F%E7%90%86.html" title="SpingBoot原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">SpingBoot原理</div></div></a></div><div><a href="/post/SpringBootWeb_AOP.html" title="SpringBootWeb_AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-14</div><div class="title">SpringBootWeb_AOP</div></div></a></div><div><a href="/post/SpringBoot%E6%A1%88%E4%BE%8B.html" title="SpringBoot案例（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-10</div><div class="title">SpringBoot案例（一）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBootWeb%E6%A1%88%E4%BE%8B"><span class="toc-text">SpringBootWeb案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-text">1. 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%9C%80%E6%B1%82"><span class="toc-text">1.1 需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-text">1.2 接口文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-text">1.3 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-text">1.4 功能开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-text">1.5 功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-text">1.6 前后端联调</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-text">2. 文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="toc-text">2.2 本地存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%98%BF%E9%87%8C%E4%BA%91OSS"><span class="toc-text">2.3 阿里云OSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E5%87%86%E5%A4%87"><span class="toc-text">2.3.1 准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-%E5%85%A5%E9%97%A8"><span class="toc-text">2.3.2 入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-%E9%9B%86%E6%88%90"><span class="toc-text">2.3.3 集成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-text">3. 修改员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%9F%A5%E8%AF%A2%E5%9B%9E%E6%98%BE"><span class="toc-text">3.1 查询回显</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-text">3.1.1 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">3.1.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.1.3 代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-postman%E6%B5%8B%E8%AF%95"><span class="toc-text">3.1.4 postman测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-text">3.2 修改员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-text">3.2.1 接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">3.2.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.2.3 代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-postman%E6%B5%8B%E8%AF%95"><span class="toc-text">3.2.4 postman测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95"><span class="toc-text">3.2.5 前后端联调测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">4. 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%8C%96"><span class="toc-text">4.1 参数配置化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">4.2 yml配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-ConfigurationProperties"><span class="toc-text">4.3 @ConfigurationProperties</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="footer_custom_text"><a href="icp链接"><img class="icp-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="icp图片"><span>备案号：xxxxxx</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
