@@ -45,7 +45,7 @@
     }
   },
   isPhotoFigcaption: false,
-  islazyload: true,
+  islazyload: false,
   isAnchor: true,
   percent: {
     toc: true,
@@ -169,25 +169,25 @@
 document.addEventListener('pjax:send', () => {
   Pace.restart()
 })
-</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-03-03T10:29:38.000Z" title="发表于 2021-03-03 18:29:38">2021-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">14.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>49分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/fy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="fanfanの博客"><span class="site-name">fanfanの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/node/"><i class="fa-fw fas fa-images"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/8gu"><i class="fa-fw fas fa-book"></i><span> 面试八股</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Linux笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-03-03T10:29:38.000Z" title="发表于 2021-03-03 18:29:38">2021-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">14.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>49分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
 <li>Linux简介</li>
 <li>Linux安装</li>
 <li>Linux常用命令</li>
 </ul>
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-什么是Linux"><a href="#1-1-什么是Linux" class="headerlink" title="1.1 什么是Linux"></a>1.1 什么是Linux</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808232140228.png" alt="image-20210808232140228"> </p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-什么是Linux"><a href="#1-1-什么是Linux" class="headerlink" title="1.1 什么是Linux"></a>1.1 什么是Linux</h3><p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808232140228.png" alt="image-20210808232140228"> </p>
 <p>Linux是一套免费使用和自由传播的操作系统。说到操作系统，大家比较熟知的应该就是Windows和MacOS操作系统，我们今天所学习的Linux也是一款操作系统。</p>
 <h3 id="1-2-为什么要学Linux"><a href="#1-2-为什么要学Linux" class="headerlink" title="1.2 为什么要学Linux"></a>1.2 为什么要学Linux</h3><p>那么我们为什么要学习Linux呢，主要出于两个方面的原因。</p>
 <p><strong>1). 企业用人要求</strong></p>
 <p>以下，是从知名招聘网站上搜索的java开发工程师的岗位要求，在很多的岗位要求中都提到了Linux操作系统的经验。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808233115557.png" alt="image-20210808233115557"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808233115557.png" alt="image-20210808233115557"> </p>
 <p>为什么作为javaEE开发工程师，企业还要求我们会Linux操作系统的相关知识呢?</p>
 <p>这是因为Linux操作系统提供了很多稳定的发行版本，广泛的应用在我们的各种服务器操作系统领域，我们将来开发出来的项目，最终要上线运行，就需要将项目部署在Linux服务器中。</p>
 <p><strong>2). 个人发展需要</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808233951662.png" alt="image-20210808233951662"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808233951662.png" alt="image-20210808233951662"> </p>
 <p>我们作为javaEE开发工程师，将来在企业中开发时会涉及到很多的数据库、中间件等技术，比如MySQL、Redis、MQ等技术，而这些应用软件大多都是需要安装在Linux系统中使用的。我们做为开发人员，是需要通过远程工具连接Linux操作系统，然后来操作这些软件的。而且一些小公司，可能还需要我们自己在服务器上安装这些软件。</p>
 <p>所以，不管从企业的用人需求层面，还是个人发展需要层面来讲，我们作为服务端开发工程师，Linux的基本使用是我们必不可少的技能。</p>
 <h3 id="1-3-学完Linux能干什么"><a href="#1-3-学完Linux能干什么" class="headerlink" title="1.3 学完Linux能干什么"></a>1.3 学完Linux能干什么</h3><p>学习完Linux操作系统课程之后，我们可以做以下几个方面的事情： </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808234042174.png" alt="image-20210808234042174" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210808234042174.png" alt="image-20210808234042174" style="zoom:80%;"> 
 
 <p><strong>1). 环境搭建</strong></p>
 <p>系统安装 : 一般我们不会直接将Linux系统安装在本机电脑上，而会安装在公司的一台专门的服务器上。 </p>
@@ -277,7 +277,7 @@ document.addEventListener('pjax:send', () => {
 <td>机顶盒、路由器、交换机</td>
 </tr>
 </tbody></table>
-<h3 id="2-2-Linux发展历史"><a href="#2-2-Linux发展历史" class="headerlink" title="2.2 Linux发展历史"></a>2.2 Linux发展历史</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809000920156.png" alt="image-20210809000920156">  </p>
+<h3 id="2-2-Linux发展历史"><a href="#2-2-Linux发展历史" class="headerlink" title="2.2 Linux发展历史"></a>2.2 Linux发展历史</h3><p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809000920156.png" alt="image-20210809000920156">  </p>
 <p>时间：1991年</p>
 <p>地点：芬兰赫尔辛基大学</p>
 <p>人物：Linus Torvalds（21岁）</p>
@@ -314,38 +314,38 @@ document.addEventListener('pjax:send', () => {
 </thead>
 <tbody><tr>
 <td>Ubuntu</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001838861.png" alt="image-20210809001838861" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001838861.png" alt="image-20210809001838861" style="zoom:50%;"></td>
 <td>以桌面应用为主</td>
 </tr>
 <tr>
 <td>RedHat</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001731378.png" alt="image-20210809001731378" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001731378.png" alt="image-20210809001731378" style="zoom:50%;"></td>
 <td>应用最广泛、收费</td>
 </tr>
 <tr>
 <td>CentOS</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001741238.png" alt="image-20210809001741238" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001741238.png" alt="image-20210809001741238" style="zoom:50%;"></td>
 <td>RedHat的社区版、免费</td>
 </tr>
 <tr>
 <td>openSUSE</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001750999.png" alt="image-20210809001750999" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001750999.png" alt="image-20210809001750999" style="zoom:50%;"></td>
 <td>对个人完全免费、图形界面华丽</td>
 </tr>
 <tr>
 <td>Fedora</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001800676.png" alt="image-20210809001800676" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001800676.png" alt="image-20210809001800676" style="zoom:50%;"></td>
 <td>功能完备、快速更新、免费</td>
 </tr>
 <tr>
 <td>红旗Linux</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001814942.png" alt="image-20210809001814942" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809001814942.png" alt="image-20210809001814942" style="zoom:50%;"></td>
 <td>北京中科红旗软件技术有限公司开发</td>
 </tr>
 </tbody></table>
 <p>除了上述罗列出来的发行版，还有很多Linux发行版，这里，我们就不再一一列举了。</p>
 <h2 id="3-Linux安装"><a href="#3-Linux安装" class="headerlink" title="3. Linux安装"></a>3. Linux安装</h2><h3 id="3-1-安装方式介绍"><a href="#3-1-安装方式介绍" class="headerlink" title="3.1 安装方式介绍"></a>3.1 安装方式介绍</h3><p>Linux系统的安装方式，主要包含以下两种：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809184915617.png" alt="image-20210809184915617"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809184915617.png" alt="image-20210809184915617"> </p>
 <table>
 <thead>
 <tr>
@@ -379,62 +379,62 @@ document.addEventListener('pjax:send', () => {
 </li>
 </ul>
 <p>那么我们就可以在课程中将Linux操作系统安装在虚拟机中，我们课上选择的虚拟机软件是VMware。</p>
-<h3 id="3-2-安装VMware"><a href="#3-2-安装VMware" class="headerlink" title="3.2 安装VMware"></a>3.2 安装VMware</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223354144.png" alt="image-20210809223354144"> </p>
+<h3 id="3-2-安装VMware"><a href="#3-2-安装VMware" class="headerlink" title="3.2 安装VMware"></a>3.2 安装VMware</h3><p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223354144.png" alt="image-20210809223354144"> </p>
 <p>在我们的课程资料中提供了VMware的安装程序。直接双击运行VMware安装程序，根据提示完成安装即可。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223932893.png" alt="image-20210809223932893"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223953820.png" alt="image-20210809223953820"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223932893.png" alt="image-20210809223932893"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809223953820.png" alt="image-20210809223953820"> </p>
 <p>以上就是VMware在安装时的每一步操作，基本上就是点击 “下一步” 一直进行安装。</p>
 <h3 id="3-3-安装Linux"><a href="#3-3-安装Linux" class="headerlink" title="3.3 安装Linux"></a>3.3 安装Linux</h3><p>VMware虚拟机安装完毕之后，我们就可以打开VMware，并在上面来安装Linux操作系统。具体步骤如下： </p>
 <p><strong>1). 选择创建新的虚拟机</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224601436.png" alt="image-20210809224601436" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224601436.png" alt="image-20210809224601436" style="zoom:80%;"> 
 
 
 
 <p><strong>2). 选择”典型”配置</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224640245.png" alt="image-20210809224640245"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224640245.png" alt="image-20210809224640245"> 
 
 
 
 <p><strong>3). 选择”稍后安装操作系统(S)”</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224740271.png" alt="image-20210809224740271"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224740271.png" alt="image-20210809224740271"> </p>
 <p><strong>4). 选择”Linux”操作系统,”CentOS7 64位”版本</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224851755.png" alt="image-20210809224851755"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809224851755.png" alt="image-20210809224851755"> </p>
 <p><strong>5). 设置虚拟机的名称及系统文件存放路径</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225106268.png" alt="image-20210809225106268"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225106268.png" alt="image-20210809225106268"> </p>
 <p><strong>6). 设置磁盘容量</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225243488.png" alt="image-20210809225243488"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225243488.png" alt="image-20210809225243488"> </p>
 <p><strong>7). 自定义硬件信息</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225706412.png" alt="image-20210809225706412"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809225706412.png" alt="image-20210809225706412"> </p>
 <p><strong>8). 启动上述创建的新虚拟机</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809230230390.png" alt="image-20210809230230390" style="zoom:80%;">  
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809230230390.png" alt="image-20210809230230390" style="zoom:80%;">  
 
 
 
 <p><strong>9). 选择”Install CentOS7”</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809230720673.png" alt="image-20210809230720673" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809230720673.png" alt="image-20210809230720673" style="zoom:80%;"> 
 
 <blockquote>
 <p>进入到Linux系统里面, 我们发现光标无法移动到windows操作系统中了, 这个时候, 我们可以通过快捷键 “Ctrl+Alt” 切换光标到windows系统中。</p>
 </blockquote>
 <p><strong>10). 选择语言为 “简体中文”</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809231002444.png" alt="image-20210809231002444" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809231002444.png" alt="image-20210809231002444" style="zoom:80%;"> 
 
 
 
 <p><strong>11). 选择”自动配置分区”</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809231704202.png" alt="image-20210809231704202">  </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809231704202.png" alt="image-20210809231704202">  </p>
 <p>12). 选择”最小安装”</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232041661.png" alt="image-20210809232041661"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232041661.png" alt="image-20210809232041661"> </p>
 <p><strong>13). 设置”root”用户密码</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232438579.png" alt="image-20210809232438579"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232438579.png" alt="image-20210809232438579"> </p>
 <p>安装完毕后，点击窗口中的蓝色的 “重启” 按钮，重启Linux系统。</p>
 <p><strong>14). 登录系统</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232913715.png" alt="image-20210809232913715"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809232913715.png" alt="image-20210809232913715"> </p>
 <blockquote>
 <p><font color="red">注意 : 在Linux系统中，在命令行中输入密码信息，为了保证安全性，密码是不显示的(看似没有输入，实际已经输入了)；</font></p>
 </blockquote>
 <h3 id="3-4-网卡设置"><a href="#3-4-网卡设置" class="headerlink" title="3.4 网卡设置"></a>3.4 网卡设置</h3><p>服务器重启完成之后，我们可以通过linux的指令 <code>ip addr</code> 来查询Linux系统的IP地址，具体信息如下: </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809233341574.png" alt="image-20210809233341574" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809233341574.png" alt="image-20210809233341574" style="zoom:80%;"> 
 
 <p>从图中我们可以看到，并没有获取到linux系统的IP地址，这是为什么呢？这是由于启动服务器时未加载网卡，导致IP地址初始化失败而造成的。那么接下来我们就需要来修改网络初始化配置，设定网卡在系统启动时初始化。</p>
 <p><strong>具体操作步骤如下：</strong> </p>
@@ -453,22 +453,22 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 ④<span class="token punctuation">.</span> 输入 <span class="token operator">:</span>wq
 ⑤<span class="token punctuation">.</span> 按 <span class="token constant">ENTER</span>	保存退出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809234131816.png" alt="image-20210809234131816"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809234131816.png" alt="image-20210809234131816"> </p>
 <blockquote>
 <p><font color="red">备注: 在上述的操作中用到了Linux中的相关指令, 目前大家不用深究, 后面会详细讲解, 目前大家只需要把这个文件的配置项ONBOOT的值有no改为yes即可。</font></p>
 </blockquote>
 <p>2). 重新启动虚拟机</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809234617798.png" alt="image-20210809234617798" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809234617798.png" alt="image-20210809234617798" style="zoom:80%;"> 
 
 <p>重启之后, 再次输入root的用户名密码，登录到Linux系统之后，可以通过指令 <code>ip addr</code> 来查看IP地址。</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235056773.png" alt="image-20210809235056773"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235056773.png" alt="image-20210809235056773"> 
 
 
 
 
 
 <h3 id="3-5-安装SSH连接工具"><a href="#3-5-安装SSH连接工具" class="headerlink" title="3.5 安装SSH连接工具"></a>3.5 安装SSH连接工具</h3><h4 id="3-5-1-SSH连接工具介绍"><a href="#3-5-1-SSH连接工具介绍" class="headerlink" title="3.5.1 SSH连接工具介绍"></a>3.5.1 SSH连接工具介绍</h4><p>Linux已经安装并且配置好了，接下来我们要来学习Linux的基本操作指令。而在学习之前，我们还需要做一件事情，由于我们企业开发时，Linux服务器一般都是在远程的机房部署的，我们要操作服务器，不会每次都跑到远程的机房里面操作，而是会直接通过SSH连接工具进行连接操作。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000224690.png" alt="image-20210810000224690"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000224690.png" alt="image-20210810000224690"> </p>
 <p>SSH（Secure Shell），建立在应用层基础上的安全协议。常用的SSH连接工具: </p>
 <table>
 <thead>
@@ -480,48 +480,48 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 </thead>
 <tbody><tr>
 <td>putty</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235613688.png" alt="image-20210809235613688" style="zoom:15%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235613688.png" alt="image-20210809235613688" style="zoom:15%;"></td>
 <td>免费, 界面简单, 功能单一</td>
 </tr>
 <tr>
 <td>secureCRT</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235723109.png" alt="image-20210809235723109" style="zoom:20%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235723109.png" alt="image-20210809235723109" style="zoom:20%;"></td>
 <td>收费, 功能强大</td>
 </tr>
 <tr>
 <td>xshell</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235802640.png" alt="image-20210809235802640" style="zoom:50%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235802640.png" alt="image-20210809235802640" style="zoom:50%;"></td>
 <td>收费版&#x2F;免费版</td>
 </tr>
 <tr>
 <td>finalshell</td>
-<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235841384.png" alt="image-20210809235841384" style="zoom: 67%;"></td>
+<td><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210809235841384.png" alt="image-20210809235841384" style="zoom: 67%;"></td>
 <td>免费, 功能强大, 界面效果好 (课程中采用)</td>
 </tr>
 </tbody></table>
 <h4 id="3-5-2-FinalShell安装"><a href="#3-5-2-FinalShell安装" class="headerlink" title="3.5.2 FinalShell安装"></a>3.5.2 FinalShell安装</h4><p>在课程资料中，提供了finalShell的安装包</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000309123.png" alt="image-20210810000309123"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000309123.png" alt="image-20210810000309123"> </p>
 <p>双击.exe文件，然后进行正常的安装即可。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000318212.png" alt="image-20210810000318212"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810000318212.png" alt="image-20210810000318212"> </p>
 <h4 id="3-5-3-连接Linux"><a href="#3-5-3-连接Linux" class="headerlink" title="3.5.3 连接Linux"></a>3.5.3 连接Linux</h4><p><strong>1). 打开finalShell</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173004153.png" alt="image-20210810173004153" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173004153.png" alt="image-20210810173004153" style="zoom:80%;"> 
 
 
 
 <p><strong>2). 建立连接</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173138650.png" alt="image-20210810173138650" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173138650.png" alt="image-20210810173138650" style="zoom:80%;"> 
 
-<p> <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173900140.png" alt="image-20210810173900140"> </p>
+<p> <img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810173900140.png" alt="image-20210810173900140"> </p>
 <h3 id="3-6-Linux目录结构"><a href="#3-6-Linux目录结构" class="headerlink" title="3.6 Linux目录结构"></a>3.6 Linux目录结构</h3><p>登录到Linux系统之后，我们需要先来熟悉一下Linux的目录结构。在Linux系统中，也是存在目录的概念的，但是Linux的目录结构和Windows的目录结构是存在比较多的差异的 在Windows目录下，是一个一个的盘符(C盘、D盘、E盘)，目录是归属于某一个盘符的。Linux系统中的目录有以下特点： </p>
 <p><strong>A. &#x2F; 是所有目录的顶点</strong></p>
 <p><strong>B. 目录结构像一颗倒挂的树</strong></p>
 <p><strong>Linux 和 Windows的目录结构对比:</strong> </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810174831655.png" alt="image-20210810174831655" style="zoom: 80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810174831655.png" alt="image-20210810174831655" style="zoom: 80%;"> 
 
 
 
 <p>Linux的目录结构，如下： </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810174954476.png" alt="image-20210810174954476"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810174954476.png" alt="image-20210810174954476"> </p>
 <p>根目录&#x2F; 下各个目录的作用及含义说明:  </p>
 <table>
 <thead>
@@ -641,46 +641,46 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 </tbody></table>
 <p>接下来，我们快速的来演示一下这些常用的指令。</p>
 <p><strong>1). ls</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182042076.png" alt="image-20210810182042076"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182042076.png" alt="image-20210810182042076"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	ls 	查看当前目录下的内容(文件及目录)</p>
 <p>​	ls &#x2F;   查看指定目录(&#x2F;)下的内容</p>
 </blockquote>
 <p><strong>2). pwd</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182335470.png" alt="image-20210810182335470"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182335470.png" alt="image-20210810182335470"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	pwd	查看当前所在目录</p>
 </blockquote>
 <p><strong>3). cd</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182607821.png" alt="image-20210810182607821"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182607821.png" alt="image-20210810182607821"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	cd  &#x2F;		切换到根目录</p>
 <p>​	cd  &#x2F;root	切换到&#x2F;root目录</p>
 </blockquote>
 <p><strong>4). touch</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182917750.png" alt="image-20210810182917750"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810182917750.png" alt="image-20210810182917750"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	touch  1.txt    创建文件1.txt</p>
 <p>​	touch  2.txt 3.txt 4.txt   一次性创建文件2.txt,3.txt,3.txt</p>
 </blockquote>
 <p><strong>5). mkdir</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810183154023.png" alt="image-20210810183154023"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810183154023.png" alt="image-20210810183154023"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	mkdir 01 	创建文件夹01 </p>
 </blockquote>
 <p><strong>6). rm</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810183522849.png" alt="image-20210810183522849"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810183522849.png" alt="image-20210810183522849"> </p>
 <blockquote>
 <p>指令解读: </p>
 <p>​	rm  4.txt	删除文件 (删除文件时,需要确认,输入y, 代表确定)</p>
 </blockquote>
 <p>&#x3D;&#x3D;注意:&#x3D;&#x3D; </p>
-<p>​	<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810184600425.png" alt="image-20210810184600425"> </p>
+<p>​	<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810184600425.png" alt="image-20210810184600425"> </p>
 <p>​	&#x3D;&#x3D;在执行Linux命令时，提示信息如果显示为乱码，如上图所示。这是由于编码问题导致，只需要修改Linux的编码即可，命令如下：&#x3D;&#x3D;</p>
 <p>​	echo ‘LANG&#x3D;”en_US.UTF-8”‘ &gt;&gt; &#x2F;etc&#x2F;profile</p>
 <p>​	source &#x2F;etc&#x2F;profile</p>
@@ -691,13 +691,13 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 <p>4). 使用clear命令或者Ctrl+l快捷键实现清屏</p>
 <p><strong>操作示例:</strong> </p>
 <p>A. 执行指令的时候，对于操作的文件&#x2F;目录，按一下Tab会自动补全:</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810185641027.png" alt="image-20210810185641027"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810185641027.png" alt="image-20210810185641027"> </p>
 <p>B. 如果上述以 “1.” 开头的文件有多个，可以按两下Tab键，给出操作提示:</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190101671.png" alt="image-20210810190101671"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190101671.png" alt="image-20210810190101671"> </p>
 <p>C. 使用clear命令或者Ctrl+l快捷键实现清屏:</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190458929.png" alt="image-20210810190458929"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190458929.png" alt="image-20210810190458929"></p>
 <p>清屏之后，界面就变得干净了: </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190546209.png" alt="image-20210810190546209"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810190546209.png" alt="image-20210810190546209"> </p>
 <h4 id="4-1-3-Linux命令格式"><a href="#4-1-3-Linux命令格式" class="headerlink" title="4.1.3 Linux命令格式"></a>4.1.3 Linux命令格式</h4><pre class="line-numbers language-none"><code class="language-none">command [-options] [parameter]
 	
 说明: 
@@ -712,7 +712,7 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 
 
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810192202455.png" alt="image-20210810192202455"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810192202455.png" alt="image-20210810192202455"> </p>
 <h3 id="4-2-文件目录操作命令"><a href="#4-2-文件目录操作命令" class="headerlink" title="4.2 文件目录操作命令"></a>4.2 文件目录操作命令</h3><h4 id="4-2-1-ls"><a href="#4-2-1-ls" class="headerlink" title="4.2.1 ls"></a>4.2.1 ls</h4><pre class="line-numbers language-none"><code class="language-none">作用: 显示指定目录下的内容
 语法: ls [-al] [dir]
 说明: 
@@ -730,10 +730,10 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 
 
 <p><strong>操作示例:</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193149925.png" alt="image-20210810193149925"> </p>
-<p> <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193302047.png" alt="image-20210810193302047"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193605487.png" alt="image-20210810193605487"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810194129919.png" alt="image-20210810194129919"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193149925.png" alt="image-20210810193149925"> </p>
+<p> <img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193302047.png" alt="image-20210810193302047"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810193605487.png" alt="image-20210810193605487"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810194129919.png" alt="image-20210810194129919"> </p>
 <h4 id="4-2-2-cd"><a href="#4-2-2-cd" class="headerlink" title="4.2.2 cd"></a>4.2.2 cd</h4><pre class="line-numbers language-none"><code class="language-none">作用: 用于切换当前工作目录，即进入指定目录
 语法: cd [dirName]
 	
@@ -754,8 +754,8 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 <p>​	其他用户	&#x2F;home&#x2F;xxx</p>
 </blockquote>
 <p>操作示例: </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810230949775.png" alt="image-20210810230949775"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810231024129.png" alt="image-20210810231024129"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810230949775.png" alt="image-20210810230949775"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810231024129.png" alt="image-20210810231024129"> </p>
 <p>cd .. 切换到当前目录位置的上级目录; 可以通过 cd ..&#x2F;.. 来切换到上级目录的上级目录。</p>
 <h4 id="4-2-3-cat"><a href="#4-2-3-cat" class="headerlink" title="4.2.3 cat"></a>4.2.3 cat</h4><pre class="line-numbers language-none"><code class="language-none">作用: 用于显示文件内容
 语法: cat [-n] fileName
@@ -769,7 +769,7 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 
 
 <p><strong>操作演示:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810231651338.png" alt="image-20210810231651338"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810231651338.png" alt="image-20210810231651338"> </p>
 <p>cat 指令会一次性查看文件的所有内容，如果文件内容比较多，这个时候查看起来就不是很方便了，这个时候我们可以通过一个新的指令more。</p>
 <h4 id="4-2-4-more"><a href="#4-2-4-more" class="headerlink" title="4.2.4 more"></a>4.2.4 more</h4><pre class="line-numbers language-none"><code class="language-none">作用: 以分页的形式显示文件内容
 语法: more fileName
@@ -786,7 +786,7 @@ vi ifcfg<span class="token operator">-</span>ens33		编辑ifcfg<span class="toke
 
 
 <p><strong>操作示例：</strong></p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232212430.png" alt="image-20210810232212430" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232212430.png" alt="image-20210810232212430" style="zoom:80%;"> 
 
 <p>当我们在查看一些比较大的文件时，我们可能需要经常查询文件尾部的数据信息，那这个时候如果文件很大，我们要一直向下翻页，直到最后一页，去看最新添加的数据，这种方式就比较繁琐了，此时，我们可以借助于tail指令。</p>
 <h4 id="4-2-5-tail"><a href="#4-2-5-tail" class="headerlink" title="4.2.5 tail"></a>4.2.5 tail</h4><pre class="line-numbers language-none"><code class="language-none">作用: 查看文件末尾的内容
@@ -804,11 +804,11 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 <p><strong>操作示例：</strong> </p>
 <p>A. 默认查询文件尾部10行记录</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232758510.png" alt="image-20210810232758510"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232758510.png" alt="image-20210810232758510"> </p>
 <p>B. 可以通过指定参数设置查询尾部指定行数的数据</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232947018.png" alt="image-20210810232947018"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810232947018.png" alt="image-20210810232947018"> </p>
 <p>C. 动态读取文件尾部的数据</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810233514284.png" alt="image-20210810233514284"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810233514284.png" alt="image-20210810233514284"> </p>
 <p>在窗口1中执行指令 <code>tail -f 1.txt</code> 动态查看文件尾部的数据。然后在顶部的标签中右键选择 “复制标签”，打开新的窗口2 , 此时再新打开的窗口2中执行指令 <code>echo 1 &gt;&gt; 1.txt</code> , 往1.txt文件尾部追加内容，然后我们就可以在窗口1中看到最新的文件尾部的数据。</p>
 <p>如果我们不想查看文件尾部的数据了，可以直接使用快捷键 Ctrl+C ， 结束当前进程。</p>
 <h4 id="4-2-6-mkdir"><a href="#4-2-6-mkdir" class="headerlink" title="4.2.6 mkdir"></a>4.2.6 mkdir</h4><pre class="line-numbers language-none"><code class="language-none">作用: 创建目录
@@ -824,7 +824,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 
 <p><strong>操作演示:</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810234541073.png" alt="image-20210810234541073"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810234541073.png" alt="image-20210810234541073"> </p>
 <h4 id="4-2-7-rmdir"><a href="#4-2-7-rmdir" class="headerlink" title="4.2.7 rmdir"></a>4.2.7 rmdir</h4><pre class="line-numbers language-none"><code class="language-none">作用: 删除空目录
 语法: rmdir [-p] dirName
 
@@ -840,11 +840,11 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 <p><strong>操作演示:</strong> </p>
 <p>A. 删除空目录</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235044921.png" alt="image-20210810235044921"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235044921.png" alt="image-20210810235044921"> </p>
 <p>B. 删除非空目录</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235221722.png" alt="image-20210810235221722"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235221722.png" alt="image-20210810235221722"> </p>
 <p>C. 使用*通配符删除目录</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235305140.png" alt="image-20210810235305140"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235305140.png" alt="image-20210810235305140"> </p>
 <blockquote>
 <p>*: 是一个通配符，代表任意字符； </p>
 <p>rmdir  itcast* : 删除以itcast开头的目录</p>
@@ -866,7 +866,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235809473.png" alt="image-20210810235809473"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210810235809473.png" alt="image-20210810235809473"> </p>
 <p>&#x3D;&#x3D;注意: 对于 rm -rf xxx 这样的指令，在执行的时候，一定要慎重，确认无误后再进行删除，避免误删。&#x3D;&#x3D;</p>
 <h3 id="4-3-拷贝移动命令"><a href="#4-3-拷贝移动命令" class="headerlink" title="4.3 拷贝移动命令"></a>4.3 拷贝移动命令</h3><h4 id="4-3-1-cp"><a href="#4-3-1-cp" class="headerlink" title="4.3.1 cp"></a>4.3.1 cp</h4><pre class="line-numbers language-none"><code class="language-none">作用: 用于复制文件或目录
 语法: cp [-r] source dest
@@ -883,9 +883,9 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180508369.png" alt="image-20210811180508369"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180638556.png" alt="image-20210811180638556"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180914417.png" alt="image-20210811180914417"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180508369.png" alt="image-20210811180508369"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180638556.png" alt="image-20210811180638556"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811180914417.png" alt="image-20210811180914417"> </p>
 <p>如果拷贝的内容是目录，需要加上参数 -r </p>
 <h4 id="4-3-2-mv"><a href="#4-3-2-mv" class="headerlink" title="4.3.2 mv"></a>4.3.2 mv</h4><pre class="line-numbers language-none"><code class="language-none">作用: 为文件或目录改名、或将文件或目录移动到其它位置
 语法: mv source dest
@@ -901,7 +901,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 <p><strong>操作示例:</strong> </p>
 <p>mv 命令既能够改名，又可以移动，具体是改名还是移动,系统会根据我们输入的参数进行判定(如果第二个参数dest是一个已存在的目录,将执行移动操作,其他情况都是改名)</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811184240003.png" alt="image-20210811184240003"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811184240003.png" alt="image-20210811184240003"></p>
 <h3 id="4-4-打包压缩命令"><a href="#4-4-打包压缩命令" class="headerlink" title="4.4 打包压缩命令"></a>4.4 打包压缩命令</h3><pre class="line-numbers language-none"><code class="language-none">作用: 对文件进行打包、解包、压缩、解压
 语法: tar  [-zcxvf]  fileName  [files]
     包文件后缀为.tar表示只是完成了打包，并没有压缩
@@ -929,24 +929,24 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 <p><strong>操作示例:</strong> </p>
 <p>A. 打包</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811185728541.png" alt="image-20210811185728541"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811185728541.png" alt="image-20210811185728541"> </p>
 <p>B. 打包并压缩</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190035256.png" alt="image-20210811190035256"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190035256.png" alt="image-20210811190035256"> </p>
 <p>C. 解包</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190307630.png" alt="image-20210811190307630"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190307630.png" alt="image-20210811190307630"> </p>
 <p>D. 解压</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190450820.png" alt="image-20210811190450820"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190450820.png" alt="image-20210811190450820"> </p>
 <p>解压到指定目录,需要加上参数 -C</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190626414.png" alt="image-20210811190626414"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811190626414.png" alt="image-20210811190626414"> </p>
 <h3 id="4-5-文本编辑命令"><a href="#4-5-文本编辑命令" class="headerlink" title="4.5 文本编辑命令"></a>4.5 文本编辑命令</h3><p>文本编辑的命令，主要包含两个: vi 和 vim，两个命令的用法类似，我们课程中主要讲解vim的使用。</p>
 <h4 id="4-5-1-vi-vim介绍"><a href="#4-5-1-vi-vim介绍" class="headerlink" title="4.5.1 vi&amp;vim介绍"></a>4.5.1 vi&amp;vim介绍</h4><p>作用: vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</p>
 <p>语法: vi fileName</p>
 <p>说明:<br>  1). vim是从vi发展来的一个功能更加强大的文本编辑工具，编辑文件时可以对文本内容进行着色，方便我们对文件进行编辑处理，所以实际工作中vim更加常用。<br>  2). 要使用vim命令，需要我们自己完成安装。可以使用下面的命令来完成安装：<code>yum install vim</code></p>
 <h4 id="4-5-2-vim安装"><a href="#4-5-2-vim安装" class="headerlink" title="4.5.2 vim安装"></a>4.5.2 vim安装</h4><p>命令： yum install vim</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192217715.png" alt="image-20210811192217715"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192217715.png" alt="image-20210811192217715"> </p>
 <p>安装过程中，会有确认提示，此时输入 y，然后回车，继续安装：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192256269.png" alt="image-20210811192256269"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192350907.png" alt="image-20210811192350907"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192256269.png" alt="image-20210811192256269"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811192350907.png" alt="image-20210811192350907"> </p>
 <h4 id="4-5-3-vim使用"><a href="#4-5-3-vim使用" class="headerlink" title="4.5.3 vim使用"></a>4.5.3 vim使用</h4><p>作用: 对文件内容进行编辑，vim其实就是一个文本编辑器<br>语法: vim fileName<br>说明:<br>    1). 在使用vim命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件。<br>    2). vim在进行文本编辑时共分为三种模式，分别是 命令模式（Command mode），插入模式（Insert mode）和底行模式（Last line mode）。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式。</p>
 <p>三种模式:<br>    - 命令模式<br>      A. 命令模式下可以查看文件内容、移动光标（上下左右箭头、gg、G）<br>      B. 通过vim命令打开文件后，默认进入命令模式<br>      C. 另外两种模式需要首先进入命令模式，才能进入彼此</p>
 <pre><code>  | 命令模式指令 | 含义                              |
@@ -994,10 +994,10 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 </tbody></table>
 </li>
 </ul>
-<p>​     <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811194627474.png" alt="image-20210811194627474" style="zoom: 80%;"> </p>
+<p>​     <img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811194627474.png" alt="image-20210811194627474" style="zoom: 80%;"> </p>
 <p>​	</p>
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200005097.png" alt="image-20210811200005097"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200005097.png" alt="image-20210811200005097"> </p>
 <h3 id="4-6-查找命令"><a href="#4-6-查找命令" class="headerlink" title="4.6 查找命令"></a>4.6 查找命令</h3><h4 id="4-6-1-find"><a href="#4-6-1-find" class="headerlink" title="4.6.1 find"></a>4.6.1 find</h4><pre class="line-numbers language-none"><code class="language-none">作用: 在指定目录下查找文件
 语法: find dirName -option fileName
 举例:
@@ -1007,7 +1007,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200438459.png" alt="image-20210811200438459"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200438459.png" alt="image-20210811200438459"> </p>
 <h4 id="4-6-2-grep"><a href="#4-6-2-grep" class="headerlink" title="4.6.2 grep"></a>4.6.2 grep</h4><pre class="line-numbers language-none"><code class="language-none">作用: 从指定文件中查找指定的文本内容
 语法: grep word fileName
 举例: 
@@ -1017,7 +1017,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 
 
 <p><strong>操作示例:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200737596.png" alt="image-20210811200737596"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210811200737596.png" alt="image-20210811200737596"> </p>
 <h2 id="5-软件安装"><a href="#5-软件安装" class="headerlink" title="5. 软件安装"></a>5. 软件安装</h2><h3 id="5-1-软件安装方式"><a href="#5-1-软件安装方式" class="headerlink" title="5.1 软件安装方式"></a>5.1 软件安装方式</h3><p>在Linux系统中，安装软件的方式主要有四种，这四种安装方式的特点如下：</p>
 <table>
 <thead>
@@ -1043,13 +1043,13 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 <td>软件以源码工程的形式发布，需要自己编译打包</td>
 </tr>
 </tbody></table>
-<h3 id="5-2-安装JDK"><a href="#5-2-安装JDK" class="headerlink" title="5.2 安装JDK"></a>5.2 安装JDK</h3><p>上述我们介绍了Linux系统软件安装的四种形式，接下来我们就通过第一种(二进制发布包)形式来安装JDK。 JDK对应的二进制发布包，在课程资料中已经提供，如下：<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814174022881.png" alt="image-20210814174022881"> </p>
+<h3 id="5-2-安装JDK"><a href="#5-2-安装JDK" class="headerlink" title="5.2 安装JDK"></a>5.2 安装JDK</h3><p>上述我们介绍了Linux系统软件安装的四种形式，接下来我们就通过第一种(二进制发布包)形式来安装JDK。 JDK对应的二进制发布包，在课程资料中已经提供，如下：<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814174022881.png" alt="image-20210814174022881"> </p>
 <p>JDK具体安装步骤如下： </p>
 <p><strong>1). 上传安装包</strong></p>
 <p>使用FinalShell自带的上传工具将jdk的二进制发布包上传到Linux</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814180303278.png" alt="image-20210814180303278"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814180303278.png" alt="image-20210814180303278"> </p>
 <p>由于上述在进行文件上传时，选择的上传目录为根目录 &#x2F;，上传完毕后，我们执行指令 cd &#x2F; 切换到根目录下，查看上传的安装包。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814180702071.png" alt="image-20210814180702071"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814180702071.png" alt="image-20210814180702071"> </p>
 <p>2）卸载以前的JDK</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看安装的jdk</span>
 <span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">java</span>
@@ -1066,7 +1066,7 @@ tail -f &#x2F;itcast&#x2F;my.log	动态读取&#x2F;itcast目录下的my.log文�
 <p>执行如下指令，将上传上来的压缩包进行解压，并通过-C参数指定解压文件存放目录为 &#x2F;usr&#x2F;local。</p>
 <pre class="line-numbers language-none"><code class="language-none">tar -zxvf jdk-8u171-linux-x64.tar.gz -C &#x2F;usr&#x2F;local<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814181014481.png" alt="image-20210814181014481"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814181014481.png" alt="image-20210814181014481"> </p>
 <p><strong>3). 配置环境变量</strong></p>
 <p>使用vim命令修改&#x2F;etc&#x2F;profile文件，在文件末尾加入如下配置</p>
 <pre class="line-numbers language-none"><code class="language-none">JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk1.8.0_171
@@ -1103,13 +1103,13 @@ PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH<span aria-hidden="true" class="line-numbers-
 <p><strong>5). 检查安装是否成功</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814182327675.png" alt="image-20210814182327675"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814182327675.png" alt="image-20210814182327675"> </p>
 <h3 id="5-3-安装Tomcat"><a href="#5-3-安装Tomcat" class="headerlink" title="5.3 安装Tomcat"></a>5.3 安装Tomcat</h3><h4 id="5-3-1-Tomcat安装"><a href="#5-3-1-Tomcat安装" class="headerlink" title="5.3.1 Tomcat安装"></a>5.3.1 Tomcat安装</h4><p>Tomcat的安装和上述JDK的安装采用相同的方式，都是使用二进制发布包的形式进行安装，在我们的资料目录下，也已经准备了Tomcat的安装包： </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814222911649.png" alt="image-20210814222911649"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814222911649.png" alt="image-20210814222911649"> </p>
 <p>具体安装步骤如下： </p>
 <p><strong>1). 上传安装包</strong></p>
 <p>使用FinalShell自带的上传工具将Tomcat的二进制发布包上传到Linux(与前面上传JDK安装包步骤一致)。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223436296.png" alt="image-20210814223436296"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223436296.png" alt="image-20210814223436296"> </p>
 <p><strong>2). 解压安装包</strong></p>
 <p>将上传上来的安装包解压到指定目录&#x2F;usr&#x2F;local下，执行命令为</p>
 <pre class="line-numbers language-none"><code class="language-none">tar -zxvf apache-tomcat-7.0.57.tar.gz -C &#x2F;usr&#x2F;local<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1124,9 +1124,9 @@ cd bin
 
 sh startup.sh或者.&#x2F;startup.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223807228.png" alt="image-20210814223807228" style="zoom:85.5%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223807228.png" alt="image-20210814223807228" style="zoom:85.5%;"> 
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223959266.png" alt="image-20210814223959266"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814223959266.png" alt="image-20210814223959266"> </p>
 <h4 id="5-3-2-Tomcat进程查看"><a href="#5-3-2-Tomcat进程查看" class="headerlink" title="5.3.2 Tomcat进程查看"></a>5.3.2 Tomcat进程查看</h4><p>上述我们将Tomcat启动完成之后，并不能知道Tomcat是否正常运行，那么我们验证Tomcat启动是否成功，有多种方式，我们这里主要介绍常见的两种方式： </p>
 <p><strong>1). 查看启动日志</strong></p>
 <p>Tomcat的启动日志输出在Tomcat的安装目录下的logs目录中，Tomcat的启动及运行日志文件名为 catalina.out，所以我们查看Tomcat启动日志，主要可以通过两条指令，如下： </p>
@@ -1141,7 +1141,7 @@ tail -50 &#x2F;usr&#x2F;local&#x2F;apache-tomcat-7.0.57&#x2F;logs&#x2F;catalina.
 <p>我们也可以通过Linux系统的查看系统进程的指令，来判定Tomcat进程是否存在，从而判定Tomcat是否启动。执行如下指令： </p>
 <pre class="line-numbers language-none"><code class="language-none">ps -ef|grep tomcat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814225635982.png" alt="image-20210814225635982"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814225635982.png" alt="image-20210814225635982"> </p>
 <p><strong>说明:</strong> </p>
 <ul>
 <li><p>&#x3D;&#x3D;ps&#x3D;&#x3D;命令是linux下非常强大的进程查看命令，通过ps -ef可以查看当前运行的所有进程的详细信息</p>
@@ -1152,7 +1152,7 @@ tail -50 &#x2F;usr&#x2F;local&#x2F;apache-tomcat-7.0.57&#x2F;logs&#x2F;catalina.
 </li>
 </ul>
 <h4 id="5-3-3-防火墙操作"><a href="#5-3-3-防火墙操作" class="headerlink" title="5.3.3 防火墙操作"></a>5.3.3 防火墙操作</h4><p>前面我们已经通过日志的方式及查看系统进程的方式，验证了Tomcat服务已经正常启动，接下来我们就可以尝试访问一下。访问地址：<a href="http://192.168.138.130:8080，我们发现是访问不到的。">http://192.168.138.130:8080，我们发现是访问不到的。</a></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814230753600.png" alt="image-20210814230753600"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814230753600.png" alt="image-20210814230753600"> </p>
 <p>那为什么tomcat启动成功了，但就是访问不到呢？原因就在于Linux系统的防火墙，系统安装完毕后，系统启动时，防火墙自动启动，防火墙拦截了所有端口的访问。接下来我们就需要学习一下，如何操作防火墙，具体指令如下： </p>
 <table>
 <thead>
@@ -1220,7 +1220,7 @@ tail -50 &#x2F;usr&#x2F;local&#x2F;apache-tomcat-7.0.57&#x2F;logs&#x2F;catalina.
 <pre class="line-numbers language-none"><code class="language-none">systemctl stop firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>关闭之后，再次访问Tomcat，就可以访问到了。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814232643393.png" alt="image-20210814232643393"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814232643393.png" alt="image-20210814232643393"> </p>
 <p><font color="red">注意: 上面我们也提到了，直接关闭系统的防火墙，是不建议的，因为这样会造成系统不安全。</font></p>
 <p><strong>B. 开放Tomcat的端口号8080</strong></p>
 <p>执行指令: </p>
@@ -1234,11 +1234,11 @@ firewall-cmd --zone&#x3D;public --add-port&#x3D;8080&#x2F;tcp --permanent
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>执行上述的操作之后，就开放了当前系统中的8080端口号，再次访问Tomcat。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814232643393.png" alt="image-20210814232643393"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814232643393.png" alt="image-20210814232643393"></p>
 <h4 id="5-3-4-停止Tomcat"><a href="#5-3-4-停止Tomcat" class="headerlink" title="5.3.4 停止Tomcat"></a>5.3.4 停止Tomcat</h4><p>在Linux系统中，停止Tomcat服务的方式主要有两种： </p>
 <p><strong>1). 运行Tomcat提供的脚本文件</strong></p>
 <p>在Tomcat安装目录下有一个bin目录，这个目录中存放的是tomcat的运行脚本文件，其中有一个脚本就是用于停止tomcat服务的。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814235615330.png" alt="image-20210814235615330"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814235615330.png" alt="image-20210814235615330"> </p>
 <p>我们可以切换到bin目录，并执行如下指令，来停止Tomcat服务：</p>
 <pre class="line-numbers language-none"><code class="language-none">sh shutdown.sh
 .&#x2F;shutdown.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1247,7 +1247,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 
 <p><strong>2). 结束Tomcat进程</strong></p>
 <p>我们可以先通过 <code>ps -ef|grep tomcat</code> 指令查看tomcat进程的信息，从进程信息中获取tomcat服务的进程号。然后通过kill -9 的形式，来杀死系统进程。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814235926088.png" alt="image-20210814235926088"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210814235926088.png" alt="image-20210814235926088"> </p>
 <p>通过上述的指令，我们可以获取到tomcat的进程号为 79947。接下来，我们就可以通过指令 ，来杀死tomcat的进程 ：</p>
 <pre class="line-numbers language-none"><code class="language-none">kill -9 79947 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1272,7 +1272,7 @@ rpm -qa | grep mysql			查询当前系统中安装的名称带mysql的软件
 rpm -qa | grep mariadb			查询当前系统中安装的名称带mariadb的软件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>通过rpm -qa 查询到系统通过rpm安装的所有软件，太多了，不方便查看，所以我们可以通过管道符 | 配合着grep进行过滤查询。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002209121.png" alt="image-20210815002209121"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002209121.png" alt="image-20210815002209121"> </p>
 <p>通过查询，我们发现在当前系统中存在mariadb数据库，是CentOS7中自带的，而这个数据库和MySQL数据库是冲突的，所以要想保证MySQL成功安装，需要卸载mariadb数据库。</p>
 <p><strong>2). 卸载现有的MySQL数据库</strong></p>
 <p>在rpm中，卸载软件的语法为： </p>
@@ -1281,19 +1281,19 @@ rpm -qa | grep mariadb			查询当前系统中安装的名称带mariadb的软件
 <p>那么，我们就可以通过指令，卸载 mariadb，具体指令为： </p>
 <pre class="line-numbers language-none"><code class="language-none">rpm -e --nodeps  mariadb-libs-5.5.60-1.el7_5.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002649784.png" alt="image-20210815002649784"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002649784.png" alt="image-20210815002649784"> </p>
 <p>我们看到执行完毕之后， 再次查询 mariadb，就查不到了，因为已经被成功卸载了。</p>
 <p><strong>3). 将资料中提供的MySQL安装包上传到Linux并解压</strong></p>
 <p>A. 上传MySQL安装包</p>
 <p>在课程资料中，提供的有MySQL的安装包 ，我们需要将该安装包上传到Linux系统的根目录 &#x2F; 下面。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002907050.png" alt="image-20210815002907050"> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815003107734.png" alt="image-20210815003107734"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815002907050.png" alt="image-20210815002907050"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815003107734.png" alt="image-20210815003107734"> </p>
 <p>B. 解压到&#x2F;usr&#x2F;local&#x2F;mysql</p>
 <p>执行如下指令: </p>
 <pre class="line-numbers language-none"><code class="language-none">mkdir &#x2F;usr&#x2F;local&#x2F;mysql
 tar -zxvf mysql-5.7.25-1.el7.x86_64.rpm-bundle.tar.gz -C &#x2F;usr&#x2F;local&#x2F;mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815003647507.png" alt="image-20210815003647507"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815003647507.png" alt="image-20210815003647507"> </p>
 <p><strong>4). 安装顺序安装rpm安装包</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> mysql-community-common-5.7.25-1.el7.x86_64.rpm
 <span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> mysql-community-libs-5.7.25-1.el7.x86_64.rpm
@@ -1313,13 +1313,13 @@ yum <span class="token function">install</span> net-tools
 <li>可以通过指令(yum update)升级现有软件及系统内核</li>
 </ul>
 </blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815004608198.png" alt="image-20210815004608198"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815004608198.png" alt="image-20210815004608198"> </p>
 <h4 id="5-4-2-MySQL启动"><a href="#5-4-2-MySQL启动" class="headerlink" title="5.4.2 MySQL启动"></a>5.4.2 MySQL启动</h4><p>MySQL安装完成之后，会自动注册为系统的服务，服务名为mysqld。那么，我们就可以通过systemctl指令来查看mysql的状态、启动mysql、停止mysql。</p>
 <pre class="line-numbers language-none"><code class="language-none">systemctl status mysqld		查看mysql服务状态
 systemctl start mysqld		启动mysql服务
 systemctl stop mysqld		停止mysql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815005920721.png" alt="image-20210815005920721"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815005920721.png" alt="image-20210815005920721"></p>
 <blockquote>
 <p>说明： </p>
 <p>​	可以设置开机时启动mysql服务，避免每次开机启动mysql。执行如下指令： </p>
@@ -1331,7 +1331,7 @@ netstat -tunlp | grep mysql		查看mysql的服务信息
 
 ps –ef | grep mysql				查看mysql进程<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815010410996.png" alt="image-20210815010410996"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815010410996.png" alt="image-20210815010410996"> </p>
 <blockquote>
 <p><font color="red">备注: </font></p>
 <p>​	<font color="red">A. netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。</font></p>
@@ -1342,11 +1342,11 @@ ps –ef | grep mysql				查看mysql进程<span aria-hidden="true" class="line-n
 <h4 id="5-4-3-MySQL登录"><a href="#5-4-3-MySQL登录" class="headerlink" title="5.4.3 MySQL登录"></a>5.4.3 MySQL登录</h4><h5 id="5-4-3-1-查阅临时密码"><a href="#5-4-3-1-查阅临时密码" class="headerlink" title="5.4.3.1 查阅临时密码"></a>5.4.3.1 查阅临时密码</h5><p>MySQL启动起来之后，我们就可以测试一下登录操作，但是我们要想登录MySQL，需要一个访问密码，而刚才在安装MySQL的过程中，并没有看到让我们设置访问密码，那这个访问密码是多少呢? 那实际上，对于rpm安装的mysql，在mysql第一次启动时，会自动帮我们生成root用户的访问密码，并且输出在mysql的日志文件 &#x2F;var&#x2F;log&#x2F;mysqld.log中，我们可以查看这份日志文件，从而获取到访问密码。</p>
 <p>可以执行如下指令：</p>
 <p>1). cat &#x2F;var&#x2F;log&#x2F;mysqld.log</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815011744113.png" alt="image-20210815011744113"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815011744113.png" alt="image-20210815011744113"> </p>
 <p>这种方式，可以看到所有的日志数据，文件比较大时，很不方便查看数据。我们可以通过管道符 | 配合grep来对数据进行过滤。</p>
 <p>2). cat &#x2F;var&#x2F;log&#x2F;mysqld.log | grep password</p>
 <p>我们可以通过上述指令，查询日志文件内容中包含password的行信息。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815011938287.png" alt="image-20210815011938287"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815011938287.png" alt="image-20210815011938287"> </p>
 <h5 id="5-4-3-2-登录MySQL"><a href="#5-4-3-2-登录MySQL" class="headerlink" title="5.4.3.2 登录MySQL"></a>5.4.3.2 登录MySQL</h5><p>获取到root用户的临时密码之后，我们就可以登录mysql数据库，修改root的密码，为root设置一个新的密码。并且我们还需要开启root用户远程访问该数据库的权限，这样的话，我们就可以在windows上来访问这台MySQL数据库。</p>
 <p>执行如下指令： </p>
 <pre class="line-numbers language-none"><code class="language-none">①. 登录mysql（复制日志中的临时密码登录）
@@ -1362,9 +1362,9 @@ ps –ef | grep mysql				查看mysql进程<span aria-hidden="true" class="line-n
     flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>操作完上述的指令之后，数据库root用户的密码以及远程访问我们就配置好了，接下来，可以执行exit退出mysql，再次通过新的密码进行登录。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815012902871.png" alt="image-20210815012902871"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815012902871.png" alt="image-20210815012902871"> </p>
 <p>当然我们也可以使用安装在windows系统中的sqlyog或者Navicat来远程连接linux上的MySQL。</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815013909486.png" alt="image-20210815013909486" style="zoom: 67%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815013909486.png" alt="image-20210815013909486" style="zoom: 67%;"> 
 
 
 
@@ -1372,7 +1372,7 @@ ps –ef | grep mysql				查看mysql进程<span aria-hidden="true" class="line-n
 <pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanent
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014120709.png" alt="image-20210815014120709"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014120709.png" alt="image-20210815014120709"> </p>
 <h3 id="5-5-安装lrzsz"><a href="#5-5-安装lrzsz" class="headerlink" title="5.5 安装lrzsz"></a>5.5 安装lrzsz</h3><p>lrzsz 是用于在Linux系统中文件上传下载的软件。大家可能会存在疑问，我们用finalShell图形化界面就可以很方便的完成上传下载，为什么还要使用这个软件来完成上传下载呢？实际上是这样的，Linux的远程连接工具有很多，而finalShell只是其中的一种，而还有很多的远程连接工具并没有上传下载的功能，这个时候就需要依赖于lrzsz这个软件了。</p>
 <p>对于lrzsz的安装，我们需要通过第三种软件安装方式yum来进行安装。这里，我们先对yum做一个简单介绍。</p>
 <blockquote>
@@ -1382,24 +1382,24 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <p><strong>1). 搜索lrzsz安装包</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">yum list lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014811466.png" alt="image-20210815014811466"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014811466.png" alt="image-20210815014811466"> </p>
 <p><strong>2). 在线安装lrzsz</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">yum install lrzsz.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014907816.png" alt="image-20210815014907816"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815014907816.png" alt="image-20210815014907816"> </p>
 <p><strong>3). 测试</strong></p>
 <p>在命令行中输入 rz , 就会自动打开一个文件选择的窗口，然后选择要上传的文件。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815015047896.png" alt="image-20210815015047896"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815015047896.png" alt="image-20210815015047896"> </p>
 <blockquote>
 <p><strong>yum拓展知识:</strong></p>
 <p>​	 1). 如果在不更改软件来源的情况下，是需要联网才能使用yum的，那么我们安装的软件是从哪儿下载的呢，这里就涉及到一个概念： yum源。</p>
 <p>​		</p>
 <p>​	 2). 我们可以通过一个指令，来检查当前的yum源</p>
-<p>​		<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816192200749.png" alt="image-20210816192200749" style="zoom:80%;">   </p>
+<p>​		<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816192200749.png" alt="image-20210816192200749" style="zoom:80%;">   </p>
 <p>​		从图中，我们可以看到我们安装的 CentOS7 采用的是网易的163yum源。</p>
 <p>​		</p>
 <p>​	  3). 网络 yum 源配置文件位于 &#x2F;etc&#x2F;yum.repos.d&#x2F; 目录下，文件扩展名为”*.repo”</p>
-<p>​		<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816193941094.png" alt="image-20210816193941094" style="zoom:80%;"> </p>
+<p>​		<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816193941094.png" alt="image-20210816193941094" style="zoom:80%;"> </p>
 <p>​		可以看到，该目录下有 7 个 yum 配置文件，通常情况下 CentOS-Base.repo 文件生效。</p>
 <p>​		</p>
 <p>​	  4). 添加阿里云yum源</p>
@@ -1414,17 +1414,17 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <p>​			yum clean all</p>
 <p>​			yum makecache</p>
 <p>​		E. 再次查看yum源</p>
-<p>​			<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816214230609.png" alt="image-20210816214230609" style="zoom:80%;"> </p>
+<p>​			<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210816214230609.png" alt="image-20210816214230609" style="zoom:80%;"> </p>
 <p>​			之后，我们通过yum指令安装软件，就是从阿里云下载的。</p>
 </blockquote>
 <h2 id="6-项目部署"><a href="#6-项目部署" class="headerlink" title="6. 项目部署"></a>6. 项目部署</h2><p>之前我们讲解Linux操作系统时，就提到，我们服务端开发工程师学习Linux系统的目的就是将来我们开发的项目绝大部分情况下都需要部署在Linux系统中。那么在本章节，我们将通过两种方式，来演示项目部署，分别是：手动部署项目 和 基于shell脚本自动部署。</p>
 <h3 id="6-1-手动部署项目"><a href="#6-1-手动部署项目" class="headerlink" title="6.1 手动部署项目"></a>6.1 手动部署项目</h3><p><strong>1). 在IDEA中开发SpringBoot项目并打成jar包</strong></p>
 <p>项目是一个很简单的springboot项目(可以自己开发一个，也可以直接导入资料中提供的)，结构如下： </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815102934678.png" alt="image-20210815102934678"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815102934678.png" alt="image-20210815102934678"> </p>
 <p>可以在本地的idea中先启动当前的demo工程，然后访问一下，看看工程是否正常访问。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815103130325.png" alt="image-20210815103130325"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815103130325.png" alt="image-20210815103130325"> </p>
 <p>执行package指令，进行打包操作，将当前的springboot项目，打成一个jar包。 </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815103344378.png" alt="image-20210815103344378"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815103344378.png" alt="image-20210815103344378"> </p>
 <p><strong>2). 将jar包上传到Linux服务器</strong></p>
 <p>通过 rz 指令，将打好的jar包上传至Linux服务器的 &#x2F;usr&#x2F;local&#x2F;app 目录下。 先执行指令创建app目录。</p>
 <pre class="line-numbers language-none"><code class="language-none">A. 在&#x2F;usr&#x2F;local下创建目录app
@@ -1436,19 +1436,19 @@ cd &#x2F;usr&#x2F;local&#x2F;app
 C. 执行指令,进行jar包上传
 rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131101930.png" alt="image-20210815131101930"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131101930.png" alt="image-20210815131101930"> </p>
 <p>此时这个jar包就上传到 &#x2F;usr&#x2F;local&#x2F;app 目录了。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131234243.png" alt="image-20210815131234243"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131234243.png" alt="image-20210815131234243"> </p>
 <p><strong>3). 启动SpringBoot程序</strong></p>
 <p>由于我们的项目已经打成jar包上传上来到Linux服务器，我们只需要运行这个jar包项目就启动起来了，所以只需要执行如下指令即可： </p>
 <pre class="line-numbers language-none"><code class="language-none">java -jar helloworld-1.0-SNAPSHOT.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131812582.png" alt="image-20210815131812582"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815131812582.png" alt="image-20210815131812582"> </p>
 <p>&#x3D;&#x3D;注意： 由于前面安装的Tomcat在启动时，会占用端口号8080，而当前springboot项目我们没有配置端口号，默认也是8080，所以我们要想启动springboot项目，需要把之前运行的Tomcat停止掉。&#x3D;&#x3D;</p>
 <p><strong>4). 检查防火墙，确保8080端口对外开放，访问SpringBoot项目</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132430385.png" alt="image-20210815132430385"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132430385.png" alt="image-20210815132430385"> </p>
 <p>如果防火墙没有放开8080端口，还需要放开对应的端口号，执行如下指令：</p>
 <pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --add-port&#x3D;8080&#x2F;tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1456,11 +1456,11 @@ rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 
 <p><strong>5). 访问测试</strong></p>
 <p><a target="_blank" rel="noopener" href="http://192.168.138.130:8080/hello">http://192.168.138.130:8080/hello</a></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
 <p><strong>6). 后台运行项目</strong></p>
 <p>当前这个demo工程我们已经部署成功了，并且我们也可以访问项目了。但是这个工程目前是存在问题的，就是当前我们项目启动的这个窗口被霸屏占用了，如果我们把这个窗口关闭掉(或ctrl+c)，当前服务也就访问不到了，我们可以试一下。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815133510405.png" alt="image-20210815133510405"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815133719642.png" alt="image-20210815133719642"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815133510405.png" alt="image-20210815133510405"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815133719642.png" alt="image-20210815133719642"> </p>
 <p><strong>目前程序运行的问题：</strong></p>
 <p>A. 线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</p>
 <p>B. 线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</p>
@@ -1480,15 +1480,15 @@ rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <p>那么经过上面的介绍，我们可以推测中，我们要想让当前部署的项目后台运行，就可以使用下面的指令： </p>
 <pre class="line-numbers language-none"><code class="language-none">nohup java -jar helloworld-1.0-SNAPSHOT.jar &amp;&gt; hello.log &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815140847083.png" alt="image-20210815140847083"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815140847083.png" alt="image-20210815140847083"> </p>
 <p>这样的话，我们的项目就已经启动成功了，我们可以通过ps指令，查看到系统的进程。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815140944635.png" alt="image-20210815140944635"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815140944635.png" alt="image-20210815140944635"> </p>
 <p>接下来，我们再次访问我们的项目，来看看服务是否可用。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
 <p><strong>7). 停止SpringBoot项目</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815142132135.png" alt="image-20210815142132135"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815142132135.png" alt="image-20210815142132135"> </p>
 <h3 id="6-2-基于Shell脚本自动部署"><a href="#6-2-基于Shell脚本自动部署" class="headerlink" title="6.2 基于Shell脚本自动部署"></a>6.2 基于Shell脚本自动部署</h3><h4 id="6-2-1-介绍"><a href="#6-2-1-介绍" class="headerlink" title="6.2.1 介绍"></a>6.2.1 介绍</h4><p>前面介绍的项目部署是手动部署，也就是部署过程中的每一步操作都需要我们手动操作。接下来，我们需要再讲解一下项目的自动部署，从而来简化项目部署的操作，那么我们先来整体上了解一下项目自动部署的流程及操作步骤。</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815143955229.png" alt="image-20210815143955229" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815143955229.png" alt="image-20210815143955229" style="zoom:80%;"> 
 
 <p>操作步骤如下： </p>
 <p>1). 在Gitee上创建远程仓库，并将本地的项目代码推送到远程仓库中</p>
@@ -1499,13 +1499,13 @@ rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <p>6). 执行Shell脚本</p>
 <h4 id="6-2-2-推送代码到远程"><a href="#6-2-2-推送代码到远程" class="headerlink" title="6.2.2 推送代码到远程"></a>6.2.2 推送代码到远程</h4><p>这部分操作，大家只需要参考之前讲解的Git，来完成helloworld工程代码推送即可。</p>
 <p>A. 创建远程仓库</p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145550077.png" alt="image-20210815145550077" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145550077.png" alt="image-20210815145550077" style="zoom:80%;"> 
 
 
 
 <p>B. 将idea中的代码提交并推送到远程仓库</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145253347.png" alt="image-20210815145253347"> </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145432883.png" alt="image-20210815145432883" style="zoom:78%;"> 
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145253347.png" alt="image-20210815145253347"> </p>
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145432883.png" alt="image-20210815145432883" style="zoom:78%;"> 
 
 
 
@@ -1515,23 +1515,23 @@ rz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 yum install git			在线安装git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>通过上述指令，安装好git之后，我们就可以通过 git –version去验证git的环境。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145934265.png" alt="image-20210815145934265">   </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815145934265.png" alt="image-20210815145934265">   </p>
 <p>2). Git克隆代码</p>
 <pre class="line-numbers language-none"><code class="language-none">cd &#x2F;usr&#x2F;local&#x2F;
 git clone https:&#x2F;&#x2F;gitee.com&#x2F;ChuanZhiBoKe&#x2F;helloworld.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815150452988.png" alt="image-20210815150452988"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815150452988.png" alt="image-20210815150452988"> </p>
 <h4 id="6-2-4-Maven安装"><a href="#6-2-4-Maven安装" class="headerlink" title="6.2.4 Maven安装"></a>6.2.4 Maven安装</h4><p>由于我们的工程是maven工程，我们要想进行项目的编译打包，需要用到maven的指令，所以需要安装maven。具体操作步骤如下：</p>
 <p><strong>1). 上传资料中提供的maven的安装包</strong></p>
 <p>通过rz指令上传课程资料中的maven安装包</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151544489.png" alt="image-20210815151544489"> </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151807043.png" alt="image-20210815151807043" style="zoom:90%;"> 
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151544489.png" alt="image-20210815151544489"> </p>
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151807043.png" alt="image-20210815151807043" style="zoom:90%;"> 
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151901262.png" alt="image-20210815151901262"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815151901262.png" alt="image-20210815151901262"> </p>
 <p><strong>2). 解压maven安装包到&#x2F;usr&#x2F;local目录</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">tar -zxvf apache-maven-3.5.4-bin.tar.gz -C &#x2F;usr&#x2F;local<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152033246.png" alt="image-20210815152033246"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152033246.png" alt="image-20210815152033246"> </p>
 <p><strong>3). 在&#x2F;etc&#x2F;profile配置文件中配置环境变量</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">vim &#x2F;etc&#x2F;profile
 
@@ -1541,11 +1541,11 @@ export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH
 
 然后按ESC进入到命令模式，输入 :wq 保存并退出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152321369.png" alt="image-20210815152321369"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152321369.png" alt="image-20210815152321369"> </p>
 <p>要想让配置的环境变量生效,还需要执行如下指令:</p>
 <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152616703.png" alt="image-20210815152616703"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152616703.png" alt="image-20210815152616703"> </p>
 <p><strong>4). 修改maven的settings.xml配置文件,配置本地仓库地址</strong></p>
 <p>A. 切换目录</p>
 <pre class="line-numbers language-none"><code class="language-none">cd &#x2F;usr&#x2F;local&#x2F;apache-maven-3.5.4&#x2F;conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1558,7 +1558,7 @@ export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH
 <p>在其中增加如下配置,配置本地仓库地址:</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;localRepository&gt;&#x2F;usr&#x2F;local&#x2F;repo&lt;&#x2F;localRepository&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152936129.png" alt="image-20210815152936129"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815152936129.png" alt="image-20210815152936129"> </p>
 <p>并在settings.xml中的<mirrors>标签中,配置阿里云的私服(&#x3D;&#x3D;选做&#x3D;&#x3D;):</mirrors></p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span> 
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>alimaven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span> 
@@ -1567,15 +1567,15 @@ export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.aliyun.com/nexus/content/groups/public/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170915170.png" alt="image-20210815170915170"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170915170.png" alt="image-20210815170915170"> </p>
 <h4 id="6-2-5-Shell脚本准备"><a href="#6-2-5-Shell脚本准备" class="headerlink" title="6.2.5 Shell脚本准备"></a>6.2.5 Shell脚本准备</h4><blockquote>
 <p>Shell脚本（shell script），是一种Linux系统中的脚本程序。使用Shell脚本编程跟 JavaScript、Java编程一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了。 </p>
 <p>对于Shell脚本编写不作为本课程重点内容，直接使用课程资料中提供的脚本文件bootStart.sh即可。</p>
 </blockquote>
 <p>在&#x2F;usr&#x2F;local&#x2F;目录下创建一个目录 sh(mkdir sh)，并将shell脚本上传到该目录下。或者直接在sh目录下创建一个脚本bootStart.sh，然后将资料中的bootStart.sh文件打开,内容拷贝过来即可。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815153759071.png" alt="image-20210815153759071"></p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815153759071.png" alt="image-20210815153759071"></p>
 <p><strong>脚本解读:</strong> </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815154943654.png" alt="image-20210815154943654"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815154943654.png" alt="image-20210815154943654"> </p>
 <h4 id="6-2-6-Linux权限"><a href="#6-2-6-Linux权限" class="headerlink" title="6.2.6 Linux权限"></a>6.2.6 Linux权限</h4><p>前面我们已经把Shell脚本准备好了，但是Shell脚本要想正常的执行，还需要给Shell脚本分配执行权限。 由于linux系统是一个多用户的操作系统，并且针对每一个用户，Linux会严格的控制操作权限。接下来，我们就需要介绍一下Linux系统的权限控制。</p>
 <blockquote>
 <p>1). &#x3D;&#x3D;chmod&#x3D;&#x3D;（英文全拼：change mode）命令是控制用户对文件的权限的命令</p>
@@ -1585,9 +1585,9 @@ export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH
 <p>5). 要执行Shell脚本需要有对此脚本文件的执行权限(x)，如果没有则不能执行</p>
 </blockquote>
 <p>Linux系统中权限描述如下: </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815162945754.png" alt="image-20210815162945754"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815162945754.png" alt="image-20210815162945754"> </p>
 <p>解析当前脚本的权限情况: </p>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815162135509.png" alt="image-20210815162135509" style="zoom:80%;"> 
+<img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815162135509.png" alt="image-20210815162135509" style="zoom:80%;"> 
 
 
 
@@ -1658,18 +1658,18 @@ chmod 210 bootStart.sh   为文件拥有者授予写权限，同组用户授予�
 <h4 id="6-2-7-授权并执行脚本"><a href="#6-2-7-授权并执行脚本" class="headerlink" title="6.2.7 授权并执行脚本"></a>6.2.7 授权并执行脚本</h4><p>在测试阶段，我们可以给所有的人都赋予执行该shell脚本的权限。所以可以执行如下指令：</p>
 <pre class="line-numbers language-none"><code class="language-none">chmod 777 bootStart.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815163957647.png" alt="image-20210815163957647"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815163957647.png" alt="image-20210815163957647"> </p>
 <p>权限解读: </p>
 <p>A. 第一个7，代表当前文件所有者root用户，对该文件具有读写执行权限；</p>
 <p>B. 第二个7，代表当前文件所有者所属组的用户，对该文件具有读写执行权限；</p>
 <p>B. 第三个7，代表其他用户，对该文件具有读写执行权限；</p>
 <p>执行该shell脚本:</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170334935.png" alt="image-20210815170334935"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170334935.png" alt="image-20210815170334935"> </p>
 <p>&#x3D;&#x3D;注意： 在执行maven指令进行打包时，第一次执行可能会耗时比较长，因为在进行maven工程的打包时，需要到中央仓库下载工程依赖的jar包和插件(可以在settings.xml中配置阿里云私服加速下载)。&#x3D;&#x3D;</p>
 <p>启动完成之后, 我们可以查看java进程：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170418707.png" alt="image-20210815170418707"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815170418707.png" alt="image-20210815170418707"> </p>
 <p>访问项目：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815132748655.png" alt="image-20210815132748655"> </p>
 <h4 id="6-2-8-设置静态IP"><a href="#6-2-8-设置静态IP" class="headerlink" title="6.2.8 设置静态IP"></a>6.2.8 设置静态IP</h4><p>我们目前安装的Linux操作系统，安装完毕之后并没有配置IP地址，默认IP地址是动态获取的，那如果我们使用该Linux服务器部署项目，IP动态获取的话，也就意味着，IP地址可能会发生变动，那我们访问项目的话就会非常繁琐，所以作为服务器，我们一般还需要把IP地址设置为静态的。 </p>
 <p>1). 设置静态IP</p>
 <p>设置静态ip，我们就需要修改 &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33 配置文件，内容如下： </p>
@@ -1694,18 +1694,18 @@ chmod 210 bootStart.sh   为文件拥有者授予写权限，同组用户授予�
 <span class="token key attr-name">ONBOOT</span><span class="token punctuation">=</span><span class="token value attr-value">yes</span>
 <span class="token key attr-name">ZONE</span><span class="token punctuation">=</span><span class="token value attr-value">public</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815171934667.png" alt="image-20210815171934667"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815171934667.png" alt="image-20210815171934667"> </p>
 <p>上述我们所设置的网段为138，并不是随意指定的，需要和我们虚拟机中的虚拟网络编辑器中的NAT模式配置的网关保持一致。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172303896.png" alt="image-20210815172303896"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172303896.png" alt="image-20210815172303896"> </p>
 <p>2). 重启网络服务</p>
 <p>ip地址修改完毕之后，需要重启网络服务，执行如下指令： </p>
 <pre class="line-numbers language-none"><code class="language-none">systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172448448.png" alt="image-20210815172448448"> </p>
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172448448.png" alt="image-20210815172448448"> </p>
 <p>&#x3D;&#x3D;注意：重启完网络服务后ip地址已经发生了改变，此时FinalShell已经连接不上Linux系统，需要创建一个新连接才能连接到Linux。&#x3D;&#x3D;</p>
 <p>再次连接上Linux之后，我们再次查看IP地址，就可以看到我们所设置的静态IP：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172832108.png" alt="image-20210815172832108"> </p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/Linux%E7%AC%94%E8%AE%B0.html">http://www.fanliu.top/post/Linux%E7%AC%94%E8%AE%B0.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="docker常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">docker常用命令小抄</div></div></a></div><div class="next-post pull-right"><a href="/post/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html" title="Linux常见问题笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux常见问题笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="Linux常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-25</div><div class="title">Linux常用命令小抄</div></div></a></div><div><a href="/post/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html" title="Linux常见问题笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Linux常见问题笔记</div></div></a></div><div><a href="/post/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="docker常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker常用命令小抄</div></div></a></div><div><a href="/post/docker%E7%AC%94%E8%AE%B0.html" title="docker笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-10</div><div class="title">docker笔记</div></div></a></div><div><a href="/post/docker%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0.html" title="docker软件安装笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker软件安装笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFLinux"><span class="toc-text">1.1 什么是Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6Linux"><span class="toc-text">1.2 为什么要学Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AD%A6%E5%AE%8CLinux%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-text">1.3 学完Linux能干什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux%E7%AE%80%E4%BB%8B"><span class="toc-text">2. Linux简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%BB%E6%B5%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">2.1 主流操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Linux%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-text">2.2 Linux发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Linux%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-text">2.3 Linux系统版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Linux%E5%AE%89%E8%A3%85"><span class="toc-text">3. Linux安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.1 安装方式介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%AE%89%E8%A3%85VMware"><span class="toc-text">3.2 安装VMware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%AE%89%E8%A3%85Linux"><span class="toc-text">3.3 安装Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%BD%91%E5%8D%A1%E8%AE%BE%E7%BD%AE"><span class="toc-text">3.4 网卡设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%AE%89%E8%A3%85SSH%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">3.5 安装SSH连接工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-1-SSH%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.5.1 SSH连接工具介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-2-FinalShell%E5%AE%89%E8%A3%85"><span class="toc-text">3.5.2 FinalShell安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-3-%E8%BF%9E%E6%8E%A5Linux"><span class="toc-text">3.5.3 连接Linux</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">3.6 Linux目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4. Linux常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Linux%E5%91%BD%E4%BB%A4%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="toc-text">4.1 Linux命令初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%BC%94%E7%A4%BA"><span class="toc-text">4.1.1 常用命令演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-Linux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-text">4.1.2 Linux命令使用技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3-Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">4.1.3 Linux命令格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">4.2 文件目录操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-ls"><span class="toc-text">4.2.1 ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-cd"><span class="toc-text">4.2.2 cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-cat"><span class="toc-text">4.2.3 cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-4-more"><span class="toc-text">4.2.4 more</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-5-tail"><span class="toc-text">4.2.5 tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-6-mkdir"><span class="toc-text">4.2.6 mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-7-rmdir"><span class="toc-text">4.2.7 rmdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-8-rm"><span class="toc-text">4.2.8 rm</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4.3 拷贝移动命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-cp"><span class="toc-text">4.3.1 cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-mv"><span class="toc-text">4.3.2 mv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="toc-text">4.4 打包压缩命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="toc-text">4.5 文本编辑命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-vi-vim%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.5.1 vi&amp;vim介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-vim%E5%AE%89%E8%A3%85"><span class="toc-text">4.5.2 vim安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-vim%E4%BD%BF%E7%94%A8"><span class="toc-text">4.5.3 vim使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-text">4.6 查找命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-1-find"><span class="toc-text">4.6.1 find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-2-grep"><span class="toc-text">4.6.2 grep</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">5. 软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-text">5.1 软件安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%AE%89%E8%A3%85JDK"><span class="toc-text">5.2 安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%AE%89%E8%A3%85Tomcat"><span class="toc-text">5.3 安装Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-Tomcat%E5%AE%89%E8%A3%85"><span class="toc-text">5.3.1 Tomcat安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-Tomcat%E8%BF%9B%E7%A8%8B%E6%9F%A5%E7%9C%8B"><span class="toc-text">5.3.2 Tomcat进程查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-3-%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-text">5.3.3 防火墙操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-4-%E5%81%9C%E6%AD%A2Tomcat"><span class="toc-text">5.3.4 停止Tomcat</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%AE%89%E8%A3%85MySQL"><span class="toc-text">5.4 安装MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-MySQL%E5%AE%89%E8%A3%85"><span class="toc-text">5.4.1 MySQL安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-MySQL%E5%90%AF%E5%8A%A8"><span class="toc-text">5.4.2 MySQL启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-3-MySQL%E7%99%BB%E5%BD%95"><span class="toc-text">5.4.3 MySQL登录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-3-1-%E6%9F%A5%E9%98%85%E4%B8%B4%E6%97%B6%E5%AF%86%E7%A0%81"><span class="toc-text">5.4.3.1 查阅临时密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-3-2-%E7%99%BB%E5%BD%95MySQL"><span class="toc-text">5.4.3.2 登录MySQL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E5%AE%89%E8%A3%85lrzsz"><span class="toc-text">5.5 安装lrzsz</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-text">6. 项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE"><span class="toc-text">6.1 手动部署项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%9F%BA%E4%BA%8EShell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-text">6.2 基于Shell脚本自动部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">6.2.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-2-%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-text">6.2.2 推送代码到远程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-3-Git%E6%93%8D%E4%BD%9C"><span class="toc-text">6.2.3 Git操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-Maven%E5%AE%89%E8%A3%85"><span class="toc-text">6.2.4 Maven安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-5-Shell%E8%84%9A%E6%9C%AC%E5%87%86%E5%A4%87"><span class="toc-text">6.2.5 Shell脚本准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-6-Linux%E6%9D%83%E9%99%90"><span class="toc-text">6.2.6 Linux权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-7-%E6%8E%88%E6%9D%83%E5%B9%B6%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="toc-text">6.2.7 授权并执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-8-%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81IP"><span class="toc-text">6.2.8 设置静态IP</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="footer_custom_text"><a href="beian.miit.gov.cn"><img class="icp-icon"><span>备案号：宁ICP备2023001647号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+<p><img src="/post/Linux%E7%AC%94%E8%AE%B0/image-20210815172832108.png" alt="image-20210815172832108"> </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.fanliu.top">fanfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.fanliu.top/post/Linux%E7%AC%94%E8%AE%B0.html">http://www.fanliu.top/post/Linux%E7%AC%94%E8%AE%B0.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.fanliu.top" target="_blank">fanfanの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/img/fy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="docker常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">docker常用命令小抄</div></div></a></div><div class="next-post pull-right"><a href="/post/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html" title="Linux常见问题笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux常见问题笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="Linux常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-25</div><div class="title">Linux常用命令小抄</div></div></a></div><div><a href="/post/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html" title="Linux常见问题笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Linux常见问题笔记</div></div></a></div><div><a href="/post/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B0%8F%E6%8A%84.html" title="docker常用命令小抄"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker常用命令小抄</div></div></a></div><div><a href="/post/docker%E7%AC%94%E8%AE%B0.html" title="docker笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-10</div><div class="title">docker笔记</div></div></a></div><div><a href="/post/docker%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0.html" title="docker软件安装笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">docker软件安装笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFLinux"><span class="toc-text">1.1 什么是Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6Linux"><span class="toc-text">1.2 为什么要学Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AD%A6%E5%AE%8CLinux%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-text">1.3 学完Linux能干什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux%E7%AE%80%E4%BB%8B"><span class="toc-text">2. Linux简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%BB%E6%B5%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">2.1 主流操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Linux%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-text">2.2 Linux发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Linux%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-text">2.3 Linux系统版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Linux%E5%AE%89%E8%A3%85"><span class="toc-text">3. Linux安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.1 安装方式介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%AE%89%E8%A3%85VMware"><span class="toc-text">3.2 安装VMware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%AE%89%E8%A3%85Linux"><span class="toc-text">3.3 安装Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%BD%91%E5%8D%A1%E8%AE%BE%E7%BD%AE"><span class="toc-text">3.4 网卡设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%AE%89%E8%A3%85SSH%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">3.5 安装SSH连接工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-1-SSH%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.5.1 SSH连接工具介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-2-FinalShell%E5%AE%89%E8%A3%85"><span class="toc-text">3.5.2 FinalShell安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-3-%E8%BF%9E%E6%8E%A5Linux"><span class="toc-text">3.5.3 连接Linux</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">3.6 Linux目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4. Linux常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Linux%E5%91%BD%E4%BB%A4%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="toc-text">4.1 Linux命令初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%BC%94%E7%A4%BA"><span class="toc-text">4.1.1 常用命令演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-Linux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-text">4.1.2 Linux命令使用技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3-Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">4.1.3 Linux命令格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">4.2 文件目录操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-ls"><span class="toc-text">4.2.1 ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-cd"><span class="toc-text">4.2.2 cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-cat"><span class="toc-text">4.2.3 cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-4-more"><span class="toc-text">4.2.4 more</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-5-tail"><span class="toc-text">4.2.5 tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-6-mkdir"><span class="toc-text">4.2.6 mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-7-rmdir"><span class="toc-text">4.2.7 rmdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-8-rm"><span class="toc-text">4.2.8 rm</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4.3 拷贝移动命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-cp"><span class="toc-text">4.3.1 cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-mv"><span class="toc-text">4.3.2 mv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="toc-text">4.4 打包压缩命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="toc-text">4.5 文本编辑命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-vi-vim%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.5.1 vi&amp;vim介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-vim%E5%AE%89%E8%A3%85"><span class="toc-text">4.5.2 vim安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-vim%E4%BD%BF%E7%94%A8"><span class="toc-text">4.5.3 vim使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-text">4.6 查找命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-1-find"><span class="toc-text">4.6.1 find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-2-grep"><span class="toc-text">4.6.2 grep</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">5. 软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-text">5.1 软件安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%AE%89%E8%A3%85JDK"><span class="toc-text">5.2 安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%AE%89%E8%A3%85Tomcat"><span class="toc-text">5.3 安装Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-Tomcat%E5%AE%89%E8%A3%85"><span class="toc-text">5.3.1 Tomcat安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-Tomcat%E8%BF%9B%E7%A8%8B%E6%9F%A5%E7%9C%8B"><span class="toc-text">5.3.2 Tomcat进程查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-3-%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-text">5.3.3 防火墙操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-4-%E5%81%9C%E6%AD%A2Tomcat"><span class="toc-text">5.3.4 停止Tomcat</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%AE%89%E8%A3%85MySQL"><span class="toc-text">5.4 安装MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-MySQL%E5%AE%89%E8%A3%85"><span class="toc-text">5.4.1 MySQL安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-MySQL%E5%90%AF%E5%8A%A8"><span class="toc-text">5.4.2 MySQL启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-3-MySQL%E7%99%BB%E5%BD%95"><span class="toc-text">5.4.3 MySQL登录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-3-1-%E6%9F%A5%E9%98%85%E4%B8%B4%E6%97%B6%E5%AF%86%E7%A0%81"><span class="toc-text">5.4.3.1 查阅临时密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-3-2-%E7%99%BB%E5%BD%95MySQL"><span class="toc-text">5.4.3.2 登录MySQL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E5%AE%89%E8%A3%85lrzsz"><span class="toc-text">5.5 安装lrzsz</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-text">6. 项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE"><span class="toc-text">6.1 手动部署项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%9F%BA%E4%BA%8EShell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-text">6.2 基于Shell脚本自动部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">6.2.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-2-%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-text">6.2.2 推送代码到远程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-3-Git%E6%93%8D%E4%BD%9C"><span class="toc-text">6.2.3 Git操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-Maven%E5%AE%89%E8%A3%85"><span class="toc-text">6.2.4 Maven安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-5-Shell%E8%84%9A%E6%9C%AC%E5%87%86%E5%A4%87"><span class="toc-text">6.2.5 Shell脚本准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-6-Linux%E6%9D%83%E9%99%90"><span class="toc-text">6.2.6 Linux权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-7-%E6%8E%88%E6%9D%83%E5%B9%B6%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="toc-text">6.2.7 授权并执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-8-%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81IP"><span class="toc-text">6.2.8 设置静态IP</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By fanfan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><img class="icp-icon"><span>备案号：宁ICP备2023001647号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
