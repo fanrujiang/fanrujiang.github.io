@@ -6,8 +6,8 @@
     <link>https://www.fanliu.top/</link>
     <description>fanfan</description>
     <language>zh-CN</language>
-    <pubDate>Sat, 17 Aug 2024 10:21:56 GMT</pubDate>
-    <lastBuildDate>Sat, 17 Aug 2024 10:21:56 GMT</lastBuildDate>
+    <pubDate>Sat, 17 Aug 2024 10:52:12 GMT</pubDate>
+    <lastBuildDate>Sat, 17 Aug 2024 10:52:12 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>ES</category>
@@ -3484,6 +3484,59 @@
 <p>执行以下命令，排查是否存在挖矿程序设定的计划任务。</p>
 <div class="language-powershell line-numbers-mode" data-ext="powershell"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
 </ol>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>破解 Aspose 系列 jar包方法</title>
+      <link>https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html</link>
+      <guid>https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html</guid>
+      <source url="https://www.fanliu.top/rss.xml">破解 Aspose 系列 jar包方法</source>
+      <description>破解Aspose系列jar包方法 授人以鱼 不如授人以渔 源码分析 1. 下载Aspose.Words for Java21.11官方jar包 (https://downloads.aspose.com/words/java) 2. 开始分析 调用授权方法 license.xml文件内容 分析License类的setLicense方法找到关键代码 se...</description>
+      <category>技术分享</category>
+      <pubDate>Sat, 17 Aug 2024 18:30:20 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 破解Aspose系列jar包方法</h2>
+<blockquote>
+<p>授人以鱼 不如授人以渔</p>
+</blockquote>
+<h3> 源码分析</h3>
+<h3> 1. 下载<a href="https://downloads.aspose.com/words/java" target="_blank" rel="noopener noreferrer">Aspose.Words for Java21.11官方jar包</a></h3>
+<h3> 2. 开始分析</h3>
+<p>调用授权方法</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>license.xml文件内容</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分析License类的setLicense方法找到关键代码</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>setLicense的两个重载方法最终都调用了<code>(new zzXDb()).zzY0J(stream);</code>中的zzY0J方法，进入zzY0J方法观察代码发现重点在于<code>void </code>zzY0J<code>方法下面的 (InputStream var1) throws Exception</code>这个重载方法里面，但是里面代码很多不太好找到关键代码，所以转头去寻找关于验证对外调用的静态方法，最终找到了在<code>zzY0J</code>方法下面的</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这两个方法主要在于对外返回了一个byte数组，返回值是<code>zzYeQ</code>中的静态常量，所以重点就在于上面的判断语句<code>boolean var0 = zzWiV == null || zzWiV.zzWSL == zzYeQ.zzX0q || (new Date()).after(zzWiV.zzZ3l) || zzYKk.zzWy3() == 4096;</code>让它返回什么数据。
+这里需要分析<code>zzWiV.zzWSL</code> <code>zzWiV.zzZ3l</code> <code>zzYKk.zzWy3()</code>这三个数据，在当前<code>zzXDb</code>class文件中搜索找到在<code>void zzY0J(InputStream var1) throws Exception</code>方法中关键的关键位置赋值了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>观察它上下位置代码发现看起来都是做验证错误的处理，所以可以尝试去掉上下的验证。
+再来看<code>zzWiV.zzZ3l</code>变量属性为Date应该是时间什么的可以直接给个最大值。
+然后是<code>zzYKk.zzWy3()</code>进入看到</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>那么返回值就是256和4096二选一，尝试后选择返回256。</p>
+<h3> 3. 分析结果</h3>
+<ul>
+<li>修改<code>void zzY0J(InputStream var1)</code>方法体为</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>修改<code>zzYKk</code>类下的<code>static int zzWy3()</code>方法体为</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> 4. 破解jar包</h3>
+<h4> 1. 添加Javassist修改class字节码文件的依赖</h4>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2. 添加修改方法</h4>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>运行修改方法后会在桌面生成 com 修改后的文件夹</p>
+<h4> 3. 修改jar包里面的数据</h4>
+<ol>
+<li>
+<p>打开jar包将桌面com文件夹覆盖到jar包com文件夹</p>
+<figure><figcaption>image-20240817184041346</figcaption></figure>
+</li>
+</ol>
+<h4> 4. 重新导入修改后的jar包进行测试</h4>
+<ol>
+<li>maven 移除旧的 jar包，导入修改后的 jar包</li>
+<li>调用测试方法进行测试转换后的文件是否去除水印和数量限制成功</li>
+</ol>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 5. 尾言</h3>
+<p>博主将破解 Aspose 系列的代码放在 github 上面，你也可以克隆到本地进行破解</p>
+<p>源码地址：<a href="https://github.com/fanrujiang/pojieAspose" target="_blank" rel="noopener noreferrer">pojieAspose</a></p>
 ]]></content:encoded>
     </item>
     <item>
