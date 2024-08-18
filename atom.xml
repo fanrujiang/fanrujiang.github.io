@@ -3,7 +3,7 @@
   <id>https://www.fanliu.top/</id>
   <title>FanFanの学习笔记</title>
   <subtitle>fanfan</subtitle>
-  <updated>2024-08-17T20:43:15.935Z</updated>
+  <updated>2024-08-18T13:02:51.588Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://www.fanliu.top/atom.xml"/>
   <link rel="alternate" href="https://www.fanliu.top/"/>
@@ -30,11 +30,14 @@
   <category term="我的世界"/>
   <category term="工具"/>
   <category term="Spring"/>
+  <category term="javaWeb"/>
+  <category term="Spring Security"/>
+  <category term="SpringCloud"/>
   <entry>
     <title type="text">Elasticsearch实现商品搜索</title>
     <id>https://www.fanliu.top/Elasticsearch/ES_use01.html</id>
     <link href="https://www.fanliu.top/Elasticsearch/ES_use01.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Elasticsearch实现商品搜索</h1>
 <h2> 1. Spring Data Elasticsearch</h2>
 <p>Spring Data Elasticsearch是Spring提供的一种以Spring Data风格来操作数据存储的方式，它可以避免编写大量的样板代码。</p>
@@ -130,7 +133,7 @@
     <title type="text">JavaScript_01_基础</title>
     <id>https://www.fanliu.top/JavaScript/JavaScript_01_%E5%9F%BA%E7%A1%80.html</id>
     <link href="https://www.fanliu.top/JavaScript/JavaScript_01_%E5%9F%BA%E7%A1%80.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> JavaScript_01_基础</h1>
 <blockquote>
 <p>了解变量、数据类型、运算符等基础概念，能够实现数据类型的转换，结合四则运算体会如何编程。</p>
@@ -273,7 +276,7 @@
     <title type="text">JavaScript_02_流程控制</title>
     <id>https://www.fanliu.top/JavaScript/JavaScript_02_%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html</id>
     <link href="https://www.fanliu.top/JavaScript/JavaScript_02_%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> JavaScript_02_流程控制</h1>
 <p>理解什么是流程控制，知道条件控制的种类并掌握其对应的语法规则，具备利用循环编写简易ATM取款机程序能力</p>
 <ul>
@@ -632,7 +635,7 @@
     <title type="text">01_Ajax入门</title>
     <id>https://www.fanliu.top/ajax/AJAX_01_%E5%85%A5%E9%97%A8.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_01_%E5%85%A5%E9%97%A8.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 01_Ajax入门</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -1753,7 +1756,7 @@
     <title type="text">02_AJAX综合案例</title>
     <id>https://www.fanliu.top/ajax/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 02_AJAX综合案例</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -2678,7 +2681,7 @@ Object<span class="token punctuation">.</span><span class="token function">keys<
     <title type="text">03_AJAX原理</title>
     <id>https://www.fanliu.top/ajax/AJAX_03_%E5%8E%9F%E7%90%86.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_03_%E5%8E%9F%E7%90%86.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Day03_AJAX原理</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -3372,7 +3375,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">APP一键登录-服务端集成</title>
     <id>https://www.fanliu.top/art/APP%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9B%86%E6%88%90.html</id>
     <link href="https://www.fanliu.top/art/APP%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9B%86%E6%88%90.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> APP一键登录-服务端集成</h2>
 <p>该篇 blog 主要记录笔者实现 app手机号一键登录 功能，集成的是阿里云号码认证服务，主要简单记录一下实现的过程：</p>
 <figure><figcaption>一键登录.png</figcaption></figure>
@@ -3460,7 +3463,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">ImageIo.read() 读取图片时返回 null 的解决方法</title>
     <id>https://www.fanliu.top/art/ImageIo.read()%20%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%97%B6%E8%BF%94%E5%9B%9ENull%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/art/ImageIo.read()%20%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%97%B6%E8%BF%94%E5%9B%9ENull%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h3> <code>ImageIo.read()</code> 读取图片时返回 <code>null</code> 的解决方法</h3>
 <p>在 Java 开发中，我们常常使用 <code>ImageIO.read()</code> 方法来读取图像文件并将其转换为 <code>BufferedImage</code> 对象。然而，有时候这个方法可能会返回 <code>null</code>，让我们困惑不解。本文将探讨导致这种情况的常见原因，并介绍解决方法。</p>
 <h4> 1. 确保图像格式受支持</h4>
@@ -3499,7 +3502,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">三步教你删除七牛云bucket所有文件</title>
     <id>https://www.fanliu.top/art/%E4%B8%89%E6%AD%A5%E6%95%99%E4%BD%A0%E5%88%A0%E9%99%A4%E4%B8%83%E7%89%9B%E4%BA%91bucket%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6.html</id>
     <link href="https://www.fanliu.top/art/%E4%B8%89%E6%AD%A5%E6%95%99%E4%BD%A0%E5%88%A0%E9%99%A4%E4%B8%83%E7%89%9B%E4%BA%91bucket%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 三步教你删除七牛云bucket所有文件</h2>
 <p>今天要删除一个不再使用的空间（bucket），释放存储空间，删除时提示“空间「xxx」不为空”，意思是要先清空空间内的文件，再删除，由于文件有几TB，后台提供的删除功能没法在短时间内清空，工作量较大</p>
 <figure><figcaption>image-20240509153406432</figcaption></figure>
@@ -3602,7 +3605,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">为什么POST请求在重定向后会变成GET请求？</title>
     <id>https://www.fanliu.top/art/%E4%B8%BA%E4%BB%80%E4%B9%88POST%E8%AF%B7%E6%B1%82%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%90%8E%E4%BC%9A%E5%8F%98%E6%88%90GET%E8%AF%B7%E6%B1%82%EF%BC%9F.html</id>
     <link href="https://www.fanliu.top/art/%E4%B8%BA%E4%BB%80%E4%B9%88POST%E8%AF%B7%E6%B1%82%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%90%8E%E4%BC%9A%E5%8F%98%E6%88%90GET%E8%AF%B7%E6%B1%82%EF%BC%9F.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h3> 为什么POST请求在重定向后会变成GET请求？</h3>
 <p>在深入探讨这一现象之前，我们先要理解HTTP协议中重定向的基本概念以及POST和GET这两种请求方法的本质差异。本文旨在详细解析这一技术细节，帮助开发者更好地应对和理解网络请求中的重定向问题。</p>
 <h4> HTTP重定向基础</h4>
@@ -3636,7 +3639,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">在 Spring Boot 项目中使用自定义注解添加 Cache-Control 响应头</title>
     <id>https://www.fanliu.top/art/%E5%9C%A8%20Spring%20Boot%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%B7%BB%E5%8A%A0%20Cache-Control%20%E5%93%8D%E5%BA%94%E5%A4%B4.html</id>
     <link href="https://www.fanliu.top/art/%E5%9C%A8%20Spring%20Boot%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%B7%BB%E5%8A%A0%20Cache-Control%20%E5%93%8D%E5%BA%94%E5%A4%B4.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 在 Spring Boot 项目中使用自定义注解添加 Cache-Control 响应头</h1>
 <p>在开发 Web 应用程序时，合理地设置 HTTP 响应头中的 <code>Cache-Control</code> 可以有效地提高应用的性能和用户体验。在这篇博客中，我们将介绍如何在 Spring Boot 项目中使用自定义注解，动态地在接口响应头中添加 <code>Cache-Control</code>。</p>
 <h3> 1. 创建自定义注解</h3>
@@ -3673,7 +3676,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">宝塔nginx缓存清理</title>
     <id>https://www.fanliu.top/art/%E5%AE%9D%E5%A1%94nginx%E7%BC%93%E5%AD%98%E6%B8%85%E7%90%86.html</id>
     <link href="https://www.fanliu.top/art/%E5%AE%9D%E5%A1%94nginx%E7%BC%93%E5%AD%98%E6%B8%85%E7%90%86.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 宝塔Nginx缓存清理</h1>
 <p>在工作中使用宝塔部署项目时，我发现宝塔会奇怪地缓存接口的数据。经过排查，发现只有设置了响应头包含 <code>Cache-Control</code> 的接口才会被宝塔Nginx的反向代理缓存。</p>
 <p>于是，我开始着手解决这个问题。</p>
@@ -3702,7 +3705,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">服务器挖矿病毒处理指南</title>
     <id>https://www.fanliu.top/art/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92.html</id>
     <link href="https://www.fanliu.top/art/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<blockquote>
 <p>挖矿程序为了最大程度获取利益，会存放大量的持久化后门，导致病毒难以清理或无法杀死。如果您在未购买云安全中心服务的情况下遇到挖矿病毒，可以采取如下措施排查和处理。</p>
 </blockquote>
@@ -3935,7 +3938,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">破解 Aspose 系列 jar包方法</title>
     <id>https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 破解Aspose系列jar包方法</h2>
 <blockquote>
 <p>授人以鱼 不如授人以渔</p>
@@ -3999,7 +4002,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">docker安装MySQL_全网最佳教程</title>
     <id>https://www.fanliu.top/docker/docker%E5%AE%89%E8%A3%85MySQL.html</id>
     <link href="https://www.fanliu.top/docker/docker%E5%AE%89%E8%A3%85MySQL.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> docker安装MySQL_全网最佳教程</h2>
 <p>此教程适合用于企业项目中的 MySQL，配置注释详细全面，并准备了一键安装的脚本</p>
 <h3> 1. 使用命令拉取mysql</h3>
@@ -4071,7 +4074,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">带你深入了解 Docker 日志</title>
     <id>https://www.fanliu.top/docker/%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3docker%E6%97%A5%E5%BF%97.html</id>
     <link href="https://www.fanliu.top/docker/%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3docker%E6%97%A5%E5%BF%97.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 带你深入了解 Docker 日志</h2>
 <p>在现代应用开发中，Docker 已成为许多开发者和运维工程师的必备工具。它简化了应用的部署和管理，而日志作为监控和调试应用的重要手段，也显得尤为重要。本文将带你深入了解 Docker 日志的相关知识，包括如何设置日志轮转、如何屏蔽日志输出、如何查看和管理日志等。</p>
 <h3> 1. Docker 日志驱动</h3>
@@ -4129,7 +4132,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">管理docker必备容器--Portainer基础教程</title>
     <id>https://www.fanliu.top/docker/%E7%AE%A1%E7%90%86docker%E5%BF%85%E5%A4%87%E5%AE%B9%E5%99%A8-Portainer%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/docker/%E7%AE%A1%E7%90%86docker%E5%BF%85%E5%A4%87%E5%AE%B9%E5%99%A8-Portainer%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h3> 简介</h3>
 <blockquote>
 <p>porttainer其实是很方便docker管理工具，自己用了也挺熟练的，可以说linux上安装docker，那么必须安装porttainer，考虑到有些小伙伴可能对porttainer不是很熟悉，所以做一个详细的教程，以便学习</p>
@@ -4242,7 +4245,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day01-面向对象高级</title>
     <id>https://www.fanliu.top/javaSE/01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html</id>
     <link href="https://www.fanliu.top/javaSE/01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 01. 面向对象高级</h1>
 <p>各位同学，接下来的三天课程中，我们继续学习面向对象的相关课程。面向对象是写Java程序的核心套路，如何你不懂面向对象，那就相当于Java你白学了。所以在接下来的三天时间里，各位同学也需要克服重重困难好好学习。</p>
 <p>前面我们说过面向对象最核心的套路是：<strong>设计对象来处理数据，解决问题。</strong> 如果你把面向对象高级这一部分课程学好，你设计出来的对象将更加好用。</p>
@@ -4462,7 +4465,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day02-面向对象高级</title>
     <id>https://www.fanliu.top/javaSE/day02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html</id>
     <link href="https://www.fanliu.top/javaSE/day02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day02——面向对象高级</h1>
 <p>今天我们继续学习面向对象的语法知识，我们今天学习的主要内容是：多态、抽象、接口。</p>
 <p>学会这些语法知识，可以让我们编写代码更灵活，代码的复用性更高。</p>
@@ -4681,7 +4684,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day04-常用API</title>
     <id>https://www.fanliu.top/javaSE/day04-%E5%B8%B8%E7%94%A8API.html</id>
     <link href="https://www.fanliu.top/javaSE/day04-%E5%B8%B8%E7%94%A8API.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day04——常用API</h1>
 <h2> Math类</h2>
 <p>Math是数学的意思，该类提供了很多个进行数学运算的方法，如求绝对值，求最大值，四舍五入等，话不多说，直接上代码。</p>
@@ -4827,7 +4830,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day05-jdk8新特性、算法、正则表达式</title>
     <id>https://www.fanliu.top/javaSE/day05-jdk8%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%81%E7%AE%97%E6%B3%95%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html</id>
     <link href="https://www.fanliu.top/javaSE/day05-jdk8%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%81%E7%AE%97%E6%B3%95%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day05-算法和数据结构</h1>
 <h2> 一、JDK8新特性-Lambda表达式</h2>
 <p>接下来，我们学习一个JDK8新增的一种语法形式，叫做Lambda表达式。<strong>作用：用于简化匿名内部类代码的书写。</strong></p>
@@ -4945,7 +4948,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day07-集合进阶(Set、Collections、Map集合)</title>
     <id>https://www.fanliu.top/javaSE/day07-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-Set%E3%80%81Collections%E3%80%81Map%E9%9B%86%E5%90%88.html</id>
     <link href="https://www.fanliu.top/javaSE/day07-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-Set%E3%80%81Collections%E3%80%81Map%E9%9B%86%E5%90%88.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day07——集合进阶（Set、Map集合）</h1>
 <h2> 一、Set系列集合</h2>
 <h3> 1.1 认识Set集合的特点</h3>
@@ -5112,7 +5115,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day08-Map集合、Stream流、File、递归</title>
     <id>https://www.fanliu.top/javaSE/day08-Map%E9%9B%86%E5%90%88%E3%80%81Stream%E6%B5%81%E3%80%81File%E3%80%81%E9%80%92%E5%BD%92.html</id>
     <link href="https://www.fanliu.top/javaSE/day08-Map%E9%9B%86%E5%90%88%E3%80%81Stream%E6%B5%81%E3%80%81File%E3%80%81%E9%80%92%E5%BD%92.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day08-Map集合、Stream流、File类</h1>
 <h2> 一、Map集合</h2>
 <p>同学们，在前面几节课我们已经学习了Map集合的常用方法，以及遍历方式。</p>
@@ -5278,7 +5281,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day09-字符集、IO流（一）</title>
     <id>https://www.fanliu.top/javaSE/day09-%E5%AD%97%E7%AC%A6%E9%9B%86%E3%80%81IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89.html</id>
     <link href="https://www.fanliu.top/javaSE/day09-%E5%AD%97%E7%AC%A6%E9%9B%86%E3%80%81IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day09-字符集、IO流（一）</h1>
 <p>各位同学，前面我们已经学习了File类，通过File类的对象可以对文件进行操作，但是不能操作文件中的内容。要想操作文件中的内容，我们还得学习IO流。但是在正式学习IO流之前，我们还需要学习一个前置知识叫做字符集，只有我们把字符集搞明白了，再学习IO流才会更加丝滑。</p>
 <h2> 一、字符集</h2>
@@ -5400,7 +5403,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day10-IO流（二）</title>
     <id>https://www.fanliu.top/javaSE/day10-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89.html</id>
     <link href="https://www.fanliu.top/javaSE/day10-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day10-IO流（二）</h1>
 <h2> 一、字符流</h2>
 <p>同学们，前面我们学习了字节流，使用字节流可以读取文件中的字节数据。但是如果文件中有中文使用字节流来读取，就有可能读到半个汉字的情况，这样会导致乱码。虽然使用读取全部字节的方法不会出现乱码，但是如果文件过大又不太合适。</p>
@@ -5570,7 +5573,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day11-特殊文件、日志技术、多线程</title>
     <id>https://www.fanliu.top/javaSE/day11-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E3%80%81%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day11-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E3%80%81%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day11-特殊文件、日志技术、多线程</h1>
 <h2> 一、属性文件</h2>
 <h3> 1.1 特殊文件概述</h3>
@@ -5818,7 +5821,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day12-多线程</title>
     <id>https://www.fanliu.top/javaSE/day12-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day12-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day12-多线程</h1>
 <h2> 一、多线程常用方法</h2>
 <figure><figcaption>1668051403591</figcaption></figure>
@@ -6064,7 +6067,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day13-网络编程</title>
     <id>https://www.fanliu.top/javaSE/day13-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day13-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day13-网络编程</h1>
 <h2> 一、网络编程概述</h2>
 <p>同学们，今天我们学习的课程内容叫网络编程。意思就是编写的应用程序可以与网络上其他设备中的应用程序进行数据交互。</p>
@@ -6238,7 +6241,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day14-单元测试-反射-注解-动态代理</title>
     <id>https://www.fanliu.top/javaSE/day14-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86.html</id>
     <link href="https://www.fanliu.top/javaSE/day14-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> day14-单元测试、反射</h1>
 <p>恭喜同学们，Java主要的知识我们其实已经学习得差不多了。今天同学们再把单元测试、反射、注解、动态代理学习完。Java的基础知识就算全齐活了。</p>
 <p>首先，我们进入单元测试的学习。</p>
@@ -6501,7 +6504,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">增加虚拟内存：提升服务器性能的有效方法</title>
     <id>https://www.fanliu.top/linux/Linux%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%EF%BC%9A%E6%8F%90%E5%8D%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%EF%BC%9A%E6%8F%90%E5%8D%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 增加虚拟内存：提升服务器性能的有效方法</h2>
 <p>在日常使用服务器的过程中，我们经常会遇到内存不足的情况。为了解决这个问题，我们可以通过增加虚拟内存（交换空间）来提高服务器的性能。本文将详细介绍如何为服务器增加虚拟内存，并确保其在重启后仍然有效。</p>
 <h3> 为什么需要增加虚拟内存？</h3>
@@ -6542,7 +6545,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">Linux常见问题笔记</title>
     <id>https://www.fanliu.top/linux/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h3> 1. VMWare安装Linux操作系统找不到IP地址</h3>
 <p>输入linux指令ip addr  查看ip端口发现ip不存在</p>
 <figure><figcaption>img</figcaption></figure>
@@ -6639,7 +6642,7 @@ vi ifcfg-ens33 编辑ifcfg-ens33文件
     <title type="text">Linux系统字体缺失的修复方法</title>
     <id>https://www.fanliu.top/linux/Linux%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> Linux系统字体缺失的修复方法</h2>
 <blockquote>
 <p>在 Linux系统中如果部署一些处理 office文档 的服务的时候，会出处理后的文档字符为□的情况，若出现这种状况，则说明此服务器下缺少对应的字体文件。接着看处理方法</p>
@@ -6677,7 +6680,7 @@ vi ifcfg-ens33 编辑ifcfg-ens33文件
     <title type="text">如何更改 Linux 登录信息</title>
     <id>https://www.fanliu.top/linux/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9Linux%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF.html</id>
     <link href="https://www.fanliu.top/linux/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9Linux%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 如何更改 Linux 登录信息</h1>
 <p>在使用 Linux 时，你可能会希望自定义登录时显示的欢迎信息和系统更新提示。本篇博客将详细介绍如何通过修改系统配置文件来实现这一目标。</p>
 <h2> 步骤一：更改欢迎信息 (MOTD)</h2>
@@ -6787,7 +6790,7 @@ Have a great day!
     <title type="text">01_Nginx - 从入门到实践</title>
     <id>https://www.fanliu.top/nginx/nginx_01.html</id>
     <link href="https://www.fanliu.top/nginx/nginx_01.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Nginx - 从入门到实践</h1>
 <figure><figcaption>image-20220724221108300</figcaption></figure>
 <h2> 1. Nginx 介绍</h2>
@@ -7121,7 +7124,7 @@ Have a great day!
     <title type="text">02_Nginx 入门实战</title>
     <id>https://www.fanliu.top/nginx/nginx_02.html</id>
     <link href="https://www.fanliu.top/nginx/nginx_02.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Nginx 入门实战</h1>
 <h2> 简介</h2>
 <blockquote>
@@ -7818,7 +7821,7 @@ systemctl status firewalld
     <title type="text">nodejs版本切换工具-nvm</title>
     <id>https://www.fanliu.top/nodeJS/nodejs%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7.html</id>
     <link href="https://www.fanliu.top/nodeJS/nodejs%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> nodejs版本切换工具-nvm</h1>
 <blockquote>
 <p>好久不见，别来无恙</p>
@@ -7918,7 +7921,7 @@ systemctl status firewalld
     <title type="text">jeecg-boot 防止重复提交</title>
     <id>https://www.fanliu.top/CodeInterpretation/jeecg-boot/jeecg-boot%20%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/jeecg-boot/jeecg-boot%20%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> jeecg-boot 防止重复提交</h1>
 <p>在现代Web开发中，防止重复提交是一个常见的问题，特别是在处理表单提交、支付操作等场景时。重复提交不仅会影响用户体验，还可能带来安全隐患和数据一致性问题。为了解决这个问题，jeecg-boot 提供了一个非常实用的工具：@JRepeat 注解。</p>
 <h2> 1. 什么是 @JRepeat 注解？</h2>
@@ -8076,7 +8079,7 @@ public class UserService {</p>
     <title type="text">若依源码解读：图片验证码</title>
     <id>https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 若依源码解读：图片验证码</h1>
 <p>若依通过合理的验证码生成流程和相应的代码实现，为应用程序提供了生成图片验证码和基于数学运算的验证码文本的功能，以增加系统的安全性和防护能力。
 本文讨论了若依（Ruoyi）生成图片验证码的过程以及相关代码。首先，我们了解了生成图片验证码的基本步骤，包括生成随机字符串、创建图片对象、绘制背景和文本、添加干扰线等。
@@ -8160,7 +8163,7 @@ public class UserService {</p>
     <title type="text">若依源码解读：防止表单重复提交</title>
     <id>https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 若依源码解读：防止表单重复提交</h1>
 <h2> 1. 如何防止请求重复提交</h2>
 <p>在接口方法上添加<code>@RepeatSubmit</code>注解即可，注解参数说明：</p>
@@ -8252,7 +8255,7 @@ public class UserService {</p>
     <title type="text">mysql学习笔记_01</title>
     <id>https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_01.html</id>
     <link href="https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_01.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> mysql</h1>
 <h2> 1. Mysql的安装和下载</h2>
 <h3> 一、下载</h3>
@@ -9163,7 +9166,7 @@ public class UserService {</p>
     <title type="text">mysql学习笔记_02</title>
     <id>https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_02.html</id>
     <link href="https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_02.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> mysql学习笔记_02</h1>
 <h1> 1. 多表查询</h1>
 <h2> 1.1 概述</h2>
@@ -9654,7 +9657,7 @@ VALUES
     <title type="text">RabbitMQ_01 入门 - 开篇</title>
     <id>https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_01.html</id>
     <link href="https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_01.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> RabbitMQ_01 入门 - 开篇</h1>
 <h2> 1. 什么是消息队列</h2>
 <p><strong>消息</strong>指的是两个应用间传递的数据。数据的类型有很多种形式，可能只包含文本字符串，也可能包含嵌入对象。</p>
@@ -9744,7 +9747,7 @@ VALUES
     <title type="text">RabbitMQ_02 进阶 - 过期时间TTL</title>
     <id>https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_02.html</id>
     <link href="https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_02.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> RabbitMQ进阶 - 过期时间TTL</h1>
 <p>Time to Live 简称 TTL，即过期时间。RabbitMQ 可以对 <strong>消息</strong> 和 <strong>队列</strong> 设置 TTL。</p>
 <h2> 1. 设置消息的 TTL</h2>
@@ -9801,7 +9804,7 @@ VALUES
     <title type="text">我的世界MCSM面板搭建</title>
     <id>https://www.fanliu.top/other/game/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html</id>
     <link href="https://www.fanliu.top/other/game/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> 我的世界MCSM面板搭建</h1>
 <h2> Linux</h2>
 <p>如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了）</p>
@@ -9932,7 +9935,7 @@ VALUES
     <title type="text">git 分布式版本控制工具</title>
     <id>https://www.fanliu.top/other/tool/git.html</id>
     <link href="https://www.fanliu.top/other/tool/git.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Git 分布式版本控制工具</h1>
 <h2> 课程内容</h2>
 <ul>
@@ -10409,7 +10412,7 @@ VALUES
     <title type="text">Spring核心_01_控制反转(IOC)</title>
     <id>https://www.fanliu.top/spring/Framework/Spring%E6%A0%B8%E5%BF%83%E4%B9%8B%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC(IOC).html</id>
     <link href="https://www.fanliu.top/spring/Framework/Spring%E6%A0%B8%E5%BF%83%E4%B9%8B%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC(IOC).html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 0. 引入</h2>
 <ol>
 <li>Spring框架管理这些Bean的创建工作，即由用户管理Bean转变为框架管理Bean，这个就叫<strong>控制反转 - Inversion of Control (IoC)</strong></li>
@@ -10665,7 +10668,7 @@ VALUES
     <title type="text">SpringBoot-api-01-如何生成接口文档之Swagger技术栈</title>
     <id>https://www.fanliu.top/spring/SpringBoot/SpringBoot-api-01-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E4%B9%8BSwagger%E6%8A%80%E6%9C%AF%E6%A0%88.html</id>
     <link href="https://www.fanliu.top/spring/SpringBoot/SpringBoot-api-01-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E4%B9%8BSwagger%E6%8A%80%E6%9C%AF%E6%A0%88.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h2> 0. 准备知识点</h2>
 <blockquote>
 <p>在生成文档前，你需要了解下OpenAPI规范，Swagger，SpringFox，Knife4J，Swagger UI等之间的关系。</p>
@@ -10747,7 +10750,7 @@ VALUES
     <title type="text">Springboot 原理篇</title>
     <id>https://www.fanliu.top/spring/SpringBoot/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87.html</id>
     <link href="https://www.fanliu.top/spring/SpringBoot/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87.html"/>
-    <updated>2024-08-17T20:28:13.000Z</updated>
+    <updated>2024-08-18T13:00:21.000Z</updated>
     <summary type="html"><![CDATA[<h1> Springboot 原理篇</h1>
 <h1> 1 springboot的自动配置原理【重点】</h1>
 <h3> 【目标】</h3>
@@ -11154,5 +11157,1506 @@ VALUES
 <div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content>
     <category term="Spring"/>
     <published>2024-03-13T18:26:47.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">Spring Security</title>
+    <id>https://www.fanliu.top/spring/SpringBoot/SpringSecurity.html</id>
+    <link href="https://www.fanliu.top/spring/SpringBoot/SpringSecurity.html"/>
+    <updated>2024-08-18T13:00:21.000Z</updated>
+    <summary type="html"><![CDATA[<h1> Spring Security入门</h1>
+<h2> 一、Spring Security简介</h2>
+<h3> 1. 概述</h3>
+<blockquote>
+<p>Spring Security 是 Spring 家族中的一个安全管理框架，应用程序的两个主要区域是“认证”和“授权”（或者访问控制）</p>
+</blockquote>
+<ul>
+<li>认证：</li>
+</ul>
+<blockquote>
+<p>系统提供的用于识别用户身份的功能，通常提供用户名和密码进行登录其实就是在进行认证，认证的目的是让系统知道你是谁。</p>
+</blockquote>
+<ul>
+<li>授权：</li>
+</ul>
+<blockquote>
+<p>用户认证成功后，需要为用户授权，其实就是指定当前用户可以操作哪些功能。</p>
+</blockquote>
+<ul>
+<li>权限数据模型</li>
+</ul>
+]]></summary>
+    <content type="html"><![CDATA[<h1> Spring Security入门</h1>
+<h2> 一、Spring Security简介</h2>
+<h3> 1. 概述</h3>
+<blockquote>
+<p>Spring Security 是 Spring 家族中的一个安全管理框架，应用程序的两个主要区域是“认证”和“授权”（或者访问控制）</p>
+</blockquote>
+<ul>
+<li>认证：</li>
+</ul>
+<blockquote>
+<p>系统提供的用于识别用户身份的功能，通常提供用户名和密码进行登录其实就是在进行认证，认证的目的是让系统知道你是谁。</p>
+</blockquote>
+<ul>
+<li>授权：</li>
+</ul>
+<blockquote>
+<p>用户认证成功后，需要为用户授权，其实就是指定当前用户可以操作哪些功能。</p>
+</blockquote>
+<ul>
+<li>权限数据模型</li>
+</ul>
+<!-- more -->
+<p>前面已经分析了认证和授权的概念，要实现最终的权限控制，需要有一套表结构支撑：</p>
+<p>用户表t_user、权限表t_permission、角色表t_role、菜单表t_menu、用户角色关系表t_user_role、角色权限关系表t_role_permission、角色菜单关系表t_role_menu。</p>
+<figure><figcaption>image-20220326141636004</figcaption></figure>
+<p>上述的7张表就构成了RBAC权限模型：</p>
+<figure><figcaption></figcaption></figure>
+<h3> 2. 快速入门</h3>
+<h4> 1. 创建maven工程，pom文件导入依赖，创建启动类</h4>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>启动类：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2. 编写controller</h4>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 3. 访问controller</h4>
+<blockquote>
+<ol>
+<li>会出现登录页面，表明springsecurity已经开始工作</li>
+</ol>
+</blockquote>
+<figure><figcaption>image-20220326142432610</figcaption></figure>
+<blockquote>
+<ol start="2">
+<li>输入默认的用户名： user ， 密码通过控制台可以找到springsecurity产生的密码</li>
+</ol>
+</blockquote>
+<figure><figcaption>image-20220326142753813</figcaption></figure>
+<h3> 3.  细节处理</h3>
+<h5> 3.1 自定义用户名和密码</h5>
+<blockquote>
+<p>在<strong>application.yml</strong>里面可以配置自定义的用户名和密码</p>
+</blockquote>
+<figure><figcaption>image-20220326143219953</figcaption></figure>
+<h5> 3.2 修改日志级别</h5>
+<blockquote>
+<p>默认打印的springsecurity的日志级别是 info级别，如果想观察到更详细的日志信息，可以在<strong>application.yml</strong> 里面修改日志的打印级别 。 如果info看不到日志，可以尝试再设置低一些级别：</p>
+<p>比如： debug 或者  trace 级别</p>
+<p>log.info()、log.error()</p>
+<p>日志级别：fatal&gt;error&gt;warn&gt;info&gt;debug&gt;trace</p>
+</blockquote>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 4. 原理</h3>
+<h4> 4.1 SpringBoot自动配置</h4>
+<blockquote>
+<p>默认情况下，只要在SpringBoot项目里面添加了SpringSecurity依赖，那么 SpringSecurity 即会自动工作。这个自动生效的配置是由SpringBoot来完成的。</p>
+</blockquote>
+<ol>
+<li>在启动类身上的注解<code>@SpringBootApplication</code> 即是一切自动配置的开始</li>
+<li>进入该注解内部有一个注解 ： <code>@EnableAutoConfiguration</code> , 表示启动自动配置</li>
+<li>在 <code>@EnableAutoConfiguration</code> 注解里面，导入了 <code>AutoConfigurationImportSelector</code> 自动配置导入选择器</li>
+<li>在这个自动导入选择器类<code>AutoConfigurationImportSelector</code>中的 <code>getCandidateConfigurations</code> 可以看到自动导入的类位于 <code> META-INF/spring.factories</code> 文件中。</li>
+<li>该文件位于 SpringBoot 的autoconfigure包中</li>
+</ol>
+<figure><figcaption>image-20220326144534353</figcaption></figure>
+<ol start="6">
+<li>在spring.factories文件中搜索security关键字，找到执行 SpringSecurity 自动配置的类：SecurityAutoConfiguration</li>
+<li>在SecurityAutoConfiguration里面发现它在上面使用 @Import导入 SpringBootWebSecurityConfiguration 类。</li>
+<li>SpringBootWebSecurityConfiguration  会对所有的请求进行拦截，自此springsecurity的自动配置解析完毕：</li>
+</ol>
+<figure><figcaption>image-20220326145154352</figcaption></figure>
+<h4> 4.2 SpringSecurity原理分析</h4>
+<blockquote>
+<p>SpringSecurity的核心即是： 过滤器Filter , 翻开SpringSecurity的官方文档，找到如下说明：</p>
+</blockquote>
+<figure><figcaption>image-20220326152618215</figcaption></figure>
+<ol>
+<li>这个SecurityFilterChain对象使用位置：WebSecurityConfiguration中的springSecurityFilterChain方法中</li>
+<li>通过debug发现，总共有15个过滤器需要配置，这些过滤器各司其职，每个过滤器负责的功能都不一样！</li>
+</ol>
+<figure><figcaption>1668930133799</figcaption></figure>
+<p>重点关注的过滤器：<strong>UsernamePasswordAuthenticationFilter</strong></p>
+<ol start="3">
+<li>参照官方文档的说明，可以看到有对 SpringSecurity 过滤器的描述、以及流程解释：</li>
+</ol>
+<figure><figcaption>image-20220326153354297</figcaption></figure>
+<figure><figcaption>image-20220326153258772</figcaption></figure>
+<h2> 二 、认证授权</h2>
+<blockquote>
+<p>在DefaultWebSecurityCondition 里面存在注解  @ConditionalOnMissingBean({WebSecurityConfigurerAdapter.class,... }) 表明如果在JVM中缺失 WebSecurityConfigurerAdapter 则会启用默认的springsecurity的认证和授权流程。 所以如果我们希望自己执行认证和授权，那么编写一个类，继承 WebSecurityConfigurerAdapter 即可。</p>
+</blockquote>
+<h3> 1.  内存方式</h3>
+<blockquote>
+<p>一般在开发当中，我们都会选择自己来认证授权！</p>
+</blockquote>
+<h4> 1.1.  定义配置类</h4>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 1.2. 重写方法</h4>
+<h5> 1.2.1 认证方法</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5> 1.2.2 授权方法</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5> 1.2.3 异常处理</h5>
+<blockquote>
+<p>当我们已经登录，但是访问并不具有访问权限的资源时，那么会出现403 的异常：</p>
+</blockquote>
+<figure><figcaption>image-20220326174530262</figcaption></figure>
+<ul>
+<li>解决办法： 在授权方法里面添加关于异常的处理办法：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>异常处理类</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 1.3 自定义登录页面</h4>
+<blockquote>
+<p>默认springsecurity的登录操作，会被过滤器： <strong>UsernamePasswordAuthenticationFilter</strong> 拦截，它内部有几个判定： <mark>请求方式是 post</mark>， 请求地址是 /login , 用户名参数是： username , 密码参数名是: password</p>
+<p>请求方式不能修改之外，其他的都可以修改</p>
+</blockquote>
+<h5> 1.3.1 定义登录页面</h5>
+<div class="language-html line-numbers-mode" data-ext="html"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5> 1.3.2 配置</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5> 1.3.3 csrf</h5>
+<blockquote>
+<p>CSRF（Cross-site request forgery），中文名称：跨站请求伪造，缩写为：CSRF/XSRF。</p>
+<p>一般来说，攻击者通过伪造用户的浏览器的请求，向访问一个用户自己曾经认证访问过的网站发送出去，使目标网站接收并误以为是用户的真实操作而去执行命令。常用于盗取账号、转账、发送虚假消息等。</p>
+</blockquote>
+<figure><figcaption>CSRF</figcaption></figure>
+<figure><figcaption>2</figcaption></figure>
+<p>参考网址：https://blog.csdn.net/qq_45803593/article/details/124727762</p>
+<h5> 1.3.4 退出登录</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 1.4. 密码加密</h4>
+<h5> 1.4.1 加密方式</h5>
+<blockquote>
+<p>在springsecurity里面，支持的加密方式有很多， 具体可以在 PasswordEncoderFactories 里面查看。官方推荐使用 bcrypt 加密方式。</p>
+</blockquote>
+<figure><figcaption>image-20220326165736418</figcaption></figure>
+<p><strong>MD5</strong>：摘要算法采用Hash处理，加密方式不可逆（明文--&gt;密文）， <strong>但是每次加密的结果都是一样的</strong></p>
+<p>针对它的缺陷，解决方式：</p>
+<p>​	方式一：加密多次 至少3次以上</p>
+
+<p><strong>bcrypt</strong>：将salt随机并混入最终加密后的密码，验证时也无需单独提供之前的salt，从而无需单独处理salt问题</p>
+<p>SpringSecurity 中的BCryptPasswordEncoder方法采用 <strong>SHA-256 +随机盐+密钥</strong>  对密码进行加密。SHA系列是Hash算法，不是加密算法，使用加密算法意味着可以解密（这个与编码/解码一样），但是采用Hash处理，其过程是不可逆的。</p>
+<p>（1）<strong>加密(encode)：<strong>注册用户时，使用</strong>SHA-256+随机盐+密钥</strong>把用户输入的密码进行hash处理，得到密码的hash值，然后将其存入数据库中。</p>
+<p>（2）<strong>密码匹配(matches)：<strong>用户登录时，密码匹配阶段</strong>并没有进行密码解密</strong>（因为密码经过Hash处理，是不可逆的），而是使用相同的算法把用户输入的密码进行hash处理，得到密码的hash值，然后将其与从数据库中查询到的密码hash值进行比较。如果两者相同，说明用户输入的密码正确。</p>
+<p>为什么处理密码时要用hash算法，而不用加密算法？因为这样处理即使数据库泄漏，黑客也很难破解密码。</p>
+<ul>
+<li>加密结果解释</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>加密后字符串的长度为固定的60位。其中：</p>
+<p>$是分割符，无意义；</p>
+<p>2a是bcrypt加密版本号：2a</p>
+<p>10是循环10次加盐加密：10</p>
+<p>$符号后接下来的22位是salt值：7Pb7IxzTL1bXA9a/A92y.O</p>
+<p>剩下的字符串就是密码的密文了：PBqYjqFZpnw6poI8NGYAkHj4IBe0Zhu</p>
+<h5> 1.4.2 具体应用</h5>
+<blockquote>
+<p>要想使用BCrypt密码加密其实很简单，只需要在配置类中定义一个方法，返回 BcryptPasswordEncoder 对象即可，并且不要忘记了对认证的用户密码进行加密处理。</p>
+<p>用户在输入密码登录时，SpringSecurity就会自动对用户输入的密码使用BCrypt进行加密，然后和内存|数据库中存储的用户密码进行比对   **注意：**内存|数据库中存储的用户密码也要使用BCrypt进行加密</p>
+<p>密码加密使用步骤：</p>
+<p>​	1.对用户输入的密码进行加密</p>
+<p>​        2.对内存|数据库中存储的密码进行加密</p>
+<p>​	<strong>注意</strong>：两边的加密方式要一致</p>
+</blockquote>
+<ul>
+<li>添加方法</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>认证处理</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 2. 数据库方式</h3>
+<h4> 2.1 准备数据库</h4>
+<div class="language-sql line-numbers-mode" data-ext="sql"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.2：创建项目，添加mybatisplus、mysql驱动、lombok依赖</h4>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.3：application.yml中配置数据源</h4>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.4 准备实体类</h4>
+<ul>
+<li>User</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>Role</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.5 准备dao</h4>
+<ul>
+<li>UserDao</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>UserDao.xml</li>
+</ul>
+<blockquote>
+<p>位于： resources/mapper/</p>
+</blockquote>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>application.yml   （如果xml文件所在包名与dao所在包名不一致那么需要配置映射）</li>
+</ul>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.6 准备配置类</h4>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.7 修改认证方法</h4>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 3. 注解动态授权</h3>
+<blockquote>
+<p>springsecurity允许程序员在Controller方法上使用注解来动态授权，即配置角色|权限到方法上。表明需要具备什么样的角色身份或者是权限，才允许访问该方法！</p>
+</blockquote>
+<ul>
+<li>1.在方法上使用  @PreAuthorize 进行调用 权限拦截</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>2.要想让注解生效，需要在启动类上面设置注解</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 三 、整合项目</h2>
+<h3> 1. 添加依赖</h3>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 2.  创建表</h3>
+<p>可以直接执行资料中提供的sql脚本：role.sql、employ_role.sql</p>
+<ul>
+<li>角色表</li>
+</ul>
+<div class="language-sql line-numbers-mode" data-ext="sql"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>员工角色表</li>
+</ul>
+<div class="language-sql line-numbers-mode" data-ext="sql"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 3.  编写实体类</h3>
+<ul>
+<li>Role</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>EmployeeRole</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>Employee</li>
+</ul>
+<blockquote>
+<p>让Employee实现UserDetails 这样在认证方法返回即可只返回Employee对象即可</p>
+<p>因为它里面包含了权限内容</p>
+</blockquote>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 4. 编写Dao</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 5. 编写映射文件</h3>
+<ul>
+<li>EmployeeDao.xml</li>
+</ul>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>application.yml</li>
+</ul>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 6. 编写过滤器类</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 7. 编写认证授权配置类</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 8. 修改公共字段填充</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 9. 使用动态鉴权</h3>
+<ul>
+<li>在category的添加分类方法上，使用注解标记需要什么样的权限才能访问该方法。</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>启动类添加开启全局注解开关</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content>
+    <category term="javaWeb"/>
+    <category term="Spring Security"/>
+    <published>2024-08-18T08:51:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">SpringCloud_01</title>
+    <id>https://www.fanliu.top/spring/SpringCloud/SpringCloud_01.html</id>
+    <link href="https://www.fanliu.top/spring/SpringCloud/SpringCloud_01.html"/>
+    <updated>2024-08-18T13:00:21.000Z</updated>
+    <summary type="html"><![CDATA[<p>学习目标：</p>
+<ul>
+<li>了解架构演进过程</li>
+<li>理解微服务拆分流程及远程调用过程</li>
+<li>掌握注册中心Eureka(nacos)的使用</li>
+<li>掌握负载均衡Ribbon的使用(配置)</li>
+<li>能够基于Feign实现服务远程调用（使用）</li>
+</ul>
+]]></summary>
+    <content type="html"><![CDATA[<p>学习目标：</p>
+<ul>
+<li>了解架构演进过程</li>
+<li>理解微服务拆分流程及远程调用过程</li>
+<li>掌握注册中心Eureka(nacos)的使用</li>
+<li>掌握负载均衡Ribbon的使用(配置)</li>
+<li>能够基于Feign实现服务远程调用（使用）</li>
+</ul>
+<!-- more -->
+<h2> 1 服务架构演进</h2>
+<p>章节知识点</p>
+<ul>
+<li>单体架构</li>
+<li>分布式架构</li>
+<li>微服务架构</li>
+<li>SpringCloud</li>
+</ul>
+<p>过去的互联网：</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在的互联网:</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>互联网架构从简到繁的演进经历了单体架构、分布式架构、SOA架构、微服务架构以及最新的service mesh的演进过程。</p>
+<h3> 1.1 单体架构</h3>
+<p>1)概念</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2)架构图</p>
+
+<p>3)优缺点</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 1.2 分布式架构</h3>
+<p>1)概念</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2)架构图</p>
+
+<p>3)优缺点</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>4)需要解决的问题</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 1.3 微服务</h3>
+<p>1)概念</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2)架构图</p>
+
+<p>3)微服务架构特征</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 1.4 SpringCloud</h3>
+<ul>
+<li>
+<p>SpringCloud是目前国内使用最广泛的微服务技术栈。官网地址：https://spring.io/projects/spring-cloud。</p>
+</li>
+<li>
+<p>SpringCloud集成了各种微服务功能组件，并<strong>基于SpringBoot</strong>实现了这些组件的自动装配，从而提供了良好的开箱即用体验:</p>
+</li>
+</ul>
+
+<ul>
+<li>SpringCloud与SpringBoot的版本兼容关系如下：</li>
+</ul>
+
+<ul>
+<li>我们课堂学习的版本是 Hoxton.SR10，因此对应的SpringBoot版本是2.3.x（2.3.8）版本。</li>
+</ul>
+<h4> 1. SpringCloud是什么?</h4>
+<p>SpringCloud是微服务架构的一站式解决方案，集成了各种优秀微服务功能组件，并基于SpringBoot实现了这些组件的自动装配，从而提供了良好的开箱即用体验。</p>
+<h4> 2. SpringCloud用Hoxton版本，SpringBoot可以用2.1.x？</h4>
+<p>不可以，版本有对应关系。需使用SpringBoot 2.2.x 2.3.x</p>
+<h3> 1.5 总结</h3>
+<ul>
+<li>
+<p>单体架构:简单方便，高度耦合，扩展性差，适合小型项目。例如：学生管理系统，后台管理系统，ERP,OA 中小级企业级应用</p>
+</li>
+<li>
+<p>分布式架构:松耦合，扩展性好，但架构复杂，难度大。适合大型互联网项目，例如：京东、淘宝</p>
+</li>
+<li>
+<p>微服务:一种良好的分布式架构方案</p>
+</li>
+<li>
+<p>优点:拆分粒度更小、服务更独立、耦合度更低</p>
+</li>
+<li>
+<p>缺点:架构非常复杂，运维、监控、部署难度提高</p>
+</li>
+<li>
+<p>SpringCloud:SpringCloud是微服务架构的一站式解决方案，集成了各种优秀微服务功能组件</p>
+</li>
+</ul>
+<h2> 2 服务拆分及远程调用</h2>
+<h3> 2.1 分布式架构要考虑的问题</h3>
+<ul>
+<li>服务的拆分粒度如何？</li>
+</ul>
+<blockquote>
+<p>1.不同微服务，不要重复开发相同业务</p>
+</blockquote>
+<ul>
+<li>服务之间如何调用？</li>
+</ul>
+<blockquote>
+<p>2.微服务数据独立，不要访问其它微服务的数据库</p>
+<p>3.微服务可以将自己的业务暴露为接口，供其它微服务调用</p>
+</blockquote>
+<ul>
+<li>服务关系如何处理？</li>
+</ul>
+<blockquote>
+<ol>
+<li>服务发现：服务发现是指服务之间的自动化发现和注册。通过服务发现机制，每个服务可以注册自己并查询其他服务。这种方式可以确保服务之间的通信是动态的和透明的，而且可以更容易地添加或删除服务。</li>
+<li>API 网关：API 网关是一种代理服务器，用于在微服务之间进行请求路由和协议转换。API 网关可以提供安全性、负载均衡、缓存、协议转换等功能。此外，API 网关还可以对请求进行验证和授权，并可以对流量进行监控和日志记录。</li>
+<li>异步消息传递：异步消息传递是一种通过消息队列实现的解耦方式，它可以将消息发送到一个队列中，然后由另一个服务从队列中取出并处理消息。这种方式可以确保服务之间的通信是松散耦合的，并且可以处理高并发和高负载的情况。</li>
+<li>数据库共享：在某些情况下，多个服务需要访问同一个数据库。这种情况下，可以使用数据库共享来确保数据的一致性和完整性。但是，应该注意的是，这种方式可能会引起数据访问的竞争和冲突。</li>
+</ol>
+</blockquote>
+<h3> 2.2 工程导入</h3>
+<p>① SQL导入</p>
+<p>将<code>资料\工程代码\springcloud-parent\sql脚本</code>中的<code>cloud-order.sql</code>和<code>cloud-user.sql</code>分别导入到两个数据库中。</p>
+<p>② 工程导入</p>
+<p>将<code>资料\工程\springcloud-parent</code>导入到IDEA中</p>
+<figure><figcaption>image-20211027154853135</figcaption></figure>
+<p>③ 修改数据库配置，并测试</p>
+<p>查询某用户详情信息：<code>http://localhost:18081/user/1</code></p>
+<p>查询某订单详情信息：<code>http://localhost:18082/order/101</code></p>
+<h3> 2.3 远程调用</h3>
+<p><strong>远程调用的概念：</strong></p>
+<blockquote>
+<p>远程调用是指在分布式系统中，一个节点通过网络调用另一个节点的服务方法。在分布式系统中，不同的节点可能运行不同的应用程序或服务，这些节点之间需要进行通信和协作。通过远程调用，节点之间可以共享资源、交换数据、协调工作等。</p>
+</blockquote>
+<p>① RestTemplate介绍</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>② 注册RestTemplate</p>
+<p>在<code>itheima-order</code>的<code>OrderApp中注册</code>RestTemplate`:</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>③ 远程调用</p>
+<p>修改<code>itheima-order</code>中的<code>OrderServiceImpl</code>的<code>findById</code>方法</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>&lt;img src="SpringCloud笔记/image-20211027154731989.png" alt="image-20211027154731989" style="zoom:67%;" /</p>
+<p>④ 测试</p>
+
+<h3> 2.3 服务提供者、服务消费者</h3>
+<ul>
+<li><strong>服务提供者</strong></li>
+</ul>
+<p>（提供接口给其他微服务）一次业务中被其他微服务调用的服务</p>
+<ul>
+<li><strong>服务消费者</strong></li>
+</ul>
+<p>（调用其他微服务的接口）一次业务中，调用其他微服务的服务</p>
+<ul>
+<li><strong>服务提供者和服务消费者是相对的：</strong></li>
+</ul>
+<p>服务的提供者可以成为服务的消费者，服务的消费者也可以成为服务的提供者</p>
+
+<p>在上面案例中<code>itheima-order</code>调用了<code>itheima-user</code>提供的接口，所以<code>itheima-order</code>是服务消费者，<code>itheima-user</code>是服务提供者。</p>
+<h2> 3. Eureka注册中心</h2>
+<p><strong>微服务调用出现的问题</strong></p>
+<ul>
+<li>服务的消费者该如何获取服务提供者的信息？</li>
+<li>如果有多个服务提供者，消费者该如何选择？</li>
+<li>消费者如何得知服务提供者的健康状态？</li>
+</ul>
+<h3> 3.1 Eureka的作用</h3>
+<p><strong>上述微服务调用出现的问题都能被Eureka解决，其作用有：</strong></p>
+<blockquote>
+<ol>
+<li>服务注册：服务提供者启动后，将自己注册到Eureka注册中心，并指定自己提供的服务接口和地址等信息。</li>
+<li>服务发现：服务消费者向Eureka注册中心查询所需的服务，Eureka注册中心返回可用的服务列表，消费者可以根据负载均衡策略选择其中的一个服务进行调用。</li>
+<li>健康检查：Eureka会周期性地向服务提供者发送健康检查请求，检查服务是否正常运行，如果服务异常，则将其从可用服务列表中移除。</li>
+<li>负载均衡：Eureka通过维护服务提供者的可用列表，可以提供基于客户端的负载均衡机制，通过选择性地调用可用服务，实现负载均衡。</li>
+<li>高可用性：Eureka支持多节点部署，通过集群方式提供高可用性，确保即使某些节点出现故障，也不会影响服务注册和发现的正常运行。</li>
+</ol>
+</blockquote>
+
+<h3> 3.2 Eureka的工作原理</h3>
+<p><strong>1：消费者该如何获取服务提供者具体信息？</strong>
+服务提供者启动时向eureka注册自己的信息
+eureka保存这些信息
+消费者根据服务名称向eureka拉取提供者信息</p>
+<p><strong>2：如果有多个服务提供者，消费者该如何选择？</strong>
+服务消费者利用负载均衡算法，从服务列表中挑选一个</p>
+<p><strong>3：消费者如何感知服务提供者健康状态？</strong>
+服务提供者会每隔30秒向EurekaServer发送心跳请求，报告健康状态
+EurekaServer在90秒内没有接收到某个微服务节点的心跳,EurekaServer将会注销该微服务的节点
+消费者就可以拉取到最新的信息</p>
+<h3> 3.3 Eureka注册中心实战</h3>
+
+<h4> 3.3.1 搭建Eureka注册中心</h4>
+<p>搭建EurekaServer服务步骤如下：</p>
+<p>① pom.xml引入依赖</p>
+<p>创建项目<code>itheima-eurekaserver</code>，引入<code>spring-cloud-starter-netflix-eureka-server</code>的依赖:</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>② 启动类</p>
+<p>创建启动类com.itheima.EurekaServerApp，代码如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>③ application.yml</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时我们访问EurekaServer地址<code>http://localhost:8001/</code>，效果如下：</p>
+
+<h4> 3.3.2 服务提供者注册</h4>
+<p>将itheima-user服务注册到EurekaServer步骤如下：</p>
+<p>① pom.xml</p>
+<p>在<code>itheima-user</code>添加如下依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>② 修改application.yml</p>
+<p>修改<code>itheima-user</code>的<code>application.yml</code>，添加如下配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>prefer-ip-address:true 效果图</p>
+<figure><figcaption>63669077390</figcaption></figure>
+<p>prefer-ip-address:flase 效果图</p>
+<figure><figcaption>63669091044</figcaption></figure>
+<p>③ 多实例启动</p>
+<figure><figcaption>63592939864</figcaption></figure>
+ 
+<p>分别启动3个服务配置后，Eureka(http://localhost:8001/)信息如下：</p>
+<figure><figcaption>1628586175690</figcaption></figure>
+<h4> 3.3.3 服务消费者注册</h4>
+<p><code>itheima-order</code>虽然是消费者，但与<code>itheima-user</code>一样都是<code>eureka</code>的<code>client</code>端，同样可以实现服务注册：
+在<code>itheima-order</code>项目引入<code>spring-cloud-starter-netflix-eureka-client</code>的依赖</p>
+<p>① pom.xml</p>
+<p>在<code>itheima-order</code>的<code>pom.xml</code>中引入如下依赖</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>② 修改application.yml</p>
+<p>修改<code>itheima-order</code>的<code>application.yml</code>，添加如下配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 3.3.4 远程调用</h4>
+<p>在<code>itheima-order</code>完成服务拉取实现远程调用，服务拉取是基于服务名称获取服务列表，然后在对服务列表做负载均衡。</p>
+<p>修改<code>itheima-order</code>的OrderServiceImpl的代码，修改访问的url路径，用服务名代替ip、端口，代码如下：</p>
+<p>在itheima-order项目的启动类OrderApplication中的RestTemplate添加负载均衡注解：</p>
+ 
+<p>在itheima-order工程启动类OrderApp中，开启负载均衡</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们访问<code>http://localhost:18082/order/101</code>测试效果如下：</p>
+ 
+<h4> 3.3.5 Eureka配置说明</h4>
+<p>服务注册时默认使用的是主机名，如果我们想用ip进行注册，可以在客户端(提供者与消费者)中的application.yml添加配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>itheima-eurekaserver 服务端，可以关闭保护机制</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 3.3.6 总结</h4>
+<ul>
+<li>
+<p>搭建EurekaServer</p>
+<ul>
+<li>引入eureka-server依赖</li>
+<li>启动类上添加@EnableEurekaServer注解</li>
+<li>在application.yml中配置eureka地址</li>
+</ul>
+</li>
+<li>
+<p>服务注册</p>
+<ul>
+<li>引入eureka-client依赖</li>
+<li>在application.yml中配置eureka地址</li>
+</ul>
+</li>
+<li>
+<p>服务发现</p>
+<ul>
+<li>引入eureka-client依赖</li>
+<li>在application.yml中配置eureka地址</li>
+<li>给RestTemplate添加@LoadBalanced注解</li>
+<li>用服务提供者的服务名称远程调用(由原来的ip:port改服务名(spring.application.name))</li>
+</ul>
+</li>
+</ul>
+<h2> 4 负载均衡Ribbon</h2>
+<p>章节知识点</p>
+<ul>
+<li>Ribbon是什么</li>
+<li>负载均衡流程讲解</li>
+<li>负载均衡算法学习</li>
+<li>Ribbon负载均衡使用</li>
+</ul>
+<p>Ribbon是什么？</p>
+<p>Ribbon是Netflix发布的负载均衡器，有助于控制HTTP客户端行为。为Ribbon配置服务提供者地址列表后，Ribbon就可基于负载均衡算法，自动帮助服务消费者请求。</p>
+<p>概念：Ribbon是基于Http协议请求的客户端负载均衡器，能实现很丰富的负载均衡算法。</p>
+<h3> 4.1 负载均衡原理</h3>
+<ol>
+<li>用户发起请求，会先到达itheima-order服务</li>
+<li>itheima-order服务通过Ribbon负载均衡器从eurekaserver中获取服务列表</li>
+<li>获取了服务列表后，轮询（负载均衡算法）调用</li>
+</ol>
+<h3> 4.2 负载均衡策略</h3>
+<figure><figcaption>1628599691173</figcaption></figure>
+<p>轮询调用会涉及到很多负载均衡算法，负载均衡算法比较多，关系图如下：</p>
+<figure><figcaption>1628599720713</figcaption></figure>
+<p>Ribbon的负载均衡算法策略如下表：</p>
+<table>
+<thead>
+<tr>
+<th><strong>内置负载均衡规则类</strong></th>
+<th><strong>规则描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoundRobinRule</td>
+<td><strong>简单轮询</strong>服务列表来选择服务器。</td>
+</tr>
+<tr>
+<td>AvailabilityFilteringRule</td>
+<td>对以下两种服务器进行忽略： <br>（1）在默认情况下，这台服务器如果3次连接失败，这台服务器就会被设置为“短路”状态。短路状态将持续30秒，如果再次连接失败，短路的持续时间就会几何级地增加。<br>（2）并发数过高的服务器。如果一个服务器的并发连接数过高，配置了AvailabilityFilteringRule规则的客户端也会将其忽略。并发连接数的上限，可以由客户端的<code>&lt;clientName&gt;.&lt;clientConfigNameSpace&gt;.ActiveConnectionsLimit</code>属性进行配置。</td>
+</tr>
+<tr>
+<td>WeightedResponseTimeRule</td>
+<td>为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重值会影响服务器的选择。</td>
+</tr>
+<tr>
+<td>ZoneAvoidanceRule【默认】</td>
+<td>以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可以理解为一个机房、一个机架等。而后再对Zone内的多个服务做轮询。它是Ribbon默认的负载均衡规则。</td>
+</tr>
+<tr>
+<td>BestAvailableRule</td>
+<td>忽略哪些短路的服务器，并选择并发数较低的服务器。</td>
+</tr>
+<tr>
+<td>RandomRule</td>
+<td>随机选择一个可用的服务器。</td>
+</tr>
+<tr>
+<td>RetryRule</td>
+<td>重试机制的选择逻辑</td>
+</tr>
+</tbody>
+</table>
+<h3> 4.3 饥饿加载</h3>
+<p>从懒加载 变为 饥饿加载</p>
+<p>Ribbon默认是采用懒加载，即第一次访问时才会去创建LoadBalanceClient，请求时间会很长。
+而饥饿加载则会在项目启动时创建，降低第一次访问的耗时，在<code>itheima-order</code>的核心配置文件中，添加如下配置开启饥饿加载：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 4.4. 总结</h3>
+<ul>
+<li>
+<p>Ribbon负载均衡规则</p>
+<ul>
+<li>规则接口是IRule</li>
+<li>默认实现是ZoneAvoidanceRule，根据zone选择服务列表，然后轮询</li>
+</ul>
+</li>
+<li>
+<p>负载均衡自定义方式</p>
+<ul>
+<li>代码方式：配置灵活，但修改时需要重新打包发布，全局配置</li>
+<li>配置文件方式：直观，方便，无需重新打包发布，但是无法做全局配置，指定某个提供者的负载均衡策略【推荐】</li>
+</ul>
+</li>
+<li>
+<p>饥饿加载, 拉取服务提供者的方式</p>
+<ul>
+<li>开启饥饿加载</li>
+<li>指定饥饿加载的微服务名称</li>
+</ul>
+</li>
+</ul>
+<h2> 5 http客户端Feign</h2>
+<p>章节知识点</p>
+<ul>
+<li>Feign介绍</li>
+<li>Feign入门案例学习</li>
+<li>Feign日志功能、性能优化、最佳实践讲解</li>
+</ul>
+<h3> 5.1 Feign介绍</h3>
+<p>先来看我们以前利用RestTemplate发起远程调用的代码：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>存在下面的问题：</p>
+<ul>
+<li>代码可读性差，编程体验不统一</li>
+<li>参数复杂URL难以维护</li>
+</ul>
+<p>上面RestTemplate存在的问题可以使用Feign解决，那么什么是Feign？</p>
+<p>Feign是一个声明式的http客户端，官方地址：https://github.com/OpenFeign/feign
+其作用就是帮助我们优雅的实现http请求的发送，解决上面提到的问题。</p>
+<figure><figcaption>1628603540688</figcaption></figure>
+<h3> 5.2 Feign入门案例</h3>
+<p>定义和使用Feign客户端的步骤如下：</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>① 引入依赖</p>
+<p>在<code>itheima-order</code>中引入如下依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>② 开启Feign功能</p>
+<p>在<code>itheima-order</code>的启动类<code>OrderApplication</code>添加<code>@EnableFeignClients</code>注解开启Feign功能，代码如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>③ 定义远程调用接口</p>
+<p>在<code>itheima-order</code>中创建接口<code>UserClient</code>，代码如下：</p>
+<figure><figcaption>63670701665</figcaption></figure>
+<p>上图代码如下：在itheima-order工程中添加</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>主要是基于SpringMVC的注解来声明远程调用的信息，比如：</p>
+<ul>
+<li>服务名称：user</li>
+<li>请求方式：GET</li>
+<li username="">请求路径：/user/</li>
+<li>请求参数：String username</li>
+<li>返回值类型：User</li>
+</ul>
+<p>④ 远程调用</p>
+<p>修改<code>itheima-order</code>的<code>OrderServiceImpl.one()</code>方法，执行远程调用，代码如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 5.3 Feign其他功能</h3>
+<p>Feign运行自定义配置来覆盖默认配置，可以修改的配置如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>feign.Logger.Level</strong></td>
+<td>修改日志级别</td>
+<td>包含四种不同的级别：NONE、BASIC、HEADERS、FULL</td>
+</tr>
+<tr>
+<td>feign.codec.Decoder</td>
+<td>响应结果的解析器</td>
+<td>http远程调用的结果做解析，例如解析json字符串为java对象</td>
+</tr>
+<tr>
+<td>feign.codec.Encoder</td>
+<td>请求参数编码</td>
+<td>将请求参数编码，便于通过http请求发送</td>
+</tr>
+<tr>
+<td>feign. Contract</td>
+<td>支持的注解格式</td>
+<td>默认是SpringMVC的注解</td>
+</tr>
+<tr>
+<td>feign. Retryer</td>
+<td>失败重试机制</td>
+<td>请求失败的重试机制，默认是没有，不过会使用Ribbon的重试</td>
+</tr>
+</tbody>
+</table>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>SpringBoot日志配置;</p>
+<h4> 5.3.1 Feign日志配置</h4>
+<p>要想让Feign日志生效，得结合着SpringBoot的日志配置一起使用</p>
+<p>SpringBoot日志配置</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>配置Feign日志有两种方式：</p>
+<ul>
+<li>
+<p>配置文件方式</p>
+<ul>
+<li>
+<p>全局生效</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>局部生效</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ul>
+</li>
+<li>
+<p>代码方式</p>
+<ul>
+<li>
+<p>注册日志级别</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>全局生效</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>局部生效</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ul>
+</li>
+</ul>
+<h4> 5.3.2 Feign性能优化</h4>
+<p>Feign底层的客户端实现：</p>
+<ul>
+<li>URLConnection：默认实现，不支持连接池</li>
+<li>Apache HttpClient ：支持连接池</li>
+<li>OKHttp：支持连接池</li>
+</ul>
+<p>因此优化Feign的性能主要包括：</p>
+<ul>
+<li>使用连接池代替默认的URLConnection</li>
+<li>日志级别，最好用basic或none</li>
+</ul>
+<p>Feign切换Apache HttpClient步骤如下：</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>1)引入依赖</p>
+<p>在<code>itheima-order</code>中引入如下依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2)配置连接池</p>
+<p>在<code>itheima-order</code>的核心配置文件<code>application.yml</code>中添加如下配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 5.3.3 Feign最佳实现</h4>
+<p>方式一（继承）：给消费者的FeignClient和提供者的controller定义统一的父接口作为标准。</p>
+<ul>
+<li>服务紧耦合</li>
+<li>父接口参数列表中的映射不会被继承</li>
+</ul>
+<figure><figcaption>63681939504</figcaption></figure>
+<p>方式二（抽取）：将FeignClient抽取为独立模块，并且把接口有关的POJO、默认的Feign配置都放到这个模块中，提供给所有消费者使用</p>
+<figure><figcaption>1628608818706</figcaption></figure>
+<p>Feign最佳实现流程如上图所示：</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>1)引入依赖</p>
+<p>创建itheima-api，然后引入feign的starter依赖 itheima-user依赖</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2)编写的UserClient</p>
+<p>将itheima-order中编写的UserClient复制到itheima-api项目中</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3)在itheima-order中引入itheima-api的依赖</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="4">
+<li>【注意】当定义的FeignClient不在SpringBootApplication的<strong>扫描包范围</strong>时，这些FeignClient无法使用。</li>
+</ol>
+<p>有两种方式解决：
+方式一：指定FeignClient所在包</p>
+<p><code>@EnableFeignClients(basePackages = "com.itheima.user.feign")</code></p>
+<p>方式二：指定FeignClient字节码</p>
+<p><code>@EnableFeignClients(clients = {UserClient.class})</code></p>
+<h4> 5.3.4. 总结</h4>
+<ul>
+<li>
+<p>Feign的使用步骤</p>
+<ul>
+<li>引入依赖</li>
+<li>启动类添加@EnableFeignClients注解，如果feignclient接口不在启动类包下，则需要添加扫包(basePackages )</li>
+<li>编写FeignClient接口</li>
+<li>使用FeignClient中定义的方法代替RestTemplate</li>
+</ul>
+</li>
+<li>
+<p>Feign的日志配置:</p>
+<ul>
+<li>方式一是配置文件，feign.client.config.xxx.loggerLevel</li>
+<li>如果xxx是default则代表全局</li>
+<li>如果xxx是服务名称，例如userservice则代表某服务</li>
+</ul>
+</li>
+<li>
+<p>方式二是java代码配置Logger.Level这个Bean</p>
+<ul>
+<li>如果在@EnableFeignClients注解声明则代表全局</li>
+<li>如果在@FeignClient注解中声明则代表某服务</li>
+</ul>
+</li>
+<li>
+<p>Feign的优化</p>
+<ul>
+<li>日志级别尽量用basic</li>
+<li>使用HttpClient或OKHttp代替URLConnection
+<ul>
+<li>引入feign-httpClient依赖</li>
+<li>配置文件开启httpClient功能，设置连接池参数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Feign的最佳实践：</p>
+<ul>
+<li>让controller和FeignClient继承同一接口</li>
+<li>将FeignClient、POJO、Feign的默认配置都定义到一个项目中，供所有消费者使用</li>
+</ul>
+</li>
+</ul>
+<h1> 总结</h1>
+<ol>
+<li>
+<p>微服务，为什么使用微服务。为了更高的并发。</p>
+<ul>
+<li>单体</li>
+<li>分布式</li>
+<li>微服务 属于分布式</li>
+</ul>
+</li>
+<li>
+<p>远程调用案例</p>
+<ul>
+<li>订单服务</li>
+<li>用户服务</li>
+<li>怎么调用? 用RestTemplate(??? 发请求的postman)</li>
+<li>问题： 服务单点问题（订单只能依赖于用户，localhost:18081/user/1)</li>
+</ul>
+</li>
+<li>
+<p>Eureka 注册中心(房产中介、美团、饿了么), 解决服务单点问题</p>
+<ul>
+<li>是个什么 注册中心。 提供者、消费者</li>
+<li>有什么作用 解决服务单点问题</li>
+<li>使用: 平台。
+<ul>
+<li>启动： 依赖、启动类、配置文件</li>
+<li>提供者: 注册</li>
+<li>消费者: 注册</li>
+<li>远程调用: 获取提供者列表、通过负载均衡的方式来调用。 使用localhost:18081改为itheima-user，开启负载均衡(restTemplate @LoadBalanced)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ribbon 做负载均衡</p>
+<ul>
+<li>使用：IRule， 默认使用ZoneAvoidanceRule</li>
+<li>配置：
+<ul>
+<li>全局 配置类</li>
+<li>局部 配置文件 指定服务提供都负载均衡方式</li>
+</ul>
+</li>
+<li>饥饿加载, 配置</li>
+</ul>
+</li>
+<li>
+<p>OpenFeign</p>
+<ul>
+<li>
+<p>是什么？ 代替restTemplate</p>
+</li>
+<li>
+<p>使用?</p>
+<ul>
+<li>
+<p>导入依赖，启动类开启注解，消费者创建接口(方法：服务提供者controller的方法, 全路径)，使用的注入</p>
+</li>
+<li>
+<p>@FeignClient(name=服务提供者名称)</p>
+</li>
+<li>
+<p>优化：使用httpclient配置连接池（线程隔离）</p>
+</li>
+<li>
+<p>日志：BASIC</p>
+</li>
+</ul>
+</li>
+<li>
+<p>最佳实现</p>
+<ul>
+<li>抽取Feign的接口独立为工程。其它服务想调用时，引入依赖</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2> 问题</h2>
+<h4> 1. SpringCloud是什么?</h4>
+<p>Spring Cloud是一套基于Spring Boot的分布式系统开发工具集，它提供了一系列组件和框架，用于快速构建分布式系统应用程序。Spring Cloud可以帮助开发者解决分布式系统中的一些常见问题，如服务注册与发现、负载均衡、配置管理、服务熔断、路由、分布式跟踪等。</p>
+<p>Spring Cloud提供了以下核心组件：</p>
+<ol>
+<li>Eureka：服务注册和发现组件，用于实现分布式系统中服务的自动注册和发现。</li>
+<li>Ribbon：客户端负载均衡组件，用于实现客户端负载均衡，提高系统的可用性和稳定性。</li>
+<li>Hystrix：服务熔断和容错组件，用于实现服务的自动熔断和容错，提高系统的可靠性。</li>
+<li>Zuul：API网关组件，用于实现请求的路由和过滤，提高系统的安全性和可维护性。</li>
+<li>Config：配置管理组件，用于实现分布式系统中的配置管理，支持配置中心和分布式配置等模式。</li>
+<li>Sleuth：分布式跟踪组件，用于实现分布式系统的跟踪和监控，帮助开发者定位问题和优化系统性能。</li>
+</ol>
+<p>Spring Cloud的优点包括：</p>
+<ol>
+<li>降低分布式系统的复杂度：Spring Cloud提供了一系列组件和框架，使得分布式系统的开发更加简单和高效。</li>
+<li>提高系统的可用性和稳定性：Spring Cloud提供了服务注册和发现、客户端负载均衡、服务熔断和容错等机制，可以提高系统的可用性和稳定性。</li>
+<li>提高系统的安全性和可维护性：Spring Cloud提供了API网关、配置管理和分布式跟踪等组件，可以提高系统的安全性和可维护性。</li>
+<li>兼容Spring Boot：Spring Cloud基于Spring Boot开发，可以无缝集成Spring Boot的各种特性，如自动配置、启动器等。</li>
+</ol>
+<p>总之，Spring Cloud是一个优秀的分布式系统开发工具集，可以帮助开发者更加轻松地构建高可用、高可靠、高性能的分布式系统应用程序。</p>
+<h4> 2. RestTemplate如何实现远程调用？</h4>
+<ol>
+<li><strong>创建RestTemplate对象</strong>：使用RestTemplate进行远程调用前，需要先创建RestTemplate对象，可以通过new关键字创建，也可以使用Spring容器进行注入。</li>
+<li><strong>发送HTTP请求</strong>：通过RestTemplate对象发送HTTP请求，可以使用RestTemplate提供的getForObject()、postForObject()、put()、delete()等方法，选择合适的方法根据业务需求进行远程调用。</li>
+<li><strong>处理HTTP响应</strong>：RestTemplate发送HTTP请求后，会返回一个HTTP响应对象，我们可以通过RestTemplate提供的一系列方法获取响应状态码、响应头、响应体等信息。如果服务端返回的是JSON或XML格式的数据，可以通过RestTemplate自动将响应数据转换成Java对象，简化开发</li>
+</ol>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 3. 微服务的拆分粒度，一般从哪个方面考虑？</h4>
+<p>微服务拆分的粒度应该根据具体业务场景来进行设计，没有一种标准的方法可以适用于所有场景。通常，微服务应该遵循单一职责原则（SRP），即每个微服务应该只负责一个特定的业务功能，而且这个功能应该足够小，不应该包含太多的业务逻辑。</p>
+<ol>
+<li>业务功能：将系统中的不同业务功能划分为不同的微服务，每个微服务只负责一个特定的业务功能。</li>
+<li>数据库：将不同的数据库或数据表拆分为不同的微服务，每个微服务只访问它所对应的数据库或数据表。</li>
+<li>用户角色：将系统中不同的用户角色或者权限划分为不同的微服务，每个微服务只对应一种用户角色或者权限。</li>
+<li>流程或者任务：将系统中的不同流程或任务划分为不同的微服务，每个微服务只负责一个特定的流程或任务。</li>
+</ol>
+<h4> 4. 订单微服务调用用户微服务的底层实现流程？</h4>
+<ol>
+<li>页面发起请求进入订单微服务，订单微服发起http请求 http://itheima-user/user/用户id</li>
+<li>请求会被LoadBalancerInterceptor负载均衡拦截器拦截</li>
+<li>通过RibbonLoadBanlanceClient获取服务名itheima-user</li>
+<li>通过DynamicServerListLoadBalnancer根据服务名itheima-user连接eureka-server注册微服务，获取到服务地址列表：192.168.200.1:28081, 192.168.200.1:18081, 192.168.200.1:38081</li>
+<li>根据Ribbon负载均衡策略（ZoneAvoidanceRule 默认轮询策略）选择一个服务地址，得到一个http地址192.168.200.1:38081</li>
+<li>通过RibbonLoadBanlancerClient发送http请求，调用JDK自带URLConnection(最底层对象)实现请求发送</li>
+<li>订单微服务得到用户微服务响应的数据，并响应页面</li>
+</ol>
+<h4> 5. Ribbon默认负载均衡策略是什么？</h4>
+<p>ZoneAvoidanceRule【默认】<br>
+以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可以理解为一个机房、一个机架等。而后再对Zone内的多个服务做轮询。它是Ribbon默认的负载均衡规则。</p>
+<h4> 6. 如何改变默认的负载均衡策略？</h4>
+<ul>
+<li>
+<p>在启动类中通过@Bean注册RandomRule 			（全局配置，针对所有被调用微服务）</p>
+</li>
+<li>
+<p>修改application.yml 文件中配置负载均衡的配置 （针对某个被调用微服务）</p>
+</li>
+</ul>
+<h4> 7. Feign如何使用？</h4>
+<ol>
+<li>引入Feign依赖</li>
+<li>在启动类加上@EnableFeignClients 注解 开启Feign组件</li>
+<li>创建<code>FeignClient</code>接口</li>
+<li>使用<code>FeignClient</code>中的定义方法代替RestTemplate</li>
+</ol>
+<h4> 8. Feign日志如何使用？</h4>
+<ol>
+<li>
+<p>在application.yml中配置SpringBoot日志</p>
+</li>
+<li>
+<p>Feign日志使用两种方式</p>
+</li>
+</ol>
+<p>配置文件方式：在application.yml中配置Feign日志（全局配置、局部配置）</p>
+<p>java代码方式：定义一个类，通过@Bean注册Logger日志对象并指定日志级别（全局配置@EnableFeignClients、局部配置@FeignClient）</p>
+<p>注意：开发环境使用FULL 生产环境使用BASIC</p>
+<h4> 9. HttpClient连接池有什么用，如何使用？</h4>
+<p>HttpClient连接池是用于管理HTTP请求的连接池。在发送HTTP请求时，每次都创建一个新的连接会消耗大量的系统资源，并且在高并发的情况下，创建连接的时间可能会成为瓶颈，导致系统性能下降。使用连接池可以缓存已经创建的连接，避免重复创建连接和销毁连接，提高系统性能。</p>
+<p><strong>使用方法</strong></p>
+<ol>
+<li>引入依赖  httpClient的依赖</li>
+<li>配置文件开启httpClient功能，设置连接池的参数</li>
+</ol>
+]]></content>
+    <category term="SpringCloud"/>
+    <published>2024-08-18T19:51:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">SpringCloud（二）</title>
+    <id>https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html</id>
+    <link href="https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html"/>
+    <updated>2024-08-18T13:00:21.000Z</updated>
+    <summary type="html"><![CDATA[<ul>
+<li>SpringCloud Gateway 微服务网关</li>
+<li>Nacos 服务注册中心</li>
+<li>Nacos 服务配置中心</li>
+</ul>
+]]></summary>
+    <content type="html"><![CDATA[<ul>
+<li>SpringCloud Gateway 微服务网关</li>
+<li>Nacos 服务注册中心</li>
+<li>Nacos 服务配置中心</li>
+</ul>
+<!-- more -->
+<h2> 1 Nacos 服务注册</h2>
+<p>国内公司一般都推崇阿里巴巴的技术，比如注册中心，SpringCloudAlibaba也推出了一个名为Nacos的注册中心。</p>
+<h3> 1.1.认识和安装Nacos</h3>
+<p><a href="https://nacos.io/" target="_blank" rel="noopener noreferrer">Nacos</a>是阿里巴巴的产品，现在是<a href="https://spring.io/projects/spring-cloud" target="_blank" rel="noopener noreferrer">SpringCloudAlibaba</a>中的一个组件。相比<a href="https://github.com/Netflix/eureka" target="_blank" rel="noopener noreferrer">Eureka</a>功能更加丰富，在国内受欢迎程度较高。</p>
+<figure><figcaption></figcaption></figure>
+<p>安装方式可以看我的其他文章。</p>
+<p>nacos访问地址：http://localhost:8848/nacos</p>
+<p>控制台账号：nacos  密码：nacos</p>
+<h3> 1.2.服务注册到nacos【重点】</h3>
+<p>Nacos是SpringCloudAlibaba的组件，而SpringCloudAlibaba也遵循SpringCloud中定义的服务注册、服务发现规范。因此使用Nacos和使用Eureka对于微服务来说，并没有太大区别。</p>
+<p>主要差异在于：</p>
+<ul>
+<li>依赖不同</li>
+<li>服务地址不同</li>
+</ul>
+<p>1）引入依赖</p>
+<p>在<code>springcloud-parent</code>父工程的pom文件中的<code>&lt;dependencyManagement&gt;</code>中引入SpringCloudAlibaba的依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后在itheima-user和itheima-order中的pom文件中引入nacos-discovery依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p><strong>注意</strong>：不要忘了注释掉eureka的依赖。</p>
+</blockquote>
+<p>2）配置nacos地址</p>
+<p>在itheima-user和itheima-order的application.yml中添加nacos地址：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p><strong>注意</strong>：不要忘了注释掉eureka的地址</p>
+</blockquote>
+<p>3）修改原来的负载均衡配置, 使用NacosRule</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>4）重启</p>
+<p>重启微服务后，登录nacos管理页面，可以看到微服务信息：</p>
+<figure><figcaption>63699684088</figcaption></figure>
+<p>5）测试</p>
+<p>访问：http://localhost:18082/order/101   http://localhost:18081/user/1</p>
+<h3> 1.3.服务(集群配置)分级存储模型【重点】</h3>
+<p>一个<strong>服务</strong>可以有多个<strong>实例</strong>，例如我们的itheima-user，可以有:</p>
+<ul>
+<li>127.0.0.1:18081</li>
+<li>127.0.0.1:28081</li>
+<li>127.0.0.1:38081</li>
+</ul>
+<p>假如这些实例分布于全国各地的不同机房，例如：</p>
+<ul>
+<li>127.0.0.1:18081，在深圳机房</li>
+<li>127.0.0.1:28081，在深圳机房</li>
+<li>127.0.0.1:38081，在杭州机房</li>
+</ul>
+<p>Nacos就将同一机房内的实例 划分为一个<strong>集群</strong>。</p>
+<p>也就是说，itheima-user是服务，一个服务可以包含多个集群，如深圳、杭州，每个集群下可以有多个实例，形成分级模型，如图：</p>
+<figure><figcaption>63699776290</figcaption></figure>
+<p>微服务互相访问时，应该尽可能访问同集群实例，因为本地访问速度更快。当本集群内不可用时，才访问其它集群。例如：</p>
+<figure><figcaption>63699793612</figcaption></figure>
+<p>深圳机房内的itheima-order应该优先访问同机房的itheima-user。</p>
+<h4> 1.3.1.给itheima-user配置集群</h4>
+<p>修改itheima-user的application.yml文件，添加集群配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>重启两个user-service实例后，我们可以在nacos控制台看到下面结果：</p>
+<figure><figcaption>63699847872</figcaption></figure>
+<p>我们再次复制一个itheima-user启动配置，添加属性：</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>配置如图所示：</p>
+<figure><figcaption>63699867521</figcaption></figure>
+<p>启动UserApp3后再次查看nacos控制台：</p>
+<figure><figcaption>63699890374</figcaption></figure>
+<h4> 1.3.2.同集群优先的负载均衡</h4>
+<p>默认的<code>ZoneAvoidanceRule</code>并不能实现根据同集群优先来实现负载均衡。</p>
+<p>因此Nacos中提供了一个<code>NacosRule</code>的实现，可以优先从同集群中挑选实例。</p>
+<p>1）给order-service配置集群信息</p>
+<p>修改order-service的application.yml文件，添加集群配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2）【注意】修改负载均衡规则，才能生效</p>
+<p>修改itheima-order的application.yml文件，修改负载均衡规则：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
+<li>测试访问：http://localhost:18082/order/101</li>
+</ol>
+<h3> 1.4.权重配置【了解】</h3>
+<p>实际部署中会出现这样的场景：</p>
+<p>服务器设备性能有差异，部分实例所在机器性能较好，另一些较差，我们希望性能好的机器承担更多的用户请求。</p>
+<p>但默认情况下NacosRule是同集群内随机挑选，不会考虑机器的性能问题。</p>
+<p>因此，Nacos提供了权重配置来控制访问频率，权重越大则访问频率越高。</p>
+<p>在nacos控制台，找到user-service的实例列表，点击编辑，即可修改权重：</p>
+<figure><figcaption></figcaption></figure>
+<p>在弹出的编辑窗口，修改权重：</p>
+<figure><figcaption></figcaption></figure>
+<blockquote>
+<p><strong>注意</strong>：如果权重修改为0，则该实例永远不会被访问</p>
+</blockquote>
+<h3> 1.5.环境隔离【重点】</h3>
+<p>Nacos提供了namespace来实现环境隔离功能。</p>
+<ul>
+<li>nacos中可以有多个namespace（<strong>环境隔离:test dev pro</strong>）</li>
+<li>namespace下有group(<strong>项目隔离 探花项目 头条项目</strong>)、service(<strong>实例隔离tanhua-server tanhua-service</strong>)等</li>
+<li>不同namespace之间相互隔离，例如不同namespace的服务互相不可见</li>
+</ul>
+<figure><figcaption></figcaption></figure>
+<h4> 1.5.1.创建namespace</h4>
+<p>默认情况下，所有service、data、group都在同一个namespace，名为public：</p>
+<figure><figcaption></figcaption></figure>
+<figure><figcaption></figcaption></figure>
+<p>我们可以点击页面新增按钮，添加一个namespace：</p>
+<figure><figcaption></figcaption></figure>
+<p>然后，填写表单：</p>
+<figure><figcaption></figcaption></figure>
+<p>就能在页面看到一个新的namespace：</p>
+<figure><figcaption></figcaption></figure>
+<h4> 1.5.2.给微服务配置namespace</h4>
+<p>给微服务配置namespace只能通过修改配置来实现。</p>
+<p>例如，修改itheima-order的application.yml文件：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>重启itheima-order后，访问控制台，可以看到下面的结果：</p>
+<figure><figcaption>1631822989268</figcaption></figure>
+<p>此时访问itheima-order，因为namespace不同，会导致找不到user，控制台会报错：</p>
+<figure><figcaption>image-20210714000941256</figcaption></figure>
+<p>在itheima-user修改配置：</p>
+<div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><figure><figcaption>63700383949</figcaption></figure>
+<p>重启itheima-user后，访问控制台，可以看到下面的结果：</p>
+<figure><figcaption>63700396604</figcaption></figure>
+<p>此时访问itheima-user，因为namespace相同，找到itheima-user：</p>
+<figure><figcaption>63700404315</figcaption></figure>
+<h3> 1.6.Nacos与Eureka的区别【面试】</h3>
+<p>Nacos的服务实例分为两种类型：</p>
+<ul>
+<li>临时实例：如果实例宕机超过一定时间，会从服务列表剔除，默认的类型。</li>
+<li>非临时实例：如果实例宕机，不会从服务列表剔除，也可以叫永久实例。</li>
+</ul>
+<p>配置一个服务实例为永久实例：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Nacos和Eureka整体结构类似，服务注册、服务拉取、心跳等待，但是也存在一些差异：</p>
+<figure><figcaption>1631823118790</figcaption></figure>
+<ul>
+<li>Nacos与eureka的共同点
+<ul>
+<li>都支持服务注册和服务拉取</li>
+<li>都支持服务提供者心跳方式做健康检测</li>
+</ul>
+</li>
+<li>Nacos与Eureka的区别
+<ul>
+<li>Nacos支持服务端主动检测提供者状态：临时实例采用心跳模式，非临时实例采用主动检测模式</li>
+<li>临时实例心跳不正常会被剔除，非临时实例则不会被剔除（标记不健康）</li>
+<li>Nacos支持服务列表变更的消息推送模式，服务列表更新更及时</li>
+<li>Nacos集群默认采用AP方式，当集群中存在非临时实例时，采用CP模式；Eureka采用AP方式（CAP理论:C一致性,A高可用,P分区容错性）</li>
+<li>Nacos使用的netty和服务进行连接,属于长连接。eureka使用定时发送和服务进行连接,属于短连接</li>
+</ul>
+</li>
+</ul>
+<h2> 2.Nacos配置管理</h2>
+<p>Nacos除了可以做注册中心，同样可以做配置管理来使用。</p>
+<h3> 2.1.统一配置管理【重点】</h3>
+<p>当微服务部署的实例越来越多，达到数十、数百时，逐个修改微服务配置就会让人抓狂，而且很容易出错。我们需要一种统一配置管理方案，可以集中管理所有实例的配置。</p>
+<figure><figcaption>image-20210714164426792</figcaption></figure>
+<p>Nacos一方面可以将配置集中管理，另一方可以在配置变更时，及时通知微服务，实现配置的热更新。</p>
+<h4> 2.1.1.在nacos中添加配置文件</h4>
+<p>如何在nacos中管理配置呢？</p>
+<figure><figcaption>1631823734187</figcaption></figure>
+<p>然后在弹出的表单中，填写配置信息：</p>
+<figure><figcaption>63700221072</figcaption></figure>
+<p>配置内容:</p>
+<figure><figcaption>63703285494</figcaption></figure>
+<blockquote>
+<p>注意：项目的核心配置，需要热更新的配置才有放到nacos管理的必要。基本不会变更的一些配置还是保存在微服务本地比较好。</p>
+</blockquote>
+<h4> 2.1.2.微服务从配置中心拉取配置</h4>
+<p>微服务要拉取nacos中管理的配置，并且与本地的<code>application.yml</code>配置合并，才能完成项目启动。</p>
+<p>但如果尚未读取<code>application.yml</code>，又如何得知nacos地址呢？</p>
+<p>因此spring引入了一种新的配置文件：<code>bootstrap.yaml</code>文件，会在<code>application.yml</code>之前被读取，流程如下：</p>
+<figure><figcaption>img</figcaption></figure>
+<p>1）引入nacos-config依赖</p>
+<p>首先，在user-service服务中，引入nacos-config的客户端依赖：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2）修改application.yaml</p>
+<p>将application.yaml 修改为 bootstrap.yaml，并修改配置完整内容如下：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这里会根据spring.cloud.nacos.server-addr获取nacos地址，再根据</p>
+<p><code>${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}</code>作为文件id，来读取配置<code>itheima-user-dev.yaml</code>：</p>
+<figure><figcaption>63703264523</figcaption></figure>
+<p>3）读取nacos配置</p>
+<p>3）读取nacos配置</p>
+<p>在user-service中的UserController中，读取uname配置：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="4">
+<li>在页面访问，可以看到效果：</li>
+</ol>
+<figure><figcaption>63703287273</figcaption></figure>
+<h3> 2.2.配置热更新</h3>
+<p>我们最终的目的，是修改nacos中的配置后，微服务中无需重启即可让配置生效，也就是<strong>配置热更新</strong>。</p>
+<p>要实现配置热更新，可以使用两种方式：</p>
+<h4> 2.2.1.方式一</h4>
+<p>在@Value注入的变量所在类上添加注解@RefreshScope：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2.2.2.方式二</h4>
+<p>使用@ConfigurationProperties注解代替@Value注解。</p>
+<ul>
+<li>com.itheima.properties;</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>package com.itheima.controller;</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 2.3.配置共享【了解】</h3>
+<p>其实微服务启动时，会去nacos读取多个配置文件，例如：</p>
+<ul>
+<li><code>[spring.application.name]-[spring.profiles.active].yaml</code>，例如：itheima-user-dev.yaml</li>
+<li><code>[spring.application.name].yaml</code>，例如：itheima-user.yaml</li>
+</ul>
+<p>而<code>[spring.application.name].yaml</code>不包含环境，因此可以被多个环境共享。</p>
+<p>下面我们通过案例来测试配置共享</p>
+<p>1）添加一个环境共享配置</p>
+<p>我们在nacos中添加一个itheima-user.yaml文件：</p>
+<figure><figcaption>63703824847</figcaption></figure>
+<p>2）在user-service中读取共享配置</p>
+<p>在user-service服务中，修改UserController</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3）运行两个UserApp，使用不同的profile</p>
+<p>UserApp(18081)使用的profile是dev，UserApp2(28081)使用的profile是test。</p>
+<p>修改UserApp2这个启动项，改变其profile值：</p>
+<figure><figcaption>63703877334</figcaption></figure>
+<p>启动UserApp和UserApp2，访问http://localhost:18081/user/name，结果：</p>
+<figure><figcaption></figcaption></figure>
+<p>访问http://localhost:28081/user/name，结果：</p>
+<figure><figcaption></figcaption></figure>
+<p>可以看出来，不管是dev，还是test环境，都读取到了sysname这个属性的值。</p>
+<p>4）配置共享的优先级</p>
+<p>当nacos、服务本地同时出现相同属性时，优先级有高低之分：</p>
+<p>itheima-user-dev.yaml &gt; itheima-user.yaml &gt; application.yml</p>
+<figure><figcaption></figcaption></figure>
+<h3> 2.4.搭建Nacos集群【了解】</h3>
+<p>Nacos生产环境下一定要部署为集群状态，部署方式参考课前资料中的文档：</p>
+<figure><figcaption></figcaption></figure>
+<h2> 3 微服务网关【重点】</h2>
+<p>在SpringCloud中网关的实现包括两种：</p>
+<ul>
+<li>springcloud-gateway spring开发</li>
+<li>springcloud-zuul  netflix 2.0闭源</li>
+</ul>
+<p>Zuul是基于Servlet的实现，功能不强，性能较低，是阻塞式 。</p>
+<p>SpringCloud-Gateway则是基于Spring5中提供的WebFlux，属于响应式编程的实现，具备更好的性能。</p>
+<p>Spring Cloud Gateway 是 Spring Cloud 的一个全新项目，该项目是基于 Spring 5.0，Spring Boot 2.0 和 Project Reactor 等响应式编程和事件流技术开发的网关，它旨在为微服务架构提供一种简单有效的统一的 API 路由管理方式。</p>
+<h3> 3.1 为什么需要网关</h3>
+<p>Gateway网关是我们服务的守门神，所有微服务的统一入口。</p>
+<p>网关的<strong>核心功能特性</strong>：</p>
+<ul>
+<li>请求路由</li>
+<li>权限控制</li>
+<li>限流</li>
+</ul>
+<figure><figcaption></figcaption></figure>
+<p><strong>权限控制</strong>：网关作为微服务入口，需要校验用户是是否有请求资格，如果没有则进行拦截。</p>
+<p><strong>路由和负载均衡</strong>：一切请求都必须先经过gateway，但网关不处理业务，而是根据某种规则，把请求转发到某个微服务，这个过程叫做路由。当然路由的目标服务有多个时，还需要做负载均衡。</p>
+<p><strong>限流</strong>：当请求流量过高时，在网关中按照下流的微服务能够接受的速度来放行请求，避免服务压力过大。</p>
+<h3> 3.2.gateway快速入门</h3>
+<p>下面，我们就演示下网关的基本路由功能。基本步骤如下：</p>
+<ol>
+<li>创建SpringBoot工程gateway，引入网关依赖</li>
+<li>编写启动类</li>
+<li>编写基础配置和路由规则</li>
+<li>启动网关服务进行测试</li>
+</ol>
+<p>1）创建微服务网关并引入依赖</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2）配置文件<code>application.yml</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们将符合<code>Path</code> 规则的一切请求，都代理到 <code>uri</code>参数指定的地址。</p>
+<p>本例中，我们将 <code>/user/**</code>开头的请求，代理到<code>lb://itheima-user</code>，lb是负载均衡，根据服务名拉取服务列表，实现负载均衡。</p>
+<p>3）创建启动类<code>com.itheima.GatewayApplication</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>4）路由测试</p>
+<p>重启网关，访问http://localhost:7001/user/1时，符合<code>/user/**</code>规则，请求转发到uri：http://user/user/1，得到了结果：</p>
+<figure><figcaption>63686345530</figcaption></figure>
+<p>思考：</p>
+<p>比如所有以<code>/order</code>开始的请求交给<code>itheima-order</code>服务，如何配置<code>itheima-order</code>服务的路由请求？</p>
+<figure><figcaption></figcaption></figure>
+<h3> 3.3 断言工厂</h3>
+<p>我们在配置文件中写的断言规则只是字符串，这些字符串会被Predicate Factory读取并处理，转变为路由判断的条件</p>
+<p>例如Path=/user/**是按照路径匹配，这个规则是由</p>
+<p><code>org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory</code>类来</p>
+<p>处理的，像这样的断言工厂在SpringCloudGateway还有十几个:</p>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After</td>
+<td>是某个时间点后的请求</td>
+<td>-  After=2037-01-20T17:42:47.789-07:00[America/Denver]</td>
+</tr>
+<tr>
+<td>Before</td>
+<td>是某个时间点之前的请求</td>
+<td>-  Before=2031-04-13T15:14:47.433+08:00[Asia/Shanghai]</td>
+</tr>
+<tr>
+<td>Between</td>
+<td>是某两个时间点之前的请求</td>
+<td>-  Between=2037-01-20T17:42:47.789-07:00[America/Denver],  2037-01-21T17:42:47.789-07:00[America/Denver]</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>请求必须包含某些cookie</td>
+<td>- Cookie=chocolate, ch.p</td>
+</tr>
+<tr>
+<td>Header</td>
+<td>请求必须包含某些header</td>
+<td>- Header=X-Request-Id, \d+</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>请求必须是访问某个host（域名）</td>
+<td>-  Host=<strong>.somehost.org,</strong>.anotherhost.org</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>请求方式必须是指定方式</td>
+<td>- Method=GET,POST</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>请求路径必须符合指定规则</td>
+<td>- Path=/red/{segment},/blue/**</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>请求参数必须包含指定参数</td>
+<td>- Query=name, Jack或者-  Query=name</td>
+</tr>
+<tr>
+<td>RemoteAddr</td>
+<td>请求者的ip必须是指定范围</td>
+<td>- RemoteAddr=192.168.1.1/24</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>权重处理</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>我们只需要掌握Path这种路由工程就可以了。</p>
+<p>上面使用案例如下：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 3.4.过滤器工厂</h3>
+<p>GatewayFilter是网关中提供的一种过滤器，可以对进入网关的请求和微服务返回的响应做处理：</p>
+<figure><figcaption></figcaption></figure>
+<h4> 3.4.1.路由过滤器的种类</h4>
+<p>Spring提供了31种不同的路由过滤器工厂。例如：</p>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AddRequestHeader</td>
+<td>给当前请求添加一个请求头</td>
+</tr>
+<tr>
+<td>RemoveRequestHeader</td>
+<td>移除请求中的一个请求头</td>
+</tr>
+<tr>
+<td>AddResponseHeader</td>
+<td>给响应结果中添加一个响应头</td>
+</tr>
+<tr>
+<td>RemoveResponseHeader</td>
+<td>从响应结果中移除有一个响应头</td>
+</tr>
+<tr>
+<td>RequestRateLimiter</td>
+<td>限制请求的流量</td>
+</tr>
+</tbody>
+</table>
+<h4> 3.4.2.请求头过滤器</h4>
+<p>下面我们以AddRequestHeader 为例来讲解。</p>
+<blockquote>
+<p><strong>需求</strong>：给所有进入itheima-order的请求添加一个请求头：Heima=szheima nb!</p>
+</blockquote>
+<p>1）只需要修改gateway服务的application.yml文件，添加路由过滤即可：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>**注意：**当前过滤器写在order-service路由下，因此仅仅对访问order-service的请求有效。</p>
+<h3> 3.5.全局过滤器【重点】</h3>
+<p>上一节学习的过滤器，网关提供了31种，但每一种过滤器的作用都是固定的。如果我们希望拦截请求，做自己的业务逻辑则没办法实现。</p>
+<h4> 3.5.1.全局过滤器作用</h4>
+<p>全局过滤器的作用也是处理一切进入网关的请求和微服务响应，与GatewayFilter的作用一样。区别在于GatewayFilter通过配置定义，处理逻辑是固定的；而GlobalFilter的逻辑需要自己写代码实现。</p>
+<p>定义方式是实现GlobalFilter接口。</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在filter中编写自定义逻辑，可以实现下列功能：</p>
+<ul>
+<li>登录状态判断</li>
+<li>权限校验</li>
+<li>请求限流等</li>
+</ul>
+<h4> 3.5.2.自定义全局过滤器</h4>
+<p>需求：定义全局过滤器，拦截请求，判断请求的参数是否满足下面条件：</p>
+<ul>
+<li>参数中是否有authorization，</li>
+<li>authorization参数值是否为admin</li>
+</ul>
+<p>如果同时满足则放行，否则拦截</p>
+<p>实现：在gateway中定义一个过滤器：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>了解：响应提示信息：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>测试：</p>
+<p>http://localhost:7001/order/101?authorization=admin</p>
+<p>http://localhost:7001/user/1?authorization=admin</p>
+<figure><figcaption>63699078523</figcaption></figure>
+<figure><figcaption>63699096468</figcaption></figure>
+<h4> 3.5.3.过滤器执行顺序</h4>
+<p>请求进入网关会碰到三类过滤器：当前路由的过滤器、DefaultFilter、GlobalFilter</p>
+<p>请求路由后，会将当前路由过滤器和DefaultFilter、GlobalFilter，合并到一个过滤器链（集合）中，排序后依次执行每个过滤器：</p>
+<figure><figcaption></figcaption></figure>
+<p>排序的规则是什么呢？</p>
+<ul>
+<li>每一个过滤器都必须指定一个int类型的order值，<strong>order值越小，优先级越高，执行顺序越靠前</strong>。</li>
+<li>GlobalFilter通过实现Ordered接口，或者添加@Order注解来指定order值，由我们自己指定</li>
+<li>路由过滤器和defaultFilter的order由Spring指定，默认是按照声明顺序从1递增。</li>
+<li>当过滤器的order值一样时，会按照 defaultFilter &gt; 路由过滤器 &gt; GlobalFilter的顺序执行。</li>
+</ul>
+<p>详细内容，可以查看源码：</p>
+<p><code>org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator#getFilters()</code>方法是先加载defaultFilters，然后再加载某个route的filters，然后合并。</p>
+<p><code>org.springframework.cloud.gateway.handler.FilteringWebHandler#handle()</code>方法会加载全局过滤器，与前面的过滤器合并后根据order排序，组织过滤器链</p>
+<figure><figcaption>63698429089</figcaption></figure>
+<h3> 3.6.跨域问题【纯小抄】</h3>
+<h4> 3.6.1.什么是跨域问题</h4>
+<p>跨域：域名不一致就是跨域，主要包括：</p>
+<ul>
+<li>域名不同： www.taobao.com 和 www.taobao.org 和 www.jd.com 和 miaosha.jd.com</li>
+<li>域名相同，端口不同：localhost:8080和localhost8081</li>
+</ul>
+<p>跨域问题：浏览器禁止请求的发起者与服务端发生跨域ajax请求，请求被浏览器拦截的问题</p>
+<h4> 3.6.2.模拟跨域问题</h4>
+<p>找到<strong>资料nginx-1.18.0跨域测试.7z</strong> 解压放到<strong>没有空格和中文目录</strong>下，启动并访问。</p>
+<p>可以在浏览器控制台看到下面的错误：</p>
+<figure><figcaption>63698699637</figcaption></figure>
+<p>从localhost:8090访问localhost:7001，端口不同，显然是跨域的请求。</p>
+<h4> 3.6.3.解决跨域问题</h4>
+<p>如果没有网关下，可以在Controller类上加@CrossOrigin// 允许跨域访问</p>
+<p>在gateway服务的application.yml文件中，添加下面的配置：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 问题</h2>
+<h3> 1. Nacos注册中心如何使用</h3>
+<ol>
+<li>父工程中添加spring-cloud-alibaba的管理依赖</li>
+<li>order-service和user-service添加nacos的客户端依赖</li>
+<li>修改user-service&amp;order-service中的application.yml文件，添加nacos地址</li>
+<li>启动测试</li>
+</ol>
+<h3> 2. Nacos和Eureka的区别</h3>
+<ol>
+<li>语言支持：Nacos支持多种语言，包括Java、Go、C++等；而Eureka主要是为Java开发的。</li>
+<li>数据持久化：Nacos可以支持多种数据源作为存储后端，包括MySQL、MongoDB、Redis等；而Eureka只支持内存存储和配合Netflix的Eureka Server进行部署。</li>
+<li>健康检查：Nacos可以支持TCP、HTTP、MySQL等多种健康检查方式；而Eureka只支持HTTP方式的健康检查。</li>
+<li>动态配置管理：Nacos可以提供动态配置管理，支持实时修改配置并且可以对不同环境进行分组管理；而Eureka不支持动态配置管理。</li>
+<li>服务管理：Nacos提供了服务管理的功能，包括流量管理、服务降级、熔断降级等；而Eureka不提供服务管理的功能。</li>
+</ol>
+<h3> 3. Nacos和Eureka有什么共同点</h3>
+<ol>
+<li>都支持服务注册和服务拉取</li>
+<li>都支持服务提供者心跳方式做健康检测</li>
+</ol>
+<h3> 4. 如何搭建Nacos配置中心</h3>
+<ol>
+<li>在微服务中引入nacos的config依赖</li>
+<li>在nacos的管理界面，在对应的环境中添加配置文件 <code>服务名称</code>-<code>profile</code>.<code>后缀名</code></li>
+<li>在微服务中添加bootstrap.yml,配置nacos地址、当前环境、服务名称、文件后缀名</li>
+<li>代码中通过@value注解获取Nacos的配置</li>
+<li>重启测试</li>
+</ol>
+<h3> 5. 网关有什么用</h3>
+<p><strong>权限控制</strong>：网关作为微服务入口，需要校验用户是是否有请求资格，如果没有则进行拦截。</p>
+<p><strong>路由和负载均衡</strong>：一切请求都必须先经过gateway，但网关不处理业务，而是根据某种规则，把请求转发到某个微服务，这个过程叫做路由。当然路由的目标服务有多个时，还需要做负载均衡。</p>
+<p><strong>限流</strong>：当请求流量过高时，在网关中按照下流的微服务能够接受的速度来放行请求，避免服务压力过大。</p>
+<h3> 6. 如何搭建网关</h3>
+<ol>
+<li>创建网关微服务，引入nacos的服务发现和getway依赖</li>
+<li>配置application.yml，包括服务基本信息、nacos地址……</li>
+<li>编写启动类</li>
+<li>编写基础的路由规则</li>
+<li>启动网关服务测试</li>
+</ol>
+<h3> 7. 路由过滤器的作用是什么</h3>
+<ol>
+<li>请求头修改：可以通过路由过滤器修改请求头信息，比如添加、删除、修改某个请求头。</li>
+<li>请求参数修改：可以通过路由过滤器修改请求参数信息，比如添加、删除、修改某个请求参数。</li>
+<li>请求体修改：可以通过路由过滤器修改请求体信息，比如添加、删除、修改某个请求体参数。</li>
+<li>请求转发前验证：可以通过路由过滤器对请求进行验证，比如验证请求头、请求参数、请求体等信息的有效性，从而决定是否允许请求转发到目标服务。</li>
+<li>路径重写：可以通过路由过滤器修改请求路径，比如将请求路径中的某个字符串替换为另一个字符串，或者添加前缀或后缀等。</li>
+</ol>
+<h3> 8. GlobalFilter全局过滤器的作用是什么？</h3>
+<p>GlobalFilter是Spring Cloud Gateway中的全局过滤器，它的作用是对所有进入网关的请求进行过滤处理。</p>
+<p>具体来说，GlobalFilter能够在请求被路由到具体的服务之前对请求进行修改、增强和校验等操作。例如，可以通过GlobalFilter实现全局的身份认证、请求日志记录、请求参数校验等功能。</p>
+<p>与其他过滤器相比，GlobalFilter具有更高的优先级，会先于其他过滤器执行，因此可以对请求进行全局的统一处理。</p>
+<p>同时，GlobalFilter也可以在请求被路由到具体服务之后对响应进行处理，例如添加响应头、对响应内容进行加密等操作</p>
+<h3> 9. 过滤器的执行顺序</h3>
+<ol>
+<li>每一个过滤器都必须指定一个int类型的order值，<strong>order</strong>值越小，优先级越高，执行顺序越靠前。</li>
+<li>GlobalFilter通过实现Ordered接口，或者添加@Order注解来指定order值，由我们自己指定</li>
+<li>路由过滤器和defaultFilter的order由Spring指定，默认是按照声明顺序从1递增。</li>
+<li>当过滤器的order值一样时，会按照 defaultFilter &gt; 路由过滤器 &gt; GlobalFilter的顺序执行。</li>
+</ol>
+<h3> 10. 什么是跨域？</h3>
+<p>浏览器不能执行其他网站的脚本，从一个域名的网页去请求另一个域名的资源时，域名、端口、协议任一不同，都是跨域。</p>
+<h3> 11. 如何解决跨域？</h3>
+<p>在网关微服务中进行跨域配置，允许哪些网站的跨域请求</p>
+<h3> 12. 网关微服务中需要配置哪些跨域参数？</h3>
+<p>1.允许哪些域名跨域</p>
+<p>2.允许哪些请求头</p>
+<p>3.允许哪些请求方式</p>
+<p>4.是否允许使用cookie</p>
+]]></content>
+    <category term="SpringCloud"/>
+    <published>2024-08-18T23:06:39.000Z</published>
   </entry>
 </feed>
