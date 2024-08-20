@@ -6,8 +6,8 @@
     <link>https://www.fanliu.top/</link>
     <description>fanfan</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 20 Aug 2024 06:43:45 GMT</pubDate>
-    <lastBuildDate>Tue, 20 Aug 2024 06:43:45 GMT</lastBuildDate>
+    <pubDate>Tue, 20 Aug 2024 10:37:17 GMT</pubDate>
+    <lastBuildDate>Tue, 20 Aug 2024 10:37:17 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>ES</category>
@@ -6143,7 +6143,7 @@
       <source url="https://www.fanliu.top/rss.xml">01_SpringBoot 项目集成 Prometheus</source>
       <description>监控是一项具有挑战性的任务。这是建立稳定生产系统的关键一步。通过观察各种指标，我们可以了解系统在不同负载条件下的表现以及哪些指标需要更多关注。 在本系列教程中，我将向您展示如何设置Prometheus (https://prometheus.io/)和Grafana (https://grafana.com/)来监控 Spring Boot 应用程序。...</description>
       <category>监控</category>
-      <pubDate>Thu, 27 Jun 2024 17:37:54 GMT</pubDate>
+      <pubDate>Tue, 20 Aug 2024 17:37:54 GMT</pubDate>
       <content:encoded><![CDATA[<blockquote>
 <p>监控是一项具有挑战性的任务。这是建立稳定生产系统的关键一步。通过观察各种指标，我们可以了解系统在不同负载条件下的表现以及哪些指标需要更多关注。</p>
 </blockquote>
