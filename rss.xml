@@ -6,8 +6,8 @@
     <link>https://www.fanliu.top/</link>
     <description>fanfan</description>
     <language>zh-CN</language>
-    <pubDate>Sun, 18 Aug 2024 13:02:51 GMT</pubDate>
-    <lastBuildDate>Sun, 18 Aug 2024 13:02:51 GMT</lastBuildDate>
+    <pubDate>Tue, 20 Aug 2024 06:43:45 GMT</pubDate>
+    <lastBuildDate>Tue, 20 Aug 2024 06:43:45 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>ES</category>
@@ -22,6 +22,7 @@
     <category>Portainer</category>
     <category>javaSE</category>
     <category>Linux</category>
+    <category>监控</category>
     <category>Nginx</category>
     <category>nodejs</category>
     <category>源码解读</category>
@@ -6133,6 +6134,72 @@
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> 总结</h2>
 <p>通过这些配置，你不仅可以提高系统的个性化程度，还能增强用户体验。</p>
 <p>希望这篇文章对你有所帮助，如果你有任何问题或建议，欢迎在评论区留言讨论。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>01_SpringBoot 项目集成 Prometheus</title>
+      <link>https://www.fanliu.top/monitor/01_SpringBoot%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90Prometheus.html</link>
+      <guid>https://www.fanliu.top/monitor/01_SpringBoot%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90Prometheus.html</guid>
+      <source url="https://www.fanliu.top/rss.xml">01_SpringBoot 项目集成 Prometheus</source>
+      <description>监控是一项具有挑战性的任务。这是建立稳定生产系统的关键一步。通过观察各种指标，我们可以了解系统在不同负载条件下的表现以及哪些指标需要更多关注。 在本系列教程中，我将向您展示如何设置Prometheus (https://prometheus.io/)和Grafana (https://grafana.com/)来监控 Spring Boot 应用程序。...</description>
+      <category>监控</category>
+      <pubDate>Thu, 27 Jun 2024 17:37:54 GMT</pubDate>
+      <content:encoded><![CDATA[<blockquote>
+<p>监控是一项具有挑战性的任务。这是建立稳定生产系统的关键一步。通过观察各种指标，我们可以了解系统在不同负载条件下的表现以及哪些指标需要更多关注。</p>
+</blockquote>
+<p>在本系列教程中，我将向您展示如何设置<a href="https://prometheus.io/" target="_blank" rel="noopener noreferrer">Prometheus</a>和<a href="https://grafana.com/" target="_blank" rel="noopener noreferrer">Grafana</a>来监控 Spring Boot 应用程序。</p>
+<p>你将学习如何：</p>
+<ul>
+<li>配置 Spring Boot Actuator 以启用指标</li>
+<li>配置 Prometheus 来抓取指标</li>
+<li>使用<a href="https://prometheus.io/docs/prometheus/latest/querying/basics/" target="_blank" rel="noopener noreferrer">PromQL</a>在 Prometheus UI 中查询各种指标</li>
+<li>在 Grafana 仪表板中可视化指标</li>
+</ul>
+<p><em>本文假设您具有基本的 Spring Boot 知识。我们将集中讨论监控配置部分。</em></p>
+<p>让我们开始吧！</p>
+<h3> 1. 准备项目</h3>
+<h4> 1. 了解组件</h4>
+<p>首先，我们看一下下面的图表来了解监控的工作原理：</p>
+<figure><figcaption>img</figcaption></figure>
+<p>监控 Spring Boot 应用程序大图</p>
+<ul>
+<li>Spring Boot 应用程序有一个 Actuator 模块，允许我们监控和管理我们的应用程序。它与第三方监控工具（如 Prometheus）完美集成。</li>
+<li>Micrometer 从我们的应用程序收集指标并将其公开给外部系统，在本例中为 Prometheus。</li>
+<li>Grafana 是一个可视化工具，可以在仪表板中显示来自数据源（例如 Prometheus）的指标。</li>
+</ul>
+<h4> 2. 添加依赖项</h4>
+<p>我为这个演示准备了一个简单的 Spring Boot 项目。您可以在参考资料部分找到完整的源代码。</p>
+<p>我们需要以下依赖项：</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4> 3. 配置 Spring Boot Actuator</h4>
+<p>现在让我们配置<code>application.yml</code>文件来启用监控：</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 2. 启动项目</h3>
+<p>请注意，我们启用了健康、指标和 Prometheus 路径。</p>
+<p>启动应用程序并打开<code>http://localhost:8080/actuator</code><a href="http://localhost:8080/actuator" target="_blank" rel="noopener noreferrer"></a></p>
+<p>您应该看到以下端点：</p>
+<figure><figcaption>img</figcaption></figure>
+<p>已启用端点</p>
+<h4> 1. 端点<code>health</code></h4>
+<p>显示我们的应用程序是否正在运行：</p>
+<figure><figcaption>img</figcaption></figure>
+<h4> 2. 端点<code>prometheus</code></h4>
+<p>显示各种指标，例如 JVM 线程状态、有关 HTTP 服务器请求的信息等。</p>
+<figure><figcaption>img</figcaption></figure>
+<p>端点<code>metrics</code>提供有关 JVM 内存、系统 CPU 使用率等的信息。</p>
+<figure><figcaption>img</figcaption></figure>
+<h3> 3. 编写测试接口</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 4. 测试监控指标</h3>
+<p>在浏览器访问几次 <a href="http://localhost:8080/hello" target="_blank" rel="noopener noreferrer">localhost:8080/hello</a></p>
+<p>观察 <a href="http://localhost:8080/actuator/prometheus" target="_blank" rel="noopener noreferrer">localhost:8080/actuator/prometheus</a> 内监控指标是否成功记录</p>
+<figure><figcaption>image-20240820143354898</figcaption></figure>
+<ol>
+<li><strong>http_server_requests_seconds_count</strong>: 这个计数器（counter）记录了满足特定条件的HTTP请求的数量。在这个例子中，它表示的是没有异常、方法为<code>GET</code>、结果成功（<code>SUCCESS</code>）、状态码为<code>200</code>且URI为<code>/hello</code>的请求总数。数值<code>20598.0</code>意味着这样的请求已经发生了20,598次。</li>
+<li><strong>http_server_requests_seconds_sum</strong>: 这个计数器记录了满足上述相同条件的所有请求处理时间的总和（以秒为单位）。数值<code>5.677197</code>意味着所有这些请求的处理时间加起来总共耗时大约5.677197秒。</li>
+<li><strong>http_server_requests_seconds_max</strong>: 这个指标是一个计量表（gauge），它显示了满足上述条件的所有请求中最长的处理时间。数值<code>0.0356412</code>意味着最长的一个请求处理时间为大约0.0356412秒。</li>
+</ol>
+<p>综上所述，我们可以得出结论，对于路径<code>/hello</code>上的<code>GET</code>请求，它们都是成功的并且没有抛出异常。到目前为止，这类请求总共发生了20,598次，累计处理时间大约为5.677197秒，而单个请求的最长处理时间约为0.0356412秒。</p>
+<blockquote>
+<p>OK，目前为止 SpringBoot 项目已经成功集成了 Prometheus</p>
+</blockquote>
 ]]></content:encoded>
     </item>
     <item>
