@@ -6,8 +6,8 @@
     <link>https://www.fanliu.top/</link>
     <description>fanfan</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 22 Aug 2024 07:56:22 GMT</pubDate>
-    <lastBuildDate>Thu, 22 Aug 2024 07:56:22 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Aug 2024 03:41:39 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Aug 2024 03:41:39 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>ES</category>
@@ -11344,10 +11344,10 @@ EurekaServer在90秒内没有接收到某个微服务节点的心跳,EurekaServe
 ]]></content:encoded>
     </item>
     <item>
-      <title>SpringCloud（二）</title>
+      <title>SpringCloud_02</title>
       <link>https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html</link>
       <guid>https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html</guid>
-      <source url="https://www.fanliu.top/rss.xml">SpringCloud（二）</source>
+      <source url="https://www.fanliu.top/rss.xml">SpringCloud_02</source>
       <description>SpringCloud Gateway 微服务网关 Nacos 服务注册中心 Nacos 服务配置中心</description>
       <category>SpringCloud</category>
       <pubDate>Sun, 18 Aug 2024 23:06:39 GMT</pubDate>
