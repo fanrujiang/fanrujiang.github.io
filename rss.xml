@@ -6,8 +6,8 @@
     <link>https://www.fanliu.top/</link>
     <description>fanfan</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 26 Aug 2024 10:14:25 GMT</pubDate>
-    <lastBuildDate>Mon, 26 Aug 2024 10:14:25 GMT</lastBuildDate>
+    <pubDate>Sat, 31 Aug 2024 11:16:44 GMT</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2024 11:16:44 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>ES</category>
@@ -3076,6 +3076,147 @@
 <p>当 <code>ImageIO.read()</code> 返回 <code>null</code> 时，可能有多种原因导致问题的发生，从不支持的图像格式、错误的文件路径，到缺少合适的 <code>ImageReader</code>。通过本文介绍的检查和解决方法，你可以更有效地诊断问题并找到解决方案。</p>
 <p>记住，处理图像文件时，务必要确保所用的库支持你所处理的图像格式，并且要仔细检查文件路径和输入流，以避免不必要的错误。</p>
 <p>希望这些技巧能够帮助你解决 <code>ImageIO.read()</code> 返回 <code>null</code> 的问题！如果你有更多的疑问或需要进一步的帮助，欢迎在评论区留言。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>SpringBoot集成国际化功能最佳实践</title>
+      <link>https://www.fanliu.top/art/SpringBoot%E9%9B%86%E6%88%90%E5%9B%BD%E9%99%85%E5%8C%96%E5%8A%9F%E8%83%BD.html</link>
+      <guid>https://www.fanliu.top/art/SpringBoot%E9%9B%86%E6%88%90%E5%9B%BD%E9%99%85%E5%8C%96%E5%8A%9F%E8%83%BD.html</guid>
+      <source url="https://www.fanliu.top/rss.xml">SpringBoot集成国际化功能最佳实践</source>
+      <description>在构建多语言支持的 Web 应用程序时，国际化（i18n）是一个关键部分。Spring 提供了强大的国际化支持，但默认的 java.util.Locale 并不能满足所有场景的需求。为了支持更广泛的语言和区域格式，我们可以使用 ICU4J（International Components for Unicode for Java），这是一个功能强大的国际化库。</description>
+      <category>技术分享</category>
+      <pubDate>Sat, 31 Aug 2024 18:40:20 GMT</pubDate>
+      <content:encoded><![CDATA[<p>在构建多语言支持的 Web 应用程序时，国际化（i18n）是一个关键部分。Spring 提供了强大的国际化支持，但默认的 <code>java.util.Locale</code> 并不能满足所有场景的需求。为了支持更广泛的语言和区域格式，我们可以使用 ICU4J（International Components for Unicode for Java），这是一个功能强大的国际化库。</p>
+<!-- more -->
+<h3> 0. 准备工作</h3>
+<h4> 1. 创建国际化资源文件</h4>
+<p>首先需要创建或修改已有的国际化资源文件。这些文件通常放在项目的 <strong>src/main/resources/i18n/</strong> 目录下。对于不同的语言，你可以创建对应的属性文件，例如：</p>
+<ul>
+<li>messages.properties - 默认</li>
+<li>messages_en_US.properties - 英语</li>
+<li>messages_zh_CN.properties - 简体中文</li>
+</ul>
+<p>示例文件内容：</p>
+<figure><figcaption>image-20240831184919328</figcaption></figure>
+<h4> messages.properties</h4>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4> messages_zh_CN.properties</h4>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4> messages_en_US.properties</h4>
+<div class="language-properties line-numbers-mode" data-ext="properties"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4> 2. 配置 Spring Boot 应用</h4>
+<p>为了使Spring Boot能够识别这些资源文件，你需要在配置文件中指定国际化配置。可以在 <code>application.yml</code> 或 <code>application.properties</code> 文件中添加如下配置：</p>
+<div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3> 1. 引入 ICU4J 依赖</h3>
+<div class="language-xml line-numbers-mode" data-ext="xml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 2. 使用 ICU4J 替代 <code>java.util.Locale</code></h3>
+<p>ICU4J 提供了更丰富的国际化功能，相较于标准的 <code>java.util.Locale</code>，它支持更多的区域设置和更灵活的语言环境处理。我们可以使用 <code>ULocale</code> 来替代 <code>Locale</code>，并通过自定义过滤器 <code>ULocaleFilter</code> 来在每个请求中解析 <code>Accept-Language</code> 头部，设置用户的语言环境。</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 3. 线程工具类 用来保存国际化信息</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 4. 创建 I18nUtils 用于业务中调用</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><figcaption>image-20240831185117235</figcaption></figure>
+<h3> 5. 编写测试 controller 进行测试</h3>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在 ApiPost中进行接口测试</p>
+<h4> 测试国际化</h4>
+<p>下面是一个简化的示例表格，展示了不同国家和地区常用的 <code>Accept-Language</code> 设置。请注意，实际使用中，这些值可能会根据用户的个人设置有所不同。</p>
+<table>
+<thead>
+<tr>
+<th>国家/地区</th>
+<th>典型的 <code>Accept-Language</code> 值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>美国</td>
+<td><code>en-US,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>加拿大（英语区）</td>
+<td><code>en-CA,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>加拿大（法语区）</td>
+<td><code>fr-CA,fr;q=0.9</code></td>
+</tr>
+<tr>
+<td>英国</td>
+<td><code>en-GB,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>澳大利亚</td>
+<td><code>en-AU,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>新西兰</td>
+<td><code>en-NZ,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>南非</td>
+<td><code>en-ZA,en;q=0.9</code></td>
+</tr>
+<tr>
+<td>中国</td>
+<td><code>zh-CN,zh;q=0.9</code></td>
+</tr>
+<tr>
+<td>台湾</td>
+<td><code>zh-TW,zh;q=0.9</code></td>
+</tr>
+<tr>
+<td>香港</td>
+<td><code>zh-HK,zh;q=0.9</code></td>
+</tr>
+<tr>
+<td>日本</td>
+<td><code>ja-JP,ja;q=0.9</code></td>
+</tr>
+<tr>
+<td>韩国</td>
+<td><code>ko-KR,ko;q=0.9</code></td>
+</tr>
+<tr>
+<td>德国</td>
+<td><code>de-DE,de;q=0.9</code></td>
+</tr>
+<tr>
+<td>法国</td>
+<td><code>fr-FR,fr;q=0.9</code></td>
+</tr>
+<tr>
+<td>西班牙</td>
+<td><code>es-ES,es;q=0.9</code></td>
+</tr>
+<tr>
+<td>俄罗斯</td>
+<td><code>ru-RU,ru;q=0.9</code></td>
+</tr>
+<tr>
+<td>巴西</td>
+<td><code>pt-BR,pt;q=0.9</code></td>
+</tr>
+<tr>
+<td>葡萄牙</td>
+<td><code>pt-PT,pt;q=0.9</code></td>
+</tr>
+<tr>
+<td>意大利</td>
+<td><code>it-IT,it;q=0.9</code></td>
+</tr>
+<tr>
+<td>荷兰</td>
+<td><code>nl-NL,nl;q=0.9</code></td>
+</tr>
+</tbody>
+</table>
+<p>这里的 <code>q</code> 参数表示“质量”或优先级，<code>q=0.9</code> 表示该语言的优先级为0.9，通常默认值是1.0。例如，“en-US,en;q=0.9”意味着首先偏好美国英语（<code>en-US</code>），但如果不可用，则接受通用英语（<code>en</code>），其优先级稍低。</p>
+<p>请注意，这些值并不是固定的，它们可以根据用户的浏览器设置和偏好而变化。</p>
+<p>根据请求头调整 <strong>Accept-Language</strong> 为 美国英语 对应的区域标准代码是 en-US,en;q=0.9</p>
+<figure><figcaption>image-20240831190038324</figcaption></figure>
+<p>根据请求头调整 <strong>Accept-Language</strong> 为 中国简中 对应的区域标准代码是 zh-CN,zh;q=0.9</p>
+<figure><figcaption>image-20240831190252510</figcaption></figure>
+<h4> 获取对应语言信息测试</h4>
+<figure><figcaption>image-20240831190650857</figcaption></figure>
+<p>现在就完成了最基本的国际化，后续就可以使用 I18nUtils 的对应国际化消息了</p>
+<h3> 6. 扩展</h3>
+<p>对异常消息的处理</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这样，根据客户端发送的语言设置，页面上将显示相应的语言版本。</p>
+<p>以上就是基本的国际化配置方法，你可以根据实际需求调整配置和实现细节。</p>
+<p><strong>如果您有需要，可联系我 发您完整示例代码</strong></p>
 ]]></content:encoded>
     </item>
     <item>
