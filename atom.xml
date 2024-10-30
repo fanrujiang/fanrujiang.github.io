@@ -3,7 +3,7 @@
   <id>https://www.fanliu.top/</id>
   <title>FanFanの学习笔记</title>
   <subtitle>fanfan</subtitle>
-  <updated>2024-08-31T11:16:44.114Z</updated>
+  <updated>2024-10-30T06:35:16.090Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://www.fanliu.top/atom.xml"/>
   <link rel="alternate" href="https://www.fanliu.top/"/>
@@ -38,7 +38,7 @@
     <title type="text">Elasticsearch实现商品搜索</title>
     <id>https://www.fanliu.top/Elasticsearch/ES_use01.html</id>
     <link href="https://www.fanliu.top/Elasticsearch/ES_use01.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Elasticsearch实现商品搜索</h1>
 <h2> 1. Spring Data Elasticsearch</h2>
 <p>Spring Data Elasticsearch是Spring提供的一种以Spring Data风格来操作数据存储的方式，它可以避免编写大量的样板代码。</p>
@@ -134,7 +134,7 @@
     <title type="text">JavaScript_01_基础</title>
     <id>https://www.fanliu.top/JavaScript/JavaScript_01_%E5%9F%BA%E7%A1%80.html</id>
     <link href="https://www.fanliu.top/JavaScript/JavaScript_01_%E5%9F%BA%E7%A1%80.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> JavaScript_01_基础</h1>
 <blockquote>
 <p>了解变量、数据类型、运算符等基础概念，能够实现数据类型的转换，结合四则运算体会如何编程。</p>
@@ -277,7 +277,7 @@
     <title type="text">JavaScript_02_流程控制</title>
     <id>https://www.fanliu.top/JavaScript/JavaScript_02_%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html</id>
     <link href="https://www.fanliu.top/JavaScript/JavaScript_02_%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> JavaScript_02_流程控制</h1>
 <p>理解什么是流程控制，知道条件控制的种类并掌握其对应的语法规则，具备利用循环编写简易ATM取款机程序能力</p>
 <ul>
@@ -636,7 +636,7 @@
     <title type="text">01_Ajax入门</title>
     <id>https://www.fanliu.top/ajax/AJAX_01_%E5%85%A5%E9%97%A8.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_01_%E5%85%A5%E9%97%A8.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 01_Ajax入门</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -1757,7 +1757,7 @@
     <title type="text">02_AJAX综合案例</title>
     <id>https://www.fanliu.top/ajax/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_02_%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 02_AJAX综合案例</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -2682,7 +2682,7 @@ Object<span class="token punctuation">.</span><span class="token function">keys<
     <title type="text">03_AJAX原理</title>
     <id>https://www.fanliu.top/ajax/AJAX_03_%E5%8E%9F%E7%90%86.html</id>
     <link href="https://www.fanliu.top/ajax/AJAX_03_%E5%8E%9F%E7%90%86.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Day03_AJAX原理</h1>
 <h2> 知识点自测</h2>
 <ol>
@@ -3376,7 +3376,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">APP一键登录-服务端集成</title>
     <id>https://www.fanliu.top/art/APP%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9B%86%E6%88%90.html</id>
     <link href="https://www.fanliu.top/art/APP%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9B%86%E6%88%90.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> APP一键登录-服务端集成</h2>
 <p>该篇 blog 主要记录笔者实现 app手机号一键登录 功能，集成的是阿里云号码认证服务，主要简单记录一下实现的过程：</p>
 <figure><figcaption>一键登录.png</figcaption></figure>
@@ -3464,7 +3464,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">ImageIo.read() 读取图片时返回 null 的解决方法</title>
     <id>https://www.fanliu.top/art/ImageIo.read()%20%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%97%B6%E8%BF%94%E5%9B%9ENull%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/art/ImageIo.read()%20%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E6%97%B6%E8%BF%94%E5%9B%9ENull%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h3> <code>ImageIo.read()</code> 读取图片时返回 <code>null</code> 的解决方法</h3>
 <p>在 Java 开发中，我们常常使用 <code>ImageIO.read()</code> 方法来读取图像文件并将其转换为 <code>BufferedImage</code> 对象。然而，有时候这个方法可能会返回 <code>null</code>，让我们困惑不解。本文将探讨导致这种情况的常见原因，并介绍解决方法。</p>
 <h4> 1. 确保图像格式受支持</h4>
@@ -3503,7 +3503,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">SpringBoot集成国际化功能最佳实践</title>
     <id>https://www.fanliu.top/art/SpringBoot%E9%9B%86%E6%88%90%E5%9B%BD%E9%99%85%E5%8C%96%E5%8A%9F%E8%83%BD.html</id>
     <link href="https://www.fanliu.top/art/SpringBoot%E9%9B%86%E6%88%90%E5%9B%BD%E9%99%85%E5%8C%96%E5%8A%9F%E8%83%BD.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<p>在构建多语言支持的 Web 应用程序时，国际化（i18n）是一个关键部分。Spring 提供了强大的国际化支持，但默认的 <code>java.util.Locale</code> 并不能满足所有场景的需求。为了支持更广泛的语言和区域格式，我们可以使用 ICU4J（International Components for Unicode for Java），这是一个功能强大的国际化库。</p>
 ]]></summary>
     <content type="html"><![CDATA[<p>在构建多语言支持的 Web 应用程序时，国际化（i18n）是一个关键部分。Spring 提供了强大的国际化支持，但默认的 <code>java.util.Locale</code> 并不能满足所有场景的需求。为了支持更广泛的语言和区域格式，我们可以使用 ICU4J（International Components for Unicode for Java），这是一个功能强大的国际化库。</p>
@@ -3645,7 +3645,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">三步教你删除七牛云bucket所有文件</title>
     <id>https://www.fanliu.top/art/%E4%B8%89%E6%AD%A5%E6%95%99%E4%BD%A0%E5%88%A0%E9%99%A4%E4%B8%83%E7%89%9B%E4%BA%91bucket%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6.html</id>
     <link href="https://www.fanliu.top/art/%E4%B8%89%E6%AD%A5%E6%95%99%E4%BD%A0%E5%88%A0%E9%99%A4%E4%B8%83%E7%89%9B%E4%BA%91bucket%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 三步教你删除七牛云bucket所有文件</h2>
 <p>今天要删除一个不再使用的空间（bucket），释放存储空间，删除时提示“空间「xxx」不为空”，意思是要先清空空间内的文件，再删除，由于文件有几TB，后台提供的删除功能没法在短时间内清空，工作量较大</p>
 <figure><figcaption>image-20240509153406432</figcaption></figure>
@@ -3748,7 +3748,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">为什么POST请求在重定向后会变成GET请求？</title>
     <id>https://www.fanliu.top/art/%E4%B8%BA%E4%BB%80%E4%B9%88POST%E8%AF%B7%E6%B1%82%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%90%8E%E4%BC%9A%E5%8F%98%E6%88%90GET%E8%AF%B7%E6%B1%82%EF%BC%9F.html</id>
     <link href="https://www.fanliu.top/art/%E4%B8%BA%E4%BB%80%E4%B9%88POST%E8%AF%B7%E6%B1%82%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%90%8E%E4%BC%9A%E5%8F%98%E6%88%90GET%E8%AF%B7%E6%B1%82%EF%BC%9F.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h3> 为什么POST请求在重定向后会变成GET请求？</h3>
 <p>在深入探讨这一现象之前，我们先要理解HTTP协议中重定向的基本概念以及POST和GET这两种请求方法的本质差异。本文旨在详细解析这一技术细节，帮助开发者更好地应对和理解网络请求中的重定向问题。</p>
 <h4> HTTP重定向基础</h4>
@@ -3782,7 +3782,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">在 Spring Boot 项目中使用自定义注解添加 Cache-Control 响应头</title>
     <id>https://www.fanliu.top/art/%E5%9C%A8%20Spring%20Boot%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%B7%BB%E5%8A%A0%20Cache-Control%20%E5%93%8D%E5%BA%94%E5%A4%B4.html</id>
     <link href="https://www.fanliu.top/art/%E5%9C%A8%20Spring%20Boot%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%B7%BB%E5%8A%A0%20Cache-Control%20%E5%93%8D%E5%BA%94%E5%A4%B4.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 在 Spring Boot 项目中使用自定义注解添加 Cache-Control 响应头</h1>
 <p>在开发 Web 应用程序时，合理地设置 HTTP 响应头中的 <code>Cache-Control</code> 可以有效地提高应用的性能和用户体验。在这篇博客中，我们将介绍如何在 Spring Boot 项目中使用自定义注解，动态地在接口响应头中添加 <code>Cache-Control</code>。</p>
 <h3> 1. 创建自定义注解</h3>
@@ -3819,7 +3819,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">宝塔nginx缓存清理</title>
     <id>https://www.fanliu.top/art/%E5%AE%9D%E5%A1%94nginx%E7%BC%93%E5%AD%98%E6%B8%85%E7%90%86.html</id>
     <link href="https://www.fanliu.top/art/%E5%AE%9D%E5%A1%94nginx%E7%BC%93%E5%AD%98%E6%B8%85%E7%90%86.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 宝塔Nginx缓存清理</h1>
 <p>在工作中使用宝塔部署项目时，我发现宝塔会奇怪地缓存接口的数据。经过排查，发现只有设置了响应头包含 <code>Cache-Control</code> 的接口才会被宝塔Nginx的反向代理缓存。</p>
 <p>于是，我开始着手解决这个问题。</p>
@@ -3848,7 +3848,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">服务器挖矿病毒处理指南</title>
     <id>https://www.fanliu.top/art/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92.html</id>
     <link href="https://www.fanliu.top/art/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<blockquote>
 <p>挖矿程序为了最大程度获取利益，会存放大量的持久化后门，导致病毒难以清理或无法杀死。如果您在未购买云安全中心服务的情况下遇到挖矿病毒，可以采取如下措施排查和处理。</p>
 </blockquote>
@@ -4081,7 +4081,7 @@ result <span class="token operator">+=</span> <span class="token string">'&amp;b
     <title type="text">破解 Aspose 系列 jar包方法</title>
     <id>https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/art/%E7%A0%B4%E8%A7%A3Aspose%E7%B3%BB%E5%88%97jar%E5%8C%85%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 破解Aspose系列jar包方法</h2>
 <blockquote>
 <p>授人以鱼 不如授人以渔</p>
@@ -4145,7 +4145,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">docker安装MySQL_全网最佳教程</title>
     <id>https://www.fanliu.top/docker/docker%E5%AE%89%E8%A3%85MySQL.html</id>
     <link href="https://www.fanliu.top/docker/docker%E5%AE%89%E8%A3%85MySQL.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> docker安装MySQL_全网最佳教程</h2>
 <p>此教程适合用于企业项目中的 MySQL，配置注释详细全面，并准备了一键安装的脚本</p>
 <h3> 1. 使用命令拉取mysql</h3>
@@ -4217,7 +4217,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">带你深入了解 Docker 日志</title>
     <id>https://www.fanliu.top/docker/%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3docker%E6%97%A5%E5%BF%97.html</id>
     <link href="https://www.fanliu.top/docker/%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3docker%E6%97%A5%E5%BF%97.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 带你深入了解 Docker 日志</h2>
 <p>在现代应用开发中，Docker 已成为许多开发者和运维工程师的必备工具。它简化了应用的部署和管理，而日志作为监控和调试应用的重要手段，也显得尤为重要。本文将带你深入了解 Docker 日志的相关知识，包括如何设置日志轮转、如何屏蔽日志输出、如何查看和管理日志等。</p>
 <h3> 1. Docker 日志驱动</h3>
@@ -4275,7 +4275,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">管理docker必备容器--Portainer基础教程</title>
     <id>https://www.fanliu.top/docker/%E7%AE%A1%E7%90%86docker%E5%BF%85%E5%A4%87%E5%AE%B9%E5%99%A8-Portainer%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/docker/%E7%AE%A1%E7%90%86docker%E5%BF%85%E5%A4%87%E5%AE%B9%E5%99%A8-Portainer%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h3> 简介</h3>
 <blockquote>
 <p>porttainer其实是很方便docker管理工具，自己用了也挺熟练的，可以说linux上安装docker，那么必须安装porttainer，考虑到有些小伙伴可能对porttainer不是很熟悉，所以做一个详细的教程，以便学习</p>
@@ -4388,7 +4388,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day01-面向对象高级</title>
     <id>https://www.fanliu.top/javaSE/01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html</id>
     <link href="https://www.fanliu.top/javaSE/01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 01. 面向对象高级</h1>
 <p>各位同学，接下来的三天课程中，我们继续学习面向对象的相关课程。面向对象是写Java程序的核心套路，如何你不懂面向对象，那就相当于Java你白学了。所以在接下来的三天时间里，各位同学也需要克服重重困难好好学习。</p>
 <p>前面我们说过面向对象最核心的套路是：<strong>设计对象来处理数据，解决问题。</strong> 如果你把面向对象高级这一部分课程学好，你设计出来的对象将更加好用。</p>
@@ -4608,7 +4608,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day02-面向对象高级</title>
     <id>https://www.fanliu.top/javaSE/day02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html</id>
     <link href="https://www.fanliu.top/javaSE/day02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day02——面向对象高级</h1>
 <p>今天我们继续学习面向对象的语法知识，我们今天学习的主要内容是：多态、抽象、接口。</p>
 <p>学会这些语法知识，可以让我们编写代码更灵活，代码的复用性更高。</p>
@@ -4827,7 +4827,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day04-常用API</title>
     <id>https://www.fanliu.top/javaSE/day04-%E5%B8%B8%E7%94%A8API.html</id>
     <link href="https://www.fanliu.top/javaSE/day04-%E5%B8%B8%E7%94%A8API.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day04——常用API</h1>
 <h2> Math类</h2>
 <p>Math是数学的意思，该类提供了很多个进行数学运算的方法，如求绝对值，求最大值，四舍五入等，话不多说，直接上代码。</p>
@@ -4973,7 +4973,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day05-jdk8新特性、算法、正则表达式</title>
     <id>https://www.fanliu.top/javaSE/day05-jdk8%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%81%E7%AE%97%E6%B3%95%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html</id>
     <link href="https://www.fanliu.top/javaSE/day05-jdk8%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%81%E7%AE%97%E6%B3%95%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day05-算法和数据结构</h1>
 <h2> 一、JDK8新特性-Lambda表达式</h2>
 <p>接下来，我们学习一个JDK8新增的一种语法形式，叫做Lambda表达式。<strong>作用：用于简化匿名内部类代码的书写。</strong></p>
@@ -5091,7 +5091,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day07-集合进阶(Set、Collections、Map集合)</title>
     <id>https://www.fanliu.top/javaSE/day07-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-Set%E3%80%81Collections%E3%80%81Map%E9%9B%86%E5%90%88.html</id>
     <link href="https://www.fanliu.top/javaSE/day07-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-Set%E3%80%81Collections%E3%80%81Map%E9%9B%86%E5%90%88.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day07——集合进阶（Set、Map集合）</h1>
 <h2> 一、Set系列集合</h2>
 <h3> 1.1 认识Set集合的特点</h3>
@@ -5258,7 +5258,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day08-Map集合、Stream流、File、递归</title>
     <id>https://www.fanliu.top/javaSE/day08-Map%E9%9B%86%E5%90%88%E3%80%81Stream%E6%B5%81%E3%80%81File%E3%80%81%E9%80%92%E5%BD%92.html</id>
     <link href="https://www.fanliu.top/javaSE/day08-Map%E9%9B%86%E5%90%88%E3%80%81Stream%E6%B5%81%E3%80%81File%E3%80%81%E9%80%92%E5%BD%92.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day08-Map集合、Stream流、File类</h1>
 <h2> 一、Map集合</h2>
 <p>同学们，在前面几节课我们已经学习了Map集合的常用方法，以及遍历方式。</p>
@@ -5424,7 +5424,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day09-字符集、IO流（一）</title>
     <id>https://www.fanliu.top/javaSE/day09-%E5%AD%97%E7%AC%A6%E9%9B%86%E3%80%81IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89.html</id>
     <link href="https://www.fanliu.top/javaSE/day09-%E5%AD%97%E7%AC%A6%E9%9B%86%E3%80%81IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day09-字符集、IO流（一）</h1>
 <p>各位同学，前面我们已经学习了File类，通过File类的对象可以对文件进行操作，但是不能操作文件中的内容。要想操作文件中的内容，我们还得学习IO流。但是在正式学习IO流之前，我们还需要学习一个前置知识叫做字符集，只有我们把字符集搞明白了，再学习IO流才会更加丝滑。</p>
 <h2> 一、字符集</h2>
@@ -5546,7 +5546,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day10-IO流（二）</title>
     <id>https://www.fanliu.top/javaSE/day10-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89.html</id>
     <link href="https://www.fanliu.top/javaSE/day10-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day10-IO流（二）</h1>
 <h2> 一、字符流</h2>
 <p>同学们，前面我们学习了字节流，使用字节流可以读取文件中的字节数据。但是如果文件中有中文使用字节流来读取，就有可能读到半个汉字的情况，这样会导致乱码。虽然使用读取全部字节的方法不会出现乱码，但是如果文件过大又不太合适。</p>
@@ -5716,7 +5716,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day11-特殊文件、日志技术、多线程</title>
     <id>https://www.fanliu.top/javaSE/day11-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E3%80%81%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day11-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E3%80%81%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day11-特殊文件、日志技术、多线程</h1>
 <h2> 一、属性文件</h2>
 <h3> 1.1 特殊文件概述</h3>
@@ -5964,7 +5964,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day12-多线程</title>
     <id>https://www.fanliu.top/javaSE/day12-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day12-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day12-多线程</h1>
 <h2> 一、多线程常用方法</h2>
 <figure><figcaption>1668051403591</figcaption></figure>
@@ -6210,7 +6210,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day13-网络编程</title>
     <id>https://www.fanliu.top/javaSE/day13-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html</id>
     <link href="https://www.fanliu.top/javaSE/day13-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day13-网络编程</h1>
 <h2> 一、网络编程概述</h2>
 <p>同学们，今天我们学习的课程内容叫网络编程。意思就是编写的应用程序可以与网络上其他设备中的应用程序进行数据交互。</p>
@@ -6384,7 +6384,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">day14-单元测试-反射-注解-动态代理</title>
     <id>https://www.fanliu.top/javaSE/day14-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86.html</id>
     <link href="https://www.fanliu.top/javaSE/day14-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> day14-单元测试、反射</h1>
 <p>恭喜同学们，Java主要的知识我们其实已经学习得差不多了。今天同学们再把单元测试、反射、注解、动态代理学习完。Java的基础知识就算全齐活了。</p>
 <p>首先，我们进入单元测试的学习。</p>
@@ -6647,7 +6647,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">增加虚拟内存：提升服务器性能的有效方法</title>
     <id>https://www.fanliu.top/linux/Linux%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%EF%BC%9A%E6%8F%90%E5%8D%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%EF%BC%9A%E6%8F%90%E5%8D%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 增加虚拟内存：提升服务器性能的有效方法</h2>
 <p>在日常使用服务器的过程中，我们经常会遇到内存不足的情况。为了解决这个问题，我们可以通过增加虚拟内存（交换空间）来提高服务器的性能。本文将详细介绍如何为服务器增加虚拟内存，并确保其在重启后仍然有效。</p>
 <h3> 为什么需要增加虚拟内存？</h3>
@@ -6688,7 +6688,7 @@ license<span class="token punctuation">.</span><span class="token function">setL
     <title type="text">Linux常见问题笔记</title>
     <id>https://www.fanliu.top/linux/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h3> 1. VMWare安装Linux操作系统找不到IP地址</h3>
 <p>输入linux指令ip addr  查看ip端口发现ip不存在</p>
 <figure><figcaption>img</figcaption></figure>
@@ -6785,7 +6785,7 @@ vi ifcfg-ens33 编辑ifcfg-ens33文件
     <title type="text">Linux系统字体缺失的修复方法</title>
     <id>https://www.fanliu.top/linux/Linux%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95.html</id>
     <link href="https://www.fanliu.top/linux/Linux%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> Linux系统字体缺失的修复方法</h2>
 <blockquote>
 <p>在 Linux系统中如果部署一些处理 office文档 的服务的时候，会出处理后的文档字符为□的情况，若出现这种状况，则说明此服务器下缺少对应的字体文件。接着看处理方法</p>
@@ -6823,7 +6823,7 @@ vi ifcfg-ens33 编辑ifcfg-ens33文件
     <title type="text">如何更改 Linux 登录信息</title>
     <id>https://www.fanliu.top/linux/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9Linux%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF.html</id>
     <link href="https://www.fanliu.top/linux/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9Linux%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 如何更改 Linux 登录信息</h1>
 <p>在使用 Linux 时，你可能会希望自定义登录时显示的欢迎信息和系统更新提示。本篇博客将详细介绍如何通过修改系统配置文件来实现这一目标。</p>
 <h2> 步骤一：更改欢迎信息 (MOTD)</h2>
@@ -6933,7 +6933,7 @@ Have a great day!
     <title type="text">01_SpringBoot 项目集成 Prometheus</title>
     <id>https://www.fanliu.top/monitor/01_SpringBoot%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90Prometheus.html</id>
     <link href="https://www.fanliu.top/monitor/01_SpringBoot%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90Prometheus.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<blockquote>
 <p>监控是一项具有挑战性的任务。这是建立稳定生产系统的关键一步。通过观察各种指标，我们可以了解系统在不同负载条件下的表现以及哪些指标需要更多关注。</p>
 </blockquote>
@@ -7002,7 +7002,7 @@ Have a great day!
     <title type="text">01_Nginx - 从入门到实践</title>
     <id>https://www.fanliu.top/nginx/nginx_01.html</id>
     <link href="https://www.fanliu.top/nginx/nginx_01.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Nginx - 从入门到实践</h1>
 <figure><figcaption>image-20220724221108300</figcaption></figure>
 <h2> 1. Nginx 介绍</h2>
@@ -7336,7 +7336,7 @@ Have a great day!
     <title type="text">02_Nginx 入门实战</title>
     <id>https://www.fanliu.top/nginx/nginx_02.html</id>
     <link href="https://www.fanliu.top/nginx/nginx_02.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Nginx 入门实战</h1>
 <h2> 简介</h2>
 <blockquote>
@@ -8033,7 +8033,7 @@ systemctl status firewalld
     <title type="text">nodejs版本切换工具-nvm</title>
     <id>https://www.fanliu.top/nodeJS/nodejs%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7.html</id>
     <link href="https://www.fanliu.top/nodeJS/nodejs%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> nodejs版本切换工具-nvm</h1>
 <blockquote>
 <p>好久不见，别来无恙</p>
@@ -8133,7 +8133,7 @@ systemctl status firewalld
     <title type="text">jeecg-boot 防止重复提交</title>
     <id>https://www.fanliu.top/CodeInterpretation/jeecg-boot/jeecg-boot%20%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/jeecg-boot/jeecg-boot%20%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> jeecg-boot 防止重复提交</h1>
 <p>在现代Web开发中，防止重复提交是一个常见的问题，特别是在处理表单提交、支付操作等场景时。重复提交不仅会影响用户体验，还可能带来安全隐患和数据一致性问题。为了解决这个问题，jeecg-boot 提供了一个非常实用的工具：@JRepeat 注解。</p>
 <h2> 1. 什么是 @JRepeat 注解？</h2>
@@ -8291,7 +8291,7 @@ public class UserService {</p>
     <title type="text">若依源码解读：图片验证码</title>
     <id>https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 若依源码解读：图片验证码</h1>
 <p>若依通过合理的验证码生成流程和相应的代码实现，为应用程序提供了生成图片验证码和基于数学运算的验证码文本的功能，以增加系统的安全性和防护能力。
 本文讨论了若依（Ruoyi）生成图片验证码的过程以及相关代码。首先，我们了解了生成图片验证码的基本步骤，包括生成随机字符串、创建图片对象、绘制背景和文本、添加干扰线等。
@@ -8375,7 +8375,7 @@ public class UserService {</p>
     <title type="text">若依源码解读：防止表单重复提交</title>
     <id>https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html</id>
     <link href="https://www.fanliu.top/CodeInterpretation/ruoyi-vue/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%EF%BC%9A%E9%98%B2%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 若依源码解读：防止表单重复提交</h1>
 <h2> 1. 如何防止请求重复提交</h2>
 <p>在接口方法上添加<code>@RepeatSubmit</code>注解即可，注解参数说明：</p>
@@ -8467,7 +8467,7 @@ public class UserService {</p>
     <title type="text">mysql学习笔记_01</title>
     <id>https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_01.html</id>
     <link href="https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_01.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> mysql</h1>
 <h2> 1. Mysql的安装和下载</h2>
 <h3> 一、下载</h3>
@@ -9378,7 +9378,7 @@ public class UserService {</p>
     <title type="text">mysql学习笔记_02</title>
     <id>https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_02.html</id>
     <link href="https://www.fanliu.top/db/mysql/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_02.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> mysql学习笔记_02</h1>
 <h1> 1. 多表查询</h1>
 <h2> 1.1 概述</h2>
@@ -9869,7 +9869,7 @@ VALUES
     <title type="text">RabbitMQ_01 入门 - 开篇</title>
     <id>https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_01.html</id>
     <link href="https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_01.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> RabbitMQ_01 入门 - 开篇</h1>
 <h2> 1. 什么是消息队列</h2>
 <p><strong>消息</strong>指的是两个应用间传递的数据。数据的类型有很多种形式，可能只包含文本字符串，也可能包含嵌入对象。</p>
@@ -9959,7 +9959,7 @@ VALUES
     <title type="text">RabbitMQ_02 进阶 - 过期时间TTL</title>
     <id>https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_02.html</id>
     <link href="https://www.fanliu.top/mq/rabbitMQ/RabbitMQ_02.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> RabbitMQ进阶 - 过期时间TTL</h1>
 <p>Time to Live 简称 TTL，即过期时间。RabbitMQ 可以对 <strong>消息</strong> 和 <strong>队列</strong> 设置 TTL。</p>
 <h2> 1. 设置消息的 TTL</h2>
@@ -10016,7 +10016,7 @@ VALUES
     <title type="text">我的世界MCSM面板搭建</title>
     <id>https://www.fanliu.top/other/game/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html</id>
     <link href="https://www.fanliu.top/other/game/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CMCSM%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> 我的世界MCSM面板搭建</h1>
 <h2> Linux</h2>
 <p>如果你并不想去学习如何自己搭建，可以使用源作者的安装指令（我的脚本没必要了）</p>
@@ -10147,7 +10147,7 @@ VALUES
     <title type="text">git 分布式版本控制工具</title>
     <id>https://www.fanliu.top/other/tool/git.html</id>
     <link href="https://www.fanliu.top/other/tool/git.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Git 分布式版本控制工具</h1>
 <h2> 课程内容</h2>
 <ul>
@@ -10624,7 +10624,7 @@ VALUES
     <title type="text">Spring核心_01_控制反转(IOC)</title>
     <id>https://www.fanliu.top/spring/Framework/Spring%E6%A0%B8%E5%BF%83%E4%B9%8B%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC(IOC).html</id>
     <link href="https://www.fanliu.top/spring/Framework/Spring%E6%A0%B8%E5%BF%83%E4%B9%8B%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC(IOC).html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 0. 引入</h2>
 <ol>
 <li>Spring框架管理这些Bean的创建工作，即由用户管理Bean转变为框架管理Bean，这个就叫<strong>控制反转 - Inversion of Control (IoC)</strong></li>
@@ -10880,7 +10880,7 @@ VALUES
     <title type="text">SpringBoot-api-01-如何生成接口文档之Swagger技术栈</title>
     <id>https://www.fanliu.top/spring/SpringBoot/SpringBoot-api-01-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E4%B9%8BSwagger%E6%8A%80%E6%9C%AF%E6%A0%88.html</id>
     <link href="https://www.fanliu.top/spring/SpringBoot/SpringBoot-api-01-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E4%B9%8BSwagger%E6%8A%80%E6%9C%AF%E6%A0%88.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h2> 0. 准备知识点</h2>
 <blockquote>
 <p>在生成文档前，你需要了解下OpenAPI规范，Swagger，SpringFox，Knife4J，Swagger UI等之间的关系。</p>
@@ -10962,7 +10962,7 @@ VALUES
     <title type="text">Springboot 原理篇</title>
     <id>https://www.fanliu.top/spring/SpringBoot/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87.html</id>
     <link href="https://www.fanliu.top/spring/SpringBoot/SpringBoot%E5%8E%9F%E7%90%86%E7%AF%87.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Springboot 原理篇</h1>
 <h1> 1 springboot的自动配置原理【重点】</h1>
 <h3> 【目标】</h3>
@@ -11374,7 +11374,7 @@ VALUES
     <title type="text">Spring Security</title>
     <id>https://www.fanliu.top/spring/SpringBoot/SpringSecurity.html</id>
     <link href="https://www.fanliu.top/spring/SpringBoot/SpringSecurity.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<h1> Spring Security入门</h1>
 <h2> 一、Spring Security简介</h2>
 <h3> 1. 概述</h3>
@@ -11654,7 +11654,7 @@ VALUES
     <title type="text">SpringCloud_01</title>
     <id>https://www.fanliu.top/spring/SpringCloud/SpringCloud_01.html</id>
     <link href="https://www.fanliu.top/spring/SpringCloud/SpringCloud_01.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<p>学习目标：</p>
 <ul>
 <li>了解架构演进过程</li>
@@ -12357,7 +12357,7 @@ EurekaServer在90秒内没有接收到某个微服务节点的心跳,EurekaServe
     <title type="text">SpringCloud_02</title>
     <id>https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html</id>
     <link href="https://www.fanliu.top/spring/SpringCloud/SpringCloud_02.html"/>
-    <updated>2024-08-31T11:15:14.000Z</updated>
+    <updated>2024-10-30T06:20:18.000Z</updated>
     <summary type="html"><![CDATA[<ul>
 <li>SpringCloud Gateway 微服务网关</li>
 <li>Nacos 服务注册中心</li>
